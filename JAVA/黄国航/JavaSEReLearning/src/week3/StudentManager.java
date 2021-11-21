@@ -1,16 +1,18 @@
 package week3;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ * @author little kids8
+ * 命令行学生管理系统
+ */
 public class StudentManager {
     public static void main(String[] args) {
         ArrayList<Student> studentList = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        // 保持循环菜单交互操作
         while (true) {
             showMenu();
-
-            Scanner scanner = new Scanner(System.in);
             String line = scanner.nextLine();
 
             switch (line) {
@@ -26,17 +28,17 @@ public class StudentManager {
                 case "4":// 查看所有学生
                     showStudentList(studentList);
                     break;
-                case "5":
+                case "5":// 退出系统
                     System.out.println("谢谢使用");
+                    scanner.close();
                     return;
                 default:
                     System.out.println("没有这个选项！");
             }
-
         }
-
     }
 
+    // 显示操作菜单
     public static void showMenu() {
         System.out.println("\n------欢迎来到学生管理系统--------");
         System.out.println("1. 添加学生 ");
@@ -47,16 +49,19 @@ public class StudentManager {
         System.out.print("请输入你的选择： ");
     }
 
+    // 添加学生
     public static void addStudent(ArrayList<Student> studentList) {
         Scanner scanner = new Scanner(System.in);
         String sid;
         String name;
         int age;
         String location;
+
         while (true) {
             System.out.println("请输入学生学号：");
             sid = scanner.nextLine();
-            if (!isExists(studentList, sid)) {
+            // 判断学号是否已存在
+            if (!isExists(studentList, sid)) { 
                 break;
             } else {
                 System.out.println("该学号已存在！");
@@ -74,6 +79,7 @@ public class StudentManager {
         studentList.add(newStudent);
 
         System.out.println("已成功添加学生：" + newStudent);
+        scanner.close();
 
     }
 
@@ -87,6 +93,7 @@ public class StudentManager {
         return false;
     }
 
+    // 将列表中全部学生打印出来
     public static void showStudentList(ArrayList<Student> studentArrayList) {
         if (studentArrayList.size() == 0) {
             System.out.println("表中为空 ！");
@@ -97,6 +104,7 @@ public class StudentManager {
         }
     }
 
+    // 按学号删除学生
     public static void deleteStudent(ArrayList<Student> studentArrayList) {
         System.out.println("请输入需要删除的学生的学号：");
         Scanner scanner = new Scanner(System.in);
@@ -120,16 +128,21 @@ public class StudentManager {
         } else {
             System.out.println("已取消操作！");
         }
+        scanner.close();
     }
 
+    // 更新修改学生的信息
     public static void updateStudent(ArrayList<Student> studentArrayList) {
         System.out.println("请输入修改的学生学号：");
         Scanner scanner = new Scanner(System.in);
         String sid = scanner.nextLine();
+        // 判断学生学号是否存在,不存在则给出提示+结束
         if (!isExists(studentArrayList, sid)) {
             System.out.println("未找到学号为" + sid + "的学生！");
+            scanner.close();
             return;
         }
+
         System.out.println("请输入学生的新姓名：");
         String name = scanner.nextLine();
         System.out.println("请输入学生的新年龄：");
@@ -137,7 +150,6 @@ public class StudentManager {
         scanner.nextLine();
         System.out.println("请输入学生的新居住地：");
         String location = scanner.nextLine();
-
 
         for (Student student : studentArrayList) {
             if (student.getSid().equals(sid)) {
@@ -148,8 +160,7 @@ public class StudentManager {
                 break;
             }
         }
-
-
+        scanner.close();
     }
 
 }
