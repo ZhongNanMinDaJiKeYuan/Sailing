@@ -1,0 +1,434 @@
+.topbar-wrapper{
+    width: 100%;
+    background-color: #333;
+    height: 40px;
+    line-height: 40px;
+}
+
+.service{
+    float: left;
+}
+
+.user-info,
+.shop-cart{
+    float: right;
+}
+
+.topbar li{
+    float: left;
+}
+
+.topbar .line{
+    color: #424242;
+    margin: 0 8px;
+}
+
+.topbar li a{
+    font-size: 12px;
+    color:#B0B0B0 ;
+    display: block;
+}
+
+.shop-cart{
+    margin-left: 25px;
+}
+
+.shop-cart a{
+    width: 120px;
+    background-color: #424242;
+    text-align: center;
+}
+
+.topbar a:hover{
+    color: white;
+}
+
+.shop-cart:hover a{
+    color: #FF6A00;
+    background-color: white;
+}
+
+
+.header{
+    height: 100px;
+    /* background-color: #bfa; */
+    
+
+}
+
+.header .logo{
+    width: 55px;
+    height: 55px;
+    margin-top: 22px;
+    /* 此时出现外边距重叠问题  在父元素添加clearfix属性*/
+   
+    /* background-color:#ff6700; */
+    /* 
+    如果这里设置背景图片那就是错误的，因为背景图片是超链接，
+    设置在logo里面显示效果是一致的，但是没有点击超链接的效果 */
+    position: relative;
+    overflow: hidden;
+    float: left;
+    
+}
+
+.header .logo a{
+    display: block;
+    width: 55px;
+    height: 55px;
+    left: 0;
+    background-image: url("../img/logo-mi2.png");
+    background-size: contain;
+    /* 此时外边距也可以为a设置 这个时候反倒利用外边距重叠使得logo也有外边距
+    但是会产生 a之间有上外边距 */
+    transition: left .3s;
+    position: absolute;
+    float: left;
+}
+
+.header .logo .home{
+    background-image: url(../img/logo-mi2.png);
+    
+    left: -55px;
+}
+
+.logo:hover .home{
+    left: 0px;
+}
+.logo:hover .mi{
+    left: 55px;
+}
+
+.nav-wrapper{
+    height: 100px;
+    width: 850px;
+    /* background-color:#bfa; */
+    float: left;
+    margin-left: 7px;
+    
+}
+.nav{
+    /* float: left; */
+    line-height: 100px;
+    padding-left: 58px;
+}
+.nav >li{
+    float: left;
+}
+.nav .all-goods-wrapper{
+    position: relative;
+}
+
+.nav .lef-menu{
+    width: 234px;
+    height: 420px;
+    background-color: rgb(161,159,159);
+    position: absolute;
+    left: -120px;
+    padding: 20px 0;
+    z-index: 999;
+}
+
+.nav .lef-menu a{
+    display: block;
+    line-height: 42px;
+    margin-right: 0;
+    padding: 0 30px; 
+    color: white;
+}
+
+.nav .lef-menu a i{
+    float: right;
+    line-height: 42px;
+}
+
+.nav .lef-menu a:hover{
+    background-color: #ff6700;
+    color: white;
+}
+
+.nav li a{
+    font-size: 16px;
+    color: #333;
+    margin-right: 20px;
+}
+
+.nav li a:hover{
+    color: #ff6700;
+}
+
+.nav .all-goods{
+    visibility: hidden;
+}
+
+.header-wrapper{
+    position: relative;
+}
+
+.nav .goods-info{
+    height: 0;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    top:100px;
+    left: 0;
+    transition: height .3s;
+}
+
+.nav .show:hover ~ .goods-info,
+.nav .goods-info:hover
+{
+    height: 229px;
+    border-top: 1px solid #e0e0e0;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .2);
+    z-index: 9999;
+
+}
+
+.search-wrapper{
+    background-color: #bfa;
+    width: 296px;
+    height: 50px;
+    float: right;
+    margin-top: 25px;
+}
+
+.search-wrapper:hover .search-btn,
+.search-wrapper:hover .search-inp{
+    border-color: #B0B0B0;
+
+}
+
+.search .search-inp{
+    border: 1px solid #e0e0e0;
+    border-right: none;
+    width: 223px;
+    height: 48px;
+    padding: 0 10px;
+    float: left;
+   
+}
+
+.search .search-btn{
+    width: 52px;
+    height: 50px;
+    border: #e0e0e0 1px solid;
+    /* border-left: none; */
+    float: left;
+    background-color: white;
+}
+
+.search .search-btn:hover{
+    background-color: #ff6700;
+    border: none;
+}
+
+.search .search-inp:focus,
+.search .search-inp:focus + .search-btn{
+    border-color: #ff6700;
+}
+
+.banner{
+    position: relative;
+    height: 460px;
+}
+
+.banner .img-list li{
+    position: absolute;
+} 
+
+.banner img{
+    width: 100%;
+}
+ 
+
+.pointer{
+    position: absolute;
+   
+    bottom:25px;
+    right: 35px;
+   
+    
+    
+}
+
+.pointer a{
+    /* display: block; */
+    width: 6px;
+    height:6px;
+   
+    border-radius: 50%;
+    float: left;
+    margin-left: 8px;
+   background-color:  rgba(0, 0, 0, .4);
+    border: 2px solid rgba(255, 255, 255 , .4);
+    /* background-color: #bfa; */
+    
+}
+
+.pointer a:hover,
+.pointer .active{
+    background-color: rgba(255, 255, 255 , .4) ;
+    border-color:  rgba(0, 0, 0, .4);
+
+}
+
+.prev-next  a{
+    /* background-color: red; */
+    width: 41px;
+    height: 69px;
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    background-image: url(../img/icon-slides.png);
+    
+}
+
+.prev{
+    left: 234px;
+    background-position: -83px;
+   
+    
+}
+
+.next{
+    background-position: -125px ;
+    right: 0;
+}
+
+.prev:hover{
+    background-position: 0;
+}
+
+.next:hover{
+    background-position:-42px ;
+}
+
+
+.service-list{
+    width: 85px;
+    height: 459px;
+    /* background-color: red; */
+    box-shadow: 0 0 2px rgba(0, 0, 0, .1);
+    position: fixed;
+    bottom: 60px;
+    right: 0;
+    
+}
+
+.service-list li{
+    height:77px;
+    width: 85px;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    text-align: center;
+    padding-top: 14px;  
+}
+
+.service-list li:hover a,
+.service-list li:hover i
+{
+    color: #ff6700;
+}
+
+.service-list a{
+    display: block;
+    font-size: 14px; 
+    color: #999; 
+}
+
+.service-list i{
+    display: block;
+    font-size: 30px;
+    color: #999;
+}
+
+.ad-wrapper{
+   padding-top: 14px;
+   /* background-color: red; */
+}
+
+.shortcut,
+.imgs,
+.ad-wrapper li{
+    float: left;
+}
+
+.shortcut{
+    width: 234px;
+    margin-right: 14px;
+    background-color:#5f5750;
+}
+
+.shortcut a{
+    display: block;
+    width:76px ;
+    height: 84px;
+    text-align: center;
+    color:#cfccca;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+.shortcut a:hover{
+    color: white;
+}
+
+.shortcut a i{
+    display: block;
+    font-size: 26px;
+   margin-top: 14px;
+   margin-bottom: 0px;
+    
+}
+
+
+.imgs img{
+    width: 316px;
+    margin-right: 15px;
+}
+
+.imgs li:last-child img{
+    margin-right: 0;
+}
+.imgs img:hover{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.shortcut li::before{
+    width:64px ;
+    height: 1px;
+    background-color:#665e57;
+    content: '';
+    display: block;
+   margin: 0 auto;
+   margin-top: 1px;
+}
+
+.shortcut li{
+    position: relative;
+}
+
+.shortcut li ::after{
+    width: 1px;
+    height: 70px ;
+    display: block;
+    content: '';
+    background-color: #665e57;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+
+}
+
+
+   
+
+
+
+
+
+
+

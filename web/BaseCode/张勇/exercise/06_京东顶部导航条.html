@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06京东顶部导航条</title>
+    <link rel="stylesheet" href="./css表\reset.css">
+    <link rel="stylesheet" href="./fa\css\all.css">
+</head>
+<style>
+    .clearfix::before,
+    .clearfix::after{
+        content: '';
+        display: table;
+        clear: both;
+    }
+    body{
+        font: 12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif;
+        color: #ADAEAE;
+     
+    }
+    .top-bar-wrapper{
+        width: 100%;
+        background-color: #E3E4E5;
+        line-height: 30px;
+        border-bottom: 1px #DDDDDD solid;
+    }
+    .top-bar{
+        width: 1190px;
+        margin: 0 auto;
+        height: 30px;
+        position: relative;
+     
+
+
+    }
+    .top-bar a,
+    .top-bar i,
+    .top-bar span{
+        color: #999;
+        
+    }
+    .top-bar a:hover,
+    .top-bar .highlight
+    {
+        color:#ff0000 ;
+    }
+
+    .location{
+        float: left;
+    }
+    .location .fas{
+        color: #f10215;
+
+    }
+
+    .city-list{
+        background-color: white;
+        width: 320px;
+        height: 435px;
+        border: 1px solid rgb(204, 204, 204);  
+        display: none; 
+        position: absolute; 
+        box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+        top: 31px;
+        z-index: 999;
+    }
+    /* 元素选择器要给父元素 */
+    .location:hover .city-list{
+        display: block;
+    }
+    .current-city{
+        padding: 0 10px;
+        position: relative;
+        z-index: 9999;
+        
+        border: 1px solid transparent;
+        border-bottom: none;
+
+       
+
+    }
+    .location:hover .current-city{
+        background-color: white;
+        border: 1px solid rgb(204, 204, 204);
+        border-bottom: none;
+        padding-bottom: 1px;
+    }
+
+    .shortcut{
+        float: right;
+        
+    }
+    .shortcut .line{
+        width: 1px;
+        height: 10px;
+        background-color: #CCCCCC;
+        margin: 10px 14px;
+
+
+    }
+    .shortcut li{
+        float: left;
+    }
+
+    
+
+
+
+</style>
+
+<body>
+    <div class="top-bar-wrapper">
+        <div class="top-bar clearfix">
+            <div class="location ">
+                <div class="current-city">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <a href="#">湖北</a>
+
+                </div>
+                <div class="city-list">
+
+                </div>
+
+            </div>
+            <ul class="shortcut">
+                <li>
+                    <a href="#">你好，请登录</a>
+                    <a class="highlight" href="#">免费注册</a>
+                </li>
+
+                <li class="line"> </li>
+                <li>
+                    <a href="#">我的订单</a>
+                </li>
+
+                <li class="line"> </li>
+                <li>
+                    <a href="#">我的京东</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+
+                <li class="line"> </li>
+                <li>
+                    <a href="#">京东会员</a>
+                </li>
+                <li class="line"> </li>
+                <li>
+                    <a class="highlight" href="#">企业采购</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+
+                <li class="line"> </li>
+                <li>
+                    <span>客户服务</span>
+
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="line"> </li>
+                <li>
+                    <span>网站导航</span>
+                    <i class="fas fa-angle-down"></i>
+
+                </li>
+                <li class="line"> </li>
+                <li>
+                    <span>手机京东</span>
+
+                </li>
+                <li class="line"> </li>
+                <li>
+                    <span>网站无障碍</span>
+                </li>
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

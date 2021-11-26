@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02长表格</title>
+    <style>
+        /* 
+            可以将一个表格分为三个部分：
+                thead\tbody\tfoot
+                每个部分再添加相应的tr\td
+                另外，没写的时候浏览器会自动添加相应的结构元素
+        
+        
+        */
+        table{
+            width: 50%;
+           
+            background-color: #bfa;
+            border: 1px solid black;
+            border-collapse: collapse;
+            /* border-spacing: 0px; */
+            text-align: center;
+
+
+        }
+        tr:nth-child(odd){
+            background-color: rgb(0, 255, 179);
+        }
+        td{
+            border: 1px solid black;
+            height: 28px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>编号</td>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>性别</td>
+                <td>住址</td>
+            </tr>
+
+
+        </thead>
+
+
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>孙悟空</td>
+                <td>518</td>
+                <td>男</td>
+                <td>花果山</td>
+            
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>猪八戒</td>
+                <td>1018</td>
+                <td>男</td>
+                <td>高老庄</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>沙和尚</td>
+                <td>818</td>
+                <td>男</td>
+                <td>流沙河</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>唐僧</td>
+                <td>18</td>
+                <td>男</td>
+                <td>女儿国</td>
+            </tr>
+            
+
+
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>合计</td>
+                <td colspan="4">西天取经队伍</td>
+
+
+            </tr>
+
+
+        </tfoot>
+    </table>
+    
+</body>
+</html>

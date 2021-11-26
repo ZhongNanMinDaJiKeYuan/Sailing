@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04变形</title>
+    <style>
+        /* 
+            变形就是通过css来改变元素的形状或位置
+                -变形不会影响到页面布局
+                transform 用来设置元素的变形效果
+                    平移
+                    translateX()
+                    translateY()
+                    translateZ()
+                        -平移元素，百分比是相对于自身计算的
+
+            平移解决了元素居中的问题，之前要某个元素居中，一般来说要把元素宽高
+                固定，然后利用盒子模型
+                对于行内元素 水平居中可以利用text-align:center
+                现在对于任意元素都可以利用平移解决居中问题
+
+
+        */
+
+        /* div{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            margin: 0 20px;
+            float: left;
+        }
+        .box1{
+            transform: translateX(px);
+
+        } */
+        
+
+        
+        .box2{
+            width: 500px;
+            height: 500px;
+            background-color: #bfa;
+            float: left;
+            margin-right: 40px;
+            position: relative;
+        }
+        .box3{
+            width: 500px;
+            height: 500px;
+            background-color: rebeccapurple;
+            float: left;
+            position: relative;
+        }
+        .box3 span{
+            
+            background-color: red;
+            position: absolute;
+            transform: translateY(-50%) translateX(-50%);
+            top: 50%;
+            left: 50%;
+        }
+
+
+        .box5{
+            width: 100px;
+            height: 100px;
+            background-color: rebeccapurple;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            top: 50%;
+
+        }
+    </style>
+   
+</head>
+<body>
+
+    <div class="box1"></div>
+    <div class="box2">
+        <div class="box5"></div>
+    </div>
+
+    <div class="box3">
+       <span>aaa</span>
+    </div>
+    
+</body>
+</html>

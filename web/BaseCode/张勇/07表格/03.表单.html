@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03表单</title>
+    <!-- 
+        表单 用于提交数据，网页中的表单用于提交本地数据给远程服务器，
+        也是本地和服务器进行数据交换的方式之一。服务器收到的数据是键值对
+        键由name属性指定，值属性可以是用户输入也可以由value属性指定
+            使用form创建表单
+                使用input创建表单数据项
+     -->
+     <!-- 
+         form的属性
+          action 指定表单提交的服务器地址
+         
+      -->
+      <!-- 
+          添加表单项 使用Input标签创建
+            文本框  数据要提交到服务器中，必须指定name属性值
+            提交按钮 可以通过value指定按钮文字
+            密码框  隐藏状态
+                    数据要提交到服务器中，必须指定name属性值
+            单选框  因为用户不需要输入数据，
+                    所以会指定value值
+                    单选框的name属性必须一样
+                    checked属性指定默认选中选项
+
+            多选框  
+
+            下拉列表
+       -->
+
+
+</head>
+<body>
+    <form action="target.html">
+        文本框<input type="text" name="user" value="你好">
+      
+
+        <br><br>
+        密码<input type="password" name="password">
+        <br>
+        <br>
+        <input type="radio" name="等级" value="1">
+        <input type="radio" name="等级" value="2" checked>
+        <input type="radio" name="等级" value="3">
+        <br>
+        <br>
+        <input type="checkbox" name="分类" value="好">
+        <input type="checkbox" name="分类" value="良" checked>
+        <input type="checkbox" name="分类" value="一般">
+        <br>
+        <br>
+        <select name="学校名称" id="">
+            <option value="11">清华大学</option>
+            <option value="22" selected>北京大学</option>
+            <option value="33">中南民族大学</option>
+            
+
+        </select>
+        <br>
+        <br>
+        
+
+        <input type="submit" value="注册">
+    </form>
+    
+</body>
+</html>

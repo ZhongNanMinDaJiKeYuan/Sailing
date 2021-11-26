@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01表格</title>
+    <style>
+        table{
+            width: 50%;
+            /* height: 300px; */
+            background-color: #bfa;
+            border: 1px solid black;
+            border-collapse: collapse;
+            
+        }
+        td{
+            border: 1px solid black;
+        }
+
+    </style>
+    
+
+
+</head>
+<body>
+    <!-- 
+        1.表格 用来表示格式化数据，例如成绩单，名单，课程表
+        2.网页中使用table标签来创建表格
+            在table 中用tr标签来表示行，有几个tr就有几行。
+            在tr中用td表示单元格,有几个td就表示在这一行中有几个单元格
+     -->
+
+     <table>
+         <tr>
+             <td>张勇</td>
+             <td rowspan="2">是个</td>
+             <td>大帅比</td>
+
+
+         </tr>
+         <tr>
+            <td>大帅比</td>
+            <td>是</td>
+            <td>张勇</td>
+
+
+        </tr>
+        <tr>
+            <td>张勇</td>
+            <td colspan="2">是个</td>
+            <!-- <td>大帅比</td> -->
+
+
+        </tr>
+     </table>
+    
+</body>
+</html>

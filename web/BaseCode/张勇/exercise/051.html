@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>051</title>
+    <link rel="stylesheet" href="./css表\reset.css">
+    <style>
+        .img-list{
+            width: 590px;
+            height: 470px;
+            margin: 100px 200px;
+            position: relative;
+            
+        }
+        .img-list li{
+            position: absolute;
+        }
+        .img-list :nth-child(6){
+            z-index: 1;
+        }
+
+        .pointer{
+            position: absolute;
+            z-index: 999;
+            bottom: 20px;
+            left: 28px;
+            
+        }
+        .pointer a{
+            width: 10px;
+            height: 10px;
+            float: left;
+            background-color: rgba(255, 255, 255,.3);
+            border-radius: 50%;
+            margin-left: 2px;
+            border: 2px solid transparent;
+            background-clip: content-box;
+            
+            
+        }
+        .pointer .start,
+        .pointer a:hover{
+            border: 2px solid rgba(255, 255, 255,.3);
+            background-color: white;
+           
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <ul class="img-list">
+        
+        <li><a href="#"><img src="./img\05\01.jpg" alt=""></a></li>
+        <li><a href="#"><img src="./img\05\02.jpg" alt=""></a></li>
+        <li><a href="#"><img src="./img\05\03.jpg" alt=""></a></li>
+        <li><a href="#"><img src="./img\05\04.jpg" alt=""></a></li>
+        <li><a href="#"><img src="./img\05\05.jpg" alt=""></a></li>
+        <li><a href="#"><img src="./img\05\06.jpg" alt=""></a></li>
+        <li><a href="#"><img src="./img\05\07.jpg" alt=""></a></li>
+        <li><a href="#"><img src="./img\05\08.jpg" alt=""></a></li>
+        
+        <div class="pointer">
+            <a  class="start "href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </ul>
+    
+</body>
+</html>
