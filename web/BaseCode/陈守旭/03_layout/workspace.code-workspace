@@ -1,0 +1,10 @@
+{
+	"folders": [],
+	"settings": {
+		"files.autoSave": "afterDelay",
+		"liveServer.settings.donotShowInfoMsg": true,
+		"liveServer.settings.fullReload": true,
+		"liveServer.settings.multiRootWorkspaceName": "code",
+		"liveServer.settings.useBrowserPreview": true
+	}
+}
