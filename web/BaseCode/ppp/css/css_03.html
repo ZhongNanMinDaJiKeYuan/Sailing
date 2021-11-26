@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 
+            常用选择器
+            1.元素选择器
+                标签{
+                    属性:值;
+                }
+                例子：p{}   h1{}
+            2.id选择器
+                #id{
+                    属性:值;
+                }
+                例子 #p2{} 
+                ps:id是唯一标识，所以给多个标签更改样式不方便
+            3.class选择器
+                .class{
+                    属性:标签;
+                }
+                例子：.hh{}  
+                ps:同一个class可以给多个元素，方便
+                    一个元素可以有多个class
+        */
+        h1{
+            color: green;
+        }
+
+        #p2{
+            color: greenyellow;
+        }
+
+        .hh{
+            font-size: 80px;
+        }
+        .dd{
+            color:hotpink;
+        }
+
+
+        /* 
+            复合选择器
+            1.交集选择器
+                对符合多个条件的元素进行格式更改
+                语法：选择器选择器选择器{}
+                例子：span.hh{}
+            2.并集选择器
+                对多个元素，进行同一种样式的更改
+                语法：选择器，选择器，选择器{}
+                例子:h2,.gg,.pp{}
+        */
+
+        span.hh{
+            color:indigo;
+        }
+
+        h2,.gg,.pp{
+            color: lightblue;
+        }
+
+        /* 
+            关系选择器
+            1.子元素选择器
+            选中父元素里面的子元素 
+            语法：父元素>子元素{}
+            例子：div>span>p{}
+
+            2后代元素选择器
+            选中父元素的所有后代元素
+            语法：祖先元素空格父元素空格子元素
+            例子：p span span{}
+
+            3.兄弟元素选择器
+            选中父元素下面并列的子元素
+            语法：（1）1子元素+2子元素  给改变1子元素下面的兄弟元素
+                  （2）1子元素~2子元素  改变1子元素后面所有的兄弟元素
+            例子：  
+        */
+
+        div > span {
+            color:lawngreen;
+        }
+
+        p.coco span{
+            color: hotpink;
+        }
+
+        span.one+span{
+            color: lightgreen;
+        }
+
+        span.ss~span{
+            color: limegreen;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 常用选择器 -->
+    <p id="p1">11111hhhhhhhhhhhhhhhhhhhhhhh</p>
+    <p class="hh">22222ssssssssssssssssssssssssss</p>
+    <p class="hh">333333ddddddddddddddddddddddd</p>
+    <p id="p2">4444444444444sdfsdfsdfsfsfsfsfsssfs</p>
+    <p class="hh dd">55555555555555uyuueeeeeeeeeeeeeeueuueue</p>
+    <h1>dfsdfsfsfsf</h1>
+
+
+    <!-- 复合选择器 -->
+    <span class="hh">6666666666666hhhhhhhhhhhhhhhhhhe</span>
+    <p class="gg">77777777ggggggggggggggggggg</p>
+    <p class="pp">8888888ppppppppppppppppppppppppppp</p>
+
+
+    <!-- 关系选择器 -->
+    <p class="coco">9999999qqqqqqqqqqqqqqqqqqq
+        <span>
+            后代选择器 ，选择了p中的span
+        </span>
+        <span>
+            111后代选择器 ，选择了p中的span
+        </span>
+    </p>
+    <div>1010101nnnnnnnnnnnnnnnn
+        <span>1111111djdjdjdjdjlslskfskfs</span>
+        <p>
+            <span>
+                12121221212hfhjshkjfsjkhfskjhfhkjsjhfsjkhfhsdhf
+            </span>
+            1313hshjfhsjhfskjhfhsnchhdhdhdhd</p>
+        <p>1414hfjsfsjkjksfjsdjfksdjkh</p>
+        <span>1555shfjsfsfsfsdfsfsd</span>
+    </div>
+
+
+    <p>兄弟选择器只选一个
+        <span class="one">123</span>
+        <span>12345</span>
+        <span>123456</span>
+    </p>
+
+
+    <p>兄弟选择器选择所有
+        <span class="ss">1111</span>
+        <span>11121</span>
+        <span>11111</span>
+    </p>
+
+</body>
+</html>
