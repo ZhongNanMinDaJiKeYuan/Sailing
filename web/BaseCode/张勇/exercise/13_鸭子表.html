@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13鸭子表</title>
+    <style>
+        .clock{
+            width: 500px;
+            height: 500px;
+            /* background-color:red; */
+            margin: 200px;
+            border-radius: 50%;
+            /* border: 10px solid blue; */
+            position: relative;
+            background-image: url(./img/13/yazibiao.png);
+            background-size: contain;
+        }
+
+        .hour-wrapper{
+            width: 70%;
+            height: 70%;
+            /* background-color: #bfa; */
+            position: absolute;
+            /* top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto; */
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            left: 50%;
+            animation: run 4220s steps(12) infinite;
+        } 
+
+        .hour{
+            height: 50%;
+            width: 10px;
+            background-color: red;
+            margin: 0 auto;
+        }
+
+        .min-wrapper{
+            width: 80%;
+            height: 80%;
+            /* background-color: #bfa; */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            left: 50%;
+            animation: run 360s steps(60) infinite;
+
+        }
+        .min{
+            height: 50%;
+            width: 8px;
+            background-color: orange;
+            margin: 0 auto;
+        }
+
+
+        .sec-wrapper{
+            width: 95%;
+            height: 95%;
+            /* background-color: #bfa; */
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            left: 50%;
+            animation: run 6s steps(60) infinite;
+
+        }
+        .sec{
+            height: 50%;
+            width: 5px;
+            background-color: black;
+            margin: 0 auto;
+            
+        }
+
+        @keyframes run {
+            from{
+                transform: translateY(-50%) translateX(-50%) rotateZ(0) ;
+            }
+            to{
+                transform:translateY(-50%) translateX(-50%)  rotateZ(360deg);
+            }
+            
+        }
+
+
+           
+
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="hour-wrapper">
+            <div class="hour"></div>
+        </div>
+        <div class="min-wrapper">
+            <div class="min"></div>
+        </div>
+        <div class="sec-wrapper">
+            <div class="sec"></div>
+        </div>
+    </div>
+    
+</body>
+</html>

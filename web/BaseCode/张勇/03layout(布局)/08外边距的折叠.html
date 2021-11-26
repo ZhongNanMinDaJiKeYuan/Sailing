@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08外边距折叠</title>
+
+    <style>
+        .box1 , .box2{
+            width: 200px;
+            height: 200px;
+            font-size: 100px;
+
+        }
+        .box1{
+            background-color: blue;
+            margin-bottom: 100px;
+        }
+        .box2{
+            background-color: red;
+            margin-top: 100px;
+        
+
+        }
+        .box3{
+            width: 400px;
+            height: 400px;
+            background-color:#bfa;
+        }
+        .box4{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            margin-top: 88px;
+        }
+        /* 垂直外边距的折叠
+                相邻的垂直方向外边距会发生折叠现象
+                兄弟元素：
+                    外边距：    都为正数 取较大值
+                                一正一负 两个相加
+                                两个都负 取绝对值较大
+                                
+                兄弟元素之间的外边距折叠，对于开发是有利的。
+
+
+                f父子元素
+                    父子元素相邻间外边距，子元素的会传递给父元素(上外边距)
+                    父子外边距的折叠会影响布局，所以要处理
+
+                    两种方式解决外边距折叠
+                        加内边距 padding-top
+
+                        加边框 border-top
+        
+        */
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3">
+        <div class="box4"></div>
+    </div>
+    
+</body>
+</html>

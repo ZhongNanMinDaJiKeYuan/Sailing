@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05绝对定位元素的布局</title>
+    <style>
+        .box1{
+            width: 500px;
+            height: 500px;
+            background-color: #bfa;
+            position: relative;
+
+        }
+        .box2{
+            width: auto;
+            height: 200px;
+            background-color: orange;
+            position: absolute;
+            left: 0;
+            right: 0;
+            /* top: 0;
+            bottom: 0; */
+            margin: auto;
+            
+
+
+
+
+            /* 
+                水平布局等式变成九个变量
+                当开启绝对定位后
+                    水平方向添加left 和right两个值
+                        当发生过度约束时，自动调整right值使等式成立
+                        left 和right的值默认为auto
+                        left 和right 的auto优先级最高
+            
+            */
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>062一次过</title>
+    <!-- 引入重置表和font awesome图标字体  -->
+    <link rel="stylesheet" href="./fa\css\all.css">
+    <link rel="stylesheet" href="./css表\reset.css">
+    <style>
+      
+        
+        .clearfix::before,
+        .clearfix::after{
+            content: '';
+            display: table;
+            clear: both;
+        }
+        .top-bar-wrapper{
+            width: 100%;
+            height: 30px;
+            
+            border-bottom: 1px solid #DDDDDD;
+            background-color:#E3E4E5 ;
+        }
+        .top-bar{
+            width: 1190px;
+         
+            margin: 0 auto;
+            
+           
+            font:12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif ;
+            /* color:#999999; */
+        }
+        .top-bar .location{
+            float: left;
+             line-height: 30px;
+             position: relative;
+
+        }
+        .location .current-city{
+            
+            padding: 0 10px;
+            border: 1px solid transparent;
+            border-bottom: none;
+            position: relative;
+           
+            
+            
+           
+        }
+        .top-bar .city-list{
+            width: 320px;
+            height: 460px;
+            background-color: white;
+            border: 1px solid rgb(204, 204, 204);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+            display: none;
+            
+        }
+
+        .location:hover .city-list{
+            display: block;
+            position: absolute;
+            top: 31px;
+            z-index: 999;
+
+        }
+        .location:hover .current-city{
+            background-color: white;
+            
+            padding-bottom: 1px;
+           
+            z-index: 9999;
+            border: 1px solid rgb(204, 204, 204);
+            border-bottom: none;
+
+       } 
+
+
+        .top-bar .fa-map-marker-alt{
+            color:#F10215 ;
+            font-size: 14px;
+            margin-right: 2px;
+        }
+        .top-bar ul{
+            float: right;
+             line-height: 30px;
+           
+        }
+        .top-bar ul>li{
+            float: left;
+        }
+
+        .top-bar a,
+        .top-bar span,
+        .top-bar i{
+            color: #999999;
+        }
+        .top-bar a:hover,
+        .top-bar .highlight{
+            color: #F10215;
+
+        }
+        .top-bar .line{
+            width: 1px;
+            height: 10px;
+            background-color: #CCCCCC;
+            margin: 10px 14px;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="top-bar-wrapper">
+        <div class="top-bar clearfix">
+            <div class="location">
+                <div class="current-city">
+                    <i class="fa  fa-map-marker-alt"></i>
+                    <a href="javascript:;">湖北</a>
+
+                </div>
+                <div class="city-list">
+
+                </div>
+            </div>
+
+            <ul>
+                <li>
+                    <a href="javascript:;">你好，请登录</a>
+                    <a class="highlight" href="javascript:;">免费注册</a>
+                </li>
+                <li class="line"></li>
+                <li>
+                    
+                    <a href="javascript:;">我的订单</a>
+                </li>
+                <li class="line"></li>
+                <li>
+                    
+                    <a href="javascript:;">我的京东</a>
+                    <i class="fa fa-angle-down"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    
+                    <a href="javascript:;">京东会员</a>
+                </li>
+                <li class="line"></li>
+                <li>
+                    
+                    <a class="highlight" href="javascript:;">企业采购</a>
+                    <i class="fa fa-angle-down"></i>
+                    
+                </li>
+                <li class="line"></li>
+                <li>
+                    
+                    <span>客户服务</span>
+                    <i class="fa fa-angle-down"></i>
+                    
+                </li>
+                <li class="line"></li>
+                <li>
+                    
+                    <span>网站导航</span>
+                    <i class="fa fa-angle-down"></i>
+                    
+                </li>
+                <li class="line"></li>
+                <li>
+                    
+                    <span>手机京东</span>
+                    
+                    
+                </li>
+                <li class="line"></li>
+                <li>
+                    
+                    <span>网站无障碍</span>
+                   
+                </li>
+                
+                
+                
+            </ul>
+
+        </div>
+
+    </div>
+    
+</body>
+</html>

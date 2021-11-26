@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03简单的布局</title>
+    <style>
+        body{
+            padding-left: 100px;
+            padding-top: 80px;
+
+            }
+        .all{
+            background-color: #bfa;
+        }
+        .head{
+            width: 1000px;
+            height: 150px;
+            background-color: orange;
+            margin-bottom: 28px;
+
+        }
+
+        .body{
+            width: 1000px;
+            height: 500px;
+            background-color: #bfa;
+            margin-bottom: 28px;
+
+        }
+        .body .left-nav{
+            width: 200px;
+            height: 100%;
+            background-color: red;
+            float: left;
+            margin-right: 15px;
+            
+            
+
+        }
+        .body .mid-content{
+            width: 570px;
+            height: 100%;
+            background-color: seagreen;
+            float: left;
+            margin-right: 15px;
+        }
+        .body .right-nav{
+            width: 200px;
+            height: 100%;
+            background-color:blue ;
+            float: left;
+           
+        }
+
+        .foot{
+            width: 1000px;
+            height: 150px;
+            background-color: purple;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="all">
+        <div class="head"></div>
+        <div class="body">
+            <div class="left-nav"></div>
+            <div class="mid-content"></div>
+            <div class="right-nav"></div>
+        </div>
+        <div class="foot"></div>
+    </div>   
+</body>
+</html>

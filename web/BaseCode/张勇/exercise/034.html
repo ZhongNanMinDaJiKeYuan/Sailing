@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>034网易右侧新闻列表</title>
+    <link rel="stylesheet" href="./css表\reset.css">
+    <style>
+        body{
+            background-color: #bfa;
+        }
+        .news-wrapper{
+            width: 300px;
+            height: 340px;
+            border-top: 1px solid #DDDDDD;
+            margin: 100px ;
+            background-color: white;
+        }
+        .news-title{
+            height: 30px;
+            display: inline-block;
+            border-top: 1px solid red;
+            margin-top: -1px;
+           padding-top: 12px;
+            
+
+        }
+        .news-title a{
+            font-size: 16px;
+            font-weight: bold;
+            color: #404040;
+            
+            
+        }
+        .news-img{
+            height: 150px;
+
+        }
+        .news-img .img-title{
+            margin-top: -30px;
+            padding-left: 40px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .news-list{
+            margin-top: 21px;
+           
+        }
+        .news-list li{
+            margin-bottom: 16px;
+            
+        }
+        .news-list li a{
+            color:#666666 ;
+            font-size: 14px;
+            
+            
+        }
+        .news-list li::before{
+            content: '●';
+            color: #DDDDDD;
+            margin-right: 2px;
+        }
+        .news-list li a:hover{
+            color: red;
+        }
+        .news-title a:hover{
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="news-wrapper">
+        <h2 class="news-title">
+            <a href="https://www.baidu.com">体育</a>
+        </h2>
+        <div class="news-img">
+            <a href="https://www.bilibili.com">
+                 <img src="./img\03\01.jpg" alt="C罗">
+                 <h3 class="img-title">
+                      C罗和曼联队友聚餐 豪车被贴罚单
+                 </h3>
+            
+            </a>
+        </div>
+        <ul class="news-list">
+            <li>
+                <a href="https://www.jd.com/">
+                    申花告御状寻求公平正义 直指陈戌源
+                </a>
+            </li>
+            <li>
+                <a href="https://www.jd.com/">
+                    NBA三分数据倒退回上世纪，背后有中国神秘
+                </a>
+            </li>
+            <li>
+                <a href="https://www.jd.com/">
+                    唐斯来森林狼7年成绩几乎为零 算KG的合格接
+                </a>
+            </li>
+            <li>
+                <a href="https://www.jd.com/">
+                    其他项目红红火火唯独国足冷清 连个主场都
+                </a>
+            </li>
+        </ul>
+
+
+
+    </div>
+    
+</body>
+</html>
