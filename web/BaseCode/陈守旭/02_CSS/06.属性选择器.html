@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=    , initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+            [属性名]选择含有指定属性的元素
+            [属性名=属性值]选择含有指定属性和属性值的元素
+            [属性名^=属性值]选择属性值以指定值开头元素
+            [属性名$=属性值]选择属性值以指定值结尾元素
+            [属性名*=属性值]选择属性值中有指定值的元素
+        */
+
+        /* [title]{
+            color: blueviolet;
+        } */
+
+        /* [title=one]{
+            color: burlywood;
+        } */
+        
+        /* [title^=t]{
+            color: chartreuse;
+        } */
+
+        /* [title$=e]{
+            color: crimson;
+        } */
+
+        [title*=o]{
+            color: darkorchid;
+        }
+    </style>  
+</head>
+
+<body>
+    <h1>回乡偶书</h1>
+    <p title="one">少小离家老大回</p>
+    <p title="two">乡音无改鬓毛衰</p>
+    <p title="three">儿童相见不相识</p>
+    <p>笑问客从何处来</p>
+    <br>
+    <div title="four">
+        <p>秋水共长天一色</p>
+        <p>落霞与孤鹜齐飞</p>
+    </div>
+    
+    
+</body>
+</html>
