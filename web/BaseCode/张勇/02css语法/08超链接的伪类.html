@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>08超链接的伪类</title>
+    <style>
+        a:link{
+            color: red;
+            font-size: 18px;
+        }
+        a:visited{
+            color: rgb(64, 247, 8);
+        }
+        a:hover{
+            color: rgb(44, 8, 247);
+            font-size: 28px
+        }
+        a:active{
+            color: tomato;
+            font-size: 18pc;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        a:visited
+            访问过的超链接，只能设置颜色
+        a:link
+            表示没访问过的超链接（正常的超链接）
+        前面两个只能用于超链接，后面两个也可以用于其他元素。
+        a:hover 
+            表示鼠标放在超链接上面
+        a:active
+            表示鼠标点击超链接
+     -->
+
+     <a href="https://www.baidu.com">百度超链接</a>
+     <br>
+     <br>
+     <a href="https://www.jd.com/">京东超链接</a>
+</body>
+</html>

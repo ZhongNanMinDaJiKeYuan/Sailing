@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01.字体</title>
+    <style>
+        /* 
+            color 设置字体颜色
+            font-size 设置字体大小
+                em:相当于当前元素的一个font-size
+                rem:相当于根元素的一个font-size
+            font-family 设置字体族 字体的格式
+            （类别，具体字体由浏览器和计算机有的字体共同决定）
+                可选值：serif  衬线字体
+                        san-serif 非衬线字体
+                        monospace 等宽字体（每个字母宽度一样）
+                        cursive:草书字体
+                        fantasy 
+                        可以同时指定多种字体类别，字体之间用逗号隔开
+                        按照顺序使用，以上几种    
+        
+        */
+        p{
+            font-family:Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif;
+        }
+        /* 加载服务器中的字体给用户使用 */
+        @font-face {
+            /* 指定字体名字 */
+            font-family: ;
+            /* 服务器中字体路径 */
+            src: url('');
+        }
+        /* 问题
+                1.加载速度问题
+                2.版权问题
+        
+        
+        */
+        
+
+
+
+    </style>
+</head>
+<body>
+    <p>
+        今天天气真不错 hello world How are you
+    </p>
+    
+    
+</body>
+</html>

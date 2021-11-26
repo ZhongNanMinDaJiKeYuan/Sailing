@@ -1,0 +1,58 @@
+{
+  "id": "2929703",
+  "name": "1",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "25226058",
+      "name": "草莓兔",
+      "font_class": "caomeitu",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "25226065",
+      "name": "草莓蛋糕卷",
+      "font_class": "caomeidangaojuan",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "25226066",
+      "name": "草莓",
+      "font_class": "caomei",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "25226074",
+      "name": "蓝莓蛋糕",
+      "font_class": "lanmeidangao",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "25226075",
+      "name": "芒果蛋糕",
+      "font_class": "mangguodangao",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "25226153",
+      "name": "草莓马卡龙",
+      "font_class": "caomeimakalong",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "25228421",
+      "name": "红包",
+      "font_class": "hongbao",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    }
+  ]
+}

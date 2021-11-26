@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04高度塌陷的问题</title>
+    <style>
+        /*  父元素的高度一旦确定，内容会出现溢出和部分空白的问题
+            父元素可以根据内容的高度自动适应。
+           
+        
+        */
+
+        
+        
+            /* 高度塌陷问题： 
+                在浮动布局中，父元素默认被子元素撑开
+                    当子元素浮动后，脱离文档流，无法撑起父元素高度
+                    导致父元素高度丢失
+                    高度丢失会影响页面布局，所以需要解决
+            即：子元素浮动引起父元素高度丢失
+        
+
+            BFC(block foematting context)块级格式化环境
+                BFC是css中一个隐含属性，开启BFC属性的元素会变成一个独立布局区域
+                它有如下特点：  
+                            1、不会被浮动元素覆盖
+                            2、父子元素的上外边距不会重叠
+                            3、可以包含浮动元素(会被浮动元素根据内容撑开)
+            
+            开启BFC的方法：
+                        1、设置为浮动元素(宽度没了，下面元素会上去)
+                        2、设置为行内块元素（宽度没了）
+                        3、设置溢出 overflow : hidden; */
+
+        
+                
+
+        
+        
+        
+
+        /* .wrapper{
+            border: 8px blue solid;
+        } */
+        .box1{
+          
+            border : 18px blue solid ;
+            /* float: left; */
+            /* display: inline-block; */
+            overflow: hidden;
+        }
+        .box1-inner{
+            width: 188px;
+            height: 188px;
+            background-color: #bfa;
+            float: left;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <!-- <div class="outer">
+
+
+        <div class="inner"></div>
+
+
+    </div>
+    <div class="box1"></div> -->
+
+
+
+
+        <div class="box1">
+
+            <div class="box1-inner"></div>
+
+        </div>
+        <div class="box2"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

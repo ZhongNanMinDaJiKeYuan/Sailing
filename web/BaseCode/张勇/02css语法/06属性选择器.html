@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>06属性选择器</title>
+    <style>
+        p{
+            color: blue;
+            font-size: 18px;
+        }
+        p[title]{
+            color: orange;
+    }
+        p[title="abc"]{
+            color: red;
+        }
+        p[title^="abc"]{
+            color: black;
+        }
+        p[title*="abc"]{
+            color: brown;
+        }
+    </style>
+    
+</head>
+<body>
+    <!-- 
+        1.元素[属性] ：选择含有改属性的元素
+        2.元素[属性=属性值] ：选择含有改属性等于该属性值的元素
+        3.元素[属性^=属性值] ：选择以属性值开头的元素
+        4.元素[属性$=属性值] ：选择以属性值结尾的元素
+        5.元素[属性*=属性值] ：选择包含该属性值的元素
+     -->
+    <p title="abc">晴空一鹤排云上，便引诗情到碧霄</p>
+    <p title="abcdef">天若有情天亦老，人间正道是沧桑</p>
+    <p title="mjhabc">雄关漫道真如铁，而今迈步从头越</p>
+
+</body>
+</html>

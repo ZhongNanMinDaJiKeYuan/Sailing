@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>032网易结构快速练习</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        body{
+            background-color: #bfa;
+        }
+        a{
+            text-decoration: none;
+        }
+        /* 设置整个容器盒子的三要素
+            -内容区
+                ——宽度
+                ——高度
+                ——背景颜色
+            -边框
+                ——颜色
+                ——样式
+                ——宽度（像素）
+            -外边距和内边距根据需要设置
+                ——内边距影响盒子大小
+                ——外边距不影响盒子大小
+                ——（还要注意行内元素和块元素在垂直方向的折叠现象）
+
+        
+        
+        */
+        /* 
+            第一个元素的样式
+
+        
+        
+        */
+        .news-wrapper{
+            width: 300px;
+            height: 360px;
+            background-color: white;
+
+            margin: 50px auto;
+
+            border-top: #E0E0E0 1px solid;
+
+        }
+        .news-title{
+            height: 30px;
+            font-size: 16px;
+            font-weight: bold;
+            display: inline-block;
+            border-top: 1px red solid;
+            margin-top: -1px;
+            padding-top: 8px;
+
+        }
+        .news-title a{
+            text-decoration: none;
+            color: #404044;
+           
+            font-weight: bold;
+            
+            
+        }
+        .news-img{
+            height: 150px;
+
+        }
+        .news-img .img-title{
+            margin-top: -35px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+
+            padding-left: 30px;
+        }
+        .news-list{
+            margin-top: 20px;
+            padding-left: px;
+        }
+        .news-list li{
+            margin-bottom: 15px;
+            
+        }
+        .news-list li a{
+            font-size: 14px;
+            color: #6E6E6E;
+        }
+        .news-list li a:hover{
+            color: red;
+        }
+        .news-list li::before{
+            content: '◆';
+            color: #DDDDDD;
+            font-size: 14px;
+            margin-right: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="news-wrapper">
+        <h2 class="news-title">
+            <a href="#">体育</a>
+        </h2>
+
+        <div class="news-img">
+            <a href="#">
+                <img src="./img\03\01.jpg" alt="C罗">
+                <h3 class="img-title">C罗和曼联队友聚餐 豪车被贴罚单</h3>
+            </a>
+        </div>
+        <ul class="news-list">
+            <li>
+                <a href="#">申花告御状寻求公平正义 直指陈戌源</a>
+            </li>
+            <li>
+                <a href="#">NBA三分数据倒退回上世纪，背后有中国神秘</a>
+            </li>
+            <li>
+                <a href="#">唐斯来森林狼7年成绩几乎为零 算KG的合格接</a>
+            </li>
+            <li>
+                <a href="#">其他项目红红火火唯独国足冷清 连个主场都</a>
+            </li>
+        </ul>
+    </div>
+    
+</body>
+</html>

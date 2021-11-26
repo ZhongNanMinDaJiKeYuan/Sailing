@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07使用伪类解决高度塌陷的问题</title>
+    <style>
+        .outer{
+            border: 18px blue solid;
+           
+        }
+        .inner{
+            width: 200px;
+            height: 200px;
+            background-color:#bfa;
+            float: left;
+        }
+        /* .box1{
+            clear: both;
+        } */
+         .outer::after{
+            content: "";
+            display: block;
+            clear: both;
+         } 
+         /* 伪元素是行内元素 */
+
+         .box2{
+             border: 18px red solid;
+         }
+         .box3{
+             width: 200px;
+             height: 200px;
+             background-color: blue;
+             float: left;
+         }
+         .box2::after{
+             content: '';
+             display: block;
+
+             clear: both;
+
+         }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">
+
+
+        </div>
+        <div class="box1"></div>
+
+
+        
+    </div>
+    <div class="box2">
+        <div class="box3"></div>
+    </div>
+    
+</body>
+</html>

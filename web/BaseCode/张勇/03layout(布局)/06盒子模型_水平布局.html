@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06水平方向布局</title>
+    <style>
+
+        .outer{
+            width: 800px;
+            height: 400px;
+            border: 18px red solid;
+
+        }
+        .inner1{
+            width: 182px;
+            height: 184px;
+            background-color: #bfa;
+            border: purple 8px double;
+            margin-left: auto;
+            margin-right: auto;
+            
+        }
+        .inner2{
+            width: 400;
+            height: 180px;
+            background-color: rgb(58, 6, 247);
+            border: 10px greenyellow solid;
+            margin-left:200px;
+            margin-right: 200px;
+
+        }
+        /* 
+        元素水平方向的布局
+            元素在其父元素水平方向的位置有以下几个属性决定
+            margin-left
+            border-left
+            padding-left
+            width
+            padding-right
+            border-right
+            margin-right
+
+            一个元素在其父元素中，
+            水平布局必须满足以上七个属性之和等于父元素内容区宽度
+
+            如果等式不成立，则称为过度约束,则等式会自动调整。
+            width left right 都可设置为auto
+            默认right为auto
+            设置一个auto
+        
+        
+        */
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner1"></div>
+        <div class="inner2"></div>
+
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05z轴平移</title>
+    <!-- 
+        z轴平移，调整元素在z轴的位置，正常情况下就是调整元素和人眼的距离
+            距离越大，元素离人越近（并不是元素变大变小，而是人眼远小近大的效果）
+        z轴属于立体效果（近大远小）。默认情况下，网页是不支持透视的，如果需要看见
+            效果，必须设置网页html标签的视距perspective
+     -->
+
+     <style>
+         html{
+             perspective: 800px;
+
+         }
+         body{
+             border: 1px solid red;
+         }
+
+         .box1{
+             width: 200px;
+             height: 200px;
+             background-color: #bfa;
+             transition: .6s;
+             margin: 200px;
+             
+             
+         }
+
+        body:hover .box1{
+            transform: translateZ(200px);
+        
+         }
+     </style>
+</head>
+<body>
+
+    <div class="box1"></div>
+    
+</body>
+</html>

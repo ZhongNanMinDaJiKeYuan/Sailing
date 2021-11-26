@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02动画</title>
+    <!-- 
+        动画和过度类似，都实现一些动态效果
+            不同的是，动画自动触发动态效果
+            而过渡需要某些属性的变化才会触发效果
+
+        设置动画效果必须先设置关键帧，关键帧设置了动画执行每一个步骤
+
+     -->
+    
+     <style>
+         .box1{
+             width: 800px;
+             height: 800px;
+             background-color:#bfa;
+         }
+
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            animation-name: test;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: 3;
+            animation-direction:alternate-reverse;
+            
+
+        }
+
+        .box1:hover .box2{
+            /* animation-play-state:paused; */
+        }
+         @keyframes test {
+             from{
+                 margin-left: 0;
+
+             }
+             to{
+                 margin-left: 700px;
+             }
+         }
+     </style>
+</head>
+<body>
+
+    <div class="box1">
+        <div class="box2"></div>
+    </div>    
+</body>
+</html>
