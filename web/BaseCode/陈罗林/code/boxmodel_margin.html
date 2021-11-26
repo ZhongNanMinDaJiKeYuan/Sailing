@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>外边距</title>
+	<style>
+		.box1{
+			width:200px;
+			height:200px;
+			background-color:#bfa;
+			border:10px green solid;
+			/*
+			外边距（margin）
+				外边距不会影响盒子的大小，只会影响与其他盒子的间距。一个有四个方向的外边距
+				margin-top  上外边距，设置一个正值，元素向下移动
+				margin-left  左外边距，设置一个正值，元素向右移动
+				margin-right、margin-bottom 设置正值，自身不动，移动其他元素
+				
+				元素在页面中是按照自左向右的顺序排列的，所以默认情况下如果我们设置的左和上外边距，则会移动元素自身
+				而设置下和右外边距会移动其他元素
+				
+				margin简写属性与其他类似
+				
+				margin会影响盒子实际占用空间大小
+			*/
+			margin-top:50px;
+			margin-left:50px;
+			margin-bottom:50px;
+		}
+		.box2{
+			width:220px;
+			height:220px;
+			background-color:yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<!--   .outer>.inner + 回车 快速创建类名为outer，子元素类名为inner的两个div        -->
+	<div class="outer">
+		<div class="inner"></div>
+	</div>
+</body>
