@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪元素t</title>
+
+    <!-- 
+        伪元素：
+        1.::first-letter  首字母
+        2.::first-lin  首行
+        3.::selection  选中的内容
+        4.::before  内容的最前面
+        5.::after 内容的最后面
+            before和after要结合content使用
+     -->
+
+     <style>
+         p::first-letter{
+             font-size: 60px;
+         }
+
+         p::first-line{
+             color:mediumslateblue;
+         }
+
+         p::selection{
+             color: mediumspringgreen;
+         }
+
+
+         span::before{
+             content: '想';
+             font-size: 62px;
+         }
+
+         span::after{
+             content: '结尾';
+             color: mediumvioletred;
+         }
+     </style>
+
+</head>
+<body>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem nesciunt commodi neque esse, earum ea, totam soluta voluptate ad quas vel provident facilis voluptates aspernatur eius! Accusantium quas tempore voluptas!</p>
+
+    <span>喝奶茶喝奶茶喝奶茶哈哈哈哈哈哈哈哈哈哈哈</span>
+</body>
+</html>
