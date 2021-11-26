@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css样式</title>
+    <style>
+        .color{
+            color: hsl(350, 100%, 50%);     /*HSL表示颜色    H色相0-360  S饱和度0%-100%   L亮度0%-100%*/
+        }
+        p.color{
+            background-color: #00FFFF;    /*十六进制表示颜色 */
+        }
+        h2{
+            color: rgba(0,255,127，0.5);   /*rgba表示颜色，a表示透明度*/
+        }
+        h3{
+            color: rgb(239, 255, 100);    /*rgb表示颜色  红绿蓝 */
+        }
+        #first::first-letter{
+            font-size: 30px;
+        }
+        a:link{
+            color: blueviolet;     
+        }
+        a:visited{
+            color: orange;    
+        }
+        a:hover{
+            font-size: 30px;
+        }
+        a:active{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p class="color">请填写您的用户名：</p>
+        用户名：<input type="text" name="username" id="username">
+        <div class="color">用户名由a——z的英文字母（不区分大小写），0-9的数字或<strong><em>点</em></strong>组成</div>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure expedita iusto dolore quidem beatae, accusantium vitae, veniam nostrum recusandae, voluptas sapiente! Sit nisi eius tempora vitae quisquam sequi voluptatum molestias.</p>
+    <div>
+        <h2>锦瑟</h2>
+        <h3 >李商隐</h3>
+        <p id="first">锦瑟无端五十弦，一弦一柱思华年</p>
+        <p>庄生晓梦迷蝴蝶，望帝春心托杜鹃</p>
+        <p>沧海月明珠有泪，蓝田日暖玉生烟</p>
+        <p>此情可待成追忆，只是当时已惘然</p>
+    </div>
+    <a href="test.html">跳转到test1</a>
+    <a href="test2.html">跳转到test2</a>
+    <a href="">不跳转</a>
+    <a href="https://www.baidu.com">baidu</a>
+</body>
+</html>

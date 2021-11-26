@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>内边距</title>
+	<style>
+		.box1{
+			width:300px;
+			height:300px;
+			background-color:#bfa;
+			border:10px blue dotted;
+			/*
+			内容区和边框之间的距离就是内边距
+			一共有四个方向的内边距：padding-top、padding-right、padding-left、padding-bottom
+			内边距的设置会影响盒子的大小，背景颜色会延伸到边距上
+			
+			盒子的可见框大小，由内容区、内边距和边框共同决定，所以计算盒子大小时，需将这三个区域加到一起计算
+			不可见框为外边距
+			*/
+			padding-top:100px;
+			padding-right:100px;
+			padding-bottom:100px;
+			padding-left:100px;
+			/*
+			padding的简写与border类似
+			*/
+		}
+		.inner{
+			width:100%;
+			height:100%;
+			background-color:red;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<div class="inner"></div>
+	</div>
+</body>
