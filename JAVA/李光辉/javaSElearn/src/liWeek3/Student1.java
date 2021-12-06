@@ -1,15 +1,15 @@
-package week3;
+package liWeek3;
 
-public class Student {
+public class Student1 {
     private String sid;
     private String name;
     private int age;
     private String location;
 
-    public Student() {
+    public Student1() {
     }
 
-    public Student(String sid, String name, int age, String location) {
+    public Student1(String sid, String name, int age, String location) {
         this.sid = sid;
         this.name = name;
         this.age = age;
