@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03关键帧</title>
+    <style>
+        .outer{
+            height: 500px;
+            border-bottom: 10px solid black;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+        .outer div{
+            float: left;
+            width: 100px;
+            height: 100px;border-radius: 50%;
+            background-color: #bfa;
+            animation: ball 2s 20 alternate-reverse forwards linear;
+            animation-delay: ;
+        }
+        div .box1{
+            background-color: orange;
+            animation-delay:.1s;
+           
+        }
+        div .box2{
+            background-color:yellow;
+            animation-delay:.2s;
+           
+        }
+
+        div .box3{
+            background-color: yellowgreen;
+            animation-delay:.3s;
+           
+        }
+
+        div .box4{
+            background-color: green;
+            animation-delay:.4s;
+           
+        }
+
+        div .box5{
+            background-color: blue;
+            animation-delay:.5s;
+           
+        }
+
+        div .box6{
+            background-color: purple;
+            animation-delay:.6s;
+           
+        }
+
+        div .box7{
+            background-color: rebeccapurple;
+            animation-delay:.7s;
+           
+        }
+
+        div .box8{
+            background-color: red;
+            animation-delay:.8s;
+           
+        }
+
+        div .box9{
+            background-color: #bfa;
+            animation-delay:.9s;
+           
+        }
+
+
+        @keyframes ball {
+            from{
+                margin-top: 0;
+            }
+            20%,60%{
+                margin-top: 400px;
+            }
+            40%{
+                margin-top: 125px;
+            }
+            80%{
+                margin-top: 250px;
+            }
+            to{
+                margin-top: 400px;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+        <div class="box4"></div>
+        <div class="box5"></div>
+        <div class="box6"></div>
+        <div class="box7"></div>
+        <div class="box8"></div>
+        <div class="box9"></div>
+
+
+    </div>
+    
+    
+</body>
+</html>

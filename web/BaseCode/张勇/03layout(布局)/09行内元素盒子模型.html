@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09行内元素的盒模型</title>
+    <style>
+        .s1{
+            /* width: 100px;
+            height: 100px; */
+            background-color: greenyellow;
+            padding: 18px;
+            border: blue 36px solid;
+            margin-right:18px;
+            
+            /* 
+                行内元素的盒模型
+                    行内元素不支持内容区宽度高度的设置
+                    行内元素可以设置行内间距padding border margin
+                    可以设置的padding border margin 垂直方向上的设置不会影响布局
+                    水平方向margin 直接相加
+                    父子元素相邻垂直方向的上外边距会影响布局    
+            */
+
+
+
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            padding: 36px;
+           
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color:#bfa;
+        }
+        a{
+            display: block;
+            width: 228px;
+            height: 128px;
+            background-color: rgb(6, 248, 46);
+            font-size: 28px;
+           
+        }
+    </style>
+</head>
+<body>
+    <span class="s1">
+        我是span
+    </span>
+    <span class="s1">
+        我是span
+    </span>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <a href="https://www.baidu.com" >百度超链接</a>
+    <!-- 
+        diaplay 用来设置元素显示类型
+            可选值 ：inline 将元素设置为行内元素
+                    block 将元素设置为块元素
+                    inline-block 将元素设置为行内块元素
+                    table 将元素设置为表格
+                    none 元素不在页面显示
+        visibility 用来设置元素显示状态
+            可选值：visible 默认值，元素在页面中正常显示
+                    hidden 隐藏，但依旧占据位置
+     -->
+    
+</body>
+</html>

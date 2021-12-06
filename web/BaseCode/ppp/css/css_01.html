@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+   
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+     <!-- 2.为了改变很多标签内容，可以在head里设置 
+            用style标签可以设置这一个网页的
+    -->
+    <style>
+        p{
+            color: green;
+            font-size: 60px;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- 
+        css:
+            层叠样式表  css可以为网页的每一层设置样式  但那是我们最终只能看到最上层的样式表
+    -->
+
+    <!-- 
+        用css修改样式
+        css名值对，中间用：连接 ;结尾
+        1.在标签内部通过style来改变样式(行内设置)
+        开发的时候不能使用，因为他只对一个标签进行改变
+        希望影响多个标签时非常麻烦
+     -->
+     <!-- <p style="color:red;font-size: 60px;">哈哈哈哈哈哈哈</p> -->
+
+     <p>哈哈哈哈哈哈哈哈</p>
+
+     <!-- 
+         3.  第一种和第二种只能对本页的行内或者整个网页进行改变
+         要想对多个页面操作  需要单独写一个扩展名为css的文件  
+         但是建立了css文件并没有对网页进行操作
+         用link进行连接,只要用了页面用link连接 该页面就可以引用css
+         最佳开发方法
+      -->
+      <link rel="stylesheet" href="./css_01.css">
+</body>
+</html>

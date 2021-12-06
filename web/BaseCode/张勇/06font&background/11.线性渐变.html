@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11颜色线性渐变</title>
+    <style>
+        .box1{
+            width: 500px;
+            height: 500px;
+            background-color: #bfa;
+            background-image: url(./img/02.jpg);
+            background-repeat: no-repeat;
+          
+            background-image: linear-gradient( .25turn,rgb(226, 223, 223) ,rgba(67, 67, 68, 0.973));
+
+            /* 
+                渐变是图片，需要通过background-image来设置
+                    可选值 linear-gradient() 线性渐变，颜色沿着一条直线发生变化
+                    线性渐变的开头可以指定方向
+                        to left
+                        to right
+                        to bottom
+                        to top
+                        deg 表示度数
+                        turn 表示圈
+                    渐变还可以指定多个颜色,并且指定渐变位置，其余位置被纯色充满
+
+            */
+            background-image: repeating-linear-gradient();
+
+        
+
+
+
+
+    }
+    .box2{
+            width: 500px;
+            height: 500px;
+            background-color: #bfa;
+            background-image: url(./img/02.jpg);
+            background-repeat: no-repeat;
+          
+            background-image: linear-gradient( .25turn,rgb(226, 223, 223) ,rgba(67, 67, 68, 0.973));
+
+            /* 
+                渐变是图片，需要通过background-image来设置
+                    可选值 linear-gradient() 线性渐变，颜色沿着一条直线发生变化
+                    线性渐变的开头可以指定方向
+                        to left
+                        to right
+                        to bottom
+                        to top
+                        deg 表示度数
+                        turn 表示圈
+                    渐变还可以指定多个颜色,并且指定渐变位置，其余位置被纯色充满
+
+            */
+            background-image: repeating-linear-gradient(rgb(245, 241, 241) 100px ,rgba(7, 7, 241, 0.973) 200px);
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+
+    </div>
+    <div class="box2">
+        </div>
+    
+</body>
+</html>

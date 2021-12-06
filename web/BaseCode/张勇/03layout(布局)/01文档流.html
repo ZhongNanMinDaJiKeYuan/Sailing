@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01文档流</title>
+    <style>
+        .box1{
+            width: 220px;
+            height: 88px;
+            background-color: #bfa;
+            border: black 18px double;
+        }
+        .box2{
+            width:fit-content;
+            background-color: brown;
+        }
+        span{
+            background-color: blue;
+            border: firebrick 18px dotted;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+        文档流（normal flow）
+            ——网页是一个多层结构，是一层摞着一层
+            ——通过css可以为每一层设置样式。作为用户来讲，只能看到最上面一层。
+            ——最底层就是文档流，文档流是网页的基础，所创建的元素默认都是在文档流中进行。
+            文档流
+                1.网页的最底层
+                2.元素默认创建在最底层，即在文档流
+        元素的状态
+            1.在文档流
+            2.不在文档流
+        元素在文档流中的特点：
+            1.块元素：
+            ——独占一行，默认高度为内容撑开，默认宽度为父元素宽度
+            ——这里的宽度和高度都是指内容区的宽度和高度
+            2.行内元素
+            ——不会独占一行，只占自身大小，自左向右水平排列
+     -->
+
+     <div class="box1">我是第一个块元素</div>
+     <div class="box2">我是第二个块元素</div>
+     <span>我是行内元素</span>
+     <span>我是行内元素</span> 
+     <span>我是行内元素</span>
+    
+</body>
+</html>

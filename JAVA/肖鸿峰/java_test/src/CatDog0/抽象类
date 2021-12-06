@@ -1,0 +1,29 @@
+1.一个没有方法体的方法应该被定义为抽象方法，而类中如果有抽象方法，该类必须定义为抽象类
+
+抽象方法：public static void eat()；
+
+public abstract class Animal {
+    public abstract void eat();
+}
+
+2.在继承抽象类时，要重写抽象类中的抽象方法，否则会报错
+
+public class Cat extends Animal {
+    public void eat() {
+        ......
+    }
+}
+
+3.接2. 若不想重写抽象方法，则将子类定义为抽象类
+public abstract Dog extends Animal {
+    ......
+}
+
+4.抽象类不能直接实例化
+抽象类如何实体化？
+*参照多态，对子类对象实体化，称抽象类多态
+
+5.抽象类的成员：
+成员变量
+构造方法
+抽象方法

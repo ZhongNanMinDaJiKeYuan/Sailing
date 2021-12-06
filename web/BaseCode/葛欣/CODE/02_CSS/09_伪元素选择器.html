@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            font-size: 20px;
+}
+/* 
+为元素：表示页面中一些特殊的并不真实存在的元素（特殊的位置）
+伪元素使用：：开头
+
+：：first-letter 表示第一个字母
+：：first-line 表示第一行
+：：selection 表示选中的内容
+
+：：before 元素的开始
+：：after 元素的最后
+before和after必须结合content属性来使用
+
+*/
+
+p::first-letter{
+    font-size: 30px;
+}
+
+p::first-line{
+    background-color: yellow;
+}
+p::selection{
+    background-color: yellowgreen
+    ;
+}
+
+div::before{
+    content:" haha";
+    color: red;
+}
+
+div::after{
+    content: "啊";
+    color: green;
+}
+    </style>
+</head>
+<body>
+    <div>你好</div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, distinctio totam magni aspernatur tempora consequuntur at facere cupiditate. Ad atque, harum minus fuga nihil eaque molestiae quae hic mollitia quod!</p>
+</body>
+</html>

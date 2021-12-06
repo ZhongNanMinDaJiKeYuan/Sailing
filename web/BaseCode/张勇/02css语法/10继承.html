@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>10继承</title>
+    <style>
+        div{
+            color: rgb(4, 0, 255);
+            font-size: 18px;
+            background-color: rgb(24, 247, 4);
+        }
+       p{
+            /* background-color: rgb(222, 34, 98); */
+        }
+        ul{
+            /* background-color: royalblue; */
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        1.继承：
+            对祖先元素设置样式的时候，所有后代元素会被设置同样的样式
+            并不是所有的样式都会被继承，比如背景，布局等
+            p元素内不可以放块元素;div元素可以放置div元素
+            继承的设计是为了方便开发，利用继承可以将通用的样式设置到祖先元素
+
+            
+     -->
+     <p>
+         雄关漫道真如铁，
+         <br>
+        <span>钟山风雨起苍黄，百万雄师过大江</span>
+         
+     </p>
+     <div>
+        对祖先元素设置样式的时候，所有后代元素会被设置同样的样式
+         
+        并不是所有的样式都会被继承，比如背景，布局等
+        <br>
+           <p>
+               这个会吗
+           </p>
+
+            <p>
+                继承的设计是为了方便开发，利用继承可以将通用的样式设置到祖先元素
+              
+            </p>
+        
+     </div>
+     <ul>
+         这是ul的元素
+         <ol>ol的元素</ol>
+         <ol>我是ol元素</ol>
+         <ol></ol>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08clearfix属性</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            /* overflow: hidden; */
+
+        }
+        /* .box1::before{
+            content: '';
+            display: table;
+        } */
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin-top: 50px;
+        }
+        .clearfix::before,
+        .clearfix::after{
+            content: '';
+            display: table;
+            clear: both;
+        }
+        /* 
+            同时解决元素重叠和外边距重叠问题
+
+            总结之前学到的东西：
+                首先：我们会面对子元素因为浮动会导致的高度塌陷问题。
+                    然后通过BFC(块级格式化环境)来解决。
+                        块级格式化是元素的隐藏属性，开启之后元素就成为独立布局区域
+                        它有如下三个特点：1、不会被浮动元素所覆盖（会去到浮动元素右侧）
+                                        在下面的兄弟元素中开启
+                                        2、父子元素的上外边距不会重叠
+                                        在父元素中开启
+                                        3、可以容纳浮动元素（父元素会被浮动元素根据内容撑开
+                                        在父元素中开启
+                        开启BFC隐藏属性的方式有很多种：
+                                1、浮动属性（宽度丢失）（覆盖其他元素）
+                                2、设置为行内块元素（宽度丢失）
+                                3、溢出属性，非visible值 通常选用hidden
+                其次：我们演示了元素开启BFC属性后的另外两个特点：
+                    1、不会被浮动元素所覆盖，则开启BFC属性即可
+                    2、父子元素外边距重叠
+
+
+                现在：我们学习了clear属性，它是用来解决元素浮动导致的覆盖问题的
+                        不同于之前的BFC，他解决覆盖是通过浏览器增加元素外边距，
+                        所以他会出现在浮动元素下面
+                            clear 可选值：left/right/both
+                            在下面的兄弟元素中开启
+                            
+                接着：我们学习如何通过clear和伪元素的结合来解决高度塌陷问题
+                        1、两个兄弟盒子，第一个盒子浮动，第二个空白内容然后clear both
+                            这是html解决方式通过增加（页面不显示）结构
+        
+                        2、在父元素后面使用伪元素::after增加空白内容
+                            由于伪元素是行内元素，因此需要转换为块元素，即display ；block
+                            然后再clear both
+                最后：我们使用clearfix属性来同时解决高度塌陷和上外边距重叠问题
+                        .clearfix::before,
+                        .clearfix::after{
+                            content:'';
+                            display:table;
+                            clear:both;
+                        }
+        
+        */
+    </style>
+
+</head>
+<body>
+    <div class="box1 clearfix" >
+        <div class="box2"></div>
+    
+    </div>
+    
+</body>
+</html>

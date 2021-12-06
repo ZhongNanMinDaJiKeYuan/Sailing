@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 
+            伪类选择器
+            伪类是描述元素的状态
+            第一种：选择位置
+                :first-child  第一个元素
+                :last-child   最后一个元素
+                :nth-child()  选择括号中指定位置的元素
+                    常用的数值是：n  第n个元素  范围是0-n   
+                                2n或者even  选择偶数的元素
+                                2n+1或者odd  选择奇数
+            第二种：同类型元素的第几个
+                :first-of-type   同类的第一个元素
+                :last-of-type   同类型的最后一个元素
+                :nth-of-type()  同类型的括号中指定位置的元素
+
+            第三种：否定伪类
+                :not()
+        */
+
+    ul>li:first-child{
+        color: greenyellow;
+    }
+    ul>li:last-child{
+        color: hotpink;
+    }
+    ul>li:nth-child(3){
+        font-size: 60px;
+    }
+
+    span:first-of-type{
+        color: indigo;
+    }
+    span:last-of-type{
+        color: khaki;
+    }
+    span:nth-of-type(3){
+        font-size: 60px;
+    }
+
+    ol>li:not(:nth-child(2)){
+        color: lightblue;
+    }
+
+    /* 
+        伪类:link可以对正常的链接进行格式改变
+        伪类:visited只能对链接的颜色进行改变，其他属性不能改变
+    */
+    a:link{
+        color: lightgreen;
+        font-size: large;
+    }
+    a:visited{
+        color: lightsalmon;
+    }
+
+    /* 
+        :hover  鼠标移入时改变样式
+        :active  鼠标点击时改变样式
+    */
+    a:hover{
+        color: maroon;
+    }
+    a:active{
+        font-size: 60px;
+    }
+
+    </style>
+
+
+</head>
+<body>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ol>
+
+    
+    <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+
+    <ul>
+        <li>第一个</li>
+        <li>第二个</li>
+        <li>第三个</li>
+        <li>第四个</li>
+        <li>第五个</li>
+    </ul>   
+
+
+
+    <a href="https://www.baidu.com">百度的链接</a>
+    
+    <a href="https://www.baidu123.com">百度</a>
+</body>
+
+</html>

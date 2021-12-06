@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01过渡</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box1{
+            width: 800px;
+            height: 800px;
+            background-color: #bfa;
+
+        }
+
+        .box1 div{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+
+        .box2{
+            transition: all 2s;
+            margin-left: 0;
+            margin-bottom: 100px;
+            transition-timing-function: linear;
+        
+        }
+        .box3{
+            /* transition: all 2s; */
+            margin-left: 0;
+            transition-duration: 2s;
+            transition-timing-function: steps(3 );
+            
+            /* transition-timing-function: cubic-bezier(.44,1.8,.65,-0.99); */
+            transition: all 1s 1s;
+        }
+
+        .box1:hover div{
+            /* width: 500px;
+            height: 500px; */
+            margin-left: 700px;
+        }
+
+        /* 
+            过渡（transition）
+                -通过过渡可以指定一个属性发生变化时得切换方式
+                -通过过渡可以创建一些非常好的效果，提升用户体验。
+            
+                transition-property
+                    -指定过渡属性，多个属性间用逗号隔开，全部属性用all，大部分属性支持过渡效果
+                    -过渡必须是一个有效数值向另外一个数值过渡
+                transition-duration
+                    -指定过渡持续时间 s和ms两个单位，可以指定多个属性的过渡持续时间,此时用逗号隔开
+                transition-delay：延迟相应时间再执行
+                transition-timing-function
+                    -过渡的时序函数
+                        -可选值
+                            ease 默认值 先加速，再减速
+                            linear 匀速运动
+                            ease-in 加速运动
+                            ease-out 减速运动
+                            ease-in-out 先加速 再减速
+                             cubic-bezier 贝赛尔曲线
+                             steps
+                                -start 时间开始
+                                -end 时间结束 默认值
+                transition 可以同时设置多个属性 唯一要求 第一个时间为持续时间，第二个时间为延迟时间
+                        切属性值之间无顺序要求。
+
+        
+        */
+    </style>
+</head>
+<body>
+
+    <div class="box1">
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+    
+</body>
+</html>

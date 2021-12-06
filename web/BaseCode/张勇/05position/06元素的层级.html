@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06元素的层级</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            position: absolute;
+            z-index: 2;
+
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            position: relative;
+            /* left: 200px;
+            top: -200px; */
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            z-index: 1;
+        }
+        .box3{
+            width: 200px;
+            height: 200px;
+            background-color: blue; 
+             position: absolute;    
+             top: 100px;        
+             left: 100px;
+        }
+      
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    
+</body>
+</html>

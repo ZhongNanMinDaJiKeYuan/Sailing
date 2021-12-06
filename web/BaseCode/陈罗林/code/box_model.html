@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>盒子模型</title>
+	<style>
+		.box1{
+			/*
+				内容区，元素中的所有子元素和文本内容都在内容区中排列
+				内容区的大小由width和height两个属性来设置
+			*/
+			width: 300px;
+			height: 200px;
+			background-color: yellowgreen;
+			
+			/*
+				边框，属于盒子边缘
+				要设置边框，需要设置至少三个样式
+					边框的宽度  border-width
+					边框的颜色  border-color
+					边框的样式  border-style
+			*/
+			
+			border-width: 10px;
+			border-color: red;
+			border-style:solid;       /*solid表示实线*/	
+		}
+		.box2{
+			width:300px;
+			height:200px;
+			background-color:#bfa;
+			/*
+			border-width默认值一般为3px.
+			border-width可以指定四个方向的边框宽度
+				四个值：上 右 下 左    （从上开始顺时针旋转）
+				三个值：上 左右 下
+				两个值：上下 左右
+				一个值：上下左右	
+			border-xxx-width:用来直接设置上（下或左或右）的边框宽度
+			xxx：可以为top、right、bottom、left
+			border-xxx-color：用来直接设置上（下或左或右）的颜色
+			*/
+			border-width:10px 20px 30px 40px;
+			border-color:blue;
+			/*
+				border-style中，用法同上。也可指定四个方向的样式
+					solid 实线
+					dotted 点状虚线
+					dashed 虚线
+					double 双线
+			*/
+			border-style:solid;
+		}
+		/*
+		设置边框上述用得不多，以下是最常用的设置边框的方法
+		除了border的简写，还有border-top、border-bottom、border-right、border-left的简写，与border类似
+		*/
+		.box3{
+			border:10px orange double;   /*三个值无顺序要求*/
+			width:300px;
+			height:200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">aaaa</div>
+	<div class="box2">bbbb</div>
+	<div class="box3">cccc</div>
+	
+</body>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>默认样式</title>
+	<style>
+	/*去除浏览器中的默认样式*/
+		body{
+			margin: 0;
+		}
+		p{
+			margin: 0;
+		}
+		ul{
+			margin:0;
+			padding:0;
+			/*去除项目符号*/
+			list-style:none;
+		}
+		.box1{
+			width:200px;
+			height:200px;
+			border:2px solid red;
+		}
+		
+		
+		/*  
+		一下子去除所有默认样式      或者引入重置样式表（网上搜索）
+		*{
+			margin:0;
+			padding:0;
+		}
+		*/
+		
+		<!--
+		重置样式表：
+			reset.css   直接去除浏览器的默认样式
+			normalize.css  对默认样式进行了统一
+		-->
+	</style>
+</head>
+<body>
+	<div class="box1"></div>
+	<p>我会发着呆</p>
+	<p>我会发着呆</p>
+	<p>我会发着呆</p>
+	<p>我会发着呆</p>
+	<p>我会发着呆</p>
+	<p>我会发着呆</p>
+	<ul>
+		<li>我很忙</li>
+		<li>十一月的肖邦</li>
+		<li>七里香</li>
+	</ul>
+</body>
