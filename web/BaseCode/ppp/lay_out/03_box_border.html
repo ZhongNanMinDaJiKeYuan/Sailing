@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .width1{
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+
+            /* 
+                边框宽度：可以规定四个方向的边框宽度
+                四个值：上 右 下 左
+                三个值：上 右左 下
+                两个值：上下 右左 
+                一个值：上右下左
+            */
+            border-width: 10px;
+            border-style: solid;
+            border-color: teal;
+        }
+
+        .width2{
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            border-style: solid;
+            border-color:seagreen;
+
+            border-width: 10px 20px 30px 40px;
+        }
+        .width3{
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            border-style: solid;
+            border-color: teal;
+
+            border-width: 10px 40px 30px;
+        }
+        .width4{
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            border-style: solid;
+            border-color: teal;
+
+            border-width: 10px 30px;
+        }
+        /* 
+            可以用border-xxx-width
+            xxx可以是top right left bottom
+        */
+        .width5{
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            border-style: solid;
+            border-color: teal;
+
+            border-top-width: 10px;
+            border-right-width: 20px;
+            border-left-width: 30px;
+            border-bottom-width: 40px;
+            
+        }
+
+        .color1{
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            border-width: 10px;
+            border-style: solid;
+
+            border-color:yellow rebeccapurple red orange;
+            /* 其他几个值和width同理 
+                如果没有border-color就找color
+                都没有的话就会默认颜色黑色
+            */
+            color: palegreen;
+
+
+        }
+
+        .style1{
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            border-width: 10px;
+            border-color: yellow;
+
+            /* 一共四种样式
+                solid实线
+                dotted点虚线
+                dashed 虚线
+                double双线
+            */
+            border-style: solid dotted dashed double;
+
+        }
+
+        .all{
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+
+            /* 
+                实用方法：只用写border,三种属性不分先后顺序
+            */
+            border:green 10px double;
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="width1"></div>
+    <div class="width2"></div>
+    <div class="width3"></div>
+    <div class="width4"></div>
+    <div class="width5"></div>
+
+    <div class="color1"></div>
+
+    <div class="style1"></div>
+
+    <div class="all">实用用法</div>
+</body>
+</html>
