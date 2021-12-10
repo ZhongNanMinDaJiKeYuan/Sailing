@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网易新闻右侧列表</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        /* 方便查看
+        body{
+            background-color: bisque;
+        } */
+        
+        /* 给所有超链接标签去掉下划线 */
+        a{
+            text-decoration: none;
+        }
+        /*给外部容器设置样式*/
+        .news-container{
+            width: 300px;
+            height: 358px;
+
+            /*居中（方便查看）*/
+            margin: 100px auto;
+            /*设置一个一个像素的上边框*/
+            border-top: 1px solid #E6E6E6;
+            /*设置背景色，方便查看*/
+            background-color: #FFFFFF;
+            
+        }
+        /* 给标题设置样式 */
+        .news-container>.news-title{
+            /* 将h2转换为行内块元素 */
+            display: inline-block;
+            /* 给标题上面加一条红色实线 */
+            border-top: 1px solid red;
+            /*使红线与原先的线重合*/
+            margin-top: -1px;
+            /* 给字体加粗 */
+            font-weight: bold;
+            color: #404040;
+
+            height: 30px;
+            /*给标题加padding*/
+            padding-top: 10px;
+        }
+
+        /* 给标题添加鼠标移入样式 */
+        .news-container>.news-title>a:hover{
+            color: red;
+        }
+
+        /* 给图片容器设置样式 */
+        .news-container .news-img{
+            /* 设置高度，与图片高度一致 */
+            height: 150px;
+        }
+        /* 给图片的标题设置样式 */
+        .news-container .img-title{
+            font-size: 18px;
+            color: #FAFAFA;
+            font-weight: bold;
+            /* 将文字上移到图片中 */
+            margin-top: -30px;
+            /* 将文字右移 */
+            padding-left: 15px;
+        }
+        /* 给新闻列表设置样式 */
+        .news-list{
+            margin-top: 20px;
+        }
+        /* 给li设置样式 */
+        .news-list>li{
+            margin-bottom: 18px;
+        }
+        /* 使用伪元素选择器，给每个列表前加个符号 */
+        .news-list>li::before{
+            content: '■';
+            color: #DDDDDD;
+            font-size: 10px;
+        }
+        /* 给li中a的字体设置样式 */
+        .news-list a{
+            font-size: 14px;
+            color: #7F7F7F;
+        }
+        /* 给a设置鼠标移入样式 */
+        .news-list a:hover{
+            color: red;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- 创建一个新闻栏外部容器 -->
+    <div class="news-container">
+        <!-- 创建一个标题标签 -->
+        <h2 class="news-title">
+            <a href="">体育</a>
+        </h2>
+        <!-- 创建一个图片的容器 -->
+        <div class="news-img">
+            <a href="">
+                <img src="./img/ex02/01.jpg" alt="伊布">
+                <!-- 创建图片标题 -->
+                <h3 class="img-title">伊布：马尾越长 我的力量就越强</h3>
+            </a>
+        </div>
+        
+        <!-- 创建新闻列表 -->
+        <ul class="news-list">
+            <li>
+                <a href="">他才24岁啊！中国新一哥兑现天赋 奥沙利文猛</a>
+            </li>
+            <li>
+                <a href="">赵心童是火箭弟子 丁俊晖后又一位中国斯诺克</a>
+            </li>
+            <li>
+                <a href="">德州小强杀不死！火箭打出NBA最长连胜</a>
+            </li>
+            <li>
+                <a href="">李霄鹏能成为国足救星吗？</a>  
+            </li>
+        </ul>
+    </div>
+    
+</body>
+</html>

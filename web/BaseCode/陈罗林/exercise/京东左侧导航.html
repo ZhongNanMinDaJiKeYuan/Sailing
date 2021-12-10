@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东左侧导航</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        /*设置背景色，方便查看，开发时不用*/
+        body{
+            background-color: bisque;
+        }
+
+        /*设置菜单外部容器*/
+        .left_nav{
+            /*设置宽高*/
+            width: 190px;
+            height: 450px;
+            padding: 10px 0;
+            /*设置背景色*/
+            background-color: #FEFEFE;
+
+            /*居中（方便查看）*/
+            margin: 100px auto;
+        }
+        /*给item设置样式*/
+        .left_nav .item{
+            height: 25px;
+            padding-left: 18px;
+            /*要让父元素中的元素垂直居中，只需要将父元素的line-height设置为一个和父元素的height一样的值*/
+            line-height: 25px;
+        }
+        /*给item添加鼠标移入时的效果*/
+        .left_nav .item:hover{
+            background-color: #d9d9d9;
+        }
+        /*设置超链接字体颜色*/
+        .left_nav a{
+            color: #333;
+            font-size: 14px;
+            /*去除下划线*/
+            text-decoration: none;
+        }
+        /*给超链接添加鼠标移入时的颜色变化*/
+        .left_nav a:hover{
+            color: red;
+        }
+        /*给/设置样式*/
+        .left_nav>ul>li>span{
+            font-size: 12px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!--创建一个左侧导航容器-->
+    <div class='left_nav'>
+        <ul class='total'>
+            <li class='item'>
+                <a href=''>家用电器</a>
+            </li>
+            <li class='item'>
+                <a href=''>手机</a>
+                <span >/</span>
+                <a href=''>运营商</a>
+                <span >/</span>
+                <a href=''>数码</a>
+            </li>
+            <li class='item'>
+                <a href=''>电脑</a>
+                <span >/</span>
+                <a href=''>办公</a>
+            </li>
+            <li class='item'>
+                <a href=''>家居</a>
+                <span >/</span>
+                <a href=''>家具</a>
+                <span >/</span>
+                <a href=''>家装</a>
+                <span >/</span>
+                <a href=''>厨具</a>
+            </li>
+            <li class='item'>
+                <a href=''>男装</a>
+                <span >/</span>
+                <a href=''>女装</a>
+                <span >/</span>
+                <a href=''>童装</a>
+                <span >/</span>
+                <a href=''>内衣</a>
+            </li>
+            <li class='item'>
+                <a href=''>美妆</a>
+                <span >/</span>
+                <a href=''>个护清洁</a>
+                <span >/</span>
+                <a href=''>宠物</a>
+            </li>
+            <li class='item'>
+                <a href=''>女鞋</a>
+                <span >/</span>
+                <a href=''>鞋包</a>
+                <span >/</span>
+                <a href=''>钟表</a>
+                <span >/</span>
+                <a href=''>珠宝</a>
+            </li>
+            <li class='item'>
+                <a href=''>男鞋</a>
+                <span >/</span>
+                <a href=''>运动</a>
+                <span >/</span>
+                <a href=''>户外</a>
+            </li>
+            <li class='item'>
+                <a href=''>房产</a>
+                <span >/</span>
+                <a href=''>汽车</a>
+                <span >/</span>
+                <a href=''>汽车用品</a>
+            </li>
+            <li class='item'>
+                <a href=''>母婴</a>
+                <span >/</span>
+                <a href=''>玩具乐器</a>
+            </li>
+            <li class='item'>
+                <a href=''>食品</a>
+                <span >/</span>
+                <a href=''>酒类</a>
+                <span >/</span>
+                <a href=''>生鲜</a>
+                <span >/</span>
+                <a href=''>特产</a>
+            </li>
+            <li class='item'>
+                <a href=''>艺术</a>
+                <span >/</span>
+                <a href=''>礼品鲜花</a>
+                <span >/</span>
+                <a href=''>农资绿植</a>
+            </li>
+            <li class='item'>
+                <a href=''>医药保健</a>
+                <span >/</span>
+                <a href=''>计生情趣</a>
+            </li>
+            <li class='item'>
+                <a href=''>图书</a>
+                <span >/</span>
+                <a href=''>文娱</a>
+                <span >/</span>
+                <a href=''>教育</a>
+                <span >/</span>
+                <a href=''>电子书</a>
+            </li>
+            <li class='item'>
+                <a href=''>机票</a>
+                <span >/</span>
+                <a href=''>酒店</a>
+                <span >/</span>
+                <a href=''>旅游</a>
+                <span >/</span>
+                <a href=''>生活</a>
+            </li>
+            <li class='item'>
+                <a href=''>理财</a>
+                <span >/</span>
+                <a href=''>众筹</a>
+                <span >/</span>
+                <a href=''>白条</a>
+                <span >/</span>
+                <a href=''>保险</a>
+            </li>
+            <li class='item'>
+                <a href=''>安装</a>
+                <span >/</span>
+                <a href=''>维修</a>
+                <span >/</span>
+                <a href=''>清洗</a>
+                <span >/</span>
+                <a href=''>二手</a>
+            </li>
+            <li class='item'>
+                <a href=''>工业品</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
