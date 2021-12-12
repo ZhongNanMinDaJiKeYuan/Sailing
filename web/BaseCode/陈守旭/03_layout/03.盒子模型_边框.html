@@ -27,21 +27,40 @@
                         除了border-width还有一组border-xxx-width
                             xxx可以是 top right bottom left
                             用来单独指定某一个边的宽度
-
+ 
                     border-color 用法和border-width差不多
                     border-color也可以省略不写，如果省略了则自动使用color的颜色值
                     
+                    border-style指定边框的样式（四个方向）
+                    solid：表示实线
+                    dotted:点状虚线
+                    dashed:虚线
+                    double：双线
+                
+                border-style的默认值是none,表示没有边框
             */
 
             border-width: 10px;
             /* border-left-width: 5px; */
 
             border-color: coral red blue green;
-            
+
+            border-style: solid double dotted dashed;
+
             /* 
-                border-style
+                border简写属性，
+                通过该属性可以同时设置边框所有的相关样式，并且也没有顺序要求 
+                
             */
-            border-style: solid;
+
+            border:5px orange dashed;
+            /* 
+                border-xxx也可以使用该简写属性
+                如只想设置上 左 下三边的边框:
+                border:5px black double;
+                border-right:none;
+            */
+
         }
     </style>
 </head>
