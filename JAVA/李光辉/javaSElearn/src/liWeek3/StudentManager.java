@@ -1,4 +1,4 @@
-package week3;
+package liWeek3;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class StudentManager {
     public static void main(String[] args) {
-        ArrayList<Student> studentList = new ArrayList<>();
+        ArrayList<Student1> studentList = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         // 保持循环菜单交互操作
         while (true) {
@@ -50,7 +50,7 @@ public class StudentManager {
     }
 
     // 添加学生
-    public static void addStudent(ArrayList<Student> studentList) {
+    public static void addStudent(ArrayList<Student1> studentList) {
         Scanner scanner = new Scanner(System.in);
         String sid;
         String name;
@@ -75,7 +75,7 @@ public class StudentManager {
         System.out.println("请输入学生居住地：");
         location = scanner.nextLine();
 
-        Student newStudent = new Student(sid, name, age, location);
+        Student1 newStudent = new Student1(sid, name, age, location);
         studentList.add(newStudent);
 
         System.out.println("已成功添加学生：" + newStudent);
@@ -84,8 +84,8 @@ public class StudentManager {
     }
 
     // 判断学生学号是否已存在在学生列表之中
-    public static boolean isExists(ArrayList<Student> studentArrayList, String sid) {
-        for (Student student : studentArrayList) {
+    public static boolean isExists(ArrayList<Student1> studentArrayList, String sid) {
+        for (Student1 student : studentArrayList) {
             if (student.getSid().equals(sid)) {
                 return true;
             }
@@ -94,26 +94,26 @@ public class StudentManager {
     }
 
     // 将列表中全部学生打印出来
-    public static void showStudentList(ArrayList<Student> studentArrayList) {
+    public static void showStudentList(ArrayList<Student1> studentArrayList) {
         if (studentArrayList.size() == 0) {
             System.out.println("表中为空 ！");
             return;
         }
-        for (Student student : studentArrayList) {
+        for (Student1 student : studentArrayList) {
             System.out.println(student);
         }
     }
 
     // 按学号删除学生
-    public static void deleteStudent(ArrayList<Student> studentArrayList) {
+    public static void deleteStudent(ArrayList<Student1> studentArrayList) {
         System.out.println("请输入需要删除的学生的学号：");
         Scanner scanner = new Scanner(System.in);
         String sid = scanner.nextLine();
         System.out.println("确定删除学号为" + sid + "的学生？Y/N");
         String recheck = scanner.nextLine();
-        Student studentRemove = null;
+        Student1 studentRemove = null;
         if (recheck.equalsIgnoreCase("Y")) {
-            for (Student student : studentArrayList) {
+            for (Student1 student : studentArrayList) {
                 if (student.getSid().equals(sid)) {
                     studentRemove = student;
                     break;
@@ -132,7 +132,7 @@ public class StudentManager {
     }
 
     // 更新修改学生的信息
-    public static void updateStudent(ArrayList<Student> studentArrayList) {
+    public static void updateStudent(ArrayList<Student1> studentArrayList) {
         System.out.println("请输入修改的学生学号：");
         Scanner scanner = new Scanner(System.in);
         String sid = scanner.nextLine();
@@ -151,7 +151,7 @@ public class StudentManager {
         System.out.println("请输入学生的新居住地：");
         String location = scanner.nextLine();
 
-        for (Student student : studentArrayList) {
+        for (Student1 student : studentArrayList) {
             if (student.getSid().equals(sid)) {
                 student.setName(name);
                 student.setAge(age);

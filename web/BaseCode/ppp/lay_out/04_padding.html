@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            border-width: 10px;
+            border-style: solid;
+            border-color:yellow rebeccapurple red orange;
+            color: palegreen;
+
+            /* 
+                内边距
+                    内边距是内容和边框之间的距离
+                    padding-top
+                    padding-right
+                    padding-left
+                    padding-bottom
+
+                内边距的大小会影响盒子的大小，可知盒子的大小由内容、内边距和边框决定
+
+
+                用以下方法来区分内边框：
+                -直接在内容区输入文字
+                -设置子标签
+            */
+            padding-top:100px;
+            padding-left: 100px;
+            padding-right: 100px;
+            padding-bottom: 100px;
+        }
+
+        .inner{
+            height: 100%;
+            width: 100%;
+            background-color: green;
+        }
+
+        /* 同时指定四个方向 ,也可以同时指示三个值两个值一个值*/
+        .box2{
+            height: 100px;
+            width: 100px;
+            background-color: lightblue;
+            border-width: 10px;
+            border-color: hotpink;
+            border-style: solid;
+
+            padding: 100px 50px 25px 10px;
+
+        }
+
+        .inner2{
+            height: 100%;
+            width: 100%;
+            background-color: lightslategray;
+        }
+        
+    </style>
+</head>
+
+
+<body>
+    <div class="box1">
+        <div class="inner"></div>
+    </div>
+
+    <div class="box2">
+        <div class="inner2"></div>
+    </div>
+</body>
+</html>

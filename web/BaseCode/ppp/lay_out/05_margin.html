@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            height: 100px;
+            width: 100px;
+            background-color: limegreen;
+            border: mediumorchid 10px solid;
+
+            /* 
+                外边距
+                    外边距不会影响盒子的大小，会影响盒子的位置
+                    margin有四个属性
+                    margin-top
+                    margin-right
+                    margin-bottom
+                    margin-left
+
+
+                    设置margin-left和margin-top是移动本身
+                    设置margin-right和margin-bottom是移动别的盒子
+
+                    左上下都可以设置负值，即和正值相反的方向移动
+                    右是调整值，所以设置不设置效果一样（06里详细说明）
+
+                    margin简写和padding一样，margin属性可以设置4个值
+            */
+            margin-top: 100px;
+            margin-right: 100px;
+            margin-left: 100px;
+            margin-bottom: 100px;
+
+
+        }
+
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: mediumseagreen;
+            border: 10px green solid;
+
+        }
+
+        .box3{
+            width: 100px;
+            height: 100px;
+            background-color: mediumseagreen;
+            border: 10px green solid;
+            margin: 10px 20px 60px 70px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+</body>
+</html>

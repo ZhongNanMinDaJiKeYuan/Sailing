@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 
+            样式冲突：
+                当一个元素，用不同选择器选中，并且要更改同一个属性的话，会发生样式冲突，这时候显示的样式取决于选择器的权重
+
+                选择器权重：
+                1.内敛样式             
+                2.id选择器
+                3.类和伪类选择器
+                4.元素选择器
+                5.通配符选择器
+                6.继承的样式
+                从1-4权重越来越低，5权重为0，6没有优先级
+
+                如果是交集选择器则将所含选择器的权重相加越高越优先，但是不会越级
+                如果是分组选择器则按照每一个分开计算
+
+
+
+                如果优先级计算后还是相同，则下面的将上面的效果覆盖
+
+
+        */
+
+        /* div权重低于#hh，用#hh的样式 */
+        div{
+            color: olivedrab;
+        }
+        #hh{
+            color: palegreen;
+        }
+
+        /* 在p中  原本span是继承div应该显示红色   但是加上通配符*的话通配符的优先级高于继承选择器就显示紫色 */
+        p{
+            color: orangered;
+        }
+        *{
+            color: purple;
+        }
+
+
+        /* ！important 超越所有的优先级  */
+        li{
+            color: steelblue !important;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="hh" class="cl">hhhh</div>
+
+    <p >jjjj<span>ddddd</span><span>ffff</span><span>ggggg</span></p>
+
+    <ul>
+        <li style="color: seagreen;">important</li>
+    </ul>
+</body>
+</html>

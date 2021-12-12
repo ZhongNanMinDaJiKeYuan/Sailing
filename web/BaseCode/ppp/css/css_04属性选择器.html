@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 
+        属性选择器
+        1.标签名[属性名]  选择含有属性名的所有标签
+        例子：p[id]{}
+        2.标签名[属性名=属性值]  选择等于属性值的所有标签
+        例子：p[title=abc]{}
+        3.标签名[属性名^属性值]  选择以属性值开头的所有标签
+        例子：p[title^=def]
+        4.标签名[属性名&属性值]   选择以属性值结尾的所有标签
+        例子:p[title$gh]  
+        5.标签名[属性名*属性值]   选择中间含有属性值的所有标签
+        例子：p[title*ij]
+     -->
+
+     <style>
+         p[id]{
+             color: mediumorchid;
+         }
+
+         p[title=abc]{
+             color: mediumseagreen;
+         }
+
+        p[title^=def]{
+            color:mediumvioletred;
+        }
+
+        p[title$=gh]{
+            color: olivedrab;
+        }
+
+        p[title*=ij]{
+            color: peru;
+        }
+
+     </style>
+
+
+</head>
+<body>
+
+    <!-- 1 -->
+    <p id="fdf">1</p>
+    <p id="dns">2</p>
+    <p id="dfsf">3</p>
+
+
+    <!-- 2 -->
+    <p title="abc">123</p>
+    <p title="abcjujij">123</p>
+
+
+    <p title="def">123</p>
+    <p title="defssds">123</p>
+
+
+    <p title="gh">123</p>
+    <p title="abcgh">123</p>
+
+    <p title="abijc">123</p>
+    <p title="aijijbc">123</p>
+    
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            height: 100px;
+            width: 100px;
+            background-color: lightgreen;
+           
+            margin-bottom:20px;
+        }
+        .box2{
+            height: 100px;
+            width: 100px;
+            background-color: limegreen;
+
+            margin-top:50px;
+        }
+
+             /* 
+                上面元素规定margin-bottom
+                下面元素规定margin-top
+                间距会折叠：
+                    兄弟元素：
+                        1.两个正值，会选择较大的进行隔离
+                        2.一个正一个负，相加后隔离
+                        3.两个负数，向上覆盖较大值的绝对值
+                    父子元素：
+                        只规定子元素的上边距，两个外边距在一起，整个父子元素都会下移，这不是我们期待的结果，临时的解决方案：
+                            1.利用padding-top，给父元素规定padding，将父子上外边距分开，就不会一起移动,但是整个元素大小就改变了，要在height减去padding的高度
+                            2.利用border-top，与padding同理
+                        
+            */
+
+
+        .outer{
+            height: 190px;
+            width: 200px;
+            background-color: lightslategray;
+            padding-top: 10px;
+
+        }
+        .inner{
+            height: 100px;
+            width: 100px;
+            background-color: orchid;
+            margin-top: 10px;
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <div class="box1"></div>
+    <div class="box2"></div>
+
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>
