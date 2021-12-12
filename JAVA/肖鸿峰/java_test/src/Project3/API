@@ -1,0 +1,9 @@
+1.Math类
+详见帮助文档
+
+2.System类
+
+3.Object类
+Object.toString()
+Object.equals(),比较两个对象的内容是否相同
+//看方法的源码： Crtl+B
