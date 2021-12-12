@@ -1,4 +1,4 @@
-package week3;
+package com.li.week5;
 
 public class Student {
     private String sid;

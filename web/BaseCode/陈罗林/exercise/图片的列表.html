@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片的列表</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        /*方便查看，实际开发不用*/
+        body{
+            background-color: aqua;
+        }
+        /*设置列表样式*/
+        .img_list{
+            /*设置列表的宽和高，从原网站中获取宽和高*/
+            width: 189.996px;
+            height: 469.992px;
+            /* 裁剪掉多余部分 */
+            overflow: hidden;
+            /* 将列表居中（注意：测试用，方便查看，实际开发不用这样） */
+            margin: 50px  auto;
+            /* 设置背景色*/
+            background-color: #F4F4F4;
+        }
+
+        /* 每个图片设置下外边距，注意不是直接给图片样式，而是给li样式*/
+        .img_list>li{
+            margin-bottom: 9px;
+        }
+        /* 设置图片大小 */
+        .img_list img{
+            width: 100%;
+            
+        }
+    </style>
+
+</head>
+<body>
+    <!--    方法一 
+    <div>
+        <a href=""><img src="" alt=""></a>
+        <a href=""><img src="" alt=""></a>
+        <a href=""><img src="" alt=""></a>
+    </div> -->
+    <!--    方法二   创建列表 -->
+    <ul class='img_list'>
+        <li>
+            <a href="">
+                <img src="./img/ex01/01.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <img src="./img/ex01/02.jpg" alt="">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">
+                <img src="./img/ex01/03.jpg" alt="">
+            </a>
+        </li>
+    </ul>
+</body>
+</html>

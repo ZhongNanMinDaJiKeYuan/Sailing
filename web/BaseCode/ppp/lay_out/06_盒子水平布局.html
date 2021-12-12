@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 800px;
+            height: 100px;
+            border: springgreen 10px solid;
+
+
+        }
+
+        .inner{
+
+            width: 100px;
+            height: 100px;
+            background-color: violet;
+
+            /* 
+                水平布局：
+                    由以下7个属性共同决定：
+                        margin-left 
+                        border-left 
+                        padding-left 
+                        width
+                        padding-right
+                        border-right
+                        margin-right
+                    
+                    一个元素在其父元素中必须满足以下等式：
+                        margin-left + border-left + padding-left + width + padding-right + border-right + margin-right = 父元素width
+
+                        本例中：0+0+0+100+0+0+0=800  （称为过度约束，网页会自动调节为 0+0+0+100+0+0+700=800）
+                        
+                        调整方式：
+                        1.七个值没有auto的情况  自动调整margin-right
+                        2.七个值中margin-left、width、margin-right任意值为auto  则调整这个值
+                        3.七个值中width和margin中的任意一个设置为auto  则width调为最大 margin调整为0
+                        4.margin-left和margin-right为auto  则平分
+                            利用这个性值可设为居中：width: 50px;  margin:0 auto;
+                        5.如果width设为超过父元素width时，margin设置为负值保证等式成立
+            */
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="inner"></div>
+    </div>
+    <div class="box2"></div>
+</body>
+</html>
