@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 没规定高度，默认被子元素高度撑开 */
+        .box1{
+            width: 200px;
+            margin-bottom:50px ;
+        }
+        .inner{
+            width: 200px;
+            height: 100px;
+            background-color: violet;
+        }
+
+        /* 
+            规定高度后，不会随子元素改变
+
+            inner2中height溢出，在父元素中加入属性名overflow来解决
+            overflow:hidden;(将溢出的部分隐藏)
+            overflow:visible;(默认值会在父元素外面显示)
+            
+            overflow:scroll;(显示横纵两个滚动条)
+            overflow:auto;(自动加滚动条)
+
+        
+        */
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color:orange ;
+            overflow:hidden;
+            overflow:visible;
+            /* overflow:scroll; */
+            /* overflow:auto; */
+
+        }
+        .inner1{
+            width: 100px;
+            height: 50px;
+            background-color: olivedrab;
+            margin-bottom: 20px;
+        }
+        .inner2{
+            width: 100px;
+            height: 300px;
+            background-color: gray;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="inner"></div>
+    </div>
+
+    <div class="box2">
+        <div class="inner1"></div>
+        <div class="inner2"></div>
+    </div>
+
+</body>
+</html>

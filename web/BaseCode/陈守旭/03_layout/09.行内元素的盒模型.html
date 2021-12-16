@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            background-color: red;
+            /* 
+                行内元素的盒模型；
+                    -行内元素不支持设置宽度和高度,是被内容撑开的
+                    -行内元素可以设置padding，垂直方向padding不会影响页面的布局(也就是可能会发生元素的重叠)
+                    -行内元素可以设置border，垂直方向border不会影响页面的布局
+                    -行内元素可以设置margin，垂直方向margin不会影响页面的布局
+            */
+            width: 100px;
+            height: 100px;
+
+            /* padding: 100px; */
+            border: 10px springgreen  solid;
+            margin: 100px ;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: royalblue;
+        }
+        a{
+            /* 
+                display 用来设置元素显示的类型
+                 可选值：
+                    inline  将元素设置为行内元素
+                    block   将元素设置为块元素
+                    inline-block   将元素设置为行内块元素（既可以设置宽高度，也可以独占一行）
+                    table   将元素设置为一个表格
+                    none    元素不在页面中显示，且不占据页面的位置
+
+                visibility 用来设置元素的显示状态
+                    可选值：
+                        visible （默认值），元素在页面中正常显示
+                        hidden    元素在页面中隐藏 不显示，但是依然占据着页面的位置
+            */
+            display: block;
+
+            visibility: hidden;
+
+            width: 100px;
+            height: 100px;
+            background-color: turquoise;
+        }
+    </style>
+</head>
+<body>
+    <a href="javascript">超链接</a>
+    <a href="javascript">超链接</a>
+
+    <span>我是span</span>
+    <span>我是span2</span>
+
+    <div class="box1"></div>
+
+</body>
+</html>

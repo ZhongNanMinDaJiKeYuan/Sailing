@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .line{
+            background-color: lightsteelblue;
+            /* 行内元素不受width和height的影响 */
+
+            /* 
+                支持padding、margin、border  但是垂直方向的不会影响布局，会覆盖下面元素
+            */
+
+            padding: 30px;
+            margin: 20px;
+            border: lightseagreen 10px solid;
+        }
+
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: limegreen;
+            margin-bottom: 100px;
+        }
+
+        a{
+            background-color: khaki;
+            /* 
+                display:
+                    可选值：
+                        inline转成行内元素
+                        block转成块元素
+                        inline-block转成行内块元素 可以设置height和width，又不会独占一行
+                        table转成表格
+                        none不在页面显示，也不占位置
+            */
+
+            display: block;
+            height: 100px;
+            width: 100px;
+
+            display:inline-block;
+            /* display: none; */
+        }
+        .vi{
+            background-color: lightcoral;
+            /* 
+                visibility 设置元素的显示状态
+                    可选项：
+                        visible默认值 可现实
+                        hidden隐藏  但是占用位置
+
+            */
+
+            visibility: visible;
+            visibility: hidden;
+
+        }
+    </style>
+
+</head>
+<body>
+    <sapn class="line">行内元素</sapn>
+    <div class="box1"></div>
+
+    <a href="#">超链接</a>
+    <a href="#">超链接</a>
+    <a href="#">超链接</a>
+
+
+    <span class="vi">ddddddddd</span>
+    <span class="vi">ddddddddd</span>
+    <span class="vi">ddddddddd</span>
+    <span class="vi">ddddddddd</span>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            /* 
+                浮动元素不会盖住文字，文字将自动环绕在浮动元素的周围，
+                    所以我们可以利用浮动来设置文字环绕图片的效果（浮动的最初用法就是文字环绕图片）
+            */
+            float: left;
+        }
+        .box2{
+            /* width: 100px;
+            height: 100px; */
+            background-color: yellowgreen;
+            /* 
+                元素设置浮动以后，将会从文档流中脱离，元素的一些特点也会改变
+
+                    脱离文档流的特点：
+                        块元素：
+                            1.块元素不再独占一行
+                            2.脱离文档流以后，块元素的宽度和高度，默认情况下被内容撑开
+
+                        行内元素：
+                            1.脱离文档流以后变成块元素，特点和块元素一样
+
+                        脱离文档流以后，不需要再区分 块 和 行内
+            */
+            float: left;
+        }
+        .box3{
+            background-color: yellow;
+        }
+        .s1{
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+        <p>
+            中南民族大学（South-Central Minzu University，简写SCMZU） [1]  位于湖北省武汉市，是中华人民共和国国家民族事务委员会直属高校，为中国“少数民族骨干计划”资格高校、全国深化创新创业教育改革示范高校、中国高校行星科学联盟、湖北省“国内一流大学建设高校”，是中华人民共和国国家民族事务委员会、教育部、中国科学院、湖北省人民政府、武汉市人民政府五方共建高校。
+        </p>
+    <div class="box2">hello</div>
+    <div class="box3">hello</div>
+    <span class="s1">我是一个span</span>
+</body>
+</html>
