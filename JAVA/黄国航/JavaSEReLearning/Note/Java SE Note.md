@@ -2,7 +2,7 @@
 
 
 
-###  继承
+##  继承
 
 - 继承是面向对象三大特征之一，可以使得子类具有父类的属性和方法，还可以在子类中重新定义、追加属性和方法。
 
@@ -13,7 +13,7 @@
   - 子类可以有父类的内容
   - 子类还可以有自己特有的内容
 
-#### 继承的好处和弊端
+### 继承的好处和弊端
 
 - 继承好处
   - 提高了代码的复用性
@@ -23,7 +23,7 @@
 - 什么时候使用继承
   - 继承体现的关系：is a（猫是一种动物）
 
-#### 继承中变量的访问特点
+### 继承中变量的访问特点
 
 在子类方法中访问一个变量
 
@@ -33,7 +33,7 @@
 - 找父亲的父亲……
 - 没有就报错
 
-#### super 关键字
+### super 关键字
 
 - super与this类似
 
@@ -49,14 +49,14 @@
   - `super(...)`：访问父类构造方法
   - `super.成员方法(...)`：访问父类成员方法
 
-#### 继承中构造方法的访问特点
+### 继承中构造方法的访问特点
 
 - 每一个子类构造方法的第一条语句默认都是`super()`
 - 如果父类中没有无参构造方法，只有带参构造方法：
   - 需要通过使用super关键字去显式地调用父类的带参构造方法。
   - 或：在父类中自己提供一个无参构造方法。
 
-#### 继承中成员方法的访问特点
+### 继承中成员方法的访问特点
 
 - 通过子类对象访问一个方法
   - 先到子类成员范围去找
@@ -64,7 +64,7 @@
   - 父亲的父亲中去找
   - 没有就报错
 
-#### 方法重写（Override）
+### 方法重写（Override）
 
 - 概述
 
@@ -81,7 +81,7 @@
   - 父类中私有方法子类不能重写（父类私有成员子类是不能继承的）。
   - 子类方法访问权限不能更低（`public`>默认>`private`）
 
-#### Java中继承的注意事项
+### Java中继承的注意事项
 
 - Java类只支持单个继承，不支持多个继承。
 
@@ -91,9 +91,9 @@
 
   如Father类继承GrandDad类，Son类继承Father类。
 
-### 修饰符
+## 修饰符
 
-#### 包package
+### 包package
 
 - 作用：对类进行分类和管理
 
@@ -113,16 +113,16 @@
 
   `import 包名`
 
-#### 权限修饰符
+### 权限修饰符
 
 - private：只能在同一个类中访问
 - 默认：只能在同一个类中、或同一个包中的子类和无关类中访问
 - protected：可以在同一个类中、或同一个包中的子类和无关类、或不同包中的子类进行访问
 - public：在同一个类中、同一个包中子类和无关类、不同包中的子类和无关类都可进行访问
 
-#### 状态修饰符final和static
+### 状态修饰符final和static
 
-##### final
+#### final
 
 - 意为最终， 可以修饰类、成员方法、成员变量。
 - final修饰的特点：
@@ -133,7 +133,7 @@
   - 变量是基本类型：final修饰指的是基本类型的数据值不能发生改变
   - 变量是引用类型：final 修饰指的是引用类型的地址值不能发生改变，但是地址里面的内容可以发生改变。
 
-##### static
+#### static
 
 - 静态的意思，可以修饰成员方法、成员变量。
 - static修饰的特点
@@ -145,7 +145,7 @@
 
 
 
-### 多态
+## 多态
 
 - 概述
 
@@ -163,7 +163,7 @@
   - 有方法重写（有同一个方法如`Cat.eat()`和`Animal.eat()`）
   - 有父类引用指向子类对象（如`Animal cat = new Cat()`）
 
-#### 多态中成员访问特点
+### 多态中成员访问特点
 
 - 访问成员变量：编译看左边，执行看左边
 
@@ -173,7 +173,7 @@
 
   如`Animal cat = new Cat()`，其在编译过程中，只将cat编译为一个Animal对象，该对象无法访问Cat类型的独有方法，而只能访问Animal中的方法，但如果Cat中重写了Animal的方法，那么通过cat访问的方法实际执行的会是Cat类中重写的方法。
 
-#### 多态的优点和弊端
+### 多态的优点和弊端
 
 - 好处：提高了程序的扩展性
 
@@ -181,7 +181,7 @@
 
 - 弊端：不能使用子类的特有方法
 
-#### 多态中的转型
+### 多态中的转型
 
 - 向上转型
 
@@ -197,11 +197,11 @@
 
   父类引用转为子类对象
 
-### 抽象类
+## 抽象类
 
 在Java中，一个没有方法体的方法应该定义为抽象方法，而类中如果有抽象方法，该类必须定义为抽象类。
 
-#### 抽象类的特点
+### 抽象类的特点
 
 - 抽象类和抽象方法必须使用`abstract`关键字修饰
 
@@ -220,7 +220,7 @@
   - 要么重写抽象类中的所有抽象方法
   - 要么是抽象类
 
-#### 抽象类的成员特点
+### 抽象类的成员特点
 
 - 成员变量：可以是变量，也可以是常量
 - 构造方法：
@@ -230,13 +230,13 @@
   - 可以有抽象方法：限定子类必须完成某些动作
   - 也可以有非抽象方法：提高代码复用性
 
-### 接口
+## 接口
 
 - 接口是一种**公共的规范标准**，只要符合规范标准，大家都可以通用
 
 - Java中的接口更多的体现在对**行为的抽象**
 
-#### 接口的特点
+### 接口的特点
 
 - 接口用关键字`interface`修饰
 
@@ -258,7 +258,7 @@
   - 要么重写接口中的所有抽象方法
   - 要么是抽象类
 
-#### 接口的成员特点
+### 接口的成员特点
 
 - 成员变量
 
@@ -278,13 +278,13 @@
   - 只能抽象方法
   - 默认修饰符：`public abstract`
 
-#### 类和接口的关系
+### 类和接口的关系
 
 - 类和类的关系：继承关系，只能单继承，但是可以多层继承
 - 类和接口的关系：实现关系，可以单实现，也可以多实现，还可以在继承一个类的同时实现多个接口。
 - 接口和接口的关系：继承关系，可以单继承，也可以多继承。
 
-#### 抽象类和接口的区别
+### 抽象类和接口的区别
 
 - 成员区别
   - 抽象类：变量，常量；有构造方法；有抽象方法，也有非抽象方法
@@ -297,7 +297,7 @@
   - 抽象类：对类抽象，包括属性、 行为（对事物的抽象）
   - 接口：对行为抽象，主要是行为（对行为的抽象）
 
-### 形参和返回值
+## 形参和返回值
 
 - 类名作为形参和返回值
   - 方法的形参是类名，其实需要的是该类的对象
@@ -309,7 +309,7 @@
   - 方法的形参是接口名，其实需要的是改接口的实现类对象
   -  方法的返回值是接口名，其实返回的是该接口的实现类对象
 
-### 内部类
+## 内部类
 
 - 就在在一个类中定义的另一个类。
 
@@ -333,20 +333,20 @@
   - 在类的成员位置：成员内部类
   - 在类的局部位置：局部内部类（包括匿名内部类）
 
-#### 成员内部类
+### 成员内部类
 
 - 外界使用成员内部类：创建对象
   - 格式：`外部类名.内部类名 对象名 = 外部类对象.内部类对象;`
   - 例子：`Outer.Inner oi = new Outer().new Innner();`
   - 成员内部类一般不使用public修饰符（而使用private），故一般情况下也不暴露给外界。
 
-#### 局部内部类
+### 局部内部类
 
 - 局部内部类是在方法中定义的类
 - 外界无法直接访问，需要在方法内部创建对象并使用
 - 局部内部类可以直接访问外部类的成员，也可以访问方法内的局部变量
 
-#### 匿名内部类
+### 匿名内部类
 
 - 前提：存在一个类或者接口，这里的类可以是具体类也可以是抽象类
 
@@ -374,18 +374,18 @@
 
 - 匿名类无法访问其封闭范围内未声明为`final`或实际上未声明为final 的局部变量。
 
-### 常用API
+## 常用API
 
-#### Math类
+### Math类
 
 - 类`Math`包含用于执行基本数字运算的方法，例如基本指数，对数，平方根和三角函数。 
 
-#### System类
+### System类
 
 - `System`类包含几个有用的类字段和方法。它不能被实例化。
 - `System`类提供的设施包括标准输入，标准输出和错误输出流; 访问外部定义的属性和环境变量; 一种加载文件和库的方法; 以及用于快速复制阵列的一部分的实用方法。 
 
-#### Object类
+### Object类
 
 - `Object`类是类层次结构的根。每个类都有  `Object`作为超类。所有对象，包括数组，实现这个类的方法。 
 
@@ -424,14 +424,14 @@ getClass().getName() + '@' + Integer.toHexString(hashCode())
         }
     ```
 
-#### Arrays
+### Arrays
 
 - 这个类包含用于操作数组（如排序和搜索）的各种方法。此类还包含一个允许数组被视为列表的静态工厂。 
 - 常用：
   - `Arrays.toString()`
   - `Arrays.sort()`
 
-#### 基本包装类型
+### 基本包装类型
 
 - 将基本数据类型封装成对象的好处在于可以在对象中定义更多的功能方法操作该数据
 
@@ -448,7 +448,7 @@ getClass().getName() + '@' + Integer.toHexString(hashCode())
   | char         | Character |
   | boolean      | Boolean   |
 
-##### 以Interger类的使用为例
+#### 以Interger类的使用为例
 
 - 得到该类的对象：
   - `Integer.valueOf(int i)`
@@ -459,15 +459,15 @@ getClass().getName() + '@' + Integer.toHexString(hashCode())
   - `Integer.valueOf(String s).intValue()`
   - `Integer.parseInt(String s)`(推荐)
 
-#### 自动装箱和拆箱
+### 自动装箱和拆箱
 
 - 装箱：把基本数据类型转换为对应的包装类型
 - 拆箱：把包装类类型转换为基本数据类型。
 - 装箱和拆箱都可以自动完成。（需要对包装类类型做判null的处理）
 
-#### 日期类
+### 日期类
 
-##### Date类
+#### Date类
 
 - Date代表了一个特定时间，精确到毫秒
   - `Date()`：得到一个当前时间和日期的信息
@@ -476,7 +476,7 @@ getClass().getName() + '@' + Integer.toHexString(hashCode())
   - `public long getTime() `：获取的是日期对象从1970年1月1日0时到现在的毫秒值
   - `public void setTime(long time)`：设置时间，time为毫秒值
 
-##### SimpleDateFormat类
+#### SimpleDateFormat类
 
 - `SimpleDateFormat`是一个具体的类，用于以区域设置敏感的方式格式化和解析日期。  它允许格式化（日期文本），解析（文本日期）和规范化。 
 
@@ -519,7 +519,7 @@ Wed Dec 08 00:23:05 CST 2021
 */
 ```
 
-##### Calendar类
+#### Calendar类
 
 - Calendar为抽象类
 
@@ -548,7 +548,7 @@ Wed Dec 08 00:23:05 CST 2021
 
   - `public final void set(int year, int month, int date)`：设置当前日历的年月日
 
-### 异常
+## 异常
 
 - `Throwable`类是Java语言中所有错误和异常的超类。  只有作为此类（或其一个子类）的实例的对象由Java虚拟机抛出，或者可以由Java `throw`语句抛出。  类似地，只有这个类或其子类可以是`catch`子句中的参数类型。
 
@@ -567,14 +567,14 @@ Wed Dec 08 00:23:05 CST 2021
   - 捕捉异常
   - 向外抛出异常
 
-#### JVM的默认处理方案
+### JVM的默认处理方案
 
 如果程序出现了问题，我们没做任何处理，最终JVM会做默认的处理：
 
 - 把异常的名称，异常的原因以及异常出现的位置等信息输出在控制台
 - 程序停止运行
 
-#### 异常处理try...catch...
+### 异常处理try...catch...
 
 - 格式
 
@@ -593,20 +593,20 @@ Wed Dec 08 00:23:05 CST 2021
   - 当Java运行时系统接收到的异常对象时，会到catch中去找匹配的异常类，找到后进行异常的处理
   - 执行完毕之后，程序还可以继续往下执行（try中的代码会停在出现异常的地方，不会继续）。
 
-#### Throwable类的成员方法
+### Throwable类的成员方法
 
 - `public String getMessage()`返回此Throwable的详细信息（细节）字符串
 - `public String toString()`返回此可抛出的简短描述
 - `public void printStackTrace()`把异常的错误信息输出在控制台
 
-#### 编译时异常和运行时异常的区别
+### 编译时异常和运行时异常的区别
 
 - Java中的异常被分为两大类：**编译时异常**和**运行时异常**，也称为**受检异常**和**非受检异常**
 - 所有的RuntimeException类及其子类被称为运行时异常，其他的异常都是编译时异常。
 - 编译时异常：必须显示处理，否则程序就会发生错误，无法通过编译
 - 运行时异常，无需显示处理，也可以和编译时异常一样处理
 
-#### 异常处理之throws
+### 异常处理之throws
 
 - 有时异常出现时无权限处理，就需要将异常向外抛出（在方法声明中做异常标记)，由方法调用者进行捕捉处理
 
@@ -618,13 +618,13 @@ Wed Dec 08 00:23:05 CST 2021
   }
   ```
 
-#### 自定义异常
+### 自定义异常
 
 - 继承自Exception类，带参构造方法调用`super(message)`传递message错误信息。
 - 在需要手动抛出异常的地方，使用`throw`关键字抛出异常对象
   - 如：`throw new MyException(message);`
 
-#### throws 和throw的区别
+### throws 和throw的区别
 
 - throws
   - 用在方法声明后面，跟的是异常类名
@@ -635,7 +635,7 @@ Wed Dec 08 00:23:05 CST 2021
   - 表示抛出异常，由方法体内的语句处理
   - 执行throw一定抛出了某种异常
 
-### 集合
+## 集合
 
 集合类的特点：提供一种存储空间可变的存储模型，存储的数据容量可以随时发生改变。
 
@@ -654,7 +654,7 @@ Wed Dec 08 00:23:05 CST 2021
   - HashMap
   - ……
 
-#### Collection接口
+### Collection接口
 
 - 是单例集合的顶层接口，它表示一组对象，这些对象也称为Collection的元素
 
@@ -683,7 +683,7 @@ Wed Dec 08 00:23:05 CST 2021
   - `boolean isEmpty()`判断集合是否为空 
   - `int size()`集合的长度，也就是集合中元素的个数
 
-##### Collection集合的遍历
+#### Collection集合的遍历
 
 - `Iterator`：迭代器，集合的专用遍历方式
 
@@ -704,7 +704,7 @@ Wed Dec 08 00:23:05 CST 2021
 
 - 注意：ArrayList在迭代的时候如果同时对其进行修改就会抛出`java.util.ConcurrentModificationException`异常（如在迭代时添加元素，虽然`hasNext()`为true，但`next()`方法会抛出该异常）
 
-#### List
+### List
 
 -  继承自`Collection`
 -  List为有序集合（也称为序列），用户可以**精确**控制列表中每个元素的插入位置。用户可以通过整数**索引访问**元素，并搜索列表中的元素
@@ -732,7 +732,7 @@ List<String> list = new ArrayList<String>()
   - `boolean has Previous()`:如果此列表迭代器在相反方向遍历列表时具有更多元素,则返回true 
   - `void add(E e)`:将指定的元素插入列表
 
-##### 增强for循环(for-each loop)
+#### 增强for循环(for-each loop)
 
 - 增强for:简化数组和 Collection集合的遍历
 
@@ -749,14 +749,14 @@ List<String> list = new ArrayList<String>()
 
 - 注意其内部原理是一个`Iterator`迭代器，所以在该for循环中，不可对集合元素进行修改操作。否则会抛出并发修改异常。
 
-##### List集合子类特点
+#### List集合子类特点
 
 List集合常用子类：`ArrayList`、`LinkedList`
 
 - `ArrayList`：底层数据结构是数组，查询快，增删慢
 - `LinkedList`：底层数据结构是链表，查询慢，增删快
 
-##### LinkedList集合的特有功能
+#### LinkedList集合的特有功能
 
 其底层是链表，故提供了一些对头尾操作的方法：
 
@@ -767,7 +767,7 @@ List集合常用子类：`ArrayList`、`LinkedList`
 - `public E removeFirst()`从此列表中删除并返回第一个元素
 - `public E removeLast()`从此列表中删除并返回最后一个元素
 
-#### Set集合
+### Set集合
 
 - Set集合特点
   - 不包含重复元素的集合
@@ -788,7 +788,7 @@ for(String s : set){
 System.out.println(set);
 ```
 
-##### 哈希值（Hash）
+#### 哈希值（Hash）
 
 - 哈希值：是JDK根据对象的**地址**或者**字符串**或者**数字**算出来的int类型的**数值**。
 
@@ -797,7 +797,7 @@ System.out.println(set);
   - 默认情况下，不同对象的哈希值是不相同的
   - 通过方法重写，可以实现不同对象的哈希值是相同的
 
-##### HashSet集合概述和特点
+#### HashSet集合概述和特点
 
 `HashSet`集合特点：
 
@@ -806,7 +806,7 @@ System.out.println(set);
 - 没有带索引的方法,所以不能使用普通for循环遍历
 - 由于是Set集合,所以是不包含重复元素的集合
 
-##### HashSet集合保证元素唯一性
+#### HashSet集合保证元素唯一性
 
 ```java
 // Hashset存储元素的相关源码分析
@@ -894,7 +894,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
 
 - 要保证元素唯一性，需要重写`hashCode()`和`equals()`
 
-##### 哈希表
+#### 哈希表
 
 - JDK8之前,底层采用**数组+链表**实现,可以说是一个元素为链表的数组
 
@@ -905,7 +905,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
   ![image-20211210011331857](Java SE Note.assets/image-20211210011331857.png)
 
 
-##### LinkedHashSet集合
+#### LinkedHashSet集合
 
 - 继承自`HashSet`、实现了Set接口
 
@@ -914,7 +914,7 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
   - 由链表保证元素有序，也就是说元素的存储和取出顺序是一致的
   - 由哈希表保证元素唯一，也就是说没有重复的元素
 
-##### TreeSet集合
+#### TreeSet集合
 
 - `Treeset`集合特点：
   - 元素有序，这里的顺序不是指存储和取出的顺序，而是按照一定的规则进行排序，具体排序方式取决于构造方法
@@ -923,14 +923,14 @@ final V putVal(int hash, K key, V value, boolean onlyIfAbsent,
   - 没有带索引的方法，所以不能使用普通 for 循环遍历
   - 由于是 Set 集合，所以不包含重复元素的集合
 
-##### 自然排序Comparable的使用
+#### 自然排序Comparable的使用
 
 - 用 `TreeSet` 集合存储自定义对象，无参构造方法使用的是自然排序对元素进行排序的
 - 自然排序，就是让元素所属的类实现 `Comparable` 接口，重写 `compareTo(O o)`方法
 - 重写方法时，一定要注意排序规则必须按照要求的主要条件和次要条件来写
 - `compareTo(O o)`方法返回0时， 代表两个元素相等，返回正数时，代表该元素比o大，返回负数则相反。
 
-##### 比较器排序Comparator的使用
+#### 比较器排序Comparator的使用
 
 ```java
 // 可以直接使用匿名内部类
@@ -948,7 +948,7 @@ TreeSet<Student> ts = new TreeSet<Student>(new Comparator<Student>() {
 - 比较器排序，就是让集合构造方法接收 Comparator 的实现类对象，重写 `compare（To1，T o2）`方法
 - 重写方法时，一定要注意排序规则必须按照要求的主要条件和次要条件来写
 
-#### 泛型
+### 泛型
 
 - 泛型：是 JDK5中引入的特性，它提供了编译时类型安全检测机制，该机制允许在编译时检测到非法的类型。它的本质是**参数化类型**，也就是说所操作的数据类型被指定为一个参数
 
@@ -963,14 +963,14 @@ TreeSet<Student> ts = new TreeSet<Student>(new Comparator<Student>() {
   - 把运行期间的问题提前到了编译期间
   - 避免了强制类型转换
 
-##### 泛型类
+#### 泛型类
 
 - 泛型类的定义格式：
   - 格式：`修饰符 class 类名<类型>{}`
   - 范例：`public class ClassName<T>{}`
     此处` T `可以随便写为任意标识，常见的如 `T`、`E`、`K`、`V `等形式的参数常用于表示泛型
 
- ##### 泛型方法
+#### 泛型方法
 
 - 范例：
 
@@ -980,7 +980,7 @@ TreeSet<Student> ts = new TreeSet<Student>(new Comparator<Student>() {
   }
   ```
 
-##### 泛型接口
+#### 泛型接口
 
 - 格式：`修饰符 interface 接口名<类型>{}`
 - 范例：`public interface Generic<T> {}`
@@ -1006,7 +1006,7 @@ public class GenericDemo{
 }
 ```
 
-##### 类型通配符
+#### 类型通配符
 
 为了表示各种泛型 List 的父类，可以使用类型通配符
 
@@ -1041,7 +1041,7 @@ public class GenericDemo {
 		// List<? super Number> List9 =new ArrayList<Integer>();不符合下限
 ```
 
-##### 可变参数
+#### 可变参数
 
 - 可变参数又称参数个数可变，用作方法的形参出现，那么方法参数个数就是可变的了
 
@@ -1069,7 +1069,7 @@ public static int sum(int...a) {
 }
 ```
 
-##### 可变参数的使用
+#### 可变参数的使用
 
 - Arrays 工具类中有一个静态方法：
   - `public static <T> List<T> asList(T...a) `：返回由指定数组支持的**固定大小**的列表 (列表元素不能增删，但可以修改)
@@ -1088,7 +1088,7 @@ Set<String> set = Set.of("hh", "wwww", "jajj")
 
 
 
-#### Map
+### Map
 
  Map是将键映射到值的对象。
 
@@ -1129,12 +1129,238 @@ map.put("003", "ddff");
   - `map.Entry`中的`getValue()`可返回该键值对条目的值
   - `map.Entry`中的`setValue(V value)`可用指定的值替换该条目的值。
 
-#### Collections
+### Collections
 
 - 是针对集合操作的工具类，全是静态方法
 - Collections 类的常用方法
   - `public static <T extends Comparable<? super T>> void sort(List<T> list)`:将指定的列表按升序排序
   - `public static void reverse(List<?> list)`:反转指定列表中元素的顺序
   - `public static void shuffle(List<?> list)`:使用默认的随机源随机排列指定的列表
+
+## IO流
+
+
+
+### File类
+
+- 它是文件和目录路径名的抽象表示。
+
+  - 文件和目录是可以通过 File 封装成对象的
+
+  - 对于 File 而言,其封装的并不是一个真正存在的文件,仅仅是一个路径名而已。它可以是存在的,也可以是不存在的。将来是要通过具体的操作把这个路径的内容转换为具体存在的。
+
+- 构造方法
+
+  - `File(String pathname)` 通过将给定的路径名字符串转换为抽象路径名来创建新的 File实例
+  -  `File(String parent, String child)`从父路径名字符串和子路径名字符串创建新的 File 实例
+  -  `File(File parent, String child)` 从父抽象路径名和子路径名字符串创建新的 File 实例
+
+  ```java
+  File f1 = new File("D:\\java\\test.txt");
+  System.out.println(f1);
+  File f2 = new File("D:\\java", "test.txt");
+  System.out.println(f2);
+  File f3 = new File("D:\\java");
+  File f4 = new File(f3, "test.txt");
+  System.out.println(f4);
+  
+  /* 输出：
+  D:\java\test.txt
+  D:\java\test.txt
+  D:\java\test.txt
+  */
+  ```
+
+- 创建功能
+
+  - `public boolean createNewFile()`当具有该名称的文件不存在时,创建一个由该抽象路径名命名的新空文件；如果文件存在，则不做改变，返回false。
+  - `public boolean mkdir() `创建由此抽象路径名命名的目录（目录不存在的话） ，不可以创建多级目录。
+  - ` public boolean mkdirs()`创建由此抽象路径名命名的目录,包括任何必需但不存在的父目录 
+
+- File类判断和获取功能
+
+  - `public boolean isDirectory()` 测试此抽象路径名表示的 File是否为目录
+  - ` public boolean isFile() `测试此抽象路径名表示的 File 是否为文件 
+  - `public boolean exists `测试此抽象路径名表示的 File 是否存在 
+  - `public String getAbsolutePath()`返回此抽象路径名的绝对路径名字符串
+  - `public String getPath()` 将此抽象路径名转换为路径名字符串 
+  - `public String getName()`返回由此抽象路径名表示的文件或目录的名称
+  - `public String[] list() `返回此抽象路径名表示的目录中的文件和目录的名称字符串数组
+  - `public File[] listFiles()`返回此抽象路径名表示的目录中的文件和目录的 File 对象数组
+
+- File类删除功能
+
+  - `public boolean delete()`删除由此抽象路径名表示的文件或目录
+  - 如果一个目录中有目录或文件，不能直接删除。应先删除目录中的内容，最后才能删目录。
+
+### 字节流
+
+#### IO流概述和分类
+
+- 概述
+  - IO即为输入输出，流为一种抽象概念，是对数据传输的总称。也就是说数据在设备间的传输称为流，流的本质是数据传输。
+- 按数据流向分类
+  - 输入流
+  - 输出流
+- 按数据类型分类
+  - 字节流
+  - 字符流
+
+#### 字节流写数据
+
+- 字节流抽象基类
+  - `InputStream`:这个抽象类是表示字节输入流的所有类的超类 
+  - `OutputStream`:这个抽象类是表示字节输出流的所有类的超类
+  - 子类名特点：子类名称都是以其父类名作为子类名的后缀
+
+- `FileOutputStream`：文件输出流用于将数据写入 File 
+
+  - `FileOutputStream(String name) `：创建文件输出流以指定的名称写入文件
+
+  ```java
+  FileOutputStream fos = new FileOutputStream("mydir\\fos.txt");
+  /*
+  做了三件事：
+  	1. 调用系统功能创建了文件
+  	2. 创建了字节输出流对象
+  	3. 让字节输出流对象指向创建好的文件
+  	*/
+  fos.write(97);// 对应字母a
+  fos.write(57); // 对应数字9
+  
+  // 与IO相关的操作最后都要释放资源
+  fos.close();
+  ```
+
+- 使用字节输出流写数据的步骤:
+
+  - 创建字节输岀流对象(调用系统功能创建了文件,创建字节输岀流对象,让字节输出流对象指向文件)
+  - 调用字节输出流对象的写数据方法
+  - 释放资源(关闭此文件输出流并释放-与此流相关联的任何系统资源)
+
+#### 字节流写数据的三种方式
+
+- `void write(int b)`将指定的字节写入此文件输出流，一次写一个字节数据 
+
+- `void write(byte[] b)`将 b.length 字节从指定的字节数组写入此文件输出流，一次写一个字节数组数据 
+
+- `void write(byte[] b, int off, int len)`将 len 字节从指定的字节数组开始，从偏移量 off 开始写入此文件输出流，一次写一个字节数组的部分数据、
+
+- 实现换行：
+
+  ```java
+  fos.write("hello\n".getBytes());
+  /*
+  各个操作系统的换行符不同：
+    windows：\r\n
+    linux:\n
+    mac:\r
+  */
+  fos.close();
+  ```
+
+- 追加写入：
+
+  - ` public FileOutputStream (String name, boolean append)`创建文件输出流以指定的名称写入文件。如果第二个参数为 true ,则字节将写入文件的末尾而不是开头。
+
+  ```java
+  FileOutputStream fos = new FileOutputStream("mydir\\fos.txt", true);
+  
+  fos.write("hello\n".getBytes());
+  fos.close();
+  ```
+
+#### 字节流写数据加异常处理
+
+- finally：在异常处理时提供 finally 块来执行所有清除操作。比如说 IO 流中的释放资源
+
+- 特点：被 finally 控制的语句一定会执行，除非 JVM 退出
+
+- 格式：
+
+  ```java
+  try {
+      // 可能出现异常的代码
+  } catch(异常类名 变量名){
+      // 异常的处理代码；
+  } finally{
+     // 执行所有清除操作；
+  }
+  ```
+
+示例：
+
+```java
+FileOutputStream fos = null;
+try {
+    // 可能出现异常的代码
+    fos = new FileOutputStream("mydir\\fos.txt");
+    fos.write("hello\n".getBytes());
+} catch(IOException e){
+    // 异常的处理代码；
+    e.printStack();
+} finally{
+    // 执行所有清除操作；
+    if(fos != null){
+         try{
+        	fos.close;
+    	}catch(IOException e){
+        	e.printStack();
+    	}
+    } 
+}
+```
+
+#### 字节流读数据
+
+- `FilelnputStream`:从文件系统中的文件获取输入字节 
+  - `FilelnputStream(String name)`:通过打开与实际文件的连接来创建一个 `FilelnputStream`，该文件由文件系统中的路径名 name 命名
+
+- 步骤：
+  - 1:创建字节输入流对象
+  - 2:调用字节输入流对象的读数据方法
+  - 3:释放资源
+- 一次读取一个字节数据：
+
+    ```java
+    FileInputStream fis = new FileInputStream("mydir\\fos.txt");
+    int by = fis.read();
+    while(by != -1){
+        System.out.println(by);
+        System.out.println((char)by);
+        by = fis.read();
+    }
+    
+    // 可以这样写
+    int by;
+    while( (by = fis.read()) != -1) {
+        System.out.print((char)by);
+    }
+    
+    fis.close();
+    ```
+
+- 一次读取一个字节数组：
+
+  ```java
+  FileInputStream fis = new FileInputStream("mydir\\fos.txt");
+  bytes[] bys = new byte[5];
+  int len = fis.read(bys);// len返回实际读取的字符的个数，读到末尾返回-1
+  System.out.println(len);
+  System.out.println(new String(bys));
+  fis.close();
+  
+  // 或者这样写：
+  
+  FileInputStream fis = new FileInputStream("mydir\\fos.txt");
+  bytes[] bys = new byte[1024]; 
+  
+  int len;
+  while( (len = fis.read(bys)) != -1) {
+  	System.out.print(new String(bys, 0, len));
+  }
+  
+  fis.close();
+  ```
 
   
