@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网易新闻的右侧列表</title>
+    <link rel="stylesheet" href="../03_layout/css/reset.css">
+    <style>
+        body{
+            background-color: #bfa;
+        }
+        a{
+            /* 统一去除超链接下划线 */
+            text-decoration: none;
+        }
+        .news-wapper{
+            width: 300px;
+            height: 360px;
+            margin: 50px auto;
+            /* 设置上边框 */
+            background-color: #fff;
+            border-top: 1px #ddd solid;
+        }
+        .news-title{   
+            display: inline-block;         
+            height: 40px;
+            line-height: 40px;
+            /* 设置“体育”上方的红线 */
+            border-top: 1px red solid;
+            margin-top: -1px;
+        }
+        .news-title a{
+            /* 设置“体育”的样式 */
+            text-decoration: none;
+            color: #40406b;
+            font-weight:bold;
+        }
+        .news-img{
+            height: 150px;
+        }
+        .img-title{
+            /* 设置图片中的文字 */
+            margin-top: -30px;
+            font-weight: bold;
+            color: #fff;
+            padding: 0 10px;
+        }
+        .news-list{
+            /* 设置上外边距 */
+            margin-top: 20px;
+            /* 设置做内边距 */
+    
+        }
+        .news-list li:not(:last-child){
+            /* 设置超链接之间的间距 */
+            margin-bottom: 17px;
+        }
+        .news-list li a{
+            /* 设置超链接列表样式 */
+            font-size: 14px;
+            color: #666;
+        }
+        .news-list li a:hover{
+            /* 设置鼠标移入超链接的样式 */
+            color: red;
+        }
+        /* 通过before 伪元素。来为每一个 li 添加项目符号 */
+        .news-list li a::before{
+            content: "□";
+            color:rgb(218, 218, 218);
+            font-size: 12px;
+            padding-right: 4px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="news-wapper">
+        <h2 class="news-title">
+            <a href="#">体育</a>
+        </h2>
+        <div class="news-img">
+            <a href="#"><img  src="./img/03/1.jpg" alt="">
+                <h3 class="img-title">
+                    奥丽莎文：斯洛克不赚钱年轻人请远离
+                </h3>
+            </a>     
+        </div>
+        <ul class="news-list">
+            <li>
+                <a href="#">澳门国际电影节提名公布 刘德华吴京争影帝</a>
+            </li>
+            <li>
+                <a href="#">大s被曝联合家人 不让汪小菲接触孩子</a>
+            </li>
+            <li>
+                <a href="#">国剧盛典红毯：刘涛僵硬假笑 宋祖儿迟到</a>
+            </li>
+            <li>
+                <a href="#">张天爱早期活动照曝光 形象变化太大</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer{
+            width: 800px;
+            height: 200px;
+            border: 10px red solid;
+            overflow-x: auto;
+        }
+        .inner{
+            width: 1000px;
+            height: 200px;
+            background-color: royalblue;
+            margin-left: 100px;
+            
+            
+            /* 
+                元素的水平方向的布局：  
+                    元素在其父元素中水平方向的位置由以下几个属性共同决定
+                        margin-left
+                        border-left
+                        padding-left
+                        width
+                        padding-right
+                        border-right
+                        margin-right         
+
+                    一个元素在其父元素中，必须满足的等式：
+                        以上七个值的总和等于其父元素内容区的宽度
+                            如果以上等式不成立，则称为过度约束，则等式会自动调整
+                            -调整的情况：
+                                -如果这七个值没有为 auto 的情况，则浏览器会自动调整margin-right的值以使等式满足
+                                 这七个值中有三个值可以设置为auto
+                                    width
+                                    margin-left
+                                    margin-right
+                                    如果某个值为auto 则会自动调整 auto 的那个值，以使等式成立
+
+                                -如果将一个宽度和一个外边距设置为 auto 的情况，则宽度会调整到最大
+                                 如果三个值都是 auto  外边距为0 宽度最大
+
+                                -如果将两个外边距设置为 auto ，宽度固定，则左右外边距会设置为相等的值
+                                    所以经常利用这个特点，使一个元素在其父元素中水平居中
+                                    示例：
+                                        width:200px;
+                                        margin-left:auto;
+                                        margin-right:auto;
+
+            */
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>
