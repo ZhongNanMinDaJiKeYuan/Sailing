@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定位</title>
+    <style>
+        /* 
+        定位（position）
+            定位是一种更加高级的布局手段
+            通过定位可以将元素摆放到页面的任意位置
+            使用position属性来设置定位
+                可选值：
+                    static 默认值，元素静止，没有开启定位
+                    relative 开启元素的相对定位
+                    absolute 开启元素的绝对定位
+                    fixed 开启元素的固定定位
+                    sticky 开启元素的粘滞定位
+                    
+    
+            偏移量（offset）
+                当元素开启了定位后，可以通过偏移量来设置元素的位置
+                top		定位元素和定位位置上边的距离
+                bottom	定位元素和定位位置下边的距离
+                定位元素的垂直方向位置由这两个属性来控制，通常只使用一个
+                left	定位元素和定位位置左侧的距离
+                right	定位元素和定位位置右侧的距离
+                定位元素的水平方向位置由这两个属性来控制，通常只使用一个
+                
+        */
+        div{
+            font-size: 50px;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+            /* 
+            相对定位：
+                当元素的position属性值设置为relative时，开启元素的相对定位
+                相对定位的特点：
+                    1.元素开启相对定位后，如果不设置偏移量，元素不会发生任何变化
+                    2.相对定位是参照于元素在文档流中的位置进行定位的
+                    3.相对定位会提升元素的层级
+                    4.相对定位不会使元素脱离文档流
+                    5.相对定位不会改变元素的性质，块还是块，行内还是行内
+            */
+            position: relative;
+            left: 200px;
+            top: -200px;
+        }
+        .box3{
+            width: 500px;
+            height: 500px;
+            background-color: brown;
+        }
+        .box4{
+            width: 300px;
+            height: 300px;
+            background-color: cornflowerblue;
+            position: relative;
+        }
+        .box5{
+            width: 200px;
+            height: 200px;
+            background-color: darkgoldenrod;
+            
+            /* 
+            绝对定位：
+                当元素的position属性值设置为absolute时，则开启了元素的绝对定位
+                绝对定位的特点：
+                    1、开启绝对定位后，如果不设置偏移量，元素的位置不会发生变化
+                    2、开启绝对定位后，元素会脱离文档流
+                    3、绝对定位会改变元素的性质，块变成行内，行内变成块
+                    4、绝对定位会使元素提升一个层级
+                    5、绝对定位元素是相对于其包含块进行定位的
+                    
+                    包含块(containing block)
+                        正常情况下：
+                            包含块就是离当前元素最近的祖先块元素
+                            
+                        绝对定位的包含块
+                            包含块就是离它最近的开启了定位的祖先元素
+                            如果所有的祖先元素都没有开启定位，则根元素就是其包含块
+                        
+                        html（根元素、初始包含块）
+            */    
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .box6{
+            width: 1000px;
+            height: 60px;
+            background-color: deeppink;
+            /* 
+            固定定位：
+                当元素的position属性值设置为fixed时，则开启了元素的固定定位
+                固定定位也是一种绝对定位，所以固定定位的大部分特点都与绝对定位一样
+                唯一不同的是，固定定位永远参照于浏览器视口进行定位(滚动条滑动，固定定位元素位置也不变，多用于“万恶”的广告)
+            */
+            position: fixed;
+            top: 0;
+            left: 500px;
+        }
+
+            /* 
+            粘滞定位：
+                当元素的position属性值设置为sticky时，则开启了元素的粘滞定位
+                粘滞定位和相对定位的特点基本一致，不同的是粘滞定位可以在元素到达某个位置时将其固定
+            */
+           
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3
+        <div class="box4">4
+            <div class="box5">5</div>
+        </div>
+    </div>
+    <div class="box6">6</div>
+</body>
+</html>

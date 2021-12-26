@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格</title>
+    <style>
+        .table2{
+            width: 50%;
+            border: 1px solid black;
+            margin: 0 auto;
+
+            /* border-spacing: 0px;   指定框之间的距离 */
+            /* 合并框 */
+            border-collapse: collapse;     
+        }
+
+        .table2 td{
+            border: 1px solid black;
+            height: 100px;
+            /* td中的元素默认垂直居中，可通过 vertical-align 进行修改*/
+            vertical-align: middle;
+            /* 调整水平位置 */
+            text-align: center;
+        }
+        /* 注意：tr不是table的子元素，而是tbody的子元素，如果表格中没有使用tbody，浏览器会自动使用tbody */
+        tbody tr:nth-child(odd){
+            background-color: chartreuse;
+        }
+        /* 第二个表格中第一行是thead */
+
+    </style>
+</head>
+<body>
+    <table border="1"  width="50%" align="center">
+        <tr>
+            <td>A1</td>
+            <td>B1</td>
+            <td>C1</td>
+            <td>D1</td>
+        </tr>
+        <tr>
+            <td>A2</td>
+            <td>B2</td>
+            <td>C2</td>
+            <!-- rowspan 纵向合并 -->
+            <td rowspan="2">D2</td>
+        </tr>
+        <tr>
+            <td>A3</td>
+            <td>B3</td>
+            <td>C3</td>
+            
+        </tr>
+        <tr>
+            <td>A4</td>
+            <td>B4</td>
+            <!-- colspan 横向合并 -->
+            <td colspan="2">C4</td>
+        </tr>
+    </table>
+    <!-- 
+        表格可以分为三个部分
+            头部  thead
+            主体  tbody
+            底部  tfoot
+     -->
+     <table class="table2">
+        <thead>
+            <tr>
+                <td>日期</td>
+                <td>收入</td>
+                <td>支出</td>
+                <td>合计</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2021.12.1</td>
+                <td>100</td>
+                <td>100</td>
+                <td>200</td>
+            </tr>
+            <tr>
+                <td>2021.12.2</td>
+                <td>100</td>
+                <td>100</td>
+                <td>200</td>
+            </tr>
+            <tr>
+                <td>2021.12.3</td>
+                <td>100</td>
+                <td>100</td>
+                <td>200</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>合计</td>
+                <td>600</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

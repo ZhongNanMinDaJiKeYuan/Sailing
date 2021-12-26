@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电影卡片</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./fa/css/all.css">
+    <style>
+        /* 设置外部容器样式 */
+        .outer{
+            width: 474px;
+            margin: 100px auto;
+            /* 设置阴影 */
+            box-shadow: 0 0  10px rgba(0, 0 , 0, .3);
+        }
+        .outer>.movie-img{
+            /* 设置背景图片大小 */
+            background-size: 100%;
+        }
+        .info{
+            padding: 0 25px;
+            font-size: 16px;
+            color: #acaaaa;
+        }
+        .info .movie-name{
+            font-size: 20px;
+            color: #717171;
+            margin: 10px 0;
+        }
+        .info .category{
+            padding: 10px 0 ;
+        }
+        /* 设置内容样式 */
+        .info .content{
+            padding: 2px;
+            line-height: 20px;
+            /* 文字两端对齐 */
+            text-align: justify;
+            
+        }
+        /* 设置评分容器样式 */
+        .rating{
+            height: 40px;
+            line-height: 40px;
+            border-top: 1px #e9e9e9 solid;
+        }
+        .rating .star{
+            float: left;
+            margin: 0 30px;
+            color: #acaaaa;
+        }
+        .rating>.star>.light{
+            color: orange;
+        }
+        .rating .weibo{
+            float: right;
+            margin: 0 30px;
+            color: rgba(197, 14, 14, 0.918);
+        }
+    </style>
+</head>
+<body>
+    <!-- 创建外部容器 -->
+    <div class="outer">
+        <!-- 创建海报容器 -->
+        <div class="movie-img">
+            <!-- 放置电影图片 -->
+            <img src="./img/ex05/OIP-C.png" alt="海上钢琴师">
+        </div>
+        <!-- 文字内容模块 -->
+        <div class="info">
+            <h2 class="movie-name">海上钢琴师</h2>
+            <h3 class="category">
+                <i class="fas fa-map-marker-alt"></i>
+                剧情片
+            </h3>
+            <p class="content">本片讲述了一个钢琴天才传奇的一生。Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta libero incidunt dolores. Deserunt nemo adipisci corrupti odit, accusantium blanditiis labore odio molestiae eius veritatis reprehenderit cupiditate ipsum facere. Aut, a.</p>
+        </div>
+        <!-- 创建评分容器 -->
+        <div class="rating">
+            <!-- 星星评价 -->
+            <ul class="star">
+                <li class="fas fa-star light"></li>
+                <li class="fas fa-star light"></li>
+                <li class="fas fa-star light"></li>
+                <li class="fas fa-star light"></li>
+                <li class="fas fa-star"></li>
+            </ul>
+            <!-- 分享微博 -->
+            <ul class="weibo">
+                <li class="fab fa-weibo"></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

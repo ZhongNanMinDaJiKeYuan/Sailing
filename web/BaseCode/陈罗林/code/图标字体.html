@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图标字体</title>
+    <link rel="stylesheet" href="./fa/css/all.css">
+    <style>
+        ul{
+            list-style: none;
+        }
+        li::before{
+            content: '\f1b0';
+            /* font-family: 'Font Awesome 5 Brands'; */
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+        }
+    </style>
+</head>
+<body>
+    <i class="fa fa-car">人生若只如初见</i><br>
+    <i>何事秋风悲画扇</i>
+    <ul>
+        <li>当时只道是寻常</li>
+        <li>当时只道是寻常</li>
+        <li>当时只道是寻常</li>
+        <li>当时只道是寻常</li>
+    </ul>
+    <!-- 用法： &#x图标编码； -->
+    <span class="fas">&#xf0f3;</span>
+    <span class="fas">&#xf12a;</span>
+</body>
+</html>

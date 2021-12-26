@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字体的样式</title>
+    <style>
+        .t1{
+            width: 500px;
+            border: 1px red solid;
+            /* 
+            text-align 文本的水平对齐
+                可选值：
+                    left 左侧对齐
+                    right 右对齐
+                    center 居中对齐
+                    justify 两端对齐
+            */
+            text-align: justify;
+        }
+        .t2{
+            width: 500px;
+            border: 1px blue solid;
+            font-size: 30px;
+        }
+        span{
+            border: 1px black solid;
+            font-size: 15px;
+            /* 
+            vertical-align  设置元素垂直对齐的方式
+                可选值：
+                    baseline 默认值  基线对齐
+                    top  顶部对齐
+                    bottom  底部对齐
+                    middle  居中对齐
+            */
+            vertical-align: middle;
+        }
+        .t3{
+            font: bold italic 30px 微软雅黑;
+            /* 
+            text-decoration  设置文本修饰
+                可选值：
+                    none
+                    underline  下划线
+                    line-through 删除线
+                    overline 上划线
+            */
+            text-decoration: line-through red dotted;
+
+        }
+        .box{
+            width: 200px;
+            /* 
+            white-space  设置网页如何处理空白
+                可选值：
+                    normal 默认值
+                    nowrap 不换行
+                    pre  保留空白(写的格式怎样就显示怎样)
+            */
+            white-space: nowrap;
+            /* 裁剪多余部分 */
+            overflow: hidden;
+            /* 设置省略号 */
+            text-overflow: ellipsis;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="t1">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum dolores cumque ab id delectus ut fuga, soluta nostrum dolor consequuntur. Nihil error necessitatibus ex modi totam tempora molestias, eaque aut.
+    </div>
+    <div class="t2">
+        天青色等烟雨，而我在<span>wait you</span>！
+    </div>
+    <div class="t3">无关风月，我题序等你回</div>
+    <div class="box">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit, veniam cum, numquam maxime doloribus, incidunt fugiat porro assumenda reprehenderit est quos quia quae. Qui aliquam quaerat vero minus libero eveniet.</div>
+</body>
+</html>

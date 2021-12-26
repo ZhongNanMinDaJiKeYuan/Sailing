@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            font-size: 30px;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            float: left;
+        }
+        .box2{
+            width: 400px;
+            height: 400px;
+            background-color: blueviolet;
+            /* 
+                由于box1的浮动，导致box2上移，如果不希望某个元素因为其他元素的浮动而影响位置
+                可以通过clear属性来清除浮动元素对当前元素产生的影响
+
+                clear：清除浮动元素对当前元素的影响（解决高度塌陷问题）
+                    可选值：left 清除左侧浮动元素对当前元素的影响
+                            right 清除右侧浮动元素对当前元素的影响
+                            both 清除两侧中最大影响的那侧
+
+                    原理：设置清除浮动后，浏览器会自动为元素添加一个上外边距，以使其位置不受其他元素的影响
+            */
+            clear: left;
+        }
+        .box3{
+            border: 10px red solid;
+
+        }
+        /* 
+            高度塌陷解决方法
+            伪类
+         */
+        .box3::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        
+        .inner{
+            width: 100px;
+            height: 100px;
+            background-color: orchid;
+            float: left;
+        }
+     
+
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">
+        <div class="inner"></div>
+    </div>
+    
+</body>
+</html>
