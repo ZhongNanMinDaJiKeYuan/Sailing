@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <style>
+        .box1{
+            width: 800px;
+            height: 800px;
+            background-color: bisque;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            /* 设置box2的动画 */
+            /* 对当前元素生效的关键帧的名字 */
+            animation-name: test;
+            /* 动画执行时间 */
+            animation-duration:4s ;
+            /* 动画的延迟 */
+            animation-delay: 1s;
+            /* animation-timing-function:ease; 动画的时序函数 */
+            /* 动画的执行次数 
+                可选值：
+                    次数
+                    infinite  无限执行
+            */
+            animation-iteration-count: 20;
+            /* animation-direction: ;动画执行的方向
+                可选值：
+                    normal   默认值  从from到to，每次都是这样
+                    reverse  从to到from
+                    alternate  从from到to，重复执行动画时反向执行 
+                    alternate-reverse  从to到from，重复执行动画时反向执行
+            */
+            animation-direction: alternate;
+            /* animation-play-state: 设置动画执行的状态
+                可选值：running  默认，动画执行
+                        pause  动画暂停，可搭配hover    
+            */
+            animation-play-state: running;
+            /* animation-fill-mode:
+                可选值：
+                    none   默认值，动画执行完毕回到初始位置，不是from的位置，而是元素最开始的位置
+                    forwards 动画执行完毕元素停在动画结束的位置
+                    backwards 动画延时等待时，元素就会处于开始位置 
+                    both 结合forwards和backwards
+            */
+            animation-fill-mode: forwards;
+            /* 可统一写  animation: value value value  ; */
+        }
+        /* 
+            动画，和过渡类似，都可以实现一些动态的效果
+                不同的是过渡需要某个属性发生变化才会触发，动画可以自动触发动态效果
+            
+            设置动画效果，必须要先设置一个关键帧  关键帧设置动画执行的每一个步骤
+        */
+        @keyframes test{
+            /* from 表示动画的开始位置，也可以使用 0% */
+            from{
+                margin-left: 0;
+            }
+            /* to表示动画的结束位置，也可以使用100% */
+            to{
+                margin-left: 700px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+</html>

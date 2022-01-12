@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .clock{
+            width: 694px;
+            height: 694px;
+            margin: 0 auto;
+            margin-top: 100px;
+            background-image: url(./img/ex07/clock.png);
+            position: relative;
+        }
+        /* 居中效果 */
+        .clock>div{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        /* 时针样式 */
+        .hour-wrapper{
+            width: 55%;
+            height: 55%;
+            /* background-color: skyblue; */
+            animation: rotate 43200s linear;
+        }
+        .hour{
+            height: 50%;
+            width: 10px;
+            background-color: black;
+            margin: 0 auto;
+        }
+
+        /* 分针样式 */
+        .min-wrapper{
+            width: 75%;
+            height: 75%;
+            /* background-color: blanchedalmond; */
+            animation: rotate steps(60) 3600s ;
+        }
+        .min{
+            height: 50%;
+            width: 6px;
+            background-color: black;
+            margin: 0 auto;
+        }
+        /* 秒针样式 */
+        .sec-wrapper{
+            width: 90%;
+            height: 90%;
+            /* background-color: chartreuse; */
+            animation: rotate steps(60) 60s;
+        }
+        .sec{
+            height: 50%;
+            width: 4px;
+            background-color: red;
+            margin: 0 auto;
+        }
+        /* 旋转的关键帧 */
+        @keyframes rotate{
+            from{
+                transform: rotateZ(0deg);
+            }
+            to{
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <!-- 创建时针容器 -->
+        <div class="hour-wrapper">
+            <div class="hour"></div>
+        </div>
+        <!-- 创建分针容器 -->
+        <div class="min-wrapper">
+            <div class="min"></div>
+        </div>
+        <!-- 创建秒针容器 -->
+        <div class="sec-wrapper">
+            <div class="sec"></div>
+        </div>
+    </div>
+</body>
+</html>

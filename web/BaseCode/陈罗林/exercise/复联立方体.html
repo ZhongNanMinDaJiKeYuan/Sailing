@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复仇者联盟立方体</title>
+    <style>
+        body{
+            perspective: 800px;
+        }
+        .cube{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            margin-top: 100px;
+            /* 设置3d变形效果 */
+            transform-style: preserve-3d;
+            animation: rotate 20s linear infinite;
+        }
+        .cube>div{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            opacity: 0.7;
+        }
+        /* img{
+            vertical-align: top;
+        } */
+        .box1{
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        .box2{
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        .box3{
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .box4{
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+        .box5{
+            transform: rotateY(180deg) translateZ(100px);
+        }
+        .box6{
+            transform: translateZ(100px);
+        }
+        @keyframes rotate{
+            from{
+                transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            }
+            to{
+                transform: rotateX(1turn) rotateY(1turn) rotateZ(1turn);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cube">
+        <div class="box1">
+            <img src="./img/ex08/1.jpg">
+        </div>
+        <div class="box2">
+            <img src="./img/ex08/2.jpg">
+        </div>
+        <div class="box3">
+            <img src="./img/ex08/3.jpg">
+        </div>
+        <div class="box4">
+            <img src="./img/ex08/4.jpg">
+        </div>
+        <div class="box5">
+            <img src="./img/ex08/5.jpg">
+        </div>
+        <div class="box6">
+            <img src="./img/ex08/6.jpg">
+        </div>
+        
+    </div>
+</body>
+</html>

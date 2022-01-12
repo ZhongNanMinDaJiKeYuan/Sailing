@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 800px;
+            height: 800px;
+            background-color: aqua;
+            overflow: hidden;
+        }
+        .box1 .box2{
+            width: 100px;
+            height: 100px;
+            background-color: bisque;
+            margin-bottom:100px ;
+            /* transition  过渡效果 */
+            transition: all 1s;
+            /* transition-property：  指定要执行过渡的属性 */
+            /* transition-property：height,width; */
+            /* transition-duration： 指定过渡效果的持续时间  可写s或ms*/
+            /* transition-duration: 10ms,100ms; */
+
+            /* transition-delay: 过渡效果的延迟,等待一段时间后再执行过渡 */
+            transition-delay: 2s;
+           
+        }
+        .box1 .box3{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition-property: all;
+            transition-duration: 1s;
+             /* transition-timing-function： 过渡的时序函数
+                可选值：
+                    ease  默认值，慢速开始，先加速，再减速
+                    linear 匀速运动
+                    ease-in  慢速开始，加速运动
+                    ease-out  减速运动
+                    ease-in-out 先加速后减速
+                    cubic-bezier() 指定时序函数
+                    https://cubic-bezier.com
+                    steps() 分步执行过渡效果   steps（3）  分3步，可以设置第二个值，end/start 表示在时间结束/开始时执行过渡
+            */
+            transition-timing-function: linear;
+
+    
+        }
+        /* .box1:hover .box2{
+            width: 200px;
+            height: 200px;
+
+        } */
+        .box1:hover div{
+            margin-left: 700px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">
+        </div>
+        <div class="box3"></div>
+    </div>
+</body>
+</html>

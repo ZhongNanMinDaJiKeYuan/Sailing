@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            margin: 0 auto;
+            margin-top: 100px;
+            /* 变形是指通过css改变元素的形状或位置
+                - 变形不会影响页面的布局
+                - transform 用来设置元素的变形效果
+                    -平移
+                        translateX()    沿着x轴方向平移
+                        translateY()    沿着y轴方向平移
+                        translateZ()    沿着z轴方向平移
+                            平移元素，百分比是相对于自身计算的
+            */
+            transform: translateX(100%);
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            margin: 0 auto;
+        }
+        /* 居中效果  垂直居中水平居中 */
+        .box3{
+            background-color: orange;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        .box4,.box5{
+            width: 150px;
+            height: 250px;
+            float: left;
+            background-color: blanchedalmond;
+            margin: 0 10px;
+            transition: all .3s;
+        }
+        /* 浮出效果 */
+        .box4:hover{
+            transform: translateY(-5px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3">aaaa</div>
+    <div class="box4"></div>
+    <div class="box5"></div>
+</body>
+</html>

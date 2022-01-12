@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* html{
+           
+            perspective: 800px;
+        } */
+        body{
+             /* 设置当前网页的视距为800px，人眼到网页的距离 */
+            perspective: 800px;
+            border: 1px red solid;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: sandybrown;
+            margin: 200px auto;
+            /* 
+                z轴平移，值越大，离人眼越近
+                z轴平移属于立体效果（近大远小），默认情况下网页是不支持透视，如果要看到效果，需要设置网页的视距
+
+            */
+            transition: 1s;
+        }
+        .box1:hover{
+            transform: translateZ(300px);
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            margin: 100px auto;
+            transition: 1s;
+        }
+        .box2:hover{
+            /* 旋转  rotateX()  ...    deg或turn */
+            /* transform: rotateZ(45deg) rotateX(0.25turn); */
+            transform: translateZ(200px) rotateY(180deg);
+        }
+        /* transform: scale()
+            scaleX()    scaleY()   scale()双方向的缩放
+        */
+
+        /* 变形的原点  默认为center  可改变
+            transform-origin: 20px 20px;
+
+        */
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+</html>

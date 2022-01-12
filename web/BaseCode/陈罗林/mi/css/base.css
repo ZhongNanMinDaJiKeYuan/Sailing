@@ -1,0 +1,25 @@
+/* 公共样式表 */
+/* 解决高度塌陷和外边距重叠问题 */
+.clearfix::before,
+.clearfix::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+body{
+    font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+    color: #333;
+    min-width: 1226px;
+}
+
+/* 去除超链接的下划线 */
+a{
+    text-decoration: none;
+}
+/* 设置一个类，用来表示中间容器的宽度 */
+.w{
+    /* 固定容器宽度 */
+    width: 1226px;
+    /* 使容器水平居中 */
+    margin: 0 auto;
+}
