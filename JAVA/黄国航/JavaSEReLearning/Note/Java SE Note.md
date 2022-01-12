@@ -1363,4 +1363,417 @@ try {
   fis.close();
   ```
 
+#### 字节缓冲流
+
+- `BufferOutputStream`:该类实现缓冲输出流。通过设置这样的输出流,应用程序可以向底层输出流写入字节,而不必为写入的每个字节导致底层系统的调用 
+- `BufferedInputStream`:创建 `BufferedInputStream `将创建一个内部缓冲区数组。当从流中读取或跳过字节时,内部缓冲区将根据需要从所包含的输入流中重新填充,一次很多字节
+- 构造方法：
+  - 字节缓冲输出流：`BufferedOutputStream(OutputStream out)` ，默认缓冲大小都为8192个字节。
+  - 字节缓冲输入流：`BufferedInputStream(InputStream in)`，默认缓冲大小都为8192个字节。
+
+```java
+// 写数据
+BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("mydir\\bos.txt"));
+bos.write("hello\r\n".getBytes());
+bos.write("world\r\n".getBytes());
+bos.close()
   
+```
+
+```java
+BufferedInputStream bis = new BufferedInputStream( new FileInputStream("mydir\\bos.txt"));
+
+// 第一种读取方式
+int by;
+while( (by = bis.read()) != -1) {
+    System.out.print( (char)by );
+}
+
+// 第二种读取方式
+byte[] bytes = new byte[1024];
+int len;
+while( (len = bis.read(bys)) != -1) {
+    System.out.print(new String(bys, 0, len) );
+}
+bis.close();
+```
+
+### 字符流
+
+> 一个汉字存储：
+>
+> - GBK编码：占用2个字节
+> - UTF-8编码： 占用3个字节
+> - 汉字在存储时，无论选择哪种编码存储，第一个字节都是负数
+
+由于字节流操作中文不是特别方便，所以Java提供字符流
+
+- 字符流 = 字节流 + 编码表
+
+#### 编码表
+
+- ASCII字符集
+
+  - ASCII（American Standard Code for Information Interchange，美国信息交换标准代码）：是基于拉丁字母的一套电脑编码系统，用于显示现代英语，主要包括控制字符（回车键、退格、换行键等）和可显示字符（英文大小写字符、阿拉伯数字和西文符号）
+  - 基本的 ASCII 字符集，使用7位表示一个字符，共128字符。ASCII 的扩展字符集使用8位表示一个字符，共256字符，方便支持欧洲常用字符。是一个系统支持的所有字符的集合，包括各国家文字、标点符号、图形符号、数字等
+
+- GB XXX字符集
+
+  - GB2312：简体中文码表。一个小于127的字符的意义与原来相同，但两个大于127的字符连在一起时，就表示一个汉字，这样大约可以组合了包含7000多个简体汉字，此外数学符号、罗马希腊的字母、日文的假名等都编进去了，连在 ASC 里本来就有的数字、标点、字母都统统重新编了两个字节长的编码，这就是常说的“全角“字符，而原来在127号以下的那些就叫“半角字符了·
+  - **GBK**：最常用的中文码表。是在 GB2312标准基础上的扩展规范，使用了双字节编码方案，共收录了21003个汉字，完全兼容 GB2312标准，同时支持繁体汉字以及日韩汉字等
+  - GB18030：最新的中文码表。收录汉字70244个，采用多字节编码，每个字可以由1个、2个或4个字节组成。支持中国国内少数民族的文字，同时支持繁体汉字以及日韩汉字等
+
+- Unicode字符集
+
+  - 为表达任意语言的任意字符而设计，是业界的一种标准，也称为统一码、标准万国码。它最多使用4个字节的数字来表达每个字母、符号，或者文字。有三种编码方案，UTF-8、UTF-16和 UTF32。最为常用的 UTF-8编码 
+  - **UTF-8编码**：可以用来表示 Unicode 标准中任意字符，它是电子邮件、网页及其他存储或传送文字的应用中，优先采用的编码。互联网工程工作小组（IETF）要求所有互联网协议都必须支持 UTF-8编码。它使用一至四个字节为每个字符编码。
+
+  - UTF-8编码规则：
+    - 128个 US-ASC 字符,只需一个字节编码
+    - 拉丁文等字符,需要二个字节编码
+    - 大部分常用字(含中文),使用三个字节编码
+    - 其他极少使用的 Unicode 辅助字符,使用四字节编码
+
+#### 字符串中的编码解码
+
+- 编码
+  - 默认（与平台有关）：`byte[] getBytes()`
+  - 指定字符集：`byte[] getBytes(String charsetName)`
+- 解码
+  - 默认（与平台有关）：`String(byte[] bytes)`
+  - 指定字符集：`String(byte[] bytes , String charsetName)`
+
+#### 字符流中的编码解码
+
+- 字符流抽象基类
+  -  `Reader`:字符输入流的抽象类
+  -  `Writer`:字符输出流的抽象类
+- `InputStreamReader`:是从字节流到字符流的桥梁
+  - 它读取字节,并使用指定的编码将其解码为字符
+  - 它使用的字将集可以由名称指定,也可以被明确指定,或者可以接受平台的默认字符集
+- `OutputStreamWriter`:是从字符流到字节流的桥梁
+  - 是从字符流到字节流的桥梁,使用指定的编码将写入的字符编码为字节
+  - 它使用的字符集可以由名称指定,也可以被明确指定,或者可以接受平台的默认字符集
+- 对于文件的字符流读写，只要**不涉及编码**的问题，可以直接使用`FileReader`类和`FileWriter`类，其分别是`InputStreamReader`和`OutputStreamWriter`的子类。
+
+````java
+OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream("JAVA\\out.txt"),"UTF-8");
+osw.write("中国");
+osw.close();
+
+InputStreamReader isr = new InputStreamReader(new FileInputStream("JAVA\\out.txt"), "UTF-8");
+int ch;
+while ( (ch = isr.read()) != -1) {
+    System.out.println( (char)ch );
+}
+isr.close();
+````
+
+#### 字符流写数据的5中方式
+
+- `void write(int c)`写一个字符 
+- `void write(char[] cbuf)`写入一个字符数组
+- `void write(char[] cbuf, int of, int len)`写入字符数组的一部分 
+- `void write(String str)`写一个字符串
+-  `void write(String str, int off, int len)`写一个字符串的一部分
+- 注意：`OutputStreamWriter`在写入操作时再底层是使用字节流进行写入，而这字符流与字节流之间具有写入缓冲，写入之后，如果不进行`close()`操作就需要调用`flush()`方法才能将缓冲的内容写进.
+
+#### 字符流读数据的2种方式
+
+- `int read()`一次读一个字符数据
+- ` int read(char[] cbuf)`一次读一个字符数组数据
+
+#### 字符缓冲流
+
+- `BufferedWriter`:将文本写入字符输出流,缓冲字符,以提供单个字符,数组和字符串的高效写入,可以指定缓冲区大小,或者可以接受默认大小。默认值足够大,可用于大多数用途 
+- `BufferedReader`:从字符输入流读取文本,缓冲字符,以提供字符,数组和行的高效读取,可以指定缓冲区大小,或者可以使用默认大小。默认值足够大,可用于大多数用途
+- 构造方法:
+  - `BufferedWriter(Writer out)`
+  - `BufferedReader(Reader in)`
+
+```java
+BufferedWriter bw = new BufferedWriter(new FileWriter("test\\out.txt"));
+bw.write("hello\r\n");
+bw.close();
+BufferedReader br = new BufferedReader(new FileReader("test\\out.txt"));
+int ch;
+while( (ch = br.read()) != -1) {
+    System.out.println( (char)ch );
+}
+br.close();
+```
+
+#### 字符缓冲流的特有功能
+
+- `BufferedWriter`:
+  - `void newLine()`:写一行行分隔符，行分隔符字符串由系统属性定义
+- `Buffered reader `
+  - `public String readLine()`:读一行文字。结果包含行的内容的字符串,不包括任何行终止字符（如换行符）,如果流的结尾已经到达,则为 null
+
+#### 异常处理
+
+- 方式一：try……catch……finally……，在finally中释放资源
+
+- 方式二：JDK7以上的改进，可以自动释放资源
+
+  ```java
+  try(定义流对象){
+      可能出现异常的代码
+  }catch(异常类名 变量名){
+      异常的处理代码
+  }
+  // 例子
+  try(BufferedWriter bw = new BufferedWriter(new FileWriter("test\\out.txt"));){
+      FileWriter("test\\out.txt"));
+  	bw.write("hello\r\n");
+  }catch(IOException e){
+      e.printStack();
+  }
+  ```
+
+- 方式三：JDK9以上的改进，可以自动释放资源
+
+  ```java
+  定义输入流对象;
+  定义输出流对象;
+  try(输入流对象;输出流对象){
+      可能出现异常的代码;
+  }catch(异常类名 变量名){
+      异常的处理代码;
+  }
+  ```
+
+
+### 特殊操作流
+
+#### 标准输入输出流
+
+System 类中有两个静态的成员变量：
+
+- `public static final InputStream in`：标准输入流。通常该流对应于键盘输入或由主机环境或用户指定的另一个输入源 
+
+  ```java
+  BufferedReader br = new BufferedReader(new InputStreamReader(Syetem.in));
+  System.out.println("请输入一个字符串：");
+  String line = br.readLine(); 
+  System.out.println("请输入一个整数：");
+  int i = Integer.parseInt(br.readLine());
+  
+  // 相当于Scanner的实现
+  ```
+
+  
+
+- `public static final PrintStream out`：标准输出流。通常该流对应于显示输出或由主机环境或用户指定的另一个输出目标
+
+#### 打印流
+
+打印流分类：
+
+- 字节打印流：`PrintStream`
+- 字符打印流：`PrintWriter`
+
+打印流的特点：
+
+- 只负责输出数据，不负责读取数据
+- 有自己的特有方法`print()` 
+
+#### 对象序列化流
+
+- 对象序列化：就是将对象保存到磁盘中，或者在网络中传输对象
+
+- 这种机制就是使用一个字节序列表示一个对象，该字节序列包含：对象的类型、对象的数据和对象中存储的属性等信息字节序列写到文件之后，相当于文件中持久保存了一个对象的信息
+
+- 反之，该字节序列还可以从文件中读取回来，重构对象，对它进行反序列化
+
+- 要实现序列化和反序列化，就要使用对象序列化流和对象反序列化流
+
+  - 对象序列化流：`ObjectOutputStream`
+  - 对象反序列化流：`ObjectInputStream`
+
+- 对象序列化流：`ObjectOutputStream`
+
+  - 将 Java 对象的原始数据类型和图形写入 `OutputStream`。可以使用 `ObjectlnputStream` 读取（重构）对象。可以通过使用流的文件来实现对象的持久存储。如果流是网络套接字流，则可以在另一个主机上或另一个进程中重构对象
+  - 构造方法：`ObjectOutputStream(OutputStream out)`:创建一个写入指定的 `OutputStream` 的 `ObjectOutputStream` 
+  - 序列化对象的方法：`void writeObject（Object obj)`：将指定的对象写入 `ObjectOutputStream` 
+
+- 注意：
+
+  - 一个对象要想被序列化，该对象所属的类必须必须实现 `Serializable `接口 
+  - `Serializable` 是一个标记接口，实现该接口，不需要重写任何方法
+
+- 对象反序列化流: `ObjectInputStream `
+
+  - `ObjectInputStream `反序列化先前使用 `ObjectOutputStream` 编写的原始数据和对象
+  - 构造方法:`ObjectInputStream( inputStream in)`:创建从指定的 `InputStream `读取的 `ObjectInputStream `反序列化对象的方法
+  -  `Object readObject()`:从 `ObjectInputStream` 读取—个对象
+
+- 注意：
+
+  - 应该在可序列化的类中显式地声明一个序列化UID，这样在序列化了该类的对象之后对该类进行修改后，反序列化仍能正常进行：
+
+    ```java
+    private static final long serialVersionUID = 42L;
+    ```
+
+  - 如果一个对象中的某个成员变量的值不想被序列化，则需要给该成员变量加上`transient`关键字修饰，该关键字标记的成员变量不参与序列化过程。
+
+> 1. **transient的作用**
+>
+>   我们都知道一个对象只要实现了Serilizable接口，这个对象就可以被序列化，java的这种序列化模式为开发者提供了很多便利，我们可以不必关系具体序列化的过程，只要这个类实现了Serilizable接口，这个类的所有属性和方法都会自动序列化。
+>   然而在实际开发过程中，我们常常会遇到这样的问题，这个类的有些属性需要序列化，而其他属性不需要被序列化，打个比方，如果一个用户有一些敏感信息（如密码，银行卡号等），为了安全起见，不希望在网络操作（主要涉及到序列化操作，本地序列化缓存也适用）中被传输，这些信息对应的变量就可以加上transient关键字。换句话说，这个字段的生命周期仅存于调用者的内存中而不会写到磁盘里持久化。
+>   总之，java 的transient关键字为我们提供了便利，你只需要实现Serilizable接口，将不需要序列化的属性前添加关键字transient，序列化对象的时候，这个属性就不会序列化到指定的目的地中。
+>
+> 2. **transient使用小结** 
+>
+> 1）一旦变量被transient修饰，变量将不再是对象持久化的一部分，该变量内容在序列化后无法获得访问。
+>
+> 2）transient关键字只能修饰变量，而不能修饰方法和类。注意，本地变量是不能被transient关键字修饰的。变量如果是用户自定义类变量，则该类需要实现Serializable接口。
+>
+> 3）被transient关键字修饰的变量不再能被序列化，一个静态变量不管是否被transient修饰，均不能被序列化。
+>
+> ------------------------------------------------
+> 版权声明：本文为CSDN博主「love others as self」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+> 原文链接：https://blog.csdn.net/sinat_29581293/article/details/51810805
+
+#### Properties
+
+Properties 类表示一组持久的属性。Properties 可以**保存到流中或从流中加载**。属性列表中的每个键及其对应的值都是一个字符串。
+
+- Properties 继承于 Hashtable。表示一个持久的属性集，属性列表中每个键及其对应值都是一个字符串。
+
+- Properties 类被许多 Java 类使用。例如，在获取环境变量时它就作为 System.getProperties() 方法的返回值。
+
+- 特有方法
+  - `Object setProperty(String key,String value)`设置集合的键和值，都是 String 类型，底层调用 `Hashtable `方法 put 
+  - `String getProperty(String key)`使用此属性列表中指定的键搜索属性
+  - `Set<String> stringPropertyNames()`从该属性列表中返回一个不可修改的键集，其中键及其对应的值是字符串 
+- Properties和IO流结合的方法
+  - `void load(InputStream inStream)`从输入字节流读取属性列表（键和元素对）
+  - `void load(Reader reader)`从输入字符流读取属性列表（键和元素对）
+  - `void store(OutputStream out， String comments)`将此属性列表（键和元素对）写入此 Properties 表中，以适合于使用` load(lnputStream)`方法的格式写入输出字节流
+  - `void store(Writer writer， String comments)`将此属性列表(鍵和元素对)写入此 Properties 表中,以适合使用` load(Reader)`方法的格式写入输出字符流
+
+## 多线程
+
+### 进程与线程
+
+- 进程：是正在运行的程序，是系统进行资源分配和调用的独立单位，每一个进程都有它自己的内存空间和系统资源。
+- 线程：是进程的单个顺序控制流，是一条执行路径
+  - 单线程：一个进程只有一条执行路径
+  - 多线程：一个进程有多条执行路径
+
+#### 方法一：继承Thread类实现多线程
+
+1. 定义一个类继承Thread类
+2. 在该类中重写run()方法
+3. 创建对象
+4. 启动线程`start()`
+
+- `run()`和`start()`方法的区别
+  - `run()`:封装线程执行的代码,直接调用,相当于普通方法的调用 
+  - `start():`启动线程；然后由JVM 调用此线程的 run()方法。
+- Thread 类中设置和获取线程名称的方法
+  - `void setName(String name)`：将此线程的名称更改为等于参数 name 
+  - `String getName()`:返回此线程的名称
+  - 通过构造方法也可以设置线程名称
+  - `Thread.currentThread()`方法返回当前正在执行的线程对象的引用
+
+#### 线程调度
+
+- 线程的两种调度模型
+  - 分时调度模型：所有线程轮流使用CPU的使用权，平均分配每个线程占用CPU的时间片
+  - 抢占式调度模型：优先让优先级高的线程使用cpu，如果线程的优先级相同，那么会随机选择一个，优先级高的线程获取的CPU时间片相对多一些
+  - Java采用的是抢占式调度模型
+- Thread类中设置和获取线程优先级的方法
+  - `public final int getPriority()`：返回此线程的优先级
+  - `public final void setPriority(int newPriority)`：更改此线程的优先级
+  - 可使用`Thread.MAX_PRIORITY`、`Thread.MIN_PRIORITY`、`Thread.NORM_PRIORITY`查看优先级的最大（一般为10）、最小优先级（1）、默认优先级（5）
+  - 线程优先级高仅仅表示线程获取的 CPU 时间片的几率高，但是要在次数比较多，或者多次运行的时候才能看到你想要的效果
+
+#### 线程控制
+
+- `static void sleep(long millis)`使当前正在执行的线程停留（暂停执行）指定的毫秒数
+- `void join()`等待这个线程死亡 (其他线程必须等待这个线程结束后才能执行)
+- `void setDaemon(boolean on)`将此线程标记为守护线程，当运行的线程都是守护线程时，Java 虚拟机将退出
+
+#### 方法二：实现Runnable接口实现多线程
+
+- 步骤：
+  1. 定义一个类 My Runnable 实现 Runnable 接口
+  2. 在 My Runnable 类中重写 run()方法
+  3. 创建 My Runnable 类的对象
+  4. 创建 Thread 类的对象， 把 My Runnable 对象作为构造方法的参数
+  5. 启动线程
+- 相比继承 Thread 类,实现 Runnable 接口的好处
+  - 避免了 Java 单继承的局限性
+  - 适合多个相同程序的代码去处理同一个资源的情况,把线程和程序的代码、数据有效分离,较好的体现了面向对象的设计思想
+
+### 线程同步
+
+#### 同步代码块
+
+```java
+synchronized(任意对象) {
+    多条语句操作共享数据的代码
+}
+
+```
+
+- `synchronized(任意对象）`：就相当于给代码加锁了，任意对象就可以看成是一把锁，而只要这个锁是同一把锁（对象），它就只能单次资源访问保证同步。
+
+- 同步的好处和弊端好处:
+  - 解决了多线程的数据安全问题弊端
+  - 当线程很多时,因为每个线程都会去判断同步上的锁,这是很耗费资源的,无形中会降低程序的运行效率
+
+#### 同步方法
+
+- 同步方法：就是把 synchronized 关键字加到方法上
+
+  - 格式：
+    `修饰符 synchronized 返回值类型 方法名（方法参数）｛｝`
+
+  - 同步方法的锁其实就是`this`
+
+- 同步静态方法：就是把 synchronized 关键字加到静态方法上
+  - 格式：`修饰符 static synchronized 返回值类型 方法名(方法参数){ }`
+  - 同步静态方法的锁对象是`类名.class`
+
+#### 线程安全的类
+
+- StringBuffer 
+  - 线程安全,可变的字符序列
+  - 从版本 JDK 5开始,被 StringBuilder 替代。通常应该使用 StringBuilder 类,因为它支持所有相同的操作,但它更快,因为它不执行同步 
+- Vector 
+  - 从 Java 2平台 v1.2开始,该类改进了 List 接口,使其成为 Java Collections Framework 的成员。与新的集合实现不同, Vector 被同步。如果不需要线程安全的实现,建议使用 Arraylist 代替 Vector 
+- Hashtable 
+  - 该类实现了一个哈希表,它将键映射到值。任何非 null 对象都可以用作键或者值
+  - 从 Java 2平台 v1.2开始,该类进行了改进，实现了 Map 接口，使其成为 Java Collections Framework 的成员。与新的集合实现不同， Hashtable 被同步。如果不需要线程安全的实现，建议使用 HashMap 代替 Hashtable。
+- `Collections.synchronizedList()`、`Collections.synchronizedMap()`、`Collections.synchronizedSet()`等方法可将线程不安全的集合类转换为线程安全的集合列表。
+
+#### Lock锁
+
+虽然我们可以理解同步代码块和同步方法的锁对象问题，但是我们并没有直接看到在哪里加上了锁，在哪里释放了锁，为了更清晰的表达如何加锁和释放锁，JDK5以后提供了一个新的锁对象 Lock 。
+
+- Lock 实现提供比使用 synchronized 方法和语句可以获得更广泛的锁定操作
+-  Lock 中提供了获得锁和释放锁的方法 
+  - `void lock()`:获得锁 
+  - `void unlock()`:释放锁 
+- Lock 是接口不能直接实例化,这里采用它的实现类 ReentrantLock 来实例化 
+- ReentrantLock 的构造方法 
+  - `ReentrantLock()`:创建一个 ReentrantLock 的实例
+
+### 生产者和消费者
+
+- 生产者消费者模式是一个十分经典的多线程协作的模式
+- 所谓生产者消费者问题,实际上主要是包含了两类线程:
+  - 一类是生产者线程用于生产数据
+  - 一类是消费者线程用于消费数据
+- 为了解耦生产者和消费者的关系,通常会采用共享的数据区域,就像是一个仓库
+  - 生产者生产数据之后直接放置在共享数据区中，并不需要关心消费者的行为
+  - 消费者只需要从共享数据区中去获取数据，并不需要关心生产者的行为
+
+- Object类中的等待和唤醒方法
+  - `void wait()`导致当前线程等待，直到另一个线程调用该对象的` notify()`方法或` notifyAll()`方法
+  - `void notify() `唤醒正在等待对象监视器的单个线程 
+  - `void notifyAll()`唤醒正在等待对象监视器的所有线程
