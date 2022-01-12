@@ -297,6 +297,27 @@
   - 抽象类：对类抽象，包括属性、 行为（对事物的抽象）
   - 接口：对行为抽象，主要是行为（对行为的抽象）
 
+### 更新的接口组成变化
+
+- 接口的组成
+  - 常量：`public static final`（可省略）
+  - 抽象方法`public abstract`（可省略）
+  - **默认方法（java 8）**
+  - **静态方法（java 8）**
+  - **私有方法（Java 9）**
+- 接口中的默认方法
+  - 格式：`public default 返回值类型 方法名(参数列表) {方法体}`（public可省略）
+  - 默认方法不是抽象方法，所以不强制被重写。但是可以被重写，重写时候去掉default关键字
+- 接口中的静态方法
+  - 格式：`public static 返回值类型 方法名(参数列表){ 方法体}`（public 可省略）
+  - 静态方法只能通过接口名调用，不能通过实现类名或者对象名调用。
+- 接口中的私有方法
+  - Java 9中新增了带方法体的私有方法，这其实在 Java8中就埋下了伏笔：Java8允许在接口中定义带方法体的默认方法和静态方法。这样可能就会引发一个问题：当两个默认方法或者静态方法中包含一段相同的代码实现时，程序必然考虑将这段实现代码抽取成一个共性方法，而这个共性方法是不需要让别人使用的，因此用私有给隐藏起来，这就是 Java 9增加私有方法的必然性
+  - 格式1：`private 返回值类型 方法名(参数列表){方法体}`
+  - 格式2：`private static 返回值类型 方法名(参数列表){方法体}`
+  - 默认方法可以调用私有的静态方法和非静态方法
+  - 静态方法只能调用私有的静态方法
+
 ## 形参和返回值
 
 - 类名作为形参和返回值
@@ -1772,8 +1793,918 @@ synchronized(任意对象) {
 - 为了解耦生产者和消费者的关系,通常会采用共享的数据区域,就像是一个仓库
   - 生产者生产数据之后直接放置在共享数据区中，并不需要关心消费者的行为
   - 消费者只需要从共享数据区中去获取数据，并不需要关心生产者的行为
-
 - Object类中的等待和唤醒方法
   - `void wait()`导致当前线程等待，直到另一个线程调用该对象的` notify()`方法或` notifyAll()`方法
   - `void notify() `唤醒正在等待对象监视器的单个线程 
   - `void notifyAll()`唤醒正在等待对象监视器的所有线程
+
+## 网络编程
+
+### 基础
+
+- 三要素
+  - ip地址
+  - 端口
+  - 协议
+
+#### IP地址
+
+- IP 地址:是网络中设备的唯一标识 
+
+- IP 地址分为两大类
+  -  IPv4:是给每个连接在网络上的主机分配一个32bit 地址。按照 TCP/IP 规定, IP 地址用二进制来表示,每个 IP 地址长32bit,也就是4个字节 例如一个采用二进制形式的 IP 是"11000000 10101000 000000010 01000010",这么长的地址,处理起来也太费劲了。为了方便使用, IP 地址经常被写成十进制的形式,中间使用符号"."分隔不同的字节。于是，上面的 IP 地址可以表示为"192.168.1.66" 。 IP 地址的这种表示法叫做“点分十进制表示法"，这显然比1和0容易记忆得多 
+  - IPv6:由于互联网的蓬勃发展， IP 地址的需求量愈来愈大，但是网络地址资源有限，使得 IP 的分配越发紧张。为了扩大地址空间,通过 IPv6重新定义地址空间，采用128位地址长度，每16个位 一组，分成8组十六进制数，这样就解决了网络地址资源数量不够的问题
+
+#### InetAddress
+
+为了方便我们对 IP 地址的获取和操作, Java 提供了一个类 InetAddress 供我们使用
+
+- `InetAddress`:此类表示 Internet 协议(IP)地址
+
+- `static InetAddress getByName(String host)` 确定主机名称的 IP 地址。主机名称可以是机器名称,也可以是 IP 地址 
+- `String getHostName()`获取此 IP 地址的主机名
+- ` String getHostAddress()`返回文本显示中的 IP 地址宇符串
+
+```java
+InetAddress address = InetAddress.getByName("guohang-pc");
+System.out.println(address.getHostName() + address.getHostAddress());
+                   
+```
+
+#### 端口
+
+- 端口：设备上应用程序的唯一标识
+
+- 端口号：用两个字节表示的整数,它的取值范围是0~65535，其中， 0-1023之间的端口号用于一些知名的网络服务和应用，普通的应用程序需要使用1024上的端口号。如果端口号被另外一个服务或应用所占用，会导致当前程序启动失败
+
+#### 协议
+
+协议:计算机网络中,连接和通信的规则被称为网络通信协议 
+
+##### UDP 协议
+
+- 用户数据报协议(User Datagram Protocol)
+- UDP 是无连接通信协议,即在数据传输时,数据的发送端和接收端不建立逻辑连接。简单来说,当一台计算机向另外一台计算机发送数据时,发送端不会确认接收端是否存在,就会发出数据,同样接收端在收到数据时,也不会向发送端反馈是否收到数据。
+- 由于使用 UDP 协议消耗资源小,通信效率高,所以通常都会用于音频、视频和普通数据的传输
+- 例如视频会议通常采用 UDP 协议,因为这种情况即使偶尔丢失一两个数据包,也不会对接收结果产生太大影响。但是在使用 UDP 协议传送数据时,由于 UDP 的面向无连接性,不能保证数据的完整性,因此在传输重要数据时不建议使用 UDP 协议
+
+##### TCP协议
+
+- 传输控制协议(Transmission Control Protocol)
+- TCP 协议是面向连接的通信协议， 即传输数据之前， 在发送端和接收端建立逻辑连接， 然后再传输数据，它提供了两台计算机之间可靠无差错的数据传输。在 TCP 连接中必须要明确客户端与服务器端， 由客户端向服务端发出连接请求，每次连接的创建都需要经过“三次握手”
+- 三次握手：TCP 协议中， 在发送数据的准备阶段， 客户端与服务器之间的三次交互， 以保证连接的可靠
+  - 第一次握手，客户端向服务器端发出连接请求，等待服务器确认
+  - 第二次握手，服务器端向客户端回送一个响应，通知客户端收到了连接请求
+  - 第三次握手，客户端再次向服务器端发送确认信息，确认连接
+- 完成三次握手，连接建立后，客户端和服务器就可以开始进行数据传输了。由于这种面向连接的特性，TCP 协议可以保证传输数据的安全，所以应用十分广泛。例如上传文件、下载文件、浏览网页等
+
+> 所谓三次握手（Three-Way Handshake）即建立TCP连接，就是指建立一个TCP连接时，需要客户端和服务端总共发送3个包以确认连接的建立。在socket编程中，这一过程由客户端执行connect来触发，整个流程如下图所示：
+>
+> ![img](https:////upload-images.jianshu.io/upload_images/2964446-aa923712d5218eeb.png?imageMogr2/auto-orient/strip|imageView2/2/w/517/format/webp)
+>
+> 
+>
+> （1）第一次握手：Client将标志位SYN置为1，随机产生一个值seq=J，并将该数据包发送给Server，Client进入SYN_SENT状态，等待Server确认。
+>
+> （2）第二次握手：Server收到数据包后由标志位SYN=1知道Client请求建立连接，Server将标志位SYN和ACK都置为1，ack=J+1，随机产生一个值seq=K，并将该数据包发送给Client以确认连接请求，Server进入SYN_RCVD状态。
+>
+> （3）第三次握手：Client收到确认后，检查ack是否为J+1，ACK是否为1，如果正确则将标志位ACK置为1，ack=K+1，并将该数据包发送给Server，Server检查ack是否为K+1，ACK是否为1，如果正确则连接建立成功，Client和Server进入ESTABLISHED状态，完成三次握手，随后Client与Server之间可以开始传输数据了。
+>
+> 
+>
+> 作者：RaphetS
+> 链接：https://www.jianshu.com/p/ef892323e68f
+> 来源：简书
+
+- 四次挥手
+
+> **TCP四次挥手**
+>
+> 所谓四次挥手（Four-Way Wavehand）即终止TCP连接，就是指断开一个TCP连接时，需要客户端和服务端总共发送4个包以确认连接的断开。在socket编程中，这一过程由客户端或服务端任一方执行close来触发，整个流程如下图所示：
+>
+> ![img](https:////upload-images.jianshu.io/upload_images/2964446-2b9562b3a8b72fb2.png?imageMogr2/auto-orient/strip|imageView2/2/w/507/format/webp)
+>
+> 
+>
+> 由于TCP连接时全双工的，因此，每个方向都必须要单独进行关闭，这一原则是当一方完成数据发送任务后，发送一个FIN来终止这一方向的连接，收到一个FIN只是意味着这一方向上没有数据流动了，即不会再收到数据了，但是在这个TCP连接上仍然能够发送数据，直到这一方向也发送了FIN。首先进行关闭的一方将执行主动关闭，而另一方则执行被动关闭，上图描述的即是如此。
+>
+> （1）第一次挥手：Client发送一个FIN，用来关闭Client到Server的数据传送，Client进入FIN_WAIT_1状态。
+>
+> （2）第二次挥手：Server收到FIN后，发送一个ACK给Client，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号），Server进入CLOSE_WAIT状态。
+>
+> （3）第三次挥手：Server发送一个FIN，用来关闭Server到Client的数据传送，Server进入LAST_ACK状态。
+>
+> （4）第四次挥手：Client收到FIN后，Client进入TIME_WAIT状态，接着发送一个ACK给Server，确认序号为收到序号+1，Server进入CLOSED状态，完成四次挥手。
+>
+> #### 为什么建立连接是三次握手，而关闭连接却是四次挥手呢？
+>
+> 这是因为服务端在LISTEN状态下，收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端。而关闭连接时，当收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，己方也未必全部数据都发送给对方了，所以己方可以立即close，也可以发送一些数据给对方后，再发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送。
+>
+> 作者：RaphetS
+> 链接：https://www.jianshu.com/p/ef892323e68f
+> 来源：简书
+
+### UDP通信程序
+
+UDP 协议是一种不可靠的网络协议，它在通信的两端各建立一个 Socket 对象，但是这两个 Socket 只是发送、接收数据的对象因。此对于基于 UDP 协议的通信双方而言，没有所谓的客户端和服务器的概念。
+
+- Java 提供了 `DatagramSocket `类作为基于 UDP 协议的 Socket
+
+#### UDP发送数据
+
+- 发送数据的步骤
+
+  - 创建发送端的 Socket 对象（DatagramSocket)
+
+    `DatagramSocket()`
+
+  - 创建数据，并把数据打包
+
+    `DatagramPacket(byte[] buf, int length, InetAddress address, int port)`
+
+  - 调用 DatagramSocket 对象的方法发送数据
+
+    `void send(DatagramPacket p)`
+
+  - 关闭发送端
+
+    `void close()`
+
+  ```java
+  DatagramSocket ds = new DatagramSocket();
+  
+  byte [] bys ="hello说你是谁".getBytes();
+  int length = bys.length;
+  InetAddress address = InetAddress.getByName("192.168.137.1");
+  int port = 10086;
+  DatagramPacket dp = new DatagramPacket(bys, length, address,port);
+  
+  ds.send(dp);
+  ds.close();
+  ```
+
+  
+
+#### UDP接收数据
+
+- 接收数据的步骤
+
+  - ①创建接收端的 Socket 对象（DatagramSocket）
+
+    `DatagramSocket(int port)`
+
+  - ②创建一个数据包，用于接收数据
+
+    `DatagramPacket(byte[] buf, int length)`
+
+  - ③调用 DatagramSocket 对象的方法接收数据
+
+    `void receive(DatagramPacket p)`
+
+  - ④解析数据包，并把数据在控制台显示
+
+    `byte[] getData()`
+
+    `int getLength()`
+
+  - ⑤关闭接收端
+
+    `void close()`
+
+  ```java
+  
+  DatagramSocket ds =new DatagramSocket(10086);
+  
+  byte[] bys = new byte[1024];
+  DatagramPacket dp = new DatagramPacket(bys, bys.length);
+  
+  ds.receive(dp);
+  
+  byte[] datas = dp.getData();
+  int len = dp.getLength();
+  String dataString = new String(datas,0, len);
+  System.out.println(dataString);
+  ds.close();
+  ```
+
+   
+
+### TCP通信程序
+
+TCP 通信协议是一种可靠的网络协议，它在通信的两端各建立一个 Socket 对象，从而在通信的两端形成网络虚拟链路，一旦建立了虚拟的网络链路，两端的程序就可以通过虚拟链路进行通信。
+
+- Java 对基于 TCP 协议的的网络提供了良好的封装，使用 Socket 对象来代表两端的通信端口，并通过 Socket 产生 IO 流来进行网络通信
+- Java 为客户端提供了 Socket 类,为服务器端提供了 `ServerSocket` 类
+
+#### TCP发送数据
+
+- TCP发送数据的步骤
+
+  - 创建客户端的Socket对象（Socket）
+
+    `Socket(String host, int port)`
+
+  - 获取输出流，写数据
+
+    `OutputStream getOutputStream()`
+
+  - 告诉服务器断开连接
+
+    `void shutdownOutput()`
+
+  - 释放资源
+
+    `void close()`
+
+  ```java
+  Socket s = new Socket("192.168.137.1", 10000);
+  
+  OutputStream os = s.getOutputStream();
+  os.write("hello,tcp".getBytes());
+  s.shutdownOutput();
+  s.close();
+  
+  ```
+
+#### TCP接收数据
+
+- TCP接收数据的步骤
+
+  - 创建服务器端的Socket对象（ServerSocket）
+
+    `ServerSocket(int port)`
+
+  - 监听客户端连接，返回一个Socket对象
+
+    `Socket accept()`
+
+  - 获取输入流，读数据，并把数据显示在控制台
+
+    `InputStream getInputStream()`
+
+  - 释放资源
+
+    `void close()`
+
+  ```java
+  ServerSocket ss = new ServerSocket(10011);
+  
+  Socket socket = ss.accept();
+  
+  InputStream inputStream = socket.getInputStream();
+  byte[] bys = new byte[1024];
+  int len = inputStream.read(bys);
+  String data = new String(bys, 0, len);
+  System.out.println(data);
+  
+  socket.close();
+  ss.close();
+  ```
+
+## Lambda表达式
+
+
+
+面向对象思想强调“必须通过对象的形式来做事情”；
+
+函数式思想则尽量忽略面向对象的复杂语法：“**强调做什么，而不是以什么形式去做**”
+
+```java
+// 匿名内部类
+new Thread(new Runnable(){
+    @Override
+    public void run(){
+        System.out.println("多线程启动了");
+    }
+}).start();
+// Lambda表达式
+new Thread( () -> {
+    System.out.println("多线程启动了");
+} ).start();
+```
+
+- 组成Lambda表达式的三要素：**形式参数，箭头，代码块**
+
+- Lambda表达式的格式：
+  - 格式：`(形式参数)->{代码块}`
+  - 形式参数：如果有多个参数，参数之间用逗号隔开；如果没有参数，留空即可。
+  - `->`：由英文中画线和大于符号组成，固定写法。代表指向动作。
+  - 代码块：是我们具体要做的事情，也就是我们写的方法体内容
+  
+- Lambda表达式使用的前提：
+  - 有一个接口
+  - 接口中有且仅有一个抽象方法
+  - 要有上下文环境（可以从上下文中推导出是这个Lambda表达式是实现哪个接口）
+  
+- Lambda表达式的省略模式规则
+  - 在形式参数中的参数类型可以省略不写（存在多个形参的时候，要么全都省略，要么都不省略，不可只省略一部分）
+  - 如果形式参数有且仅有一个，那么表达式前面的小括号可以省略，省略之后即为`形式参数->{代码块}`
+  - 如果代码块的语句只有一条，那么可以省略大括号和代码后的分号
+  - 如果代码块的语句只有一条，且语句为return语句，省略大括号和代码后的分号的时候，需要把return也省略掉。
+
+- 例子：
+
+  Addable接口：
+
+  ```java
+  public interface Addable{
+      int add(int x, int y)
+  }
+  ```
+
+  Flyable接口：
+
+  ```java
+  public interface Flyable{
+      void fly(String s);
+  }
+  ```
+
+  测试：
+
+  ```java
+  // 存在如下两个方法
+  private static void useFlyable(Flyable f){
+      f.fly("我要飞我要飞");
+  }
+  
+  private static void useAddable(Addable a){
+      int sum = a.add(10, 20);
+      System.out.println(sum);
+  }
+  ```
+
+  lambda表达式：
+
+  ```java
+  useFlyable( s -> System.out.println(s) );
+  // 是下面的省略版本
+  useFlyable( (String s) -> {
+      System.out.println(s);
+  })
+  
+  useAddable( (x, y) -> x + y );
+  // 是以下的简化版本
+  useAddable( (int x, int y) -> {
+      return x + y;
+  } )
+  ```
+
+- Lambda注意事项
+
+  - 使用Lambda必须有接口，并且要求接口中有且仅有一个抽象方法
+  - 必须有上下文环境，才能推导出Lambda对应的接口
+
+  ```java
+  // 范例1：根据局部变量的赋值得知Lambda对应的接口
+  Runnable r = () -> System.out.println("111");
+  new Thread(r).start();
+  
+  // 范例2：根据调用的方法的参数得知Lambda对应的接口
+  new Thread( () -> System.out.println("2222")).start();
+  ```
+
+- Lambda表达式与匿名内部类的区别
+
+  -  所需类型不同
+    - 匿名内部类：可以是接口，也可以是抽象类，还可以是具体类
+    - Lambda 表达式：只能是接口
+  - 使用限制不同
+    - 如果接口中有且仅有一个抽象方法， 可以使用 Lambda 表达式， 也可以使用匿名内部类
+    - 如果接口中多于一个抽象方法， 只能使用匿名内部类， 而不能使用 Lambda 表达式
+  - 实现原理不同
+    - 匿名内部类：编译之后， 产生一个单独的.class 字节码文件
+    - Lambda 表达式：编译之后， 没有一个单独的.class 字节码文件。对应的字节码会在运行的时候动态生成。
+
+## 方法引用
+
+- 方法引用符：`::`
+
+  - 该符号为引用运算符，而它所在的表达式被称为方法引用
+
+  ```java
+  // lambda表达式
+  usePrintable((String s) -> {
+      System.out.println(s);
+  });
+  // 简化后的Lambda表达式
+  usePrintable(s -> System.out.println(s));
+  
+  // 方法引用
+  usePrintable(System.out::println);
+  ```
+
+  - 方法引用也是需要通过上下文推导，基本规则与lambda表达式一致。
+  - 方法引用是Lambda的孪生兄弟，不需要写出形式参数和箭头等符号。
+
+### Lambda表达式支持的方法引用
+
+常见的引用方式：
+
+- 引用类方法
+
+  - 其实就是引用类的静态方法
+  - 格式：`类名::静态方法`
+
+- 引用对象的实例方法
+
+  - 其实就是引用类中的成员方法
+  - 格式：`对象::成员方法`
+
+- 引用类的实例方法
+
+  - 其实还是引用类中的成员方法
+  - 格式：`类名::成员方法`，其中类名由Lambda表达式中的第一个参数提供，这个第一个参数也是作为调用者去调用成员方法。表达式中的后面其他形式参数全部传递给该成员方法作为参数。
+
+  ```java
+  // useMyString方法的形式参数为一个接口
+  // 普通Lambda表达式
+  useMyString( (String s, int x, int y) -> {
+      return s.substring(x, y);
+  });
+  
+  // 带有方法引用的Lambda表达式，引用类的实例方法
+  useMyString(String::substring);
+  // (String s, int x, int y)中的第一个参数String类型的s，作为调用者。
+  // 其余的参数x和y作为参数传入调用的方法substring作为参数。
+  
+  ```
+
+  
+
+- 引用构造器
+
+  - 其实就是引用构造方法
+  - 格式：`类名::new`
+  - Lambda对应的形参将全部作为构造方法的参数传入。
+
+  ```java
+  // useStudentBuilder(StudentBuilder sb),其中StudentBuilder是一个接口，其中的抽象方法返回一个Student对象
+  // Lambda表达式
+  useStudentBuilder( (String name, int age) -> {
+      return new Student(name, age)
+  });
+  // 简化
+  useStudentBuilder( (name, age) -> new Student(name, age));
+  
+  // 方法引用：全部形参将作为参数传入构造方法
+  useStudentBuilder(Student::new);
+  ```
+
+## 函数式接口
+
+### 函数式接口概述
+
+- 函数式接口：有且仅有一个抽象方法的接口（但是可以有接口的其他默认方法，私有方法等）
+
+- Java 中的函数式编程体现就是 Lambda 表达式,所以函数式接口就是可以适用于 Lambda 使用的接口
+
+- 只有确保接口中有且仅有一个抽象方法,Java 中的 ambda 才能顺利地进行推导
+
+- 使用注解`@FunctionalInterface`来标记函数式接口
+
+- 如果方法的参数是一个函数式接口，我们可以用Lambda表达式作为参数传递。
+
+- 如果方法的返回值是一个函数式接口，我们可以使用Lambda表达式作为结果返回。
+
+  ```java
+  // Comparator<T> 是一个函数式接口
+  private static Comparator<String> getComparator(){
+      return (s1,s2) -> s1.length() - s2.length();
+  }
+  ```
+
+### 常用的函数式接口
+
+Java 8在 java.util.function 包下预定义了大量的函数式接口供我们使用。
+
+其中有：
+
+- Supplier接口
+- Consumer接口
+- Predicate接口
+- Function接口
+
+#### Supplier接口
+
+生产数据用的。
+
+- `Supplier<T>`:包含一个无参的方法
+  - `T get()`:获得结果
+  - 该方法不需要参数，它会按照某种实现逻辑（由 Lambda 表达式实现）返回一个数据
+- `Supplier<T>`接口也被称为生产型接口，如果我们指定了接口的泛型是什么类型，那么接口中的 get 方法就会生产什么类型的数据供我们使用
+
+```java
+public class SupplierDemo {
+    public static void main(String[] args) {
+
+        String s = getString(() -> "新串串");
+        System.out.println(s);
+
+        Integer i = getInteger(() -> 10);
+        System.out.println(i);
+        
+    }
+    private static Integer getInteger(Supplier<Integer> sup){
+        return sup.get();
+    }
+    private static String getString(Supplier<String> sup){
+        return sup.get();
+    }
+}
+```
+
+#### Consumer接口
+
+- `Consumer<T>`:包含两个方法
+  - `void accept(T t)`:对给定的参数执行此操作
+  - `default consumer<T> andThen( Consumer after)`:返回一个组合的 Consumer，依次执行此操作，然后执行 after 操作
+- `Consumer<T>`接口也被称为消费型接口，它消费的数据的数据类型由泛型指定
+
+```java
+public class ConsumerDemo {
+    public static void main(String[] args) {
+        // Lambda表达式
+        operatorString("字符串", s -> System.out.println(s));
+        // 方法引用实现同样
+        operatorString("字符串", System.out::println);
+        
+        operatorString("字符串", System.out::println, s -> System.out.println(s.charAt(0)));
+    }
+    // 用不同的方式消费同一个字符串两次
+    private static void operatorString(String name, Consumer<String> consumer1, Consumer<String> consumer2){
+        //consumer1.accept(name);
+        //consumer2.accept(name);
+        // 上面两句与下面一句同样
+        consumer1.andThen(consumer2).accept(name);
+    }
+    // 消费一个字符串数据
+    private static void operatorString(String name, Consumer<String> consumer){
+        consumer.accept(name);
+    }
+}
+```
+
+#### Predicate接口
+
+- `Predicate<T>`:常用的四个方法
+  - `boolean test(T t)`:对给定的参数进行判断（判断逻辑由 Lambda 表达式实现）,返回一个布尔值
+  - `default Predicate<T> negate()`:返回一个逻辑的否定，对应逻辑非
+  - `default Predicate<T> and(Predicate other)`:返回一个组合判断，对应短路与
+  - `default Predicate<T>or(Predicate other)`:返回一个组合判断，对应短路或
+- `Predicate<T>`接口通常用于判断参数是否满足指定的条件
+
+```java
+public class PredicateDemo1 {
+    public static void main(String[] args) {
+        boolean b1 = checkString("hello" , s -> s.length()>8 );
+        System.out.println(b1);
+
+        boolean b3 = checkString("hello", s -> s.length()>8, s -> s.length()>15);
+    }
+    // 同一个字符串给出两个不同的判断条件，最后把这两个结果做逻辑与运算的结果作为最终结果
+    private static boolean checkString(String s, Predicate<String> pre1, Predicate<String> pre2){
+//        boolean b1 = pre1.test(s);
+//        boolean b2 = pre2.test(s);
+//        boolean b3 = b1 && b2;
+//        return b3;
+        // 与上面结果相同
+        return pre1.and(pre2).test(s);// 逻辑与
+         //return pre1.or(pre2).test(s);// 逻辑或
+    }
+
+    // 判断给定的字符串是否满足要求
+    private static boolean checkString(String s, Predicate<String> pre){
+         return pre.test(s);
+        // 逻辑非
+        //return pre.negate().test(s);
+    }
+}
+```
+
+#### Function接口
+
+- `Function<T,R>`:常用的两个方法
+  - `R apply(T t)`:将此函数应用于给定的参数 
+  - `default <V> Function andThen(Function after)`:返回一个组合函数,首先将该函数应用于输入,然后将 after 函数应用于结果
+- `Function<T,R>`接口通常用于对参数进行处理，转换（处理逻辑由 Lambda 表达式实现）,然后返回一个新的值
+
+```java
+public class FunctionDemo {
+    public static void main(String[] args) {
+        // 把一个字符串转换int 类型,在控制台输出
+        convert("100", Integer::parseInt);
+
+        //把一个 int 类型的数据加上一个整数之后,转为字符串在控制台输出
+        convert(100, i -> String.valueOf(i + 5));
+
+        // 把一个字符串转换 int 类型,把 int 类型的数据加上一个整数之后,转为字符串在控制台输出
+        convert("100", Integer::parseInt, i -> String.valueOf(i+5));
+    }
+    //定义一个方法,把一个字符串转换int 类型,在控制台输出
+    private static void convert(String s, Function<String, Integer> fun){
+        int i = fun.apply(s);
+        System.out.println(i);
+    }
+
+    // 定义一个方法,把一个 int 类型的数据加上一个整数之后,转为字符串在控制台输出
+    private static void convert(int i, Function<Integer, String> fun){
+        String s = fun.apply(i);
+        System.out.println(s);
+    }
+
+    // 定义一个方法,把一个字符串转换 int 类型,把 int 类型的数据加上一个整数之后,转为字符串在控制台输出
+    private static void convert(String s, Function<String, Integer> fun1, Function<Integer, String> fun2){
+//        Integer i = fun1.apply(s);
+//        String s1 = fun2.apply(i);
+        // 与上两行相同效果
+        String s1 = fun1.andThen(fun2).apply(s);
+        System.out.println(s1);
+    }
+}
+```
+
+## Stream流
+
+```java
+ArrayList<String> list = new ArrayList<String>();
+list.add("林青霞");
+list.add("张曼玉");
+list.add("王祖贤");
+list.add("刘艳");
+list.add("张敏");
+list.add("张无忌");
+
+// Stream流完成选择：以张开头，长度为3
+list.stream().filter(s->s.startWith("张")).filter(s->s.length()==3).forEach(System.out::println);
+```
+
+- Stream 流把真正的函数式编程风格引入到 Java 中
+
+### Stream流的使用
+
+- 生成流
+  - 通过数据源（集合，数组等）生成流
+  - `list.stream()`
+- 中间操作
+  - 一个流后面可以跟随0个或多个中间操作，其目的主要是打开流，做某种程度的数据过滤/映射，然后返回一个新的流，交给下一个操作使用
+  - `filter()`
+- 终结操作
+  - 一个流只能有一个终结操作，当这个操作执行后，流就被使用“光”了，无法再被操作。所以这必定是流的最后一个操作。
+  - `forEach()`
+
+#### Stream流的生成方式
+
+- Collection 体系的集合可以使用默认方法 `stream()`生成流 
+
+  `default Stream<E> stream()`
+
+  ```java
+  // Collection 体系的集合可以使用默认方法 `stream()`生成流 
+  List<String> list = new ArrayList<String>();
+  Stream<String> listStream = list.stream();
+  
+  Set<String> set = new HashSet<String>();
+  Stream<String> setStream = set.stream();
+  ```
+
+- Map 体系的集合,间接地生成流
+
+  ```java
+  Map<String, Integer> map = new HashMap<String,Integer>();
+  
+  Stream<String> keyStream = map.keySet().stream();
+  Stream<Integer> valueStream = map.values().stream();
+  
+  Stream< Map.Entry<String,Integer> > entryStream = map.entrySet().stream();
+  ```
+
+  
+
+- 数组可以通过 Stream 接口的静态方法` of(T... values)`生成流
+
+  ```java
+  String[] strArray = {"hello", "java","hi"};
+  Stream<String> strArrayStream = Stream.of(strArray);
+  
+  Stream<String> strArrayStream = Stream.of("hello", "java","hi");
+  
+  Stream<Integer> intStream = Stream.of(10,20, 30);
+  
+  ```
+
+#### Stream流的常见中间操作方法
+
+- `Stream<T> filter(Predicate predicate)`:用于对流中的数据进行过滤
+  -  Predicate 接口中的方法 `boolean test(T t)`:对给定的参数进行判断,返回一个布尔值
+- `Stream<T> limit(long maxSize)`:返回此流中的元素组成的流，截取前指定参数个数的数据 
+- `Stream<T> skip(long n)`:跳过指定参数个数的数据，返回由该流的剩余元素组成的流
+- `static <T> Stream<T> concat(Stream a，Stream b)`：合并 a 和 b 两个流为一个流 
+- `Stream<T> distinct()`：返回由该流的不同元素（根据 `Object.equals(Object)`）组成的流
+- `Stream<T> sorted()`:返回由此流的元素组成的流,根据自然顺序排序
+- ` Stream<T> sorted(Comparator comparator)`:返回由该流的元素组成的流,根据提供的 Comparator 进行排序
+- `<R> Stream<R> map(Function mapper)`:返回由给定函数应用于此流的元素的结果组成的流
+  -  Function 接口中的方法 `R apply(T t)`
+- `IntStream mapTolnt(TolntFunction mapper)`:返回一个 IntStream 其中包含将给定函数应用于此流的元素的结果
+  -  `IntStream`:表示原始 int 流 
+  - `TolntFunction` 接口中的方法 `int applyAslnt(T value)`
+
+#### Stream流的常见终结操作方法
+
+- `void forEach(Consumer action)` ：对此流的每个元素执行操作
+  - Consumer 接口中的方法 `void accept(T t)` ：对给定的参数执行此操作 
+- `long count()`：返回此流中的元素数
+
+
+
+### Stream流中的收集操作
+
+对数据使用 Stream 流的方式操作完毕后，我想把流中的数据收集到集合中，该怎么办呢？
+
+- Stream 流的收集方法
+  - `R collect(Collector collector)`
+  - 但是这个收集方法的参数是一个 Collector 接口
+- 工具类 Collectors 提供了具体的收集方式
+- `public static <T> Collector toList()`:把元素收集到 List 集合中
+- `public static <T> Collector toSet()`:把元素收集到 Set 集合中
+- `public static Collector toMap(Function keyMapper, Function valueMapper)`:把元素收集到 Map 集合中
+
+## 反射
+
+### 类加载
+
+- 类加载：当程序要使用某个类时，如果该类还未被加载到内存中，则系统会通过**类的加载**，**类的连接**，**类的初始化**这三个步骤来对类进行初始化。如果不出现意外情况，JVM 将会连续完成这三个步骤，所以有时也把这三个步骤统称为类加载或者类初始化
+- 类的加载
+  - 就是指将 class 文件读入内存，并为之创建一个 java.lang.Class 对象
+  - 任何类被使用时，系统都会为之建立一个 java.lang.Class 对象
+
+- 类的连接
+
+  - 验证阶段:用于检验被加载的类是否有正确的内部结构,并和其他类协调一致
+  - 准备阶段:负责为类的类变量分配内存,并设置默认初始化值
+  - 解析阶段:将类的二进制数据中的符号引用替换为直接引用
+
+- 类的初始化
+
+  - 在该阶段，主要就是对类变量进行初始化
+
+- 类的初始化步骤
+
+  1. 假如类还未被加载和连接，则程序先加载并连接该类
+  2. 假如该类的直接父类还未被初始化，则先初始化其直接父类
+  3. 假如类中有初始化语句，则系统依次执行这些初始化语句
+
+  - 注意：在执行第2个步骤的时候，系统对直接父类的初始化步骤也遵循初始化步骤1-3
+
+- 类的初始化时机：
+
+  - 创建类的实例
+  - 调用类的类方法
+  - 访问类或者接口的类变量，或者为该类变量赋值
+  - 使用反射方式来强制创建某个类或接口对应的 java.lang.Class 对象
+  - 初始化某个类的子类
+  - 直接使用 java.exe 命令来运行某个主类
+
+### 类加载器
+
+- 类加载器的作用：负责将.class文件加载到内存中，并为之生成对应的java.lang.Class文件
+- JVM 的类加载机制
+  - 全盘负责：就是当一个类加载器负责加载某个 Class 时，该 Class 所依赖的和引用的其他 Class 也将由该类加载器负责载入，除非显示使用另外一个类加载器来载入
+  - 父类委托：就是当一个类加载器负责加载某个 Class 时，先让父类加载器试图加载该 Class，只有在父类加载器无法加载该类时才尝试从自己的类路径中加载该类
+  - 缓存机制：保证所有加载过的 Class 都会被缓存，当程序需要使用某个 Class 对象时，类加载器先从缓存区中搜索该 Class，只有当缓存区中不存在该 Class 对象时，系统才会读取该类对应的二进制数据，并将其转换成 Class 对象，存储到缓存区
+- ClassLoader：是负责加载类的对象
+- Java 运行时具有以下内置类加载器 
+  - Bootstrap class loader：它是虚拟机的内置类加载器， 通常表示为 null， 并且没有父 null 
+  - Platform class loader：平台类加载器可以看到所有平台类， 平台类包括由平台类加载器或其祖先定义的 Java SE 平台 API，其实现类和 JDK 特定的运行时类
+  - System class loader：它也被称为应用程序类加载器， 与平台类加载器不同。系统类加载器通常用于定义应用程序类路径，模块路径和 JDK 特定工具上的类
+  - 类加载器的继承关系：System 的父加载器为 Platform， 而 Platform 的父加载器为 Bootstrap 
+- ClassLoader 中的两个方法 
+  - `static ClassLoader getSystemClassLoader()`：返回用于委派的系统类加载器
+  - `ClassLoader getParent()` ：返回父类加载器进行委派
+
+### 反射
+
+#### 反射概述
+
+- Java 反射机制：是指在运行时去获取一个类的变量和方法信息。然后通过获取到的信息来创建对象，调用方法的一种机制。由于这种动态性，可以极大的增强程序的灵活性，程序不用在编译期就完成确定，在运行期仍然可以扩展
+
+#### 获取Class类的对象
+
+我们要想通过反射去使用一个类,首先我们要获取到该类的字节码文件对象,也就是类型为 Class 类型的对象
+
+这里我们提供三种方式获取 Class 类型的对象。
+
+- 使用类的 class 属性来获取该类对应的 Class 对象。举例: Student.class 将会返回 Student 类对应的 Class 对象
+- 调用对象的 getClass()方法,返回该对象所属类对应的 Class 对象
+  - 该方法是 Object 类中的方法,所有的 Java 对象都可以调用该方法
+- 使用 Class 类中的静态方法 `forName(String className)`,该方法需要传入字符串参数,该字符串参数的值是某个类的全路径,也就是完整包名的路径
+
+#### 反射获取构造方法并使用
+
+- Class 类中用于获取构造方法的方法 
+  - `Constructor<?>[] getConstructors()`:返回所有公共构造方法对象的数组
+  - ` Constructor<?> getDeclaredConstructors()`:返回所有构造方法对象的数组
+  - `Constructor<T> getConstructor(Class<?>...parameterTypes)`:返回单个公共构造方法对象 
+  - `Constructor<T> getDeclaredConstructor(Class<?>...parameterTypes)`:返回单个构造方法（包括私有）对象
+- Constructor 类中用于创建对象的方法
+  - `T newInstance(Object...initargs)`:根据指定的构造方法创建对象
+
+```java
+Class<?> c = Class.forName("com.pakage.Student");
+
+Constructor<?> con = c.getConstructor();// 获取无参构造
+Object obj = con.newInstance();// 通过反射从无参构造获取对象
+
+Constructor<?> con1 = c.getConstructor(String.class, int.class, String.class);// 获取三个参数对应的那个构造方法
+Object obj2 = con1.newInstance("林三", 30, 西安); // 通过反射的有参构造方法获取对象
+
+Constructor<?> con2 = c.getDeclaredConstructor(String.class);// 获取类的私有构造方法
+// 暴力反射，可以通过类的私有构造方法获得对象
+con2.setAccessible(true); // 取消访问权限的检查
+Object obj = con2.newInstance("林三");
+
+```
+
+#### 反射获取成员变量并使用
+
+- Class 类中用于获取成员变量的方法
+  - `Field[] getFields()`:返回所有公共成员变量对象的数组
+  - `Field[] getDeclaredFields()`:返回所有成员变量对象的数组
+  - `Field getField(String name)`:返回单个公共成员变量对象
+  - `Field getDeclaredField(String name)`:返回单个成员变量对象 
+- Field 类中用于给成员变量赋值的方法 
+  - `void set(Object obj,Object value)`:给 obj 对象的成员变量赋值为 value
+
+```java
+Class<?> c = Class.forName("com.pakage.Student");
+
+Constructor<?> con = c.getConstructor();// 获取无参构造
+Object obj = con.newInstance();// 通过反射从无参构造获取对象
+
+Field addressField = c.getField("address"); // 获取成员变量(public修饰)
+// 暴力使用私有成员变量
+Field nameField = c.getDeclaredField("name"); // name为私有成员
+nameField.setAccessible(true);
+
+nameField.set(ogj, "林三");
+addressField.set(obj, "西安");// 给obj的成员变量addressField赋值为西安
+
+```
+
+#### 反射获取成员方法并使用
+
+- Class 类中用于获取成员方法的方法
+  - `Method[] getMethods()`:返回所有公共成员方法对象的数组,包括继承的
+  - `Method[] getDeclaredMethods()`:返回所有成员方法对象的数组,不包括继承的
+  - ` Method getMethod(String name, Class<?>... parameterTypes)` :返回单个公共成员方法对象
+  - `Method getDeclaredMethod(String name, Class<?>... parameterTypes):`返回单个成员方法对象
+- Method 类中用于调用成员方法的方法
+  - `Object invoke(Object obj, Object... args)`:调用 obj 对象的成员方法,参数是 args,返回值是 Object 类型
+
+```java
+Class<?> c = Class.forName("com.pakage.Student");
+
+Constructor<?> con = c.getConstructor();// 获取无参构造
+Object obj = con.newInstance();// 通过反射从无参构造获取对象
+
+Method method1 = c.getMethod("method1");// 获取名为method1的成员方法,该方法无形参
+method1.invoke(obj);// 使用obj的成员方法method1
+
+Method method2 = c.getMethod("method2", String.class);// 获取名为method1的成员方法,该方法传入一个String类型的参数
+method2.invoke(obj, "林大伞");
+
+// 获取名为method1的成员方法,该方法传入一个String类型和一个int类型的参数，返回一个字符串
+Method method3 = c.getMethod("method3", String.class, int.class);
+Object o = method3.invoke(obj, "林三", 30);
+
+// method4为私有方法，需要暴力反射
+Method method4 = c.getDeclaredMethod("function");
+method4.setAccessible(true);
+method4.invoke(obj);
+```
+
+## 模块化
+
+Java 语言随着这些年的发展已经成为了一门影响深远的编程语言，无数平台，系统都采用 Java 语言编写。但是,伴随着发展，Java 也越来越庞大，逐渐发展成为一门“雕肿”的语言。而且，无论是运行一个大型的软件系统，还是运行一个小的程序，即使程序只需要使用 Java 的部分核心功能，JVM 也要加载整个 JRE 环境。
+为了给 Java“瘦身”，让 Java 实现轻量化，Java9正式的推出了模块化系统。Java 被拆分为 N 多个模块，并允许 Java 程序可以根据需要选择加载程序必须的 Java 模块，这样就可以让 Java 以轻量化的方式来运行。 
+
+其实，Java7的时候已经提出了模块化的概念，但由于其过于复杂，Java7,Java8都一直未能真正推出，直到 Java9才真正成熟起来。对于 Java 语言来说，模块化系统是一次真正的自我革新，这种革新使得“古老而庞大”的 Java 语言重新焕发年轻的活力。
+
+- 模块的基本使用步骤
+
+  - 创建模块(按照以前的讲解方式创建模块，创建包，创建类，定义方法)
+  - 在模块的 src 目录下新建一个名为 module-info.java 的描述性文件， 该文件专门定义模块名， 访问权限， 模块依赖等信息描述性文件中使用模块导出和模块依赖来进行配置并使用
+  - 模块中所有未导出的包都是模块私有的，他们是不能在模块之外被访问的
+    - 模块导出格式：`exports 包名`；
+  - 一个模块要访问其他的模块，必须明确指定依赖哪些模块，未明确指定依赖的模块不能访问
+  - 模块依赖格式：`requires 模块名`；
+    注意：写模块名报错， 需要按下 Alt+Enter 提示， 然后选择模块依赖
+
+- 模块服务的使用
+
+  - 服务：从 Java6开始,Java 提供了一种服务机制,允许服努提供者和服务使用者之间完成解耦
+  - 简单的说,就是服务使用者只面向接口编程,但不清楚服务提供者的实现类 
+  - Java9的模块化系统则进步的简化了 Java 的服务机制。Java9允许将服务接口定义在一个模块中,并使用` uses` 语句来声明该服务接口,然后针对该服务接口提供不同的服务实现类,这些服务实现类可以分布在不同的模块中,服务实现模块则使用` provides` 语句为服务接口指定实现类
+  - 服务使用者只需要面向接口编程即可
+
+  

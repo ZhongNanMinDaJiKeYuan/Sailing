@@ -1,0 +1,2 @@
+className=week8.reflection.Student
+methodName=study
