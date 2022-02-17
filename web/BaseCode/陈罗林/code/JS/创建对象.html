@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        使用工厂方法创建对象，通过该方法可以批量创建对象
+        */
+
+        function createPerson(name,age,gender){
+            //创建一个新的对象
+            var obj = new Object();
+            //给对象添加属性
+            obj.name = name;
+            obj.age = age;
+            obj.gender = gender;
+            obj.sayName = function(){
+                console.log(obj.name);
+            };
+            //返回一个对象
+            return obj;
+        }
+        var obj1 = createPerson("工藤新一",17,"男");
+        var obj2 = createPerson("服部平次",17,"男");
+        console.log(obj1);
+        obj1.sayName();
+        obj2.sayName();
+
+        /*
+        创建一个构造函数，专门用来创建Person对象
+        构造函数就是一个普通的函数，创建方式和普通函数没有区别，不同的是构造函数习惯首字母大写
+
+        构造函数和普通函数的区别就是调用方式的不同
+            普通函数就是直接调用，而构造函数需要使用new关键字来调用
+        
+        构造函数的执行流程：
+            1.立即创建一个新的对象
+            2.将新建的对象设置为函数中的this
+            3.逐行执行函数中的代码
+            4.将新建的对象作为返回值返回
+
+        使用同一个构造函数创建的对象，我们称为一类对象，也将该构造函数称为类
+        将通过该构造函数创建的对象，称为该类的实例
+
+        */
+        function Person(name,age,gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            this.sayName = function(){
+                document.write(this.name);
+            };
+        }
+
+        function Dog(name,age,gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            this.say = function(){
+                document.write(this.name+"汪汪汪~~");
+            };
+        }
+        var per1 = new Person("毛利兰",16,"女");
+        var per2 = new Person("远山和叶",17,"女");
+        var dog = new Dog("小黑",3,"男");
+
+        per1.sayName();
+        document.write("<br>");
+        per2.sayName();
+        document.write("<br>");
+        dog.say();
+
+        /*
+        使用instanceof可以检查一个对象是否是一个类的实例
+        */
+        console.log(dog instanceof Dog);
+
+        console.log(per1);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

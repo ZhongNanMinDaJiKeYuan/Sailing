@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            输入男方条件
+            高：180cm以上；富：1000万以上；帅：500以上；
+            如果三个都满足，则“嫁！”
+            如果三个中有真，则“勉强嫁吧”
+            都不满足，则“休想！”
+        */
+       var height = prompt("输入身高(cm)");
+       var wealth = prompt("输入财富(万)");
+       var looks = prompt("输入颜值(px)");
+       if(height>=180 && wealth>=1000 && looks>=500){
+           alert('嫁！');
+       }else if(height<180 && wealth<1000 && looks<500){
+           alert('休想！');
+       }else{
+           alert("勉强嫁吧")
+       }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

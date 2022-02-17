@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        水仙花数
+            一个三位数啊，每个位上的三次幂之和等于它本身
+            如：1³+5³+3³=153
+        */
+
+        for(var m=100;m<=999;m++){
+            // 获取个位数
+            var i=m%10;
+            // 获取十位数
+            var j=parseInt(m/10)%10;
+            // 获取百位数
+            var k=parseInt(m/100);
+            if(i*i*i + j*j*j + k*k*k == m){
+                // 注意使用网页中的换行符br
+                document.write(m+"<br>")
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

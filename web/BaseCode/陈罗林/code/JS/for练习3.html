@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 用户输入一个数，判断是否为质数
+        while(true){
+            var num = prompt("请输入一个大于1的整数");
+            if(num>1){
+                break;
+            }
+            alert("请按要求输入")
+        }
+        // 设置一个标志，默认为该数为质数
+        flag = true;
+        // 可将下面的parseInt(num/2)换为Math.sqrt(num)表示对num进行开方运算，性能更好
+        for(var i=2;i<=parseInt(num/2);i++){
+            if(num%i==0){
+                document.write(num+"不是质数");
+                flag = flase;
+                break;
+            }
+        }
+        if(flag){
+            document.write(num+"是质数");
+        }else{
+            document.write(num+"不是质数");
+        }
+
+        /*
+            性能测试
+                在程序执行时开启计数器
+                console.time("计时器的名字")用来开启一个计时器，需要一个字符串作为参数，这个字符串将会作为计时器的标识
+
+                在结束时使用console.timeEnd("计时器的名字")来停止计时器
+        */
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

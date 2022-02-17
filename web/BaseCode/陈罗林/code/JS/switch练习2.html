@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            60分以上合格，60分一下不合格
+        */
+       var grade = prompt("输入成绩：");
+        // parseInt()取整
+    //    switch(parseInt(grade/10)){
+    //        case 10:
+    //        case 9:
+    //        case 8:
+    //        case 7:
+    //        case 6:
+    //            console.log("合格");
+    //            break;
+    //         default:
+    //             console.log("不合格");
+    //             break;
+    //    }
+
+        switch(true){
+            case grade>=60:
+                console.log("合格");
+                break;
+            default:
+                console.log("不合格");
+                break;
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

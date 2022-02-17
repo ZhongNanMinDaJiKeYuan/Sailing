@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            输入三个整数
+            然后从小到大排序输出
+        */
+        /*
+            prompt()函数返回值为string类型
+        */
+        //  类型转换   前面加+，可转为number    
+        var num1 = +prompt("输入一个整数");
+        var num2 = +prompt("输入一个整数");
+        var num3 = +prompt("输入一个整数");
+
+        if (num1 < num2 && num1 < num3) {
+            if(num2 < num3){
+                alert(num1 + ","+ num2 +"," + num3);
+            }else{
+                alert(num1+ ","+ num3 +"," + num2);
+            }
+        } else if (num2 < num1 && num2 < num3) {
+            if(num1 < num3){
+                alert(num2 + ","+ num1 +"," + num3);
+            }else{
+                alert(num2+ ","+ num3 +"," + num1);
+            }
+        } else {
+            if(num1 < num2){
+                alert(num3 + ","+ num1 +"," + num2);
+            }else{
+                alert(num3+ ","+ num2 +"," + num1);
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
