@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main
+        {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+    <script>
+        //获取元素的属性
+        window.onload = function ()
+        {
+            var obtn = document.getElementById("btn");
+            var obtn1 = document.getElementById("btn1");
+            var odiv = document.getElementById("div");
+            obtn.onclick = function ()
+            {
+                odiv.className = "main"
+                //为div这个元素添加样式
+            }
+            obtn1.onclick = function ()
+            {
+               odiv.removeAttribute("class");
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="获取">
+    <input type="button" id="btn1" value="删除">
+    <div id="div">你到底在说啥呢，能告诉我吗？</div>
+    
+</body>
+</html>
