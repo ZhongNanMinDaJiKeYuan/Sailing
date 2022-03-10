@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        .box{
+            width: 1210px;
+            height: 48px;
+            background-color: #d8d8d8;
+            margin: 100px auto;
+        }
+        .box ul{
+            float: left;
+            /*将元素在父元素中垂直居中*/
+            line-height: 48px;
+        }
+        .box a{
+            /*将a转换为块元素*/
+            display: block;
+            text-decoration: none;
+            color: #777777;
+            font-size: 18px;
+            padding: 0 39px;
+        }
+        .box li:last-child{
+            padding: 0 42px 0 41px;
+        }
+        .box a:hover{
+            background-color: #333333;
+            color: #e8e7e3;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <a href="#" title="HTML系列教程">HTML/CSS</a>
+        </ul>
+        <ul>
+            <a href="#" title="HTML系列教程">BrowserSide</a>
+        </ul>
+        <ul>
+            <a href="#" title="HTML系列教程">Server Side</a>
+        </ul>
+        <ul>
+            <a href="#" title="HTML系列教程">Programming</a>
+        </ul>
+        <ul>
+            <a href="#" title="HTML系列教程">XML</a>
+        </ul>
+        <ul>
+            <a href="#" title="HTML系列教程">Web Building</a>
+        </ul>
+        <ul>
+            <a href="#" title="HTML系列教程">Reference</a>
+        </ul>
+    </div>
+</body>
+</html>
