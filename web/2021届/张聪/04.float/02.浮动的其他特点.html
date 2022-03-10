@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            /*
+                浮动元素不会盖住文字,文字会自动环绕在浮动元素的周围
+                    所以我们可以利用浮动来设置文字环绕图片的效果
+            */
+            float: left;
+        }
+        .box2{
+            background-color: yellowgreen;
+            /*
+                元素设置浮动后,将会从文档流中脱离,从文档流中脱离后,元素的一些特点也会发生变化
+
+                    脱离文档流的特点:
+                        块元素:
+                            1.块元素不再独占页面的一行
+                            2.脱离文档流以后,块元素的宽度和高度默认都被内容撑开
+                        行内元素脱离文档流以后会变成块元素,特点和块元素一样
+
+                        脱离文档流后,不需要再区分块和行内了
+            */
+            float: left;
+        }
+        .box3{
+            background-color: yellow;
+
+        }
+        .s1{
+            float: left;
+            width: 300px;
+            height: 100px;
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+<!--
+    <div class="box1"></div>
+    <p>
+        凡事总须研究，才会明白。古来时常吃人，我也还记得，可是不甚清楚。我翻开历史一查，这历史没有年代，歪歪斜斜的每叶上都写着“仁义道德”几个字。我横竖睡不着，仔细看了半夜，才从字缝里看出字来，满本都写着两个字是“吃人”!
+    </p>
+-->
+<!--    <div class="box2">hello</div>-->
+<!--    <div class="box3">hello</div>-->
+    <span class="s1">我是span</span>
+</body>
+</html>
