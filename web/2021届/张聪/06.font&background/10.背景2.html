@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box1{
+            width: 638px;
+            height: 560px;
+            overflow: auto;
+            background-color: orange;
+            background-image: url("./img/v2-ec059afc541bce14818f28728c582569_r.jpg");
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            padding: 10px;
+
+            /*
+                设置背景的范围
+                    background-clip
+                        可选值:
+                            border-box 默认值,背景会出现在边框的下边
+                            padding-box 背景不会出现在边框,只出现在内容区和内边距
+                            content-box 背景只出现在内容区
+                    background-origin 背景图片偏移量计算的原点
+                        padding-box 默认值,background-position从内边距处开始计算
+                        content-box 背景图片的偏移量从边框处开始计算
+            */
+            /*background-origin: padding-box;*/
+            /*background-clip: border-box;*/
+
+            /*
+                background-size 设置背景图片的大小
+                    第一个值表示宽度
+                    第二个值表示高度
+                        如果只写一个,则第二个默认是auto
+
+                    cover 图片的比例不变,将元素铺满
+                    contain 图片比例不变,将图片在元素中完整显示
+            */
+            background-size: 100% auto;
+        }
+
+        /*
+            background-color
+            background-image
+            background-repeat
+            background-position
+            background-size
+            background-origin
+            background-clip
+            background-attachment
+
+            background 背景相关的简写属性,所有背景相关的样式都可以通过该样式来设置
+                并且该样式没有顺序要求,也没有哪个属性是必须写的
+
+                注意:
+                    background-size必须写在background-position的后边,并且使用/隔开
+                        background-position/background-size
+
+                    background-origin background-clip 两个样式,orgin要在clip的前边
+
+
+        */
+        .box2{
+            width: 300px;
+            height: 1000px;
+            background-image: url("./img/R-C.png");
+            background-repeat: no-repeat;
+            /*
+                background-attachment
+                    背景图片是否跟随元素移动
+                    可选值:
+                        scroll 默认值 背景图片会随元素移动
+                        fixed 背景会固定在页面中,不会随元素移动
+            */
+            background-attachment: scroll;
+        }
+
+        .box3{
+            width: 500px;
+            height: 500px;
+            background: #bfa url("./img/v2-ec059afc541bce14818f28728c582569_r.jpg") center center/contain  no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <div class="box3">
+
+    </div>
+<!--    <div class="box1">-->
+<!--        <div class="box2"></div>-->
+<!--    </div>-->
+</body>
+</html>
