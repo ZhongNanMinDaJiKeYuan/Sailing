@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="target.html" autocomplete="off">
+
+        <!--
+            autocomplete="off" 关闭自动补全
+            readonly 将表单项设置为只读,数据会提交
+            disable 将表单项设置为禁用
+            autofocus 将表单项自动获取焦点
+        -->
+        <input type="text" name="username" value="hello" disable>
+        <br><br>
+        <input type="text" name="username" autofocus>
+        <br><br>
+        <input type="text" name="b">
+
+        <input type="color">
+        <br><br>
+        <input type="email">
+
+        <input type="submit">
+        <!--重置按钮-->
+        <input type="reset">
+
+        <!--普通的按钮-->
+        <input type="button" value="按钮">
+
+        <button type="submit">提交</button>
+        <button type="reset">重置</button>
+        <button type="button">按钮</button>
+    </form>
+</body>
+</html>
