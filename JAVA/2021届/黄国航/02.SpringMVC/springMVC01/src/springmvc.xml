@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--配置自定义扫描包-->
+    <context:component-scan base-package="com.littlekids8"></context:component-scan>
+
+    <!-- 配置视图解析器：如何把handeler方法返回值解析未实际的物理视图-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <!--配置自定义视图的解析器BeanNameViewResolver:该视图解析器直接从IOC容器中根据viewName取出视图解析视图，故视图需要配置为bean-->
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+        <!--通过order属性来定义视图解析器的优先级。order值越小优先级越高-->
+        <property name="order" value="2"/>
+    </bean>
+
+</beans>
