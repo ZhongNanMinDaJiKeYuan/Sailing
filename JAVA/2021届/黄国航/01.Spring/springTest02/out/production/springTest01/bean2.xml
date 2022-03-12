@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <!--    提取list集合类型属性注入-->
+    <util:list id="bookList">
+        <value>算法</value>
+        <value>深入理解Java虚拟机</value>
+        <value>深度学习</value>
+    </util:list>
+
+<!--    注入-->
+    <bean id="book" class="com.littlekids8.collection_type.Book" scope="prototype">
+        <property name="list" ref="bookList"></property>
+    </bean>
+
+</beans>
