@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.显示隐藏文本框内容</title>
+
+    <style>
+        .box {
+            position: relative;
+            width: 490px;
+            height: 36px;
+            border: 2px solid #008CFF;
+            margin: 100px auto;
+        }
+
+        .box input {
+            width: 440px;
+            height: 34px;
+            outline: none;
+            border: 0;
+            color: #999;
+
+        }
+
+        .box label {
+            /* display: block; */
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 80px;
+            /* height: 36px; */
+            background-color: #008CFF;
+            text-align: center;
+            line-height: 36px;
+
+
+        }
+        .change{
+            position: relative;
+            width: 490px;
+            height: 36px;
+            background-color: #bfa;
+            border: 2px solid red;
+            margin: 200px auto;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="text" value="手机" name="" id="ipt">
+        <label for="">搜索</label>
+    </div>
+
+    <script>
+        var ipt = document.getElementById('ipt');
+        var box=document.querySelector('.box');
+        ipt.onfocus = function () {
+            if (ipt.value === '手机')
+                ipt.value = '';
+            ipt.style.color = 'black';
+        }
+        ipt.onblur = function () {
+            ipt.value = '手机';
+            ipt.style.color = '#999';
+        }
+        box.onclick=function(){
+            box.className='change';
+           
+        }
+        
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.获取元素对象</title>
+    <style>
+        div,
+        p {
+            width: 300px;
+            height: 30px;
+            color: black;
+            background-color: #bfa;
+        }
+        img{
+            width :300px;
+            height : 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>说一句夸赞我的话</button>
+    <div>张勇是个大帅比呀！</div>
+    <p>相逢何必曾相识</p>
+
+    <button id="ldh">刘德华</button>
+    <button id="zxy">张学友</button><br>
+    <img src="./img/ldh.jpg" alt=""><br>
+
+    <img id='dazhaohu' src="./img/s.gif" alt="">
+    <dir id="greet">上午好</dir>
+
+    <button id="btn">按钮</button>
+    <input id="ipt" type="text"  value="输入内容">
+
+    <script>
+        var button = document.querySelector('button');
+        var div = document.querySelector('div');
+        button.onclick = function () {
+            div.innerText = getTimer();
+        }
+
+        var p = document.querySelector('p');
+        p.innerText = getTimer();
+
+        function getTimer() {
+
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var dates = date.getDate();
+            var n = date.getDay();
+
+            arr = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            var day = arr[n];
+            var h = date.getHours();
+            h = h < 10 ? '0' + h : h;
+            var m = date.getMinutes();
+            m = m < 10 ? '0' + m : m;
+            var s = date.getSeconds();
+            s = s < 10 ? '0' + s : s;
+            return '今天是：' + year + '年' + month + '月' + dates + '号' + day + h + ':' + m + ':' + s;
+        }
+
+        console.log("刘德华和张学友图片互换");
+        console.log("获取对象");
+        var ldh = document.getElementById('ldh');
+        var zxy = document.querySelector('#zxy');
+        var img = document.querySelector('img');
+        console.log("注册事件以及以及处理程序");
+        ldh.onclick = function () {
+            img.src = "./img/ldh.jpg";
+            img.width = 600;
+            img.height = 398;
+            img.title = '刘德华真的帅！'
+        }
+        zxy.onclick = function () {
+            img.src = "./img/zxy.jpg";
+            img.title = '张学友 压实了你！'
+        }
+
+
+        console.log('分时显示不同时间案例!');
+
+        var t = new Date();
+        var h = t.getHours();
+        console.log(h);
+        var dazhaohu = document.getElementById("dazhaohu");
+        var greet = document.getElementById("greet");
+        
+        if (h <= 12) {
+            dazhaohu.src = "./img/x.gif";
+            greet.innerHTML = "上午好";
+        }
+        else if (h <= 18) {
+            dazhaohu.src = "./img/x.gif";
+            greet.innerHTML = "下午好";
+        }
+        else {
+            dazhaohu.src = "./img/w.gif";
+            greet.innerHTML = "晚上好";
+        }
+
+        console.log("表单属性操作");
+
+        var btn=document.getElementById("btn");
+        var ipt=document.getElementById("ipt");
+         btn.onclick=function(){
+             ipt.value="点击了！"
+            this.disabled=true;
+         }
+
+
+
+    </script>
+
+</body>
+
+</html>

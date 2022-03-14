@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01函数</title>
+    <!-- 
+        函数
+            -函数就是封装了一段可以被重复执调用的代码块
+            -目的就是让大量代码重复使用
+            -函数是动词,是功能，是对数据对象的操作，所以正常情况下需要输入和输出数据
+
+        函数的使用
+            -函数不调用 就不执行
+            -声明函数
+                语法结构
+                    function 函数名（形参1，形参2···）{
+                        函数体
+                    }
+            -调用函数
+                    函数名（实参1，实参2···）;
+        函数的参数，利用函数的参数实现重复不同的代码
+     -->
+
+    <script>
+        // 求任意两个数的和
+        function getSum(num1, num2) {
+            console.log(num1 + num2);
+        }
+        getSum(1, 100);
+
+        // 求任意两个数之间的和
+        function getSums(num1, num2) {
+            var sum = 0;
+            for (var i = num1; i <= num2; i++) {
+                sum += i;
+            }
+            console.log(sum);
+        }
+        getSums(1, 100);
+
+        // 函数形参实参个数匹配问题
+        // 当实参多于形参个数时，由形参个数决定
+        // 当实参个数小于形参个数时，由于形参是不用声明的变量，那么该形参就是undefined
+        // 所以结果就是NaN
+        getSum(1, 2, 3);
+        getSum(1);
+        // 形参和实参个数最好匹配。
+
+
+        // 函数的返回值
+        // 函数是实现某件事或者功能的模块，所以他应该有处理结果。
+        // 用return语句实现返回值，返回的值给了函数名，函数名也是一个变量吗？
+        function getResult() {
+            return '张勇是个大帅比';
+        }
+        getResult();
+        console.log(getResult());
+
+        function getSum(num1, num2) {
+            return num1 + num2;
+        }
+        getSum(1, 100);
+        console.log(getSum(1, 100));
+
+        // 案例一利用函数 求任意两个数的最大值
+        function getMax(num1, num2) {
+            // if (num1 > num2) {
+            //     return num1;
+            // }
+            // else { return num2; }
+            return num1 > num2 ? num1 : num2;
+
+        }
+        console.log(getMax(1, 10));
+        // 案列二 求数组中最大的值
+        function getArrMax(arr) {
+            var max = arr[0]
+            for (var i = 1; i <= arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i];
+                }
+            }
+            return max;
+        }
+        var res = getArrMax([5, 2, 99, 101, 67, 77]);
+        console.log(res);
+
+        // return的作用；第一可以返回结果值给函数名，第二终止函数。即return语句后面的语句不再执行。
+        // 第三 return只能返回一个值 因为函数名可以看做是一个变量，只能存储一个值。
+        // 返回数组可以实现多个返回值
+        function getResult(a, b) {
+            return [a + b, a - b, a * b, a / b];
+        }
+        var res = getResult(10, 2);
+        console.log(res);
+
+        // return没有返回值时 返回的是undefined
+        // break退出当前循环 continue退出当次循环 return退出整个函数体 的异同
+
+
+        // 5 arguments存储了传递过来的所有实参
+        // arguments的使用,他是一个伪数组，具有数组length的属性，可以按照索引方式读取数据，没有数组的正真方法pop()push()
+        function f1() {
+            console.log(arguments);
+            console.log(arguments.length);
+        }
+        console.log(f1(12, 3, 4, 5, 6));
+
+        function getMax1() {
+            var max = arguments[0];
+            for (var i = 1; i < arguments.length; i++) {
+                if (arguments[i] > max) {
+                    max = arguments[i];
+                }
+
+            }
+            return max;
+
+        }
+
+        var res = getMax1(12, 5, 8, 45, 63, 9, 8, 74, 555);
+        console.log(res);
+
+        // 案例 利用函数翻转数组
+        console.log('案例 利用函数翻转数组');
+        function reverse(arr) {
+            var newArr = [];
+            for (var i = 0; i < arr.length; i++) {
+                newArr[i] = arr[arr.length - 1 - i];
+            }
+            return newArr;
+        }
+        console.log(reverse([1, 2, 3, 4, 5, 6]));
+
+        // 案例 利用函数封装冒泡排序
+        console.log('案例 利用函数封装冒泡排序');
+        function sorted(arr) {
+
+
+            for (var i = 0; i < arr.length - 1; i++) {
+
+                for (var j = 0; j < arr.length - i - 1; j++) {
+
+                    tem = arr[j];
+                    if (arr[j + 1] < arr[j]) {
+                        tem = arr[j + 1];
+                        arr[j + 1] = arr[j];
+                        arr[j] = tem;
+                    }
+                    console.log(arr);
+                }
+              
+            }
+            return arr;
+        }
+        var res = sorted([32, 69, 54, 2, 5, 9, 65]);
+        console.log(res);
+
+        // 案例 利用函数判断闰年
+        // console.log('案例 利用函数判断闰年');
+        // var year = prompt('输入年份：');
+        // function panDuanRunNina(year) {
+        //     if (year % 4 == 0 && year % 100 != 0|| year % 400 == 0) {
+        //         return '2月份29天';
+        //     }
+        //     else {
+        //         return '2月份28天';
+        //     }
+        // }
+        // var res = panDuanRunNina(year);
+        // console.log(res);
+        // alert(res);
+
+        // 函数的两种声明方式
+        // 第一种利用函数关键字function
+        function f1(){
+
+        }
+        f1();
+        // 第二种用函数表达式（匿名函数）
+        // var fun 变量名 （不是函数名）= function(){
+
+        // }
+        // fun();
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

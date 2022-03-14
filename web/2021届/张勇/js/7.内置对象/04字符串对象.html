@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04字符串对象</title>
+    <script>
+        var str = "abcoefoxyozzopp";
+        console.log(str.length);
+        var index = str.indexOf('o');
+        var num = 0;
+        while (index !== -1) {
+            console.log(index);
+            index = str.indexOf('o', index + 1);
+            num++;
+        }
+        console.log("o出现的次数是：" + num);
+        num = 0;
+        var arr = ['r', 'b', 'r', 'g', 'p', 'r'];
+        var index = arr.indexOf('r');
+        while (index !== -1) {
+            console.log(index);
+            num++;
+            index = arr.indexOf('r', index + 1);
+        }
+        console.log("r出现的次数是：" + num);
+
+        console.log("统计字符串中出现最多的字符：");
+        var str = "abcoefoxyozzopp";
+        var obj = {
+
+        };
+
+        for (var i = 0; i < str.length; i++) {
+            if (obj[str.charAt(i)]) {
+                obj[str.charAt(i)]++;
+            }
+            else {
+                obj[str.charAt(i)] = 1;
+            }
+        }
+        console.log(obj);
+        var max = 0;
+        var ch = '';
+        for (var k in obj) {
+            if (obj[k] > max) {
+                max = obj[k];
+                ch = k;
+            }
+        }
+        console.log("出现最多的字符是" + ch + "，次数是" + max);
+
+        console.log("字符串操作方法");
+        var arr = ['r', 'b', 'r', 'g', 'p', 'r'];
+        var str1 = "abcoefoxyozzopp";
+        var str2 = 'zyshigedashuibi';
+        console.log(str1 + str2);
+        console.log(str1.concat(str2));
+        console.log(str1.substr(2, 5));
+
+        console.log(str1.slice(2, 5));
+        console.log(str1.substring(2, 5));
+        //左闭右开
+
+        console.log(str1);
+
+        console.log(str1.indexOf('o'));
+
+
+
+
+        while (str1.indexOf('o') != -1) {
+            str1 = str1.replace('o', '##');
+        }
+        console.log(str1);
+
+        console.log(str1.split(''));
+
+
+        console.log("数据类型内存分配以及参数传递");
+
+        function Person(name){
+            this.name=name;
+        }
+        function f1(x){
+            
+            console.log(x.name);
+            x.name='张勇';
+            console.log(x.name);
+        }
+
+        var p=new Person('周杰伦');
+        console.log(p.name);
+        f1(p);
+        console.log(p.name);
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

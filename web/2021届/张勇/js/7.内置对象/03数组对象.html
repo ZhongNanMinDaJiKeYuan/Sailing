@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03数组对象</title>
+    <!-- 
+        1创建数组方式
+            字面量
+            new Array(n)
+                n表示数组长度，里面有n个空的数组元素
+            new Array(m,n)
+                表示数组有m和n两个元素
+        2检测是否为数组
+            instanceof 是一个运算符
+            Array.isArray(参数)
+        3添加删除数组元素
+            push() 在数组末尾添加一个或多个数组元素 参数即要增加的参数
+            unshift() 在数组开头添加一个或多个数组元素 参数即要增加的参数
+            这两者返回的是新数组长度
+
+            pop()删除数组最后一个元素 一般不跟参数
+            shift()删除数组的第一个元素 一般不跟参数
+
+             这两者返回的都是被删除的元素
+     -->
+    <script>
+        console.log('翻转数组');
+
+        function reverse(arr) {
+            if (arr instanceof Array) {
+                var newArr = [];
+                for (var i = arr.length - 1; i >= 0; i--) {
+                    newArr[newArr.length] = arr[i];
+                }
+                return newArr;
+            }
+            else {
+                return '这不是一个数组！'
+            }
+
+
+        }
+        var arr = [1, 2, 3];
+
+        console.log(reverse([1, 2, 3]));
+
+        arr.push('张勇', '大帅比');
+        console.log(arr);
+        console.log(arr.push('张勇', '大帅比'));
+        console.log(arr);
+        arr.unshift('pink老师');
+        console.log(arr.unshift('pink老师'));
+        console.log(arr);
+
+        console.log(arr.pop());
+        console.log(arr.length);
+        console.log(arr.shift());
+        console.log(arr.length);
+
+        console.log("案例——筛选数组");
+        var arr = [1500, 1200, 2000, 2100, 1800];
+        var arr1 = new Array();
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] <= 2000) {
+                arr1.push(arr[i]);
+            }
+        }
+        for (var i = 0; i < arr1.length; i++) {
+            console.log(arr1[i]);
+        }
+
+
+        // push完之后返回的是新数组长度
+
+        var a1 = ['c', 'a', 'z', 'a', 'x', 'a', 'x', 'c', 'b'];
+        var a2 = new Array();
+        console.log(a2.length);
+        for (var i = 0; i < a1.length; i++) {
+            for (var j = 0; j < a2.length; j++) {
+                var flag = 0;
+                if (a1[i] == a2[j]) {
+                    flag = 1;
+                    break;
+                }
+
+            }
+            if (flag == 1) continue;
+            a2.push(a1[i]);
+        }
+        // console.log(a2.length);
+        // for (var j = 0; j < a2.length; j++) {
+        //     console.log(a2[j]);
+        // }
+
+
+        function unique(a1) {
+            var a2 = new Array();
+            for (var i = 0; i < a1.length; i++) {
+                for (var j = 0; j < a2.length; j++) {
+                    var flag = 0;
+                    if (a1[i] == a2[j]) {
+                        flag = 1;
+                        break;
+                    }
+
+                }
+                if (flag == 1) continue;
+                a2.push(a1[i]);
+            }
+            return a2;
+        }
+
+        unique(a1);
+        console.log(unique(a1));
+       
+
+        console.log("数组去重");
+        function uniqueArr(arr){
+            var newArr=new Array();
+            for(var i=0;i<arr.length;i++){
+                if(newArr.indexOf(arr[i])==-1){
+                    newArr.push(arr[i]);
+                }
+            }
+            return newArr;
+        }
+
+        console.log(uniqueArr(a1));
+
+        console.log(a1.toString());
+        console.log(a1.join('##'));
+
+
+        console.log(a1);
+        console.log(a1.slice(0,2));
+        console.log(a1);
+        // slice(m,n);
+        //左闭右开，m和n是索引号
+        console.log(a1.splice(7));
+        //splice(m);
+        //m是索引号，从吗开始到结尾被切下来，切影响原数组
+        console.log(a1);
+
+        arr.concat(a1);
+        console.log(arr.concat(a1));
+        console.log(a1.concat(arr));
+
+       
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

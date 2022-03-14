@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03获取数据类型</title>
+    <!-- 
+            获取变量的类型
+                -使用typeof 即可
+                -看控制台内容的颜色
+                    -黑色 字符串
+                    -蓝色 数值 布尔
+                    -灰色 undefined null
+                -看代码
+                    即变量类型在代码的固定形式
+                        -比如字符串用引号
+
+                -字面量
+                    -固定数据类型使用的固定表示方式
+
+
+     -->
+
+     <!-- 
+            数据类型转换
+                -转换为字符串型
+                    -加号拼接  变量+''  / 隐式转换/重点掌握
+                        -加上空格字符串
+                    - String(变量)
+                    -变量.toString()
+                -转换为数值型
+                    -parseInt(变量) 
+                        -如果变量是有小数，则取整
+                        -后面有单位则去掉
+                    -parseFloat(变量)
+                        -后面有单位则去掉
+                    -Number(变量)
+                        -强制转换
+                    -算术运算
+                        -减去0
+                        -乘以1
+                        除以1
+            
+            注意:
+                -减法默认转换为数值型
+                -加法默认转换为字符串型
+
+                        
+
+      -->
+      <!-- 
+          转换为布尔型
+            -使用Boolean()函数
+            -当且仅当对象是 '',0, null,NaN,undefined时，结果为false,其余结果为true.
+       -->
+
+     <script>
+         var num = 10;
+         console.log(typeof num);
+
+         var str = 'zhangyongshigedashuaibi'
+         console.log(typeof str);
+
+         var  x ;
+         console.log(typeof x);
+
+         var y =true;
+         console.log(typeof y);
+
+         var z = null;
+         console.log(typeof z);
+
+         var num = 10;
+        console.log(typeof num);
+         var str = num.toString();
+        // 检验str 数据类型
+        console.log(str);
+        console.log(typeof str);
+
+        var str1 = String(num);
+        console.log(str1);
+        console.log(typeof str1);
+
+
+        // var age = prompt('请输入年龄');
+        // var new1 =  parseInt(age);
+        // console.log(new1);
+        // console.log(typeof new1);
+
+
+        var s = '3.14';
+        console.log(parseInt(s));
+        console.log(parseInt('120px'));
+        console.log(parseInt('96587.254x'));
+
+        console.log(Number('934.34'));
+
+
+        /* 计算年龄 */
+        // 要求输入出生年份，弹出年龄
+        // var age = prompt('输入出生年份');
+        // a ='2021'-age;
+        // alert('今年'+a+'岁');
+        // console.log('今年'+a+'岁');
+
+        // 加法器
+       /*  var var1 = prompt('输入第一个值');
+        var var2 = prompt('输入第二个值');
+        // var v1 = var1-0;
+        // var v2 = var2-0;
+
+        var v1 = parseFloat(var1);
+        var v2 = parseFloat(var2);
+        var sum = v1 + v2;
+        alert('和是'+sum);
+
+        console.log('和是'+sum); */
+
+
+        console.log(Boolean(''));
+        console.log(Boolean(0));
+        console.log(Boolean(null));
+        console.log(Boolean(NaN));
+        console.log(Boolean(undefined));
+
+        var name1 = prompt('输入姓名：');
+        var age = prompt('输入年龄：');
+        var sex = prompt('输入性别：');
+        // alert('您的姓名是:name1\n您的年龄是age\n您的性别是:sex\n');
+        // alert('您的姓名是:'+name1 ,'您的年龄是:'+age );
+        
+        
+        console.log('您的姓名是:'+name1);
+        console.log('您的年龄是:'+age);
+        console.log('您的性别是:'+sex);
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

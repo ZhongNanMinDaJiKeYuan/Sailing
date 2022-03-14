@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06作业</title>
+    <script>
+        // // 1.求1-100之间所有数的总和与平均值
+        // var sum = 0;
+        // for (var i = 0; i <= 100; i++) {
+        //     sum += i;
+        // }
+        // var avg = sum / 100;
+        // console.log('总和是' + sum);
+        // console.log('平均值是' + avg);
+
+        // // 2.求1-100之间所有数的偶数的总和
+
+        // var sum = 0;
+        // for (var i = 0; i <= 100; i++) {
+        //     if (i % 2 == 0) {
+        //         sum += i;
+        //     }
+        // }
+        // console.log('总和是' + sum);
+
+        // // 3.求1-100之间7的倍数的总和
+        // var sum = 0;
+        // for (var i = 0; i <= 100; i++) {
+        //     if (i % 7 == 0) {
+        //         sum += i;
+        //     }
+        // }
+        // console.log('总和是' + sum);
+
+        // // 4.用for循环打印矩形
+        // row = prompt('矩形的高度是：');
+        // col = prompt('矩形的宽度是：');
+        // var str = '';
+        // for (var i = 1; i <= row; i++) {
+        //     for (var j = 1; j <= col; j++) {
+        //         str += '★';
+        //     }
+        //     str += '\n';
+        // }
+        // console.log(str);
+
+        // 5.用for循环打印三角
+        // row = prompt('直角三角形的直角边是：');
+        // // col = prompt('矩形的宽度是：');
+        // var str = '';
+        // for (var i = 1; i <= row; i++) {
+        //     for (var j = 1; j <= i; j++) {
+        //         str += '★';
+        //     }
+        //     str += '\n';
+        // }
+        // console.log(str);
+
+        //6. for循环完九九乘法表
+
+        // var str = '';
+        // for (var i = 1; i <= 9; i++) {
+        //     for (var j = 1; j <= i; j++) {
+        //         str += j + '×' + i + '=' + i * j + '\t';
+        //     }
+        //     str += '\n';
+        // }
+        // console.log(str);
+
+        // 7.用户名 admin 密码123456
+        // do {
+        //     var user = prompt('输入用户名：');
+        //     var psw = prompt('输入密码:');
+        // } while (user !== 'admin' && psw !== '123456')
+        // alert('登录成功');
+        // console.log('登录成功');
+
+        // 跳过个位数为3的数
+        // var sum = 0;
+        // for (var i = 1; i <= 100; i++) {
+        //     if (i % 10 == 3) {
+        //         continue;
+        //     }
+        //     console.log(i);
+        //     sum += i;
+        // }
+        // console.log('和是' + sum);
+
+        // 小组作业
+        // var i = prompt('请输入您要的操作：\n 1.存钱 \n 2.取钱\n 3.显示余额\n 4.退出');
+        var money = 100;
+        do{
+            var i = prompt('请输入您要的操作：\n 1.存钱 \n 2.取钱\n 3.显示余额\n 4.退出');
+            if (i == 1) {
+                var moneyin = prompt('请您输入存钱的数目：');
+                money += parseInt(moneyin);
+                alert('您现在的钱数是：' + money);
+                // i = prompt('请输入您要的操作：\n 1.存钱 \n 2.取钱\n 3.显示余额\n 4.退出');
+            }
+            if (i == 2) {
+                var moneyout = prompt('请您输入取钱的数目：');
+                money -= parseInt(moneyout);
+                alert('您现在的钱数是：' + money);
+                // i = prompt('请输入您要的操作：\n 1.存钱 \n 2.取钱\n 3.显示余额\n 4.退出');
+            }
+            if (i == 3) {
+
+                alert('您现在的钱数是：' + money);
+                // i = prompt('请输入您要的操作：\n 1.存钱 \n 2.取钱\n 3.显示余额\n 4.退出');
+            }
+        }while (i !== '4')
+        alert('您正在退出！');
+
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

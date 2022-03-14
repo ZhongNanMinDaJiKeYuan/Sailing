@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.2和3练习.html</title>
+    <style>
+        .box {
+            position: relative;
+            width: 75px;
+            height: 85px;
+            border: 1px solid #CCC;
+            margin: 100px auto;
+            font-size: 12px;
+            color: #f40;
+            text-align: center;
+
+        }
+
+        .box img {
+            width: 60px;
+            margin-top: 3px;
+        }
+
+        .box .btn {
+            position: absolute;
+            border: #CCC 1px solid;
+            width: 15px;
+            left: -17px;
+            top: -1px;
+        }
+
+        .box1 {
+            position: relative;
+            width: 400px;
+            margin: 100px auto;
+            border-bottom: 1px #ccc solid;
+        }
+
+        #ipt {
+            width: 360px;
+            height: 30px;
+            border: 0;
+            /* 去掉输入框边界 */
+            outline: none;
+            /* 去掉点击输入时的黑框 */
+        }
+
+        #btn1 {
+            position: absolute;
+            width: 24px;
+            top: 5px;
+            right: 4px;
+        }
+
+        .box2 {
+            position: relative;
+            width: 400px;
+            border-bottom: 1px solid #CCC;
+            margin: 100px auto;
+
+
+        }
+
+        .box2 input {
+            width: 360px;
+            height: 30px;
+            border: 0;
+            outline: none;
+        }
+
+        .box2 img {
+            position: absolute;
+            width: 24px;
+            right: 4px;
+            top: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="box">
+        淘宝二维码
+        <img src="./img/tao.png" alt="">
+        <i class="btn">×</i>
+    </div>
+
+    <div class="box1">
+        <input type="password" name="" id="ipt">
+        <label for="">
+            <img id="btn1" src="./img/close.png" alt="">
+        </label>
+    </div>
+
+    <div class="box2">
+        <input type="password" name="ipt2" id="ipt2">
+        <label for="">
+            <img id="btn2" src="./img/close.png" alt="">
+        </label>
+    </div>
+
+    <script>
+        var box = document.querySelector('.box');
+        var btn = document.querySelector('.btn');
+        btn.onclick = function () {
+            box.style.display = 'none';
+        }
+
+        var btn1 = document.querySelector('#btn1');
+        var ipt = document.querySelector('#ipt');
+        var flag = 0;
+        btn1.onclick = function () {
+            flag++;
+            flag = flag % 2;
+            if (flag == 1) {
+                btn1.src = "./img/open.png";
+                ipt.type = 'text';
+            }
+            if (flag == 0) {
+                btn1.src = "./img/close.png";
+                ipt.type = 'password';
+            }
+
+        }
+
+        var btn2 =document.getElementById('btn2')
+        var ipt2 = document.querySelector('#ipt2');
+        var i = 0;
+        btn2.onclick = function () {
+            i++;
+            i = i % 2;
+            if (i == 1) {
+                ipt2.type = 'text';
+                btn2.src = "./img/open.png";
+            }
+            if (i == 0) {
+                ipt2.type = 'password';
+                btn2.src = "./img/close.png";
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

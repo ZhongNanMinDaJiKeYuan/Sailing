@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7.1内置对象</title>
+    <!-- 
+        1.内置对象
+        对象分为 自定义对象 内置对象 浏览器对象三类
+        内置对象是js语言自带的一些对象，这些对象供开发者直接使用，提供一些常用的功能和方法
+        常用的内置对象有 math date array string
+        
+        2.查文档
+        mdn w3c 等等网站
+        提供内置对象的功能描述，他是干嘛的，他能干什么
+        输入参数
+        返回数值
+        demo验证
+
+        3.math内置对象
+            首先math内置对象不是一个构造器 构造函数需要使用new关键字去使用它 但是math不需要，他是
+            直接使用里面的属性和方法
+            Math.max()    Math.min() 字符型数字会隐式转换为数值型
+                当参数又非数值型时，返回NaN
+                当没有参数时，返回-Infinity
+            1.绝对值方法
+                Math.abs()
+            2.三个取整方法
+                Math.floor()  向小取整
+                Math.ceil()  向大取整
+                Math.round() 四舍五入
+            3.随机数
+                Math.random() 随机返回[0,1)区间的一个小数
+                获取某个范围内的整数
+                 包含边界 
+                 不包含边界
+        
+        4.Date()日期对象 是一个构造函数 必须使用new 来带调用创建日期对象
+            使用Date 如果没有参数 返回当前系统的当前时间
+            参数常用的写法 数字型 2019,10,1 字符串型 '2021-10-1 8:30:30'
+        5.获得Date总的毫秒数 
+            注意这句话的意思就是 获得从1970年1月1号到现在已经过去的毫秒数
+            总共有三种方法
+                1.valueOf() 和getTime()
+                2.+new Date()
+                3.Date.now() H5新增的 低版本浏览器不兼容
+            demo演示
+    
+    
+    
+    
+    
+        --> 
+
+    <script>
+        console.log('math内置对象demo验证');
+        console.log(Math.max());
+        console.log(Math.round(-1.5));
+        console.log(Math.round(-1.1));
+        // 这个要注意
+        console.log(Math.max(1,'zy'));
+
+
+        console.log('自定义math内置对象demo验证');
+
+        var myMath = {
+            PI: 3.1415926,
+            max: function () {
+                var max = arguments[0];
+                for (var i = 1; i < arguments.length; i++) {
+                    if (arguments[i] > max) {
+                        max = arguments[i];
+                    }
+                }
+                return max
+            },
+            min: function () {
+                var min = arguments[0];
+                for (var i = 1; i < arguments.length; i++) {
+                    if (arguments[i] < min) {
+                        min = arguments[i];
+                    }
+                }
+                return min
+            },
+            abs: function () {
+                var abs = arguments[0];
+                if (arguments[0] < 0) {
+                    abs = -arguments[0];
+                }
+                else {
+                    abs = arguments[0];
+                }
+                return abs;
+            }
+
+        }
+        console.log(myMath.abs(-2));
+        console.log(myMath.max(-2, 2, 3, 4));
+        console.log(myMath.min(-2, 2, 3, 4));
+
+        console.log('随机数演示');
+
+        console.log(Math.random());
+        // 得到两个数之间的随机整数，包含这两个数
+        function getRandomInclusive(min, max) {
+            var min = Math.ceil(min);
+            var max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        console.log(getRandomInclusive(-1, 5));
+
+        var arr = ['张勇', '李四', 'pink老师', '张三', '李思思']
+        console.log(arr[getRandomInclusive(0, arr.length - 1)]);
+
+        // console.log('猜数字游戏1-10');
+        // var random = getRandomInclusive(1, 10);
+
+        // while (true) {
+        //     var num = prompt('猜数字游戏 ，输入1-10之间的一个数字');
+        //     if (num > random) {
+        //         alert('你猜大了，继续猜！');
+        //     }
+        //     else if (num < random) {
+        //         alert('你猜小了，继续猜！');
+        //     }
+        //     else {
+        //         alert('大帅比，你猜对了！');
+        //         break;
+        //     }
+
+        // }
+        console.log('猜数字游戏10,在最少次数猜对');
+        var random = getRandomInclusive(1, 50);
+        var max = 50;
+        var min = 1;
+        var n = 0;
+        var num = Math.floor((min + max) / 2);
+        while (true) {
+
+            if (num > random) {
+                alert('你猜大了，继续猜！');
+                // num = Math.floor((num + min) / 2);
+                num = (num + min) / 2;
+                max = num;
+                n++;
+            }
+            else if (num < random) {
+                alert('你猜小了，继续猜！');
+                num = Math.floor((num + max) / 2);
+                min = num;
+                n++;
+            }
+            else {
+                alert('大帅比，你猜对了！');
+                n++;
+                break;
+            }
+
+        }
+        console.log('总共用了' + n + '次猜对');
+        console.log(num);
+        alert('总共用了' + n + '次猜对');
+
+        var arr = new Array();
+        var obj = new Object();
+        var date = new Date();
+        console.log(date);
+        var date1 = new Date(2021, 10, 1);
+        var date2 = new Date('2021-10-1 8:30');
+        console.log(date1);
+        // 注意此时是十一月
+        // 即 0-11 代表1-12个月
+        console.log(date2);
+
+        console.log('格式化日期年月日');
+        console.log(date.getFullYear());
+        console.log(date.getMonth() + 1);
+        // 注意 月份比实际月份少一
+        console.log(date.getDate());
+        console.log(date.getDay());
+        // 周日是0
+        console.log(date.getHours());
+        console.log(date.getMinutes());
+        console.log(date.getSeconds());
+
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var dates = date.getDate();
+        var n = date.getDay();
+
+        arr = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+        var day = arr[n];
+        console.log('今天是：' + year + '年' + month + '月' + dates + '日' + day);
+
+        console.log('格式化日期时分秒');
+        // 封装一个函数 返回当前时分秒
+        function getTimer() {
+
+            var time = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var dates = date.getDate();
+            var n = date.getDay();
+
+            arr = ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            var day = arr[n];
+            var h = time.getHours();
+            h = h < 10 ? '0' + h : h;
+            var m = time.getMinutes();
+            m = m < 10 ? '0' + m : m;
+            var s = time.getSeconds();
+            s = s < 10 ? '0' + s : s;
+            return year + '年' + month + '月' + dates + '号' + day + h + ':' + m + ':' + s;
+        }
+        console.log(getTimer());
+
+        console.log('获得Date总的毫秒数');
+        console.log('方法一');
+        var date = new Date();
+        console.log(date.valueOf());
+        console.log(date.getTime());
+        console.log('方法二');
+        var d = +new Date();
+        console.log(d);
+        console.log('方法三');
+        console.log(Date.now());
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

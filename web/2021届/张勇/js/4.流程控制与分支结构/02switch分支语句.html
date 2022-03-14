@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02switch语句</title>
+    <script>
+        /*  switch分支语句主要针对变量是某个特定值的时候，则选择某个分支执行
+                -***表达式和值的等于是全等比较
+                -表达式经常会用变量来代换
+                -break是用来跳出switch语句
+            switch分支语句
+                -语法结构
+                    switch（表达式）{
+                        case value1：
+                            执行语句1;
+                            break;
+                        case value2
+                            执行语句2;
+                            break;
+                        case value3
+                            执行语句3;
+                            break;
+                        ···
+                        default:
+                            默认执行语句;
+    
+                    }
+        
+        
+        */
+
+        // // 输入数字决定星期几
+        // var score = prompt('输入数字：');
+        // switch (parseInt(score)) {
+        //     case 1:
+        //         alert('今天星期一');
+        //         break;
+        //     case 2:
+        //         alert('今天星期二');
+        //         break;
+        //     case 3:
+        //         alert('今天星期三');
+        //         break;
+        //     case 4:
+        //         alert('今天星期四');
+        //         break;
+        //     case 5:
+        //         alert('今天星期五');
+        //         break;
+        //     case 6:
+        //         alert('今天星期六');
+        //         break;
+
+        //     case 7:
+        //         alert('今天星期天');
+        //         break;
+        //     default:
+        //         alert('数字输入有误');
+
+        // }
+
+        // 班长请客吃饭
+        var money = prompt('班长口袋有多少钱？');
+        if(money >= 2000){
+            alert('班长请大家吃西餐');
+        }
+        else if (money >=1500){
+            alert('班长请大家吃快餐');
+        }
+        else if (money >=1000){
+            alert('班长请大家喝饮料');
+        }
+        else if (money >=500){
+            alert('班长请大家吃棒棒糖');
+        }
+        else{
+            alert('班长，记得下次吧钱带够!');
+        }
+
+        // 水果查询
+
+        // var fruit = prompt('输入水果名称：');
+
+        // switch (fruit) {
+        //     case '苹果':
+        //         alert('苹果3.5元一斤');
+        //         break;
+        //     case '香蕉':
+        //         alert('香蕉3元一斤');
+        //         break;
+        //     case '橘子':
+        //         alert('橘子2元一斤');
+        //         break;
+        //     case '葡萄':
+        //         alert('葡萄2.5元一斤');
+        //         break;
+        //     default:
+        //         alert('没有此水果');
+        // }
+
+        // 判断时间阶段
+        // var time = prompt('输入时间');
+        // if(time <=13 && time >=11){
+        //     alert('中午好');
+        // }
+        // else if(time <=19 && time >=17)
+        // {
+        //     alert('傍晚好');
+
+        // }
+        // else if(time <=24 && time >=22)
+        // {
+        //     alert('深夜好');
+
+        // }
+        // else{
+        //     alert('你好');
+        // }
+
+        // 比较数值大小
+        // var n1 =prompt('输入第一个数：');
+        // var n2 =prompt('输入第二个数：');
+        // if(n1 >= n2)
+        // {
+        //     alert('最大值为'+n1);
+        // }
+        // else{
+        //     alert('最大值为'+n2);
+        // }
+
+        // 判断奇数 偶数
+
+        // var n = prompt('输入一个数：');
+        // if (n % 2 == 0) {
+        //     alert(n + '是偶数');
+        // }
+        // else {
+        //     alert(n + '是奇数');
+        // }
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

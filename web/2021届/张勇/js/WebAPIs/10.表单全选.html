@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10表单全选</title>
+    <style>
+        table {
+            width: 300px;
+            margin: 100px auto;
+            text-align: center;
+            font-size: 14px;
+            border-collapse: collapse;
+        }
+
+        thead tr {
+            background-color: rgb(0, 141, 208);
+            height: 30px;
+        }
+
+        tbody tr {
+            height: 30px;
+        }
+
+        table button {
+            width: 15px;
+            height: 15px;
+            /* background: url(./img/right.png) no-repeat center */
+        }
+
+        table td,
+        th {
+            border: 0.5px solid #ccc;
+        }
+
+        .right {
+            background: url(./img/right.png) no-repeat left center;
+        }
+
+        .wrong {
+            background-image: '';
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th><button></button></th>
+                <th>商品</th>
+                <th>价钱</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><button></button></td>
+                <td>iphone8</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td><button></button></td>
+                <td>iPad Pro</td>
+                <td>5000</td>
+            </tr>
+            <tr>
+                <td><button></button></td>
+                <td>iPad Air</td>
+                <td>2000</td>
+            </tr>
+            <tr>
+                <td><button></button></td>
+                <td>Apple Watch</td>
+                <td>2000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+
+        var btna = document.querySelector('thead').querySelector('button');
+        var bts = document.querySelector('tbody').querySelectorAll('button');
+        var flag = 0;
+        var i = 0;
+        btna.onclick = function () {
+            flag++;
+            flag %= 2;
+            if (flag == 1) {
+                for (let index = 0; index < bts.length; index++) {
+                    bts[index].className = 'right';
+                }
+                btna.className = 'right';
+            }
+            else {
+                for (let index = 0; index < bts.length; index++) {
+                    bts[index].className = 'wrong';
+                }
+                btna.className = 'wrong';
+            }
+
+        }
+
+        for (let index = 0; index < bts.length; index++) {
+            bts[index].onclick = function () {
+                i++;
+                i %= 2;
+                if (i == 1) {
+                    this.className = 'right';
+                }
+                else {
+                    this.className = 'wrong';
+                    btna.className = 'wrong';
+                }
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>

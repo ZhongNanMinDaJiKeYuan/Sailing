@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02弹出网页警告框练习</title>
+    <script>
+        var con = '酷热难耐，火辣的太阳底下,我挺拔的身姿，成为了最为独特的风景。\n我审视四周，这里，是我的舞台，我就是天地间的王者。\n这一刻，我豪气冲天，终于大喊一声：“收破烂啦~”'
+        alert(con);
+        /* 
+            字符串的长度和拼接
+                -空格会被认为是字符
+                -长度使用字符串的length属性来计算
+                -拼接用+号
+                    一定要有一个对象是字符串，另一个对象可以是数字型
+        */
+
+        var con = '张勇是个大帅比'
+        var test = 'zhang yong shi ge da shuai bi'
+        console.log(con.length ,test.length);
+
+        console.log(18 + 'zhang yong shi ge da shuai bi');
+
+        var age = prompt('请输入你的年龄');
+        alert('\"您今年'+ age +'岁啦\"');
+
+        /* 
+            布尔型
+                -当布尔型参与数字计算时，true被看成1，false被看成0
+                -布尔型与字符串相加就是trur/false+字符串
+
+            未定义型
+                -未赋值的变量会默认赋值为undefined
+                -未定义型与字符串相加就是undefined+字符串
+                -未定义型与数字相加结果是NaN
+
+            空值 null
+                -直接定义某个变量为空值
+                -和数值相加 null被看成0
+                --空值与字符串相加就是null+字符串
+                
+        
+        */
+       var flag2 = false;
+       var flag1 = true ;
+       console.log(flag1+1);
+       console.log(flag2+1);
+
+        var x ;
+        console.log(x + test);
+        console.log(x +2);
+
+        var n = null;
+        console.log(n+test);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

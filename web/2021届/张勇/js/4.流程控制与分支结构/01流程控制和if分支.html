@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01顺序结构</title>
+    
+    <script>
+        /* 
+        顺序结构
+            -按照代码顺序执行代码
+        条件结构
+            -根据判断条件 选择执行代码段 得到对应结果
+            -实现方式
+                - if(判断条件){
+                    执行语句1
+                }
+                -if条件语句 如果判断条件为真，则执行大括号内执行语句1
+                    如果条件为假 则直接跳过大括号内执行语句1 继续往下执行
+
+                -双分支语句
+                    -语法结构
+                        if（）{
+                            执行语句1
+
+                        }
+                        else{
+                            执行语句2
+                        }
+                -多分支语句
+                        -语法结构
+                            if(条件表达式1){
+                                执行语句1
+                            }
+                            else if(条件表达式2){
+                                 执行语句2
+                            }
+                            ···
+                            else{
+                                执行语句n
+                            }
+                ***-三元表达式 可以实现二分支选择
+                            -语法结构
+                                条件表达式 ？ 表达式1 ： 表达式2
+                                如果条件表达式为真 返回表达式1的值
+                                如果条件表达式为假 返回表达式2的值
+                                    -通常会为三元表达式命名为一个变量，使返回值返回给变量
+        
+        */
+                            
+                        
+
+        // 进入网吧练习
+        // var age = prompt('输入年龄：');
+        // if(parseInt(age)>=18){
+        //     alert('允许进入');
+
+        // }
+        // else
+        //     alert('不允许进入');
+
+        // 闰年判断
+
+        // var year = prompt('输入年份：');
+        // // 这里可以看到基本的运算符都会默认转换数据类型为数值型
+        // if(year % 4 ==0 && year % 100 !=0 ||year % 400==0){
+        //     alert(year+'年是闰年');
+
+        // }
+        // else{
+        //     alert(year+'年是平年');
+        // }
+        
+
+        // 判断中奖
+        // var con = prompt('输入姓名：');
+
+        // if(con == '刘德华'){
+        //     alert('中了5块钱');
+        // }
+        // else{
+        //     alert('没有中奖')
+        // }
+
+
+        // 判断成绩等级
+            // var gra = prompt('输入成绩：');
+            // if(gra > 100){
+            //     alert('分数有误！')
+            // }
+            // else if(gra >= 90){
+            //     alert('A');
+            // }
+            // else if(gra >= 80){
+            //     alert('B');
+            // }
+            // else if(gra >= 70){
+            //     alert('C');
+            // }
+            // else if(gra >=60){
+            //     alert('D');
+            // }
+            // else {
+            //     alert('E');
+            // }
+        
+            // 数字补0
+
+            var num = prompt('输入数字');
+            n = num < 10 ? 0+num : num;
+
+            alert(n);
+            console.log(typeof n);
+            console.log(n);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

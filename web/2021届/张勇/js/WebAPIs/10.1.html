@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10.1</title>
+    <style>
+        table {
+            width: 300px;
+            margin: 100px auto;
+            font-size: 14px;
+            text-align: center;
+            border-collapse: collapse;
+
+
+        }
+
+        table thead {
+            height: 30px;
+            background-color: rgb(0, 141, 208);
+        }
+
+        table tr td,
+        th {
+            font-size: 12px;
+            border: 0.5px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox" name="" id="cha"></th>
+                <th>商品</th>
+                <th>价钱</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" name="" id="ch"></td>
+                <td>iphone8</td>
+                <td>8000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id="ch"></td>
+                <td>iPad Pro</td>
+                <td>5000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id="ch"></td>
+                <td>iPad Air</td>
+                <td>2000</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="" id="ch"></td>
+                <td>Apple Watch</td>
+                <td>2000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var cha = document.querySelector('#cha');
+        console.log(cha);
+        var chs = document.querySelector('tbody').querySelectorAll('#ch');
+        console.log(chs);
+        cha.onclick = function () {
+            for (let index = 0; index < chs.length; index++) {
+                chs[index].checked = this.checked;
+
+            }
+        }
+        for (let index = 0; index < chs.length; index++) {
+            chs[index].onclick = function () {
+                var flag = true;
+                for (let index = 0; index < chs.length; index++) {
+
+                    if (!chs[index].checked) {
+                        flag = false;
+                    }
+                    cha.checked = flag;
+                }
+
+            }
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01什么是变量</title>
+    <!-- 
+        1.变量：
+            -是程序在内存中申请的一块存放数据的存储空间（申请未存放数据的寄存器）；
+            -通常一个变量有几个方面很重要：
+                变量名:这个空间的名字，可以通过变量名来访问这块存储空间存储的内容
+                地址：这块存储空间在计算机内存中的某种排序命名
+        2.变量的使用
+            -使用分两步，先声明，在赋值，类似c语言。把这两步合为一步就叫做
+                变量的初始化。
+                声明变量 ：var+ 变量名；
+                变量的赋值： 变量名=值
+
+        3.变量的语法扩展
+            -变量的赋值会覆盖原有的值
+            -多个变量同时声明以及赋值，即多个变量的初始化。
+            -声明变量的特殊情况
+                -只声明，未赋值 undefined
+                -不声明，不赋值， 报错
+                -不声明，直接赋值 可以使用，但不建议（会变成全局变量）
+
+        4.变量的命名规范
+            -大小写字母、数字、下划线、还有$
+            -数字不能开头
+            -不能是关键字 保留字
+                    以上和c语言很类似
+            -遵循驼峰命名法。首单词字母小写 后面单词首字母要大写。
+            -变量名最好有意义。对应现实语义。
+            -name尽量不要作为变量名
+     -->
+     <script>
+        //  var myname ='旗木卡卡西';
+        //  var address = '火影村';
+        //  var age = 30;
+        //  var email = 'kakaxi@itcast.cn';
+        //  var income = 1000;
+        //  console.log( myname,address,age ,email, income);
+        //  console.log(income);
+
+        //  prompt('请输入内容');
+        //  var con = prompt('请输入内容');
+        //  alert(con);
+        // alert(prompt('请输入内容') ,prompt('输入名字'));
+        var var1 ='青苹果',
+            var2 = '红苹果',
+            var3;
+
+        console.log(var1,var2);
+        var3 = var2;
+        var2 = var1;
+        var1 = var3;
+        console.log(var1,var2);
+
+
+     </script>
+</head>
+<body>
+    
+</body>
+</html>

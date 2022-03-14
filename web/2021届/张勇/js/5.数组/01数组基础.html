@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01数组基础</title>
+    <script>
+        // 1数组转换为字符串
+        var arr1 = ['red', 'green', 'blue', 'pink'];
+        var str = '';
+        for (var i = 0; i < arr1.length; i++) {
+            str = str + arr1[i] + '|';
+        }
+        console.log(str);
+        console.log('1数组转换为字符串--------------');
+
+        // 2新增数组元素 ，修改arr.length的数值，默认在数组末尾增加undefined
+        // 新增数组元素，直接修改索引，追加数组元素
+
+        var arr1 = ['red', 'green', 'blue', 'pink'];
+        arr1[6] = 'zhangyong1';
+        console.log(arr1);
+        arr1 = '乘虚御风者';
+        console.log(arr1);
+        for (var i = 0; i < arr1.length; i++) {
+            console.log(arr1[i]);
+        }
+        arr1 = '乘虚御风者';
+
+        console.log('2新增数组元素 --------------');
+
+        // 3新建数组存放1-10
+        var arr = new Array();
+        for (var i = 0; i < 10; i++) {
+            arr[i] = i + 1;
+            console.log(arr[i]);
+        }
+        console.log('3新建数组存放1-10--------------');
+
+        // 4 筛选数组中的元素
+        var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+        var arr1 = [];
+        var j = 0;
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] >= 10) {
+                arr1[j] = arr[i];
+                j++;
+            }
+        }
+        console.log(arr1);
+        for (var i = 0; i < arr1.length; i++) {
+            console.log(arr1[i]);
+        }
+        console.log('4 筛选数组中的元素--------------');
+
+        // 5数组案例
+        // （1）删除指定数组元素
+        var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+        var arr1 = [];
+        var j = 0;
+        // console.log(arr1.length);
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] != 0) {
+                arr1[arr1.length] = arr[i];
+                // arr1.length++; 
+                console.log(arr1.length);
+                // j++;
+            }
+        }
+        console.log(arr1);
+        for (var i = 0; i < arr1.length; i++) {
+            console.log(arr1[i]);
+        }
+        console.log('5数组案例删除指定数组元素--------------');
+        // (2)数组翻转
+        var arr = ['red', 'green', 'blue', 'pink', 'purple'];
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            newArr[arr.length - i - 1] = arr[i];
+        }
+        console.log(newArr);
+
+        // 冒泡排序
+        var arr = [2, 11, 6, 1, 77, 99, 52, 8, 25, 7];
+
+        for (var i = 0; i < arr.length - 1; i++) {
+            for (var j = i; j < arr.length - 1; j++) {
+                var max = arr[i];
+                if (arr[j + 1] > max) {
+                    max = arr[j + 1];
+                    arr[j + 1] = arr[i];
+                    arr[i] = max;
+                }
+
+            }
+            console.log(arr);
+        }
+        console.log('选择排序算法--------------');
+
+        var arr = [2, 11, 6, 1, 77, 99, 52, 8, 25, 7];
+        for (var i = 0; i < arr.length - 1; i++) {
+            for (var j = 0; j < arr.length - 1 - i; j++) {
+                // var max = arr[i];
+                if (arr[j + 1] < arr[j]) {
+                    var max = arr[j + 1];
+                    arr[j + 1] = arr[j];
+                    arr[j] = max;
+                }
+
+            }
+            console.log(arr);
+        }
+        console.log('冒泡排序算法--------------');
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01数据类型</title>
+    <script>
+        /* 
+        变量数据类型
+            1.js的数据类型是只有在程序运行过程中，根据等号右边的值来确定的。
+                -不像c语言需要提前申明变量类型，申请内存空间。这是否意味着js用完即放的特点呢
+                也就是说在执行到该行代码时，就为这个变量申请内存空间，一旦执行结束，内存空间即
+                被释放。
+
+                -js是动态语言 变量的数据类型是可以变化的。
+
+            2. 数字型
+                -数字型的其他进制表示：
+                    0~ 代表八进制
+                    0x~ 代表十六进制
+                -数字型的范围
+                    number.max-value 最大值
+                    number.min-value 最小值
+                    infinity 无穷大
+                    -infinity 无穷小
+                    NaN 非数字
+            3.isNaN()用来判断变量是否为数值
+                -如果是数字，则返回false
+                -如果是非数字，则返回true
+            4.字符串类型
+                -用单引号或者双引号
+                -字符串的嵌套遵循：外双内单或者外单内双，符号和标签一样会就近匹配
+                -字符串里的常用特殊字符
+                    -\n 换行
+                    -\t 首行缩进
+                    -\b 空格 
+
+        */
+
+        var x = 10;  
+        // 此时说明变量x的数据类型是数字型
+        var y = '\tzhangyong';
+        //  此时说明变量是个字符型
+        console.log(y);
+        
+        console.log(isNaN(x));
+        
+
+        console.log(Number.MAX_VALUE , Number.MIN_VALUE, -Number.MAX_VALUE*2 ,Number.MAX_VALUE*2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

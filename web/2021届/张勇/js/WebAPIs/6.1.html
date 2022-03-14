@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.1.html</title>
+
+    <style>
+        .box {
+            width: 600px;
+            margin: 100px auto;
+            /* border: 1px solid #ccc; */
+        }
+
+        input {
+            outline: none;
+        }
+
+        .message {
+            background: url(./img/mess.png) no-repeat left;
+            padding-left: 20px;
+            color: #999;
+            font-size: 12px;
+        }
+
+        .wrong{
+            background-image: url(./img/wrong.png);
+            background-repeat: no-repeat;
+        }
+
+        .right{
+            background-image: url(./img/right.png);
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="password" name="" id="ipt">
+        <label class="message" for="">请输入6~16位字符</label>
+    </div>
+
+    <script>
+        var ipt = document.querySelector('#ipt');
+        var message = document.querySelector('.message');
+        ipt.onblur = function () {
+            if (ipt.value.length < 6 || ipt.value.length > 12) {
+                message.className='message wrong';
+                message.innerHTML='输入错误';
+            }
+            else{
+                message.className='message right';
+                message.innerHTML='输入正确';
+            }
+        }
+    </script>
+</body>
+
+</html>

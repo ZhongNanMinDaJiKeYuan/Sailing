@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.密码框验证信息</title>
+
+    <style>
+        div {
+            width: 600px;
+            margin: 100px auto;
+        }
+
+        .message {
+            display: inline-block;
+            color: #999;
+
+            /* text-align: center; */
+            /* line-height:34px; */
+            font-size: 12px;
+            /* margin-left: 25px; */
+
+            background: url(./img/mess.png) no-repeat left;
+            /* background-repeat: no-repeat; */
+
+            /* background: url(./img/mess.png) no-repeat left center; */
+            padding-left: 20px;
+        }
+
+        .wrong {
+            color: red;
+            background-image: url(./img/wrong.png);
+            background-repeat: no-repeat;
+
+        }
+
+        .right {
+            color: green;
+            background-image: url(./img/right.png);
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="password" class="ipt">
+
+        <p class="message">请输入6~16位密码
+        </p>
+    </div>
+
+    <script>
+        var ipt = document.querySelector('input');
+        var message = document.querySelector('.message');
+
+        ipt.onblur = function () {
+            if (ipt.value.length < 6 || ipt.value.length > 16) {
+                message.className = 'message wrong';
+                message.innerHTML = "您输入的位数不对，要求输入6~16位";
+            } else {
+                message.className = 'message right';
+                message.innerHTML = "您输入正确";
+
+
+            }
+        }
+    </script>
+    </div>
+
+</body>
+
+</html>

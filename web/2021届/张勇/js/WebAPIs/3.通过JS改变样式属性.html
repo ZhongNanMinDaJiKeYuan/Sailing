@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03通过JS改变样式属性</title>
+    <style>
+        #changeStyle {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+
+        .box {
+            position: relative;
+            width: 74px;
+            height: 88px;
+            border: 1px solid #ccc;
+            font-size: 12px;
+            text-align: center;
+            color: #f40;
+
+            margin: 100px auto;
+        }
+
+        .box img {
+            width: 60px;
+            margin-top: 3px;
+        }
+
+        .box #close-btn {
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            background-color: white;
+            border: 1px solid #ccc;
+           line-height: 14px;
+            left: -16px;
+            top: -1px;
+            /* cursor: pointer; */
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <div id="changeStyle"></div>
+    <div class="box">
+        淘宝二维码
+        <img src="./img\tao.png" alt="">
+        <i id="close-btn">×
+            <!-- <img id="w" src="./img\wrong.png" alt=""> -->
+        </i>
+
+    </div>
+
+    <script>
+        var div = document.querySelector("#changeStyle");
+        div.onclick = function () {
+            //JS修改的是行内样式，权重比CSS高
+            //样式命名采用驼峰命名法
+            div.style.backgroundColor = 'red';
+            div.style.width = ' 280px ';
+        }
+
+        var box = document.querySelector('.box');
+        var btn = document.querySelector('#close-btn');
+        btn .onclick = function () {
+            box.style.display = 'none';
+        }
+    </script>
+
+</body>
+
+</html>

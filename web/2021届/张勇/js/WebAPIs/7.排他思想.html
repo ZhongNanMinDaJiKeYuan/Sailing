@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7.排他思想</title>
+
+    <style>
+        .box {
+            margin: 100px auto;
+            width: 500px;
+            /* border: 1px solid #CCC; */
+        }
+
+        /* button{
+            background-color: pink;
+        } */
+    </style>
+
+
+</head>
+
+<body>
+    <div class="box">
+        <button>按钮</button>
+        <button>按钮</button>
+        <button>按钮</button>
+        <button>按钮</button>
+        <button>按钮</button>
+    </div>
+
+    <script>
+        var btn = document.getElementsByTagName('button');
+        for (let index = 0; index < btn.length; index++) {
+            //第一个for循环是为每一个按钮对象设置方法
+            btn[index].onclick = function () {
+                for (var i = 0; i < btn.length; i++) {
+                    btn[i].style.backgroundColor = '';
+                }
+                //排除他人样式
+                this.style.backgroundColor = 'pink';
+                //设置自己样式
+            }
+
+
+
+        }
+    </script>
+
+
+
+</body>
+
+</html>
