@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        表单将本地数据提交给远程的服务器
+        form的属性
+            action表单要提交的服务器的地址
+     -->
+
+     <form action="target.html">
+         <!-- 文本 text
+            数据要提交到服务器，必须指定一个name
+        -->
+         文本框<input type="text" name="username">
+         <br><br>
+
+
+         <!-- 密码框 -->
+         密码框<input type="password" name="password">
+         <br><br>
+
+         <!-- 单选按钮
+            需要有value选项，选中哪个就向后面发送哪个value
+            可以添加一个checked 即默认选中值
+        -->
+         单选按钮<input type="radio" name="hello" value="a">
+                <input type="radio" name="hello" value="b" checked>
+        <br><br>
+        
+        <!-- 多选框 -->
+        多选框<input type="checkbox" name="cb" value="a">
+        <input type="checkbox" name="cb" value="b">
+        <input type="checkbox" name="cb" value="c">
+        <input type="checkbox" name="cb" value="d">
+        <input type="checkbox" name="cb" value="e">
+        <br><br>
+        
+        <!-- 下拉列表
+            可以在option中添加selected选项 表示默认选中该值
+        -->
+        <select name="haha" id="">
+            <option value="i">选项1</option>
+            <option selected value="ii">选项2</option>
+            <option value="iii">选项3</option>
+            <option value="iiii">选项4</option>
+        
+        </select>
+
+
+
+
+
+        <br><br>
+         <!-- 按钮 submit -->
+         <input type="submit" value="注册">
+         <br><br>
+
+
+     </form>
+</body>
+</html>

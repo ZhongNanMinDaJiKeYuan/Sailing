@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 给用户提供不常见的字体 */
+        /* 加载速度问题,版权问题 */
+        @font-face{
+            /* 指定字体的名字(自己起的名字) */
+            font-family: 'my-font';
+            /* 服务器中字体的路径 */
+            src:url('');
+        }
+        p{
+            /* 
+                color设置字体颜色
+                font-size设置字体大小
+                    em是当前字体大小
+                    rem是根字体大小
+                font-family字体:
+                    五大类:
+                    monospace 等宽字体
+                    serif 衬线字体
+                    sans-serif 非衬线字体
+                    cursive草书字体
+                    fantasy虚幻字体
+            */
+            font-size: 40px;
+            color: violet;
+            /* font-family: '宋体'; */
+
+            /* 指定三个字体,从左到右优先顺序 */
+            font-family: 'Courier New', Courier, monospace;
+
+            /* 可以从 c盘 windows fonts找到电脑能使用的字体*/
+        }
+    </style>
+</head>
+<body>
+    <p>小潘hello</p>
+</body>
+</html>

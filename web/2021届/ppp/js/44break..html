@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            break用于结束switch和循环语句
+            不可以在if中使用
+            break会立即终止对他最近的循环语句
+        */
+        //可以为循环语句起名  比如label：
+        //使用break语句可以  指定结束哪个循环
+       hello:
+       for (let i = 0; i < 5; i++) {
+           console.log("outer"+ i);
+
+           for (let j = 0; j < 5; j++) {
+               console.log("inner" + j);
+
+               //break;
+               break hello;
+               
+           }
+           
+       }
+
+       /* 
+        continue跳过一次循环
+       */
+      for (let k = 0; k < 5; k++) {
+          if (k == 2){
+              continue;
+          }
+          
+      }
+
+       
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

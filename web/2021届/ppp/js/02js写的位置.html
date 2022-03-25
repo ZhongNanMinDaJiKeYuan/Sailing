@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 除了写在script里面  还可以写在外部文件  要通过script标签引入-->
+
+    <script type="text/javascript" src="./jsjs/script.js">
+        document.write("script里面的");
+        // 在script标签里引用src之后  内部引用的浏览器会忽略  如果想内部引用只需新建一个script标签
+    </script>
+
+    <script type="text/javascript">
+        document.write("script里面的");
+        // 在script标签里引用src之后  内部引用的浏览器会忽略  如果想内部引用只需新建一个script标签
+    </script>
+</head>
+<body>
+    <!-- 可以写在标签里的onclick -->
+    <button onclick="alert('按钮JS')">按钮</button>
+    <!-- 可以写在超链接的href中 -->
+    <a href="javascript:alert('超链接js')">超链接</a>
+    <!-- 上面两种方法不好  写在script标签中最方便 -->
+</body>
+</html>

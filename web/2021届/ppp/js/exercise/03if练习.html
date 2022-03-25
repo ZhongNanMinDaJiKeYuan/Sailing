@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        //prompt函数返回值时string
+        var num1 = +prompt("输入第1个数字");
+        var num2 = +prompt("输入第2个数字");
+        var num3 = +prompt("输入第3个数字");
+
+        if (num1 < num2 && num1 < num3 ) {
+            document.write(num1);
+            document.write("<");
+            if(num2 < num3){
+                document.write(num2);
+                document.write("<");
+                document.write(num3);
+            }else{
+                document.write(num3);
+                document.write("<");
+                document.write(num2);
+            }        
+        }else if(num2 < num1 && num2 < num3){
+            document.write(num2);
+            document.write("<");
+            if(num1 < num3){
+                document.write(num1);
+                document.write("<");
+                document.write(num3);
+            }else{
+                document.write(num3);
+                document.write("<");
+                document.write(num1);
+            }
+        }else{
+            document.write(num3);
+            document.write("<");
+            if (num1<num2) {
+                document.write(num1);
+                document.write("<");
+                document.write(num2);
+            } else {
+                document.write(num2);
+                document.write("<");
+                document.write(num1);
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

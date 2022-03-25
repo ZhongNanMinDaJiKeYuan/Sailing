@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            background-color: rgba(255, 255, 0,.5);
+            height: 100px;
+            width: 100px;
+            position: relative;
+            top: 0;
+            left: 0;
+            z-index: 1;
+
+
+            /* 
+                z-index:可以调整层级位置,数值越大越在上层显示
+                不标注z-index,如果层级相同,标签越靠下越在上层显示
+            */
+
+        }
+
+        .box2{
+            background-color: rgba(255, 25, 82, 0.3);
+            height: 100px;
+            width: 100px;
+
+            position: absolute;
+            top: 33px;
+            left: 33px;
+        }
+        .box3{
+            background-color: green;
+            height: 100px;
+            width: 100px;
+
+            position: absolute;
+            top: 66px;
+            left: 66px;
+        }
+        .box4{
+            background-color: rgb(66, 42, 131);
+            height: 33px;
+            width: 33px;
+            /* 
+                3是4的祖先元素,祖先元素的层级再高,也不能覆盖子元素
+            */
+            position: absolute;
+            top: 66px;
+            left: 66px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3
+        <div class="box4"></div>
+    </div>
+
+</body>
+</html>

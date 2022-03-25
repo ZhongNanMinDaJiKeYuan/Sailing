@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 2000px;
+            height: 1000px;
+            background-color: aquamarine;
+            /* background-color设置背景颜色 */
+
+            background-image: url(../img/1.png);
+            /* background-image设置背景图片 */
+
+            /* 
+                可以同时设置背景颜色和背景图片
+                如果背景图片过小 背景元素会平铺
+                如果背景图片过大 背景元素不能完全显示
+
+            */
+            background-repeat: repeat;
+            /* 设置背景的重复方式
+                repeat:默认值  背景按照x轴y轴重复
+                repeat-x沿着x轴方向重复
+                repeat-y沿着y轴方向重复
+                no-repeat不重复
+            */
+
+            background-position: top right;
+            /* background-position: 10px 10px; */
+            /* 设置背景图片的位置
+                1.通过 top left right bottom center来改变位置
+                2.通过偏移量改变  
+            */
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    
+</body>
+</html>

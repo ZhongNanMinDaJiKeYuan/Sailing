@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            height: 70px;
+            width: 300px;
+            background-color: green;
+            /* 浮动元素不会盖住文字，可以使用他做环绕图片 */
+            float: left;
+        }
+
+        /* 
+            设置浮动时，脱离文档流
+            1.块元素不再独占一行，宽高默认被内容撑开
+            2.行内元素可以设置宽高了
+            总结：脱离文档流之后，不再区分块元素和行内元素
+        */
+        .box2{
+            background-color: purple;
+            float: left;
+        }
+        .box3{
+            background-color: lightslategray;           
+            float: left;
+        }
+        .s1{
+            height: 100px;
+            width: 100px;
+            background-color: lightgreen;           
+            float: left; 
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos repellat saepe veritatis eius delectus ipsam magnam possimus. Quas sunt expedita minus eum harum eius amet, omnis sit aliquam natus exercitationem.</p>    
+    <!-- <div class="line"></div> -->
+    <div class="box2">hhhhhhh</div>
+    <div class="box3">hhhhhhh</div>
+    <span class="s1">kkkkk</span>
+
+</body>
+</html>

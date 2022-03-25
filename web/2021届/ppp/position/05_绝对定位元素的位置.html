@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 500px;
+            height: 500px;
+            background-color: orange;
+            position: relative;
+
+
+        }
+
+        .inner{
+
+            width: 100px;
+            height: 100px;
+            background-color: seagreen;
+
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            left: 0;
+            right: 0;
+            margin-top: auto;
+            margin-bottom: auto;
+            top: 0;
+            bottom: 0;
+
+            /* 
+                水平布局：由以下7个属性共同决定：
+                        margin-left 
+                        border-left 
+                        padding-left 
+                        width
+                        padding-right
+                        border-right
+                        margin-right
+                    
+                    一个元素在其父元素中必须满足以下等式：
+                        margin-left + border-left + padding-left + width + padding-right + border-right + margin-right = 父元素width
+                垂直布局:没有约束
+
+                开启绝对定位后:
+                水平布局:由以下9个属性共同决定
+                        left
+                        margin-left 
+                        border-left 
+                        padding-left 
+                        width
+                        padding-right
+                        border-right
+                        margin-right
+                        right
+                    必须满足:
+                    left + margin-left + border-left + padding-left + width + padding-right + border-right + margin-right + right = 父元素width
+
+                    如果9个值没有auto,则自动调整right
+                    如果有一个值是auto则调整这个值,可以设置auto的有:margin width left right
+                    如果想调节别的值必须设置left和right  否则默认right和left的值为0
+                垂直布局:
+                    top + margin-top/bottom +padding-top/bottom +border-top/bottom +bottom
+         
+            */
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="inner"></div>
+    </div>
+
+    <div class="box2"></div>
+</body>
+</html>

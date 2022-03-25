@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./fa/css/all.css">
+    <style>
+        li{
+            list-style: none;
+        }
+
+        /* 用伪类选择器 */
+        li::before{
+            /* 
+                content：\图标代码
+                fab
+                font-family: 'Font Awesome 5 Brands';
+                fas
+                font-family:'Font Awesome 5 Free' ;
+            */
+            content: '\f1b0';
+            font-family:'Font Awesome 5 Free' ;
+            /* font-family: 'Font Awesome 5 Brands'; */
+            font-weight: 900;
+            
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>hhhhhh</li>
+        <li>pppppp</li>
+        <li>gggggg</li>
+        <li>qqqqqq</li>
+        <li>ssssss</li>
+
+    </ul>
+
+    <!-- 用实体 -->
+    <span class="fas">&#xf56a;</span>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            border: 10px darkolivegreen solid;
+            overflow: hidden;
+        }
+        .box2{
+            height: 100px;
+            width: 100px;
+            background-color: darkorange;
+
+            float: left;
+        }
+        /* 
+            当浮动布局时，父元素高度默认被子元素内容撑开，图里文档流后会高度塌陷
+            为了解决高度塌陷，需要开启BFC,在父元素设置BFC
+            三种方法：
+            １.将父元素设置成float,（不推荐）
+                缺点：改变width  下方元素上移
+            ２.设置display:inline-block（不推荐）
+                缺点：改变width
+            ３.设置overflow:除了visible以外的值（推荐）
+               常用 hidden
+               auto也行
+               scroll有滚动条（不推荐）
+        */
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+    <div style="width: 100px;height: 100px;background-color: darkorchid;"></div>
+   
+
+</body>
+</html>
