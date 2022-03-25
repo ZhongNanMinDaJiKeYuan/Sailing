@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    表单：
+        -在现实生活中表单用于提交数据
+        -在网页中也可以使用表单，网页中的表单用于将本地的数据提交给服务器
+        -使用form标签也创建一个表单
+     -->
+     <!-- 
+         form的属性
+         action表单要提交的服务器地址
+      -->
+      <form action="target.html">
+          <!-- 
+              文本框
+              注意：数据要提交到服务器中，必须要为元素指定一个name属性
+           -->
+           <input type="text" name="username">
+           <br><br>
+           <input type="password" name="password">
+           <br><br>
+           <input type="radio" name="hello" value="a">
+           <input type="radio" name="hello" value="b">
+           <br><br>
+           <input type="checkbox" name="text" value="1">
+           <input type="checkbox" name="text" value="2">
+           <input type="checkbox" name="text" value="3">
+
+
+           <!-- 提交按钮 -->
+           <input type="submit" value="注册">
+      </form>
+</body>
+</html>

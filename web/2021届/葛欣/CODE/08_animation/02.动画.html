@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0 ;
+            padding: 0;
+        }
+        .box1{
+            height: 800px;
+            width: 800px;
+            background-color: silver;
+            overflow: hidden;
+
+        }
+        .box1 div{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 100px;
+            margin-left: 0;
+        }
+        .box2{
+            background-color: #bfa;
+            margin-left: 10px; 
+            /* transition: 2s; */
+            /* 设置box2的动画 */
+            /* animation-name：要对当前元素生效的关键帧的名字 */
+            animation-name: test;
+            /* anmimation-duration 动画执行的时间*/
+            animation-duration: 4s;
+            /* 动画的延时 */
+            /* animation-timing-function:ease-in-out */
+            /* 
+                animation-iteration-count 动画执行的次数
+                可选值：
+                次数
+                infinite无限执行
+            */
+            animation-iteration-count: infinite;
+            /* animation-direction:指定动画执行的方向
+                可选值：
+                    normal 默认值 从from 向 to 运行 每次都是这样
+                    reverse 从to 向 from 运行 每次都是这样
+                    alternate 从from 向 to 运行 重复执行动画时反向执行
+                    alternate-reverse 从to向 from 运行 重复执行动画时反向执行
+            */
+            animation-direction: alternate-reverse;
+            /* 
+                animation-play-state设置动画的执行状态
+                可选值;
+                 running 默认值 动画执行
+                 paused 动画暂停
+            */
+            /* animation-play-state:paused; */
+            /* animation-fill-mode:动画的填充模式
+                可选值：
+                    none默认值 动画执行完毕元素回到原来的位置
+                    forwards 动画执行完毕元素会亭子在动画结束的位置
+                    backwards 动画延时等待时，元素就会处于开始位置
+                    baoth 结合了forwards 和backwards
+            */
+            animation: test 2s 2 1s alternate paused;
+        }
+        /* 
+            动画
+                动画和过渡类似，都是可以实现一些动态的效果
+                不同的是过渡需要在某个属性发生变化时才会触发
+                动画可以自动触发动态效果
+
+                设置动画效果，必须先要设置一个关键帧，关键帧设置了动画执行每一个步骤
+
+        */
+        @keyframes test{
+            /* from表示动画的开始位置,也可以使用0% */
+            from{
+                margin-left: 0;
+                color: #bfa;
+            }
+            /* 
+                to表示动画的结束位置，，也可以使用100%
+            */
+            to{
+                margin-left: 700px;
+              color: orange;
+            }
+        }
+        .box3{
+            background-color: orange;
+            transition-property: all;
+            transition-duration: 2s;
+        }
+        .box1:hover div{
+    
+            margin-left: 700px;
+        
+
+        }
+    </style>
+
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+        <!-- <div class="box3"></div> -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       html{
+           perspective: 800px;
+       }
+       .cube {
+           width: 150px;
+           height: 150px;
+           /* background-color: #bfa; */
+           margin: 100px auto;
+           /* 设置3D变型效果 */
+           transform-style: preserve-3d;
+           transform: rotateX(45deg) rotateZ(45deg);
+           animation:  rotate 5s infinite linear;
+       }
+       .cube > div{
+           width: 150px;
+           height: 150px;
+           /* 为元素设置透明效果 */
+           opacity: 0.7;
+           position: absolute;
+       }
+       img{
+           width: 150px;
+           height: 150px;
+           vertical-align: top;
+       }
+       .box1{
+           transform: rotateY(90deg) translateZ(100px);
+
+       }
+       .box2{
+           transform: rotateY(-90deg) translateZ(100px);
+       }
+       .box3{
+           transform: rotateX(90deg) translateZ(100px);
+       }
+       .box4{
+           transform: rotateX(-90deg) translateZ(100px);
+       }
+       .box5{
+           transform: rotateY(180deg) translateZ(100px);
+       }
+       .box6{
+           transform: rotateY(0deg) translateZ(100px);
+       }
+       @keyframes rotate{
+           from{
+               transform:rotate(0) rotateZ(0);
+           }
+
+           to{
+               transform:rotateX(1turn) rotateZ(1 turn);
+           }
+
+       }
+    </style>
+</head>
+<body>
+    <div class="cube">
+        <!-- 引入图片 -->
+        <div class="box1"> 
+            <img src="../exercise/img/1.jpg" alt="">
+        </div>
+        <div class="box2">
+            <img src="../exercise/img/2.jpg" alt="">
+        </div>
+        <div class="box3">
+            <img src="../exercise/img/3.jpg" alt="">
+        </div>
+        <div class="box4">
+            <img src="../exercise/img/4.jpg" alt="">
+        </div>
+        <div class="box5">
+            <img src="../exercise/img/5.jpg" alt="">
+        </div>
+        <div class="box6">
+            <img src="../exercise/img/6.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>
