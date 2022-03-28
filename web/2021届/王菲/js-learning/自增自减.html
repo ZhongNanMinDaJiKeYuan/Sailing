@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*自减--
+        * -通过自减可以使变量在自身的基础上减一
+        *无论是a--还是--a都会使原变量立即自减1
+        *不同的是a--是自减前的值 --a是新值
+        */
+       var n1=10;
+       var n2=20;
+
+       var n=n1++;
+       
+       console.log('n= '+n);
+       console.log('n1= '+n1);
+
+       n=++n1;
+       console.log('n= '+n);
+       console.log('n1= '+n1);
+
+       n=n2--;
+       console.log('n= '+n);
+       console.log('n2= '+n2);
+
+       n=--n2;
+       console.log('n= '+n);
+       console.log('n2= '+n2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
