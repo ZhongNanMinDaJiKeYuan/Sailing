@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            /* 内容区（content）：元素中的所有子元素的文本内容都在内容区中排列，内容区的大小由width和height两个属性来设置
+            width设置内容区宽度，height设置内容区的高度 */
+            width: 200px;
+            height: 200px;
+            background: #bfa;
+        
+        /* 边框（border）：边框属于盒子边缘，边框里面属于盒子内部，出了边框都属于盒子外部
+        要设置边框，至少要设置三个样式：
+        边框的宽度：border-width
+        边框的颜色：border-color
+        边框的样式：border-style */
+            border-width: 10px;
+            border-color: blue yellow chartreuse forestgreen;
+            border-style: solid;
+            padding:10px 20px 10px 20px;
+    }
+        .inner{
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="inner">
+        </div>    
+    </div>
+</body>
+</html>

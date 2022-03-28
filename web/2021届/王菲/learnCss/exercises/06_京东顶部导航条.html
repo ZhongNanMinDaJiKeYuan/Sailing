@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入重置样式表 -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <!-- 引入图标字体 -->
+    <link rel="stylesheet" href="../fontawesome/css/all.css">
+    <style>
+        /* 设置字体 */
+        body{
+            font-size: 12px/1.5 Microsoft YaHei;
+           
+        }
+        /* 解决高度塌陷 */
+        .clearfix::before,
+        .clearfix::after{
+            content: '';
+            display: table;
+            clear: both;
+        }
+        .top-bar-wrapper{
+            width: 100%;
+            line-height: 30px;
+            /* 解决高度塌陷的第二种方法，把高度写死 */
+            /* height: 30px; */
+            background-color: #e3e4e5;
+            border-bottom: 1px solid #ddd;
+        }
+        /* 内部容器水平居中 */
+        .top-bar{
+            width: 1800px;
+            margin: 0 auto;
+        }
+        .top-bar a,
+        .top-bar span,
+        .top-bar i{
+            color: #999;
+            text-decoration: none;
+        }
+        /* 以下两个float如果不处理会出现高度塌陷 */
+        .left-location{
+            float: left;
+        }
+        .left-location .fas,
+        .top-bar a:hover,
+        ul .highline{
+            color: #F10215;
+        }
+        .right-content{
+            float: right;
+        }      
+        .right-content .fa-angle-down{
+            margin: 0 4px;
+        } 
+        ul li{
+            float: left;
+        }
+       
+        ul li.line{
+            width: 1px;
+            height: 10px;
+            background-color: #999;
+            /* 调整竖线位置 */
+            margin: 10px 12px;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- 创建外部容器 -->
+    <div class="top-bar-wrapper">
+        <!-- 创建内部容器 -->
+        <div class="top-bar clearfix">
+            <!-- 容器左部 -->
+            <div class="left-location">
+                <div class="left-city">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <a href="javascript">北京</a>
+                </div>               
+            </div>
+            <!-- 容器右部 -->
+            <ul class="right-content">
+                <li>
+                    <a href="javascript:;">你好，请登录</a>
+                    <a href="javascript:;" class="highline">免费注册</a>
+                </li>
+                <!-- 分割线 -->
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">我的订单</a>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">我的京东</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">京东会员</a>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;" class="highline">企业采购</a>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="line"></li>
+                <!-- 不是超链接 -->
+                <li>
+                    <span>客户服务</span>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <span>网站导航</span>
+                    <i class="fas fa-angle-down"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <span>手机京东</span>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">网站无障碍</a>
+                </li>
+                <li class="line"></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        /* 开启相对定位方便设置pointer的位置 */
+        .img-list{
+            width: 400px;
+            height: 280px;
+            margin: 40px auto;
+            /* 给ul开启相对定位，即开启了定位又不影响整个页面的布局 */
+            position: relative;
+        }
+        ul img{
+            width: 400px;
+            height: 280px;
+        }
+        .img-list li{
+            position: absolute;
+        }
+        /* 将第一个图片的层级设置为最高以使它显示在最上面 */
+        .img-list li:nth-child(1) {
+            z-index: 6;
+        }
+        /* 给点设置层级保证它在最上面 */
+        .pointer{
+            position: absolute;
+            z-index: 999;
+            bottom: 20px;
+            left: 20PX;
+        }
+        /* a是一个行内元素，不支持设置宽高，要转换成块元素 */
+        .pointer a{
+            display: block;
+            width: 8px;
+            height: 8px;
+            background-color: rgb(255, 255, 255,.3);
+            float: left;
+            border-radius: 50%;
+            margin-left: 2px;
+            /* 边框颜色设置为透明 */
+            border: 2px solid transparent;
+            /* 将背景颜色只设置到内容区，即边框和内边距不再有背景颜色 */
+            background-clip: content-box;   
+        }
+        .pointer a.active,
+        .pointer a:hover{
+            background-color: #fff;
+            border: 2px solid  rgb(255, 255, 255,.3);
+            position: relative;
+            
+
+        }
+    </style>
+</head>
+<body>
+    <ul class="img-list">
+        <li class="img1"><a href="#"><img src="./img/05/01.jpg" alt=""></a></li>
+        <li class="img2"><a href="#"><img src="./img/05/02.jpg" alt=""></a></li>
+        <li class="img3"><a href="#"><img src="./img/05/03.jpg" alt=""></a></li>
+        <li class="img4"><a href="#"><img src="./img/05/04.jpg" alt=""></a></li>
+        <div class="pointer">
+            <a class="active" href="javascript:;"></a>
+            <a class="" href="#"></a>
+            <a class="" href="#"></a>
+            <a class="" href="#"></a>
+            <a class="" href="#"></a>
+            <a class="" href="#"></a>
+            <a class="" href="#"></a>
+            <a class="" href="#"></a>
+        </div>   
+    </ul>
+</body>
+</html>
