@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var a,b,c;
+        for(var i = 100; i < 1000; i++){
+            var a = parseInt(i/100);
+            var b = parseInt((i-a*100)/10);
+            var c = parseInt(i%10);
+            if(i == a*a*a+b*b*b+c*c*c){
+                console.log(i,a,b,c);
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
