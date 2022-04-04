@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.EmployeeMapper">
+    <!--命名空间：指定为接口的全类名-->
+    <!--id：唯一标识，绑定到接口的抽象方法名getEmployeeById()
+        resultType:返回值类型
+        #{id} ：从传递过来的参数中取出id值
+    -->
+    <select id="getEmployeeById" resultType="bean.Employee" databaseId="mysql">
+        select * from mybatis_test.employee where id = #{id}
+        <!--
+        select * from mybatis_test.employee where id = #{id}
+        会因为Employee中的lastName未对应数据库中的last_name，导致lastName为null
+        -->
+    </select>
+</mapper>

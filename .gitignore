@@ -40,3 +40,6 @@ hs_err_pid*
 replay_pid*
 
 # ------------------------------
+# idea工程输出目录
+out/
+.idea/

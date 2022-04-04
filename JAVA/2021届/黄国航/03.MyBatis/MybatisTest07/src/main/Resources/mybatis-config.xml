@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--引入外部properties文件-->
+    <properties resource="database.properties"></properties>
+
+    <settings>
+        <!--将表中字段的下划线自动转换为驼峰-->
+        <setting name="mapUnderscoreToCamelCase" value="True"/>
+    </settings>
+
+    <!--类型别名：为java的类型起一个简短的别名，避免冗余的全类名-->
+    <typeAliases>
+        <typeAlias type="com.lks.bean.Employee" alias="Employee"/>
+    </typeAliases>
+
+    <environments default="development">
+
+        <environment id="development">
+            <!--environment 元素体中包含了事务管理和连接池的配置。-->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <mapper resource="mappers/EmployeeMapper.xml"/>
+    </mappers>
+</configuration>

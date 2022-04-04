@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--引入外部properties文件-->
+    <properties resource="database.properties"></properties>
+    
+    <settings>
+        <!--将表中字段的下划线自动转换为驼峰-->
+        <setting name="mapUnderscoreToCamelCase" value="True"/>
+        <!--设置延迟加载-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="true"/>
+    </settings>
+
+    <!--类型别名：为java的类型起一个简短的别名，避免冗余的全类名-->
+    <typeAliases>
+        <typeAlias type="bean.Employee" alias="Employee"/>
+        <!--package会为该包下的所有类赋予默认别名-->
+        <!--<package name="bean" />-->
+    </typeAliases>
+
+    <environments default="development">
+
+<!--        <environment id="test">-->
+<!--            <transactionManager type=""></transactionManager>-->
+<!--            <dataSource type=""></dataSource>-->
+<!--        </environment>-->
+        
+        <environment id="development">
+            <!--environment 元素体中包含了事务管理和连接池的配置。-->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--databaseIdProvider：支持多数据库厂商
+    作用就是得到数据库厂商的标识（驱动自带），mybatis就能根据数据库厂商标识来执行不同的sql语句
+    MySQL | Oracle | SQL Server
+    -->
+    <databaseIdProvider type="DB_VENDOR">
+        <!--为数据库厂商标识起一个好写一点的别名-->
+        <property name="SQL Server" value="sqlserver"/>
+        <property name="MySQL" value="mysql"/>
+        <property name="Oracle" value="oracle" />
+    </databaseIdProvider>
+    <mappers>
+        <!--mappers 元素则包含了一组映射器（mapper），这些映射器的 XML 映射文件包含了 SQL 代码和映射定义信息。-->
+        <mapper resource="mappers/EmployeeMapper.xml"/>
+        <mapper class="dao.EmployeeMapperAnnotation"/>
+        <mapper resource="mappers/EmployeeMapperPlus.xml"/>
+        <mapper resource="mappers/DepartmentMapper.xml"/>
+    </mappers>
+</configuration>

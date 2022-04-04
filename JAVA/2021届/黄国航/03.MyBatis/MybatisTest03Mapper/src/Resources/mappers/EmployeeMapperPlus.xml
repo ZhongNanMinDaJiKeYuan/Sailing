@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.EmployeeMapperPlus">
+
+    <!--自定义某个javaBean的封装规则
+        - type: 自定义规则的Java类型
+        - id: 唯一id，方便引用
+    -->
+    <resultMap id="myEmp" type="bean.Employee">
+        <!--指定主键列的封装规则：
+        id元素定义主键底层会有优化
+            - cloumn: 指定数据库表的哪一列
+            - property：指定对应的javaBean属性
+        -->
+        <id column="id" property="id"/>
+        <!--定义普通列封装规则-->
+        <result column="last_name" property="lastName"/>
+
+        <!--其他不指定的列会自动封装，但推荐我们只要写resultMap就把全部的映射规则都写上-->
+        <result column="email" property="email"/>
+        <result column="gender" property="gender"/>
+
+    </resultMap>
+    <select id="getEmployeeById" resultMap="myEmp">
+        select * from mybatis_test.employee where id=#{id}
+    </select>
+    <resultMap id="emp_depart" type="bean.Employee">
+        <id column="e_id" property="id"/>
+        <result column="last_name" property="lastName"/>
+        <result column="email" property="email"/>
+        <result column="gender" property="gender"/>
+        <!--        &lt;!&ndash;级联属性进行封装&ndash;&gt;
+                <result column="d_id" property="department.id"/>
+                <result column="department_name" property="department.departmentName"/>-->
+
+        <!--association可以指定联合封装的JavaBean对象-->
+        <association property="department" javaType="bean.Department">
+            <id column="d_id" property="id"/>
+            <result column="department_name" property="departmentName"/>
+        </association>
+
+    </resultMap>
+    <select id="getEmployeeAndDept" resultMap="emp_depart">
+        select e.id e_id, last_name, email, gender, department_id , d.id d_id, department_name
+        from mybatis_test.employee e, mybatis_test.departments d
+        where e.department_id = d.id and e.id=#{id}
+    </select>
+
+    <!--使用association进行分步查询：
+    1. 先按员工id查询员工信息
+    2. 根据查询员工信息中的department_id值去部门表查出部门信息
+    3. 部门设置到员工中
+    -->
+    <resultMap id="emp_depart_in_step" type="bean.Employee">
+        <id column="id" property="id"/>
+        <result column="last_name" property="lastName"/>
+        <result column="gender" property="gender"/>
+        <result column="email" property="email"/>
+
+        <!--association定义关联对象的封装规则
+            select: 表明当前属性是调用select指定的方法查出的结果，为该mapper的命名空间+方法名
+            column: 指定将查出的表中的哪一列传给这个方法
+
+            流程：使用select指定方法（传入column指定的这列参数的值）查出对象，并封装给property指定的属性
+        -->
+        <association property="department"
+                     select="dao.DepartmentMapper.getDepartmentById"
+                     column="department_id">
+                    <!--将department_id作为参数传递给dao.DepartmentMapper.getDepartmentById方法进行执行，
+                    执行结果返回封装赋值给employee对象的department属性-->
+        </association>
+    </resultMap>
+    <select id="getEmployeeByIdInStep" resultMap="emp_depart_in_step">
+        select * from mybatis_test.employee where id=#{id}
+    </select>
+
+<!--    <select id="getEmployeesByDepartmentId" resultType="bean.Employee">-->
+<!--        select * from mybatis_test.employee where department_id=#{id};-->
+<!--    </select>-->
+
+    <select id="getEmployeesByDepartmentId" resultMap="emp_discriminator">
+        select * from mybatis_test.employee where department_id=#{id};
+    </select>
+
+    <!--使用discriminator：
+        - 如果查出的是女生:就把部门信息查询出来，否则不查询;
+        - 如果是男生，把 last_name 这一列的值赋值给 email;
+    -->
+    <resultMap id="emp_discriminator" type="bean.Employee">
+        <id column="id" property="id"/>
+        <result column="last_name" property="lastName"/>
+        <result column="gender" property="gender"/>
+        <result column="email" property="email"/>
+
+        <!--column：指定判定的列名
+            javaType： 列值对应的Java类型
+        -->
+        <discriminator javaType="string" column="gender">
+            <!--case标签中的value表示对value值的条件判断
+                resultType为指定封装的结果类型，resultType和resultMap二选一，不能缺少
+            -->
+            <case value="0" resultType="bean.Employee">
+                <!--如果查出的是女生:就把部门信息查询出来，否则不查询;-->
+                <association property="department"
+                             select="dao.DepartmentMapper.getDepartmentById"
+                             column="department_id">
+                </association>
+            </case>
+            <case value="1" resultType="bean.Employee">
+                <!--如果是男生，把 last_name 这一列的值赋值给 email;-->
+                <result column="last_name" property="email"/>
+            </case>
+        </discriminator>
+    </resultMap>
+
+</mapper>
