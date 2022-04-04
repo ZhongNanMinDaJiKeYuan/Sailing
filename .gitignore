@@ -40,6 +40,6 @@ hs_err_pid*
 replay_pid*
 
 # ------------------------------
-# idea工程输出目录
+# idea工程输出目录和idea的隐藏文件夹
 out/
 .idea/
