@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.toString = function(){
+            return "Person[name="+this.name+",age="+this.age+"]";
+        };
+        var per1 = new Person("工藤新一",17);
+        var per2 = new Person("赤井秀一",32);
+        var per3 = new Person("降谷零",29);
+        var per4 = new Person("服部平次",17);
+
+        console.log(per1);
+
+        /*
+            筛选18岁以上的，将这些对象存入新的数组中
+        */
+        //将上述对象存入数组中
+        var arr = new Array(per1,per2,per3,per4);
+
+
+
+        function getAdult(arr){
+            var newArr = [];
+            for(var i=0;i<arr.length;i++){
+                if(arr[i].age>=18){
+                    newArr.push(arr[i]);
+                }
+            }
+            return newArr;
+        }
+
+        console.log(getAdult(arr).toString());
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

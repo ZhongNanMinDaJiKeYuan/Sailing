@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            length属性，可以用来获取字符串的长度
+            str.length  str[5]
+        */
+        var str = "Need not to know";
+        console.log(str.length+str[0]);
+        /*
+            charAt()
+                返回字符串中指定位置的字符,根据索引获取指定位置字符
+            charCodeAt()
+                获取指定位置字符的字符编码（Unicode编码）
+        */
+        console.log(str.charAt(0));
+        /*
+            fromCharCode()
+                根据字符编码去获取字符
+        */
+        console.log(String.fromCharCode(72));
+        /*
+            concat()
+                连接两个或多个字符串
+                作用和+一样
+            str.concat("你好","再见");
+        */
+        /*
+            indexOf()  
+                -检索一个字符串中是否有指定内容
+                -如果字符串中含有该内容，则返回其第一次出现的索引；如果没有找到指定内容，返回-1
+                -可以指定第二个参数，指定开始查找的位置 indexOf("e",1)  从索引为1的开始往后找
+            lastIndexOf()
+                -同上，只不过是从后往前找
+        */
+        var result = str.indexOf("e");
+        console.log(result);
+        /*
+            slice()
+                截取指定内容
+                如：str.slice(0,4)  返回“Need”
+            substring()
+                截取指定内容，与slice类似，
+                不同的是该方法不接受负值，如果传递了负值，默认为0，而且会自动调整参数位置，若第二个参数小于第一个参数，则会交换俩参数
+        */
+        /*
+            substr()
+                截取字符串
+                参数：第一个：开始索引  第二个：截取的长度
+        */
+        /*
+            split()
+                -可以将字符串拆分成一个数组
+                -参数：
+                    需要一个字符串作为参数，根据该字符串去拆分数组
+                    如果传递一个空串作为参数，则会将每个字符都拆分为数组的一个元素
+        */
+        var str1 = str.split(" ");
+        console.log(str1);
+        /*
+            toUpperCase()   将字符串转换为大写并返回
+            toLowerCase()   将字符串转换为小写并返回
+                var upStr = str.toUpperCase();
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

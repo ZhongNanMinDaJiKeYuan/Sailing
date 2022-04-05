@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //创建一个数组
+        var arr = ["工藤新一","毛利兰","服部平次"];
+        /*
+            push()
+                -该方法可以向数组的末尾添加一个或多个元素，并返回数组新的长度
+                -可以将要添加的元素作为方法的参数传递，这些元素会自动添加到数组的末尾
+                -该方法会将数组新的长度作为返回值返回
+        */
+        var result = arr.push("远山和叶");
+        console.log(arr);
+        console.log("result = "+result);
+        arr.push("琴酒");
+        /*
+            pop()
+                -该方法可以删除数组的最后一个元素,并将被删除的元素作为返回值返回
+        */
+        console.log(arr);
+        console.log(arr.pop());
+        console.log(arr);
+        /*
+            unshift()
+                -向数组开头添加一个或多个元素，并返回新的数组长度
+            shift()
+                -删除数组的第一个元素，并将被删除的元素作为返回值返回
+        */
+
+        /*
+            slice()     类似python切片
+                -可以用来从数组提取指定元素，将提取的元素封装到新数组中返回
+                -参数：1.截取开始的位置索引，包含开启索引   2.截取结束的位置索引，不包含结束索引
+        */
+        console.log(arr.slice(1,3));
+
+        /*
+            splice()
+                -用于删除数组中的指定元素
+                -使用splice()会影响到原数组，会将指定元素从原数组中删除，并将被删除的元素作为返回值返回
+                -参数：第一个，表示开始位置的索引   
+                       第二个，表示删除的数量  
+                       第三个及以后参数，可以传递一些新的元素，这些元素会将自动插入到开始位置索引的前边
+        */
+        console.log(arr.splice(1,2));
+        console.log(arr);
+        arr.splice(1,0,"毛利小五郎");
+        console.log(arr);
+        /*
+            concat()可以连接两个或多个数组，并将新的数组返回
+                -该方法不会对原数组产生影响
+            
+            var result = arr.concat(arr1,arr2);
+        */
+        /*
+            join()将数组转换为一个字符串
+                -该方法不会对原数组产生影响，而是将转换后的字符串返回
+                -在join()中可以指定一个字符串作为参数，这个字符串将会成为数组中元素的连接符
+                    如果不指定连接符，则默认使用“，”进行连接
+        */
+        /*
+            reverse()用来反转数组
+                -该方法会直接修改原数组
+            arr.reverse();
+        */
+        /*
+            sort()用来对数组中的元素进行排序
+                -该方法会影响原数组，默认会按照Unicode编码进行排序，若对纯数字的数组排序，可能出错
+
+                可以自己指定排序的规则
+                    -在sort()中添加一个回调函数，来指定排序规则，回调函数中需要定义两个形参，浏览器将会分别使用数组中的元素作为实参去调用回调函数
+                    -浏览器会根据回调函数的返回值来决定元素的顺序
+                        如果返回一个大于0的值，则元素交换位置
+                        如果返回一个小于0的值，则元素位置不变
+                        如果返回一个0，则认为俩元素相等，不换位置  
+                    如果需要升序排列，则返回a-b；如果需要降序，则返回b-a
+            arr = [5,4,1,66,7,84];
+            arr.sort(function(a,b){
+                return a-b;
+            });  
+        */
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

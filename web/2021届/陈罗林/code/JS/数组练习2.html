@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //数组去重练习
+        var arr = [1,2,2,5,4,3,7,1,4,5];
+        //将当前元素与其后每个元素进行比较，若相等，删除后面的那个元素
+        // for(var i=0;i<arr.length;i++){
+        //     for(var j=i+1;j<arr.length;j++){
+        //         if(arr[i]==arr[j]){
+        //             arr.splice(j,1);
+        //             //由于splice后，被删除元素后的元素全往前移了，所以j需要自减一次
+        //             j--;
+        //         }
+        //     }
+        // }
+
+        for(var i=0;i<arr.length;i++){
+            for(var j=arr.length-1;j>=i+1;j--){
+                if(arr[i]==arr[j]){
+                    arr.splice(j,1);
+                }
+            }
+        }
+        console.log(arr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

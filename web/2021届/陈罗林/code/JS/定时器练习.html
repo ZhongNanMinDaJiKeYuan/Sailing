@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定时器练习</title>
+    <style>
+        button{
+            margin-left: 20px;
+        }
+        #box1{
+            width: 150px;
+            height: 150px;
+            background-color: black;
+            position: absolute;
+            left: 0;
+        }
+        #box2{
+            width: 150px;
+            height: 150px;
+            background-color: pink;
+            position: absolute;
+            top: 250px;
+            left: 0;
+        }
+        #line{
+            height: 1000px;
+            width: 1px;
+            background-color: red;
+            position: absolute;
+            left: 799px;
+            top: 0;
+
+        }
+    </style>
+    <script src="./js/tools.js"></script>
+    <script>
+        window.onload = function(){
+            //获取各对象
+            var box1 = document.getElementById("box1");
+            var box2 = document.getElementById("box2");
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            var btn03 = document.getElementById("btn03");
+            var btn04 = document.getElementById("btn04");
+
+            // var timer;
+            //给按钮添加点击事件
+            btn01.onclick = function(){
+                move(box1,"left",800,10);
+
+                // var speed = 10;
+                // clearInterval(timer)
+                // timer = setInterval(function(){
+                //     var current = parseInt(getComputedStyle(box1,null).left);
+                //     box1.style.left = current + speed + "px";
+                //     if(current > 700){
+                //     current = 700;
+                //     }
+                //     if(current == 700){
+                //         clearInterval(timer);
+                //     }
+                // },30);
+            };
+            btn02.onclick = function(){
+                move(box1,"left",0,10);
+                // speed = 10;
+                // setInterval(function(){
+                //     var current = parseInt(getComputedStyle(box1,null).left);
+                    
+                //     if(current > 0){
+                //     speed = -speed;
+                    
+                //     }
+                //     var newCurrent = current + speed;
+                //     alert(newCurrent);
+                // },30);
+            };
+            btn03.onclick = function(){
+                move(box2,"left",800,5);   
+            };
+            btn04.onclick = function(){
+                // move(box2,"width",800,10,move);
+                move(box2,"width",800,10,function(){
+                    move(box2,"height",300,10,function(){
+                        move(box2,"width",150,10,function(){
+                            move(box2,"height",150,10);
+                        });
+                    });
+                });
+            };
+        };
+        // //创建一个可以执行动画的函数
+        // /*
+        //     参数：
+        //         obj：执行动画的对象
+        //         attr：修改的样式    可传left、top、width、height
+        //         traget：移动的目标
+        //         speed：移动速度
+        //         callback：回调函数，动画执行完毕后调用
+
+        // */
+        // function move(obj,attr,target,speed,callback){
+        //     //关闭同一对象的上一个定时器
+        //     clearInterval(obj.timer);
+        //     //获取当前信息（位置或大小）
+        //     var current = parseInt(getComputedStyle(obj,null)[attr]);
+        //     //如果当前信息相比目标小了，就不改变speed，如果当前信息相比目标大了，就将speed变为负
+        //     if(current > target){
+        //             speed = -speed;
+        //         }
+        //     //给对象添加timer属性，用来作为定时器的标识
+        //     obj.timer = setInterval(function(){
+        //         //获取当前信息（位置或大小）
+        //         current = parseInt(getComputedStyle(obj,null)[attr]);
+        //         var newCurrent = current + speed;
+        //         if((speed > 0 && newCurrent > target) || (speed < 0 && newCurrent < target)){
+        //         newCurrent = target;
+        //         }
+        //         obj.style[attr] = newCurrent + "px";
+        //         if(newCurrent == target){
+        //             clearInterval(obj.timer);
+        //             // callback && callback(box2,"height",300,10);
+        //             callback && callback();
+        //         }
+        //     },30);
+        // }
+
+
+
+    </script>
+</head>
+<body>
+    <br>
+    <button id="btn01">黑盒右移</button>
+    <button id="btn02">黑盒左移</button>
+    <button id="btn03">粉盒右移</button>
+    <button id="btn04">粉盒变形</button>
+    <br>
+    <br>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="line"></div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var checkedAllBtn = document.getElementById("checkedAllBtn");
+            var checkedNoBtn = document.getElementById("checkedNoBtn");
+            var checkedRevBtn = document.getElementById("checkedRevBtn");
+
+            //获取全部运动项目
+            var items = document.getElementsByName("items");
+            //全选
+            checkedAllBtn.onclick = function(){
+                for(var i=0;i<items.length;i++){
+                    //将多选框的checked属性改为true
+                    items[i].checked = true;
+                }
+            };
+            //全不选
+            checkedNoBtn.onclick = function(){
+                for(var i=0;i<items.length;i++){
+                    items[i].checked = false;
+                }
+            };
+            //反选
+            checkedRevBtn.onclick = function(){
+                for(var i = 0;i<items.length;i++){
+                    //将多选框的checked属性改为和原来相反的布尔值
+                    items[i].checked = !items[i].checked;
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+    <form action="">
+        你爱好的运动是？
+        <br>
+        <input type="checkbox" name="items" value="足球">足球
+        <input type="checkbox" name="items" value="篮球">篮球
+        <input type="checkbox" name="items" value="羽毛球">羽毛球
+        <input type="checkbox" name="items" value="乒乓球">乒乓球
+        <br>
+        <input type="button"  id="checkedAllBtn" value="全选">
+        <input type="button"  id="checkedNoBtn" value="全不选">
+        <input type="button"  id="checkedRevBtn" value="反选">
+        <input type="submit"  id="sendBtn" value="提交">
+    </form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            BOM
+                -浏览器对象模型
+                -BOM可以使我们通过JS来操作浏览器
+                -BOM中提供了一组对象，用来完成对浏览器的操作
+                -BOM对象：
+                    Window
+                        - 代表整个浏览器的窗口，同时window也是网页中的全局对象
+                    Navigator
+                        - 代表当前浏览器的信息，通过改对象可以识别不同的浏览器
+                    Location
+                        - 代表当前浏览器的地址栏信息，通过Location可以获取地址栏信息或操作浏览器跳转页面
+                    History
+                        - 代表浏览器的历史记录，可通过该对象来操作浏览器历史记录
+                            由于隐私原因，只能操作浏览器向前或向后翻页，并只在当次访问有效
+                    Screen
+                        - 代表用户的屏幕信息，通过该对象可以获取用户的显示器相关信息
+        
+        */
+
+        /*
+            Navigator
+                - 一般只是用userAgent来判断浏览器的信息
+                    userAgent是一个字符串，这个字符串包含了用来描述浏览器信息的内容，不同浏览器有不同的userAgent
+        
+        */
+        console.log(navigator.userAgent);
+        /*
+            History
+                属性length，可以获取当前访问的链接数量
+                方法back(),可以回退到上一个页面，作用和浏览器的回退一样。。。history.back();
+                方法forward(),可以跳转到下一个页面
+                go(),可以用来跳转到指定的页面，需要一个整数作为参数。1：表示向前跳转1个页面，2：表示向前跳转两个页面，-1：表示向后跳转一个页面
+
+        */
+        /*
+            Location
+                assign()，跳转到其他页面，作用与直接修改location一样
+                reload(),重新加载页面。。。如果在方法中传入true作为参数，则会强制清空缓存
+                replace(),使用一个新页面替换当前页面，也会跳转页面。。。不会生成历史记录
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

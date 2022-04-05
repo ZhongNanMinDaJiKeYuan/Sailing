@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的委派</title>
+    <script>
+        window.onload = function () {
+            var btn = document.getElementById("btn");
+            var u1 = document.getElementById("u1");
+            var a = document.getElementsByTagName("a");
+
+            btn.onclick = function () {
+                var li = document.createElement("li");
+                li.innerHTML = "<a href='javascript:;' class='link'>新超链接</a>";
+                u1.append(li);
+            };
+            /*
+                事件的委派
+                    -指事件统一绑定给元素的共同祖先元素，这样当后代元素上的事件触发时，会一直冒泡到祖先元素
+                    从而通过祖先元素的响应函数来处理事件
+                    -事件委派是利用了冒泡，通过委派可以减少事件绑定的次数，提高程序的性能
+            */
+            //为每个a绑定响应函数
+            //为u1绑定一个单击响应函数
+            u1.onclick = function (event) {
+                event = event || window.event;
+                /*
+                    target
+                        -event中的target表示触发事件的对象
+                */
+               if(event.target.className == "link"){
+                   alert("我是a");
+               }
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <button id="btn">添加超链接</button>
+    <ul id="u1">
+        <li><a href="javascript:;" class="link">超链接一</a></li>
+        <li><a href="javascript:;" class="link">超链接二</a></li>
+        <li><a href="javascript:;" class="link">超链接三</a></li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽练习</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            position: absolute;
+        }
+        #box2{
+            width: 200px;
+            height: 200px;
+            background-color: brown;
+            position: absolute;
+            left: 300px;
+            top: 300px;
+        }
+    </style>
+    <script>
+        /*
+            拖拽练习：
+                鼠标按下时触发onmousedown
+                鼠标移动时触发onmousemove
+                鼠标松开时触发onmouseup
+        */
+        window.onload = function(){
+            var box1 = document.getElementById("box1");
+            box1.onmousedown = function(event){
+                event = event || window.event;
+                //计算偏移量    offsetLeft元素水平偏移量
+                var ol = event.clientX - box1.offsetLeft;
+                var ot = event.clientY - box1.offsetTop;
+                //注意，onmousemove要绑定给document
+                document.onmousemove = function(event){
+                    event = event || window.event;
+                    var left = event.clientX - ol;
+                    var top = event.clientY - ot;
+                    box1.style.left = left + "px";
+                    box1.style.top = top + "px";
+                };
+                document.onmouseup = function(){
+                    //鼠标松开时，使box1固定在当前位置
+                    document.onmousemove = null;
+                    //取消document的onmouseup事件，使其只触发一次
+                    document.onmouseup = null;
+                    // alert(1);
+                };
+                /*
+                    当拖拽一个网页中的内容时，浏览器会默认去搜索引擎中搜索内容，可用return false来取消
+                */
+                return false;
+            };
+            
+            
+        };
+
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    
+</body>
+</html>
