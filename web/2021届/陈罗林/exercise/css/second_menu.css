@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+/* sdmenu */
+
+div.sdmenu {
+	width: 150px;
+	margin: 100px auto;
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+    padding-bottom: 10px;
+    background-color: rgb(179, 154, 240);
+    color: #fff;
+}
+
+div.sdmenu div {
+    overflow: hidden;
+}
+
+/* div.sdmenu div:first-child{
+    background-color: black;
+} */
+
+div.sdmenu div.collapsed{
+    height: 25px;
+}
+
+div.sdmenu div span{
+    display: block;
+    height: 15px;
+    overflow: hidden;
+    padding: 5px 25px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(73, 10, 233);
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+div.sdmenu div.collapsed span{
+    background-color: rgb(255, 0, 179);
+}
+
+div.sdmenu div a{
+    padding: 5px 10px;
+    background: #eee;
+    display: block;
+    border-bottom: 1px solid #ddd;
+    color: #066;
+}
+
+div.sdmenu div a.current{
+    background: #ccc;
+}
+
+div.sdmenu div a:hover{
+    background-color: cadetblue;
+    color: #fff;
+    text-decoration: none;
+}
