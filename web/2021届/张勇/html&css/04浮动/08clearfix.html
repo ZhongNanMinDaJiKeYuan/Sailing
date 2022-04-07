@@ -23,11 +23,15 @@
             background-color: blue;
             margin-top: 50px;
         }
-        .clearfix::before,
+        /* .clearfix::before, */
         .clearfix::after{
             content: '';
             display: table;
             clear: both;
+        }
+        .clearfix::before{
+            content: '';
+            display: table;
         }
         /* 
             同时解决元素重叠和外边距重叠问题
@@ -38,7 +42,7 @@
                         块级格式化是元素的隐藏属性，开启之后元素就成为独立布局区域
                         它有如下三个特点：1、不会被浮动元素所覆盖（会去到浮动元素右侧）
                                         在下面的兄弟元素中开启
-                                        2、父子元素的上外边距不会重叠
+                                        2、父子元素的上外边距不会重叠(解决子元素的外边距传递给父元素的问题)
                                         在父元素中开启
                                         3、可以容纳浮动元素（父元素会被浮动元素根据内容撑开
                                         在父元素中开启

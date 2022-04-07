@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.window对象常见事件</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+    </style>
+    <!-- 
+        1.onload加载事件
+            指文档页面加载完毕就触发该事件  也就是说才会执行改事件的处理函数。
+            所以可以调整js代码的位置
+        2.DOMContentLoaded
+            当文档内容很多且多是图片时，为了提升用户体验，可以使用
+            加载速度更快的DOMContentLoaded
+        3.resize  调整窗口大小就会触发该事件
+     -->
+
+</head>
+
+<body>
+    <script>
+        window.addEventListener('load', function () {
+            var btn = document.querySelector('button');
+            btn.addEventListener('click', function () {
+                console.log("君问归期未有期");
+            })
+        })
+
+        window.addEventListener('load',fn1);
+        function fn1(){
+            var div=document.querySelector('div');
+            window.addEventListener('resize',function(){
+                console.log(window.innerWidth);
+            if(window.innerWidth<=900){
+                div.style.display='none';
+            }
+            else{
+                div.style.display='block';
+            }
+            })
+            
+        }
+    </script>
+
+
+    <button>按钮</button>
+    <div></div>
+
+
+
+    <script>
+        window.onload = function () {
+            console.log("春风有绿江南岸，");
+        }
+        window.addEventListener('load', function () {
+            console.log("明月何时照我还");
+        })
+        window.addEventListener('DOMContentLoaded', function () {
+            console.log("轻舟已过万重山");
+        })
+
+    </script>
+
+</body>
+
+</html>

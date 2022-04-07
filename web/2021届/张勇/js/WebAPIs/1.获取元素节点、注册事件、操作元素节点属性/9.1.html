@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9.1</title>
+    <style>
+        table {
+            width: 600px;
+            margin: 100px auto;
+            border: 1px solid red;
+            border-collapse: collapse;
+
+        }
+
+        thead tr {
+            background-color: rgb(135, 206, 235);
+            font-size: 14px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #ccc;
+            color: blue;
+            font-size: 12px;
+            line-height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>代码</th>
+                <th>名称</th>
+                <th>最新公布净值</th>
+                <th>累计净值</th>
+                <th>前单位净值</th>
+                <th>净值增长率</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+            <tr>
+                <td>003526</td>
+                <td>农银金穗3个月定期开放债券</td>
+                <td>1.075</td>
+                <td>1.079</td>
+                <td>1.074</td>
+                <td>+0.047%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var lines = document.querySelector('tbody').querySelectorAll('tr');
+        console.log(lines);
+        for (let index = 0; index < lines.length; index++) {
+            lines[index].onmouseover = function () {
+                for (let index = 0; index < lines.length; index++) {
+                    lines[index].style.backgroundColor = '';
+
+                }
+                //所有元素失去样式
+                lines[index].style.backgroundColor = '#bfa';
+                //自己加上样式
+            }
+            lines[index].onmouseout = function () {
+                lines[index].style.backgroundColor = '';
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

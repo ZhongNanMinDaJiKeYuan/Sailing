@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7.2</title>
+    <style>
+        .box{
+            width: 200px;
+            margin: 100px auto;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+<div class="box">
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+
+</div>
+</body>
+
+<script>
+    var bts=document.querySelectorAll('button');
+    console.log(bts);
+    for (let index = 0; index < bts.length; index++) {
+        bts[index].onclick=function(){
+            for (let index = 0; index <bts.length; index++) {
+                bts[index].style.backgroundColor='';
+                
+            }
+            //去除所有元素的想要表现得样式
+            bts[index].style.backgroundColor='#bfa';
+            //给特定的元素加上要显示的样式
+        }
+        
+    }
+</script>
+
+</html>

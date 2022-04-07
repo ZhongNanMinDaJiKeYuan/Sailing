@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9.键盘事件对象</title>
+</head>
+<body>
+    <script>
+        //keyup 和 keydown 不区分大小写，返回的是大写字母ASCII码值 实际开发中更多使用这两个，可以识别功能键
+        document.addEventListener('keyup',function(e){
+            console.log("按的是"+e.key);
+            console.log("按下的键"+e.key+"的ASCII码值是"+e.keyCode);
+        });
+        //keypress 区分大小写 但是不能识别功能键
+        document.addEventListener('keypress',function(e){
+            console.log("按的是"+e.key);
+            console.log("按下的键"+e.key+"的ASCII码值是"+e.keyCode);
+        });
+       
+    </script>
+    
+</body>
+</html>

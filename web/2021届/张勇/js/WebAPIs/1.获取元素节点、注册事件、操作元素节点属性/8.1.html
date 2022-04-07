@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8.1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .imgs {
+            width: 520px;
+            margin: 100px auto;
+            border: 1px red solid;
+
+        }
+
+        .clearfix::after,
+        .clearfix::before {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .imgs li {
+            padding-left: 5px;
+
+            float: left;
+            list-style-type: none;
+            /* border: 1px green solid; */
+        }
+
+        .imgs img {
+            width: 125px;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background: url(./img/1.jpg) no-repeat;
+            background-size: cover;
+            border: 1px green solid;
+        }
+    </style>
+
+</head>
+
+<body>
+    <ul class="imgs clearfix">
+        <li><img src="./img/1.jpg" alt=""></li>
+        <li><img src="./img/2.jpg" alt=""></li>
+        <li><img src="./img/3.jpg" alt=""></li>
+        <li><img src="./img/4.jpg" alt=""></li>
+    </ul>
+
+    <script>
+        var bgs = document.querySelector('.imgs').querySelectorAll('img');
+        console.log(bgs);
+        for (let index = 0; index < bgs.length; index++) {
+            bgs[index].onclick = function () {
+                document.body.style.backgroundImage = 'url(' + this.src + ')'
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

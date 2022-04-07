@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8三个键盘事件</title>
+</head>
+
+<body>
+
+    <script>
+        // //1 onkeyup 某个键盘按键弹起时触发事件
+        // document.addEventListener('keyup', fn1);
+        // function fn1() {
+        //     console.log("我弹起来了");
+        // }
+
+
+        // //2 onkeydown 某个键盘按键按下时触发事件
+        // document.addEventListener('keydown', fn2);
+        // function fn2() {
+        //     console.log("我按下去了down");
+        // }
+
+
+        //3 onkeypress 某个键盘按键按下时触发事件 但是无法识别功能键 比如shift ctrl 左右箭头
+        document.addEventListener('keypress', fn3);
+        function fn3() {
+            console.log("我按下去了press");
+        }
+
+        //三个事件的执行顺序是 onkeydown onkeypress onkeyup 
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.删除事件</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+        }
+    </style>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    
+</body>
+<script>
+    var divs=document.querySelectorAll('div');
+    //传统注册事件方式本事就是给对象添加方法，把方法（处理程序、函数）改为null即可。
+    divs[0].onclick=function(){
+        alert('张勇是个大帅比');
+        this.onclick=null;
+    }
+    //监听注册事件本质是使用元素节点对象的方法的实例，所以删除每一个实例需要对应的方式
+    //即element.removeEventListener('事件类型',fn);
+    //这个时候需要对注册事件中的fn进行抽象符号化，且这里的fn不是调用 故不用带小括号
+    divs[1].addEventListener('click',fn);
+    function fn(){
+        alert('张勇真是个帅小伙');
+        divs[1].removeEventListener('click',fn);
+    }
+    
+    </script>
+</html>

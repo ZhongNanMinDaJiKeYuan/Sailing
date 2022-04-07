@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东快递单号查询</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        position: relative;
+        /* 开启相对定位是为给con元素添加包含块 */
+        width: 178px;
+        margin: 100px;
+        /* border: 1px solid rebeccapurple; */
+    }
+
+    .con {
+        /* display: none; */
+        position: absolute;
+        /* 开启绝对定位是为给伪类元素添加包含块 */
+        top: -34px;
+        width: 165px;
+        left: 0px;
+
+        border: 1px solid rgba(0, 0, 0, .2);
+        /* x偏移量 | y偏移量 | 阴影模糊半径 | 阴影扩散半径 | 阴影颜色 */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+        padding: 5px 0;
+        font-size: 18px;
+        line-height: 20px;
+        color: #333
+    }
+
+    .con::before {
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        /* 脱离文档流 以及绝对定位是相对包含块相对定位的 由于.box开启了相对定位 所以他的包含块是.box*/
+        top: 28px;
+        left: 18px;
+        border: 8px solid #000;
+        border-style: solid dashed;
+        border-color: #fff transparent transparent;
+
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="con">123</div>
+        <input type="text" placeholder="请输入您的快递单号" class="jd">
+    </div>
+    <script>
+
+        var ipt = document.querySelector('input');
+        var con = document.querySelector('.con');
+        ipt.addEventListener('keyup', function (e) {
+            if (ipt.value) {
+                console.log(ipt.value);
+                con.style.display = 'block';
+                con.innerHTML = ipt.value;
+            }
+        })
+
+        ipt.addEventListener('blur', function (e) {
+            con.style.display = 'none';
+        })
+        ipt.addEventListener('focus', function (e) {
+            if(ipt.value){
+                con.style.display = 'block';
+
+            }
+            
+        })
+
+    </script>
+</body>
+
+</html>

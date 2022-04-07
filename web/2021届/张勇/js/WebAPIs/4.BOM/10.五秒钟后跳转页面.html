@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10.五秒钟后跳转页面</title>
+</head>
+
+<body>
+    <!-- <div>5秒钟之后进入百度首页</div>
+
+    <script>
+        var div = document.querySelector('div');
+        setTimeout(function () {
+           
+            location.href = "https://www.baidu.com";
+        }, 5000)
+
+    </script> -->
+
+    <div></div>
+    <script>
+        var div = document.querySelector('div');
+        var time = 5;
+        setTimeout(function () {
+            div.innerHTML = time + "秒钟之后进入百度首页";
+        },0)
+            
+        setInterval(function () {
+            if (time == 0) {
+                location.href = "https://www.baidu.com";
+            }
+            else {
+                div.innerHTML = time + "秒钟之后进入百度首页";
+                time--;
+
+            }
+
+
+        }, 1000)
+    </script>
+
+</body>
+
+</html>

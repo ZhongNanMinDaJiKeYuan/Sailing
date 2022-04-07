@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9.js执行机制</title>
+    <!-- 
+        1.
+            js是单线程语言，即在每一个时刻只能执行一任务，并且按照页面代码从上到下执行
+            如果前面的任务执行时间过长，则后面的任务要等待，影响用户使用体验
+            所以允许多核CPU创建多个线程
+        2.
+            js先执行执行队列中的同步任务
+            在同步任务中遇到异步任务（回调函数）,则把异步任务放到任务队列中
+            在执行完执行队列中的同步任务之后再去执行任务队列中的异步任务
+        3.
+            异步进程处理，事件没有触发时，就不会把异步任务放入任务队列，
+            只有触发事件才会把异步任务放入任务队列中
+     -->
+</head>
+<body>
+    <script>
+        console.log(1);
+        setTimeout(function(){
+            console.log(2);
+        },1000)
+        console.log(3);
+    </script>
+    
+</body>
+</html>

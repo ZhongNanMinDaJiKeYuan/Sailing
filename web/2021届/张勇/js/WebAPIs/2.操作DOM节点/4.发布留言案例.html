@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.发布留言案例</title>
+    <style>
+        .box {
+            width: 300px;
+            /* border: 1px solid red; */
+            margin: 100px auto;
+
+        }
+
+        .clearfix::after,
+        .clearfix::before {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        .area {
+            position: absolute;
+        }
+
+        .area button {
+            position: relative;
+            top: -6px;
+
+        }
+
+        ul>li {
+            font-size: 14px;
+            line-height: 20px;
+            color: blue;
+            background-color: #bfa;
+            margin: 5px 0;
+            margin-left: -40px;
+            list-style-type: none;
+            width: 287px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box clearfix">
+        <div class="area ">
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <button>发布</button>
+            <ul>
+
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        var text = document.querySelector('textarea');
+        var btn = document.querySelector('button');
+        var ul = document.querySelector('ul');
+        btn.onclick = function () {
+            if(text.value==''){
+                alert("你没有输入内容！")
+                return false;
+            }
+            else{
+                // 每次点击都创建一个元素
+            var li = document.createElement('li');
+            //把文本框的内容赋值给li
+            li.innerHTML = text.value;
+            //头部添加的方法添加li
+            // ul.appendChild(li);
+            ul.insertBefore(li,ul.children[0]);
+            text.value='';
+            }
+            
+
+        }
+    </script>
+
+
+</body>
+
+</html>

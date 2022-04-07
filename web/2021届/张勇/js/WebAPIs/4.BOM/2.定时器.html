@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.定时器</title>
+
+    <!-- 
+        1.setTimeout(调用函数,[延迟毫秒数])设置一个定时器，在延迟多少毫秒后触发该调用函数
+        2.定时器是window对象自带的方法，可以简写，类似alter
+        3.定时器又叫callback 回调函数，指文档加载完才会触发
+     -->
+</head>
+<body>
+    <script>
+        window.setTimeout(function(){
+            console.log("明月何时照我还");
+        },2000)
+        setTimeout(fn1,3000);
+        function fn1(){
+            console.log("我想回家呀！呜呜呜");
+        }
+    </script>
+    
+</body>
+</html>

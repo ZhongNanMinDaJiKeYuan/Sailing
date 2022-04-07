@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11.1</title>
+    <style>
+        .box {
+            position: relative;
+            /* 这行代码是为了给.con创造最近包含块所以开启的 */
+            margin: 100px;
+            width: 178px;
+            /* border: 1px solid red; */
+        }
+
+        .con {
+            display: none;
+            position: absolute;
+            top: -34px;
+            left: 0px;
+            /* 这三行代码是相对 .box】开启了相对定位写的，如果.box没有开启相对
+            定位，则是相对html元素的绝对定位 则偏移值又不一样了 */
+            border: 1px solid rgba(0, 0, 0, .2);
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+            width: 170px;
+            height: 30px;
+            padding: 0 5px;
+            line-height: 30px;
+            font-size: 18px;
+            margin-bottom: 3px;
+            /* 
+           1.相对定位        1.不设置偏移量，所有元素不会发生任何变化
+                            2.相对定位不改变元素属性，不会脱离文档流
+                            3.相对定位的参考位置是它在文档流的位置
+                            4.相对定位会提升元素的层次（覆盖某些层次的元素）
+                            5.相对定位并不会改变元素的性质，行还是行，块还是块
+           2.绝对定位是以最近的包含块（随便开启哪种定位）的祖先元素为参考系的
+           绝对定位的特点：
+                            1.不设置偏移量，元素的位置不会发生变化
+                            2.开启绝对定位后，元素会脱离文档里流
+                            3.绝对定位会改变元素的性质，行内变成块，块的宽高
+                            被内容撑开
+                            4.开启绝对定位，会提升元素层次
+                            5.绝对元素是相对于包含块进行定位的
+                        绝对定位的包含块
+                            离当前元素最近的开启定位的祖先元素
+                            祖先都没开启定位，则相根元素html是他的包含块
+
+                        包含块（containing block）
+                            正常情况下，包含块就是离当前元素最近的开启定位的祖先块元素
+            */
+        
+        }
+
+        .con::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border: 8px solid #bfa;
+            position: absolute;
+            top: 27px;
+            left: 15px;
+            border-style: solid dashed;
+            border-color: #fff transparent transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="con">123
+        </div>
+        <input type="text" placeholder="请输入您的快递单号">
+    </div>
+
+    <script>
+        var ipt=document.querySelector('input');
+        var con=document.querySelector('.con');
+
+        ipt.addEventListener('keyup',function(){
+            if(ipt.value){
+                con.style.display='block';
+                con.innerHTML=ipt.value;
+            }
+        })
+        ipt.addEventListener('blur',function(){
+            con.style.display='none';
+        })
+        ipt.addEventListener('focus',function(){
+            if(ipt.value){
+                con.style.display='block';
+            }
+            
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.父子节点操作</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            background-color: #bfa;
+
+        }
+
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+
+        ul li{
+            list-style-type: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1">1
+        <div class="box2">2
+            <ul>
+                <li>小丽1号</li>
+                <li>小丽2号</li>
+                <li>小丽3号</li>
+                <li>小丽4号</li>
+                <li>小丽5号</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var box2=document.querySelector('.box2');
+        console.log(box2.parentNode);
+        //获取某一元素的最近父元素（节点） 使用element.parentNode
+        var ul=document.querySelector('ul');
+        console.log(ul.childNodes);
+        //获取某一元素的所有子节点（元素节点以及文本节点，还有属性节点） 使用element.childNodes
+        console.log(ul.children);
+        //获取某一元素的所有元素节点 使用element.children
+        console.log(ul.firstChild);
+         //获取某一元素的第一个节点  使用element.firstChild
+        console.log(ul.lastChild);
+        //获取某一元素的最后一个节点  使用element.lastChild
+        //所以以上两个不常用
+        console.log(ul.firstElementChild);
+         //获取某一元素的第一个元素节点  使用element.firstElementChild
+         console.log(ul.lastElementChild);
+         //获取某一元素的第一个元素节点  使用element.lastElementChild
+         //以上两个要IE9以及以上支持 所以也不常用
+         console.log(ul.children[0]);
+         console.log(ul.children[ul.children.length-1]);
+    </script>
+    
+</body>
+</html>

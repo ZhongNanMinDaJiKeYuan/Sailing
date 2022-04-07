@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1注册事件两种方式</title>
+</head>
+
+<body>
+    <button>传统方式</button>
+    <button>方法监听注册方式</button>
+
+</body>
+<script>
+    var buttons = document.querySelectorAll('button');
+    console.log(buttons);
+    //传统注册方式需要在事件类型前加on 
+    //传统注册方式在一个元素的一个时间上只能绑定一个处理程序，如果有第二个处理程序，则会把之前的处理程序给覆盖
+    //传统注册方式本质上是给元素节点对象添加方法，所以二次注册就会覆盖原函数（方法）
+    buttons[0].onclick=function(){
+        alert("传统方式注册事件1");
+    }
+    buttons[0].onclick=function(){
+        alert("传统方式注册事件22");
+    }
+    //监听注册方式本质上是使用元素节点对象的方法，当第一个参数事件类型相同时，第二个参数处理程序（函数）不同，那么这就是同一个方法的两个不同实例。
+    buttons[1].addEventListener("click",function(){
+        alert("监听方式注册事件333");
+    })
+    buttons[1].addEventListener("click",function(){
+        alert("监听方式注册事件5555");
+    })
+
+</script>
+
+</html>

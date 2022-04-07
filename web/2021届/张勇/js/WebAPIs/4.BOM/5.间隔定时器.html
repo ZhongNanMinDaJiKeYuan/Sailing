@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.间隔定时器</title>
+    <!-- 
+        1.设置间隔定时器使用setInterval(回调函数，[间隔的毫秒数])
+        2.该方法是指 每隔间隔的毫秒数 就会执行一次回调函数
+        3.定时器很多时，给定时器一个标识符。
+     -->
+    <style>
+        .box {
+            margin: 100px;
+            position: relative;
+
+        }
+
+        span {
+            float: left;
+            display: block;
+            background-color: black;
+            width: 30px;
+            height: 30px;
+            color: white;
+            margin-left: 20px;
+            text-align: center;
+            line-height: 30px;
+
+
+        }
+
+        .box1 {
+            position: absolute;
+            left: 53px;
+            top: 5px;
+        }
+        .box2 {
+            position: absolute;
+            left: 102px;
+            top: 5px;
+        }
+
+        .pointer1 {
+            width: 4px;
+            height: 4px;
+            background-color: red;
+            border-radius: 50%;
+            margin: 5px;
+
+
+        }
+        .pointer2 {
+            width: 4px;
+            height: 4px;
+            background-color: red;
+            border-radius: 50%;
+            margin: 5px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+        <span class="hour">1</span>
+
+        <div class="box1">
+            <div class="pointer1"></div>
+            <div class="pointer1"></div>
+
+        </div>
+
+        <span class="minute">2</span>
+
+        <div class="box2">
+            <div class="pointer2"></div>
+            <div class="pointer2"></div>
+
+        </div>
+        <span class="second">3</span>
+
+    </div>
+
+    <script>
+        var hour = document.querySelector('.hour');
+        var minute = document.querySelector('.minute');
+        var second = document.querySelector('.second');
+        var inputTime = +new Date('2022-3-31 16:00:00');
+        countDown();
+        setInterval(countDown, 1000);
+        function countDown() {
+            var nowTime = +new Date();
+            var times = (inputTime - nowTime) / 1000;
+
+            var h = parseInt(times / 60 / 60 % 24);
+            h = h < 10 ? '0' + h : h;
+            hour.innerHTML = h;
+            var m = parseInt(times / 60 % 60);
+            m = m < 10 ? '0' + m : m;
+            minute.innerHTML = m;
+            var s = parseInt(times % 60);
+            s = s < 10 ? '0' + s : s;
+            second.innerHTML = s;
+
+        }
+
+
+        var timer1 = setTimeout(fn1, 3000);
+        function fn1() {
+            var inter1 = setInterval(function () {
+                console.log("张勇真的很帅！");
+                console.log('-----');
+            }, 1000)
+
+            setTimeout(fn2, 8000);
+            function fn2() {
+                clearInterval(inter1);
+            }
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

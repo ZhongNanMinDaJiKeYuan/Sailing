@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.兄弟节点以及创建添加节点</title>
+</head>
+
+<body>
+    <!-- 兄弟节点的获取 -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <!-- 创建和添加节点 -->
+    <ul class="fun">
+        <li>1</li>
+    </ul>
+
+    <script>
+        //兄弟节点的获取
+
+        var ul = document.querySelector('ul');
+        var li1 = ul.children[0];
+        var li3 = ul.children[2];
+        var li22 = ul.nextSibling;
+        console.log(li22);
+        //获取的是下一个兄弟节点，包含元素和文本节点
+        var li2 = li1.nextElementSibling;
+        //获取的是下一个兄弟元素节点
+        console.log(li2);
+        var li22 = li3.previousSibling;
+        console.log(li22);
+        //获取的是上一个兄弟节点，包含元素和文本节点
+        var li2 = li3.previousElementSibling;
+        console.log(li2);
+        //获取的是上一个兄弟元素节点
+
+
+        //创建和添加节点
+
+        var ul=document.querySelector('.fun');
+        var li=ul.querySelector('li');
+        console.log(ul);
+
+        var li1=document.createElement('li');
+        //  创建节点document.createElement('节点名称') 节点名称符合HTML规范
+        ul.appendChild(li1);
+        // 父元素对象.appendChild(子元素对象) 在父元素中的子元素末尾添加子元素对象
+        var li2=document.createElement('li');
+        ul.insertBefore(li2,ul.children[0]);
+        console.log(ul);
+
+
+    </script>
+
+
+</body>
+
+</html>

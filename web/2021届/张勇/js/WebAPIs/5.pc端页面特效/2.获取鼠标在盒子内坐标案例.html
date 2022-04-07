@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.获取鼠标在盒子内坐标案例</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            margin: 100px;
+            background-color: #bfa;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        var div=document.querySelector('div');
+        div.addEventListener('click',function(e){
+            console.log(e.pageX);
+            console.log(e.pageY);
+            console.log(div.offsetTop);
+            console.log(div.offsetLeft);
+            console.log(e.pageX-div.offsetLeft);
+            console.log(e.pageY-div.offsetTop);
+
+        })
+
+    </script>
+    
+</body>
+</html>

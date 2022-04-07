@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11Tab栏切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* .clearfix::before,
+        .clearfix::after{
+            content: '';
+            display: table;
+            clear: both;
+        } */
+
+        .tab {
+            width: 688px;
+            /* height: 38px; */
+            margin: 100px auto;
+            /* border: 3px solid #CCC; */
+
+        }
+
+        .tab-list {
+            overflow: hidden;
+            /* float: left; */
+
+            font-size: 14px;
+            background-color: rgb(247, 247, 247);
+            border-bottom: 1px solid rgb(228, 57, 60);
+
+        }
+
+        .tab-list li {
+            list-style-type: none;
+            /* 去掉序号 */
+            float: left;
+            padding: 10px 25px;
+
+        }
+
+        .tab-list .current {
+            background-color: rgb(228, 57, 60);
+            color: #fff;
+
+        }
+
+        .tab-con {
+            height: 200px;
+            border-bottom: 1px solid #ccc;
+            line-height: 200px;
+            text-align: center;
+
+        }
+
+        .tab-con .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab  ">
+        <div class="tab-list  ">
+            <ul>
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价（1000+）</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+
+        <div class="tab-con">
+            <div class="item" style="display:block;">
+                商品介绍模块
+            </div>
+            <div class="item">
+                规格与包装模块
+            </div>
+            <div class="item">
+                售后保障模块
+            </div>
+            <div class="item">
+                商品评价模块
+            </div>
+            <div class="item">
+                手机社区模块
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        var lis = document.querySelector('.tab-list').querySelectorAll('li');
+        console.log(lis);
+
+        var items=document.querySelector('.tab-con').querySelectorAll('.item');
+        console.log(items);
+        for (let index = 0; index < lis.length; index++) {
+            lis[index].onclick = function () {
+                for (let index = 0; index < lis.length; index++) {
+                    lis[index].className = '';
+                    //    先让所有小丽失去背景显示
+                    items[index].style.display='none';
+
+                }
+                //    this.className='current';
+                this.className = 'current';
+                items[index].style.display='block';
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>

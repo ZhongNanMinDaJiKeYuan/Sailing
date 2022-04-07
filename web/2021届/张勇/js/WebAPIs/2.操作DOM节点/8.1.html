@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8.1</title>
+    <style>
+        /* css样式渲染 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            width: 500px;
+            margin: 100px auto;
+            /* border: 1px solid rebeccapurple; */
+            font-size: 14px;
+            color: black;
+            border-collapse: collapse;
+
+        }
+
+        table th {
+            line-height: 40px;
+            background-color: #CCC;
+        }
+
+        table td {
+            line-height: 35px;
+            text-align: center;
+        }
+
+        table td,
+        th {
+            border: 0.5px solid black;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- html结构设计 -->
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>学科</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td>张勇</td>
+                <td>数学</td>
+                <td>9527</td>
+                <td>删除</td>
+            </tr> -->
+        </tbody>
+        <!-- <a href=""></a> -->
+    </table>
+
+    <script>
+        //编辑数据
+        var dates = [
+            {
+                姓名: '孙悟空',
+                学科: '数学',
+                成绩: 99
+            }, {
+                姓名: '猪八戒',
+                学科: '数学',
+                成绩: 88
+            }, {
+                姓名: '沙悟净',
+                学科: '数学',
+                成绩: 77
+            }, {
+                姓名: '唐三藏',
+                学科: '数学',
+                成绩: 100
+            }
+        ];
+        console.log(dates);
+        //获取元素节点
+        var tbody = document.querySelector('tbody');
+
+        //有多少个数据对象就创建多少个tr
+        for (let index = 0; index < dates.length; index++) {
+            //创建tr
+            var tr = document.createElement('tr');
+            //添加到tbody里面
+            tbody.appendChild(tr);
+            //为每一个tr创建td
+            for (k in dates[index]) {//遍历对象内的每一个属性
+                //创建td
+                var td = document.createElement('td');
+                //添加到tr里面
+                tr.appendChild(td);
+                //访问对象的属性值 并赋值给刚创建添加的td
+                td.innerHTML = dates[index][k];
+            }
+            //创建td
+            var td = document.createElement('td');
+            //添加到tr里面
+            tr.appendChild(td);
+            //访问对象的属性值 并赋值给刚创建添加的td
+            td.innerHTML = '<a href="javascript:;"">删除</a>';
+
+            // var trs = tbody.querySelectorAll('tr');
+            // var links = document.querySelectorAll('a');
+            // links[index].onclick = function () {
+            //     // tbody.removeChild(links[index].parentElement.parentElement);
+            //     tbody.removeChild(trs[index]);
+            // }
+
+
+
+
+        }
+
+        var trs = tbody.querySelectorAll('tr');
+        var links = document.querySelectorAll('a');
+        console.log(links);
+        console.log(tbody.children);
+        //为每一个a注册事件
+        for (let index = 0; index < links.length; index++) {
+            links[index].onclick = function () {
+                // tbody.removeChild(links[index].parentElement.parentElement);
+                tbody.removeChild(tbody.children[index]);
+                console.log(tbody.children);
+            }
+        }
+
+
+
+        // tbody.removeChild(tbody.children[0]);
+
+    </script>
+
+</body>
+
+</html>

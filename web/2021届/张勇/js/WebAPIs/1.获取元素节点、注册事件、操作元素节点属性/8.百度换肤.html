@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8百度换肤</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        .imgs {
+            width: 420px;
+            margin: 100px auto;
+
+            /* overflow: hidden; */
+        }
+
+        .clearfix ::before,
+        .clearfix::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        li {
+            list-style-type: none;
+            float: left;
+            cursor: pointer;
+        }
+
+        img {
+            width: 100px;
+            padding-left: 5px;
+        }
+
+        body {
+
+            border: 1px solid red;
+            background: url(./img/1.jpg) no-repeat ;
+            background-size: cover;
+           
+        }   
+
+       
+       
+       
+    </style>
+</head>
+
+<body>
+    < <ul class="imgs clearfix">
+        <li><img src="./img/1.jpg" alt=""></li>
+        <li><img src="./img/2.jpg" alt=""></li>
+        <li><img src="./img/3.jpg" alt=""></li>
+        <li><img src="./img/4.jpg" alt=""></li>
+
+        </ul>
+
+        <script>
+            // var body = document.body;
+            var img = document.querySelector('.imgs').querySelectorAll('img');
+            console.log(img);
+            for (var index = 0; index < img.length; index++) {
+                img[index].onclick = function () {
+                    // this.width = '200px';
+                    document.body.style.backgroundImage = 'url('+ this.src +')';
+                }
+
+            }
+
+
+        </script>
+        < </body>
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8动态表格案例</title>
+    <style>
+        table {
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            /* border: 1px solid red; */
+
+        }
+
+        thead tr {
+            font-size: 14px;
+            line-height: 40px;
+            text-align: center;
+            background-color: #ccc;
+
+        }
+
+        tbody tr {
+            font-size: 12px;
+            line-height: 35px;
+            text-align: center;
+
+        }
+
+        table td,
+        th {
+            border: 0.5px solid black;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>学科</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td>张勇</td>
+                <td>数学</td>
+                <td>90</td>
+                <td></td>
+            </tr> -->
+        </tbody>
+    </table>
+
+</body>
+
+<script>
+    var dates = [{
+        name: '孙悟空',
+        //s定义属性时用逗号隔开
+        subject: '数学',
+        score: 99
+    }, {
+        name: '猪八戒',
+        subject: '数学',
+        score: 88
+    }, {
+        name: '沙悟净',
+        subject: '数学',
+        score: 79
+    }, {
+        name: '唐僧',
+        subject: '数学',
+        score: 100
+    }]
+    console.log(dates.length);
+    console.log(dates[0]);
+    var tbody = document.querySelector('tbody');
+    for (let index = 0; index < dates.length; index++) {
+        var tr = document.createElement('tr');
+        tbody.appendChild(tr);
+        for (k in dates[index]) {
+            //其中k为属性名
+            // 遍历对象属性的方法 for(k in obj)
+            // 访问对象的属性值 obj[k]
+            // console.log(k);
+            // console.log(dates[index][k]);
+            var td = document.createElement('td');
+            tr.appendChild(td);
+            td.innerHTML = dates[index][k];
+        }
+        var td = document.createElement('td');
+        tr.appendChild(td);
+        td.innerHTML = '<a href="javascript:;">删除</a>';
+
+        var as = document.querySelectorAll('a');
+        var trs = tbody.querySelectorAll('tr');
+        as[index].onclick = function () {
+            tbody.removeChild(trs[index]);
+        }
+    }
+    // var links = document.querySelectorAll('a');
+    // var trs = tbody.querySelectorAll('tr');
+    // console.log(trs);
+
+    // console.log(links);
+
+    // for (let index = 0; index < links.length; index++) {
+    //     links[index].onclick = function () {
+    //         tbody.removeChild(trs[index]);
+    //     }
+    // }
+
+</script>
+
+</html>

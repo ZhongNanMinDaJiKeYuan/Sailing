@@ -30,10 +30,14 @@
         .box1{
             width: 200px;
             height: 200px;
-            background-color: blue;
+            background-color:#ccc;
             float: left;
             /* 已经相当于开启了BFC */
+            /* 解决了父子元素外边距重叠问题 */
 
+        }
+        .box1::after{
+            content: '1';
         }
 
 
@@ -41,14 +45,22 @@
             width: 200px;
             height: 200px;
             background-color: #bfa;
+            /* 如果box2不开启BFC 则会被浮动元素所覆盖 */
             overflow: hidden;
 
+            
         }
         .box3{
             width: 100px;
             height: 100px;
             background-color: orange;
-            margin-top: 50px;
+            margin-top: 20px;
+        }
+        .box4{
+            width: 20px;
+            height: 20px;
+            background-color: #bfa;
+            margin-top: 15px;
         }
 
     </style>
@@ -63,9 +75,11 @@
 
 
     <div class="box1">
-        <div class="box3"></div>
+        
+        <div class="box3">3</div>
+        <div class="box4">4</div>
     </div>
-    <div class="box2"></div>
+    <div class="box2">2</div>
 
 
     
