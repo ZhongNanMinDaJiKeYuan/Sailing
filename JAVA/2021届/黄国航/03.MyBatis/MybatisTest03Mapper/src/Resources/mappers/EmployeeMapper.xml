@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.EmployeeMapper">
+
+    <select id="getEmployeeById" resultType="bean.Employee" databaseId="mysql">
+        select *
+        from mybatis_test.employee
+        where id = #{id}
+    </select>
+
+    <select id="getEmployeeByIds" resultType="bean.Employee">
+        select * from mybatis_test.employee where id=#{param1[0]}
+    </select>
+
+    <select id="getEmployeeByIdReturnMap" resultType="java.util.Map">
+        select * from mybatis_test.employee where id=#{id}
+    </select>
+
+    <select id="getEmployeeByLastNameLikeReturnMap" resultType="java.util.Map">
+        select * from mybatis_test.employee where last_name like #{lastName}
+    </select>
+
+    <!--parameterType:将要传入语句的参数的完全限定类名或别名。
+    这个属性是可选的，
+    因为 MyBatis 可以通过 TypeHandler 推断出具体传入语句的参数类型，
+    默认值为 unset。-->
+    <insert id="addEmployee" parameterType="Employee" useGeneratedKeys="true" keyProperty="id">
+        insert into mybatis_test.employee (last_name, gender, email)
+        values (#{lastName}, #{gender}, #{email})
+    </insert>
+
+    <update id="updateEmployee">
+        update mybatis_test.employee
+        set last_name=#{lastName},
+            email=#{email},
+            gender=#{gender}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteEmployeeById">
+        delete
+        from mybatis_test.employee
+        where id = #{id}
+    </delete>
+
+
+<!--    <insert id="addEmployee" parameterType="Employee" useGeneratedKeys="true" keyProperty="id" databaseId="oracle">-->
+<!--        /*keyProperty: 查出主键值封装给javaBean的哪个属性*/-->
+<!--        /*order="BEFORE"： 当前sql在插入sql前运行*/-->
+<!--        <selectKey keyProperty="id" order="BEFORE" resultType="Integer">-->
+<!--            &lt;!&ndash; 编写查询主键的sql语句&ndash;&gt;-->
+<!--            select EMPLOYEE_SEQ.nextval from dual-->
+<!--        </selectKey>-->
+<!--        insert into mybatis_test.employee (id, last_name, gender, email)-->
+<!--        values (#{id},#{lastName}, #{gender}, #{email})-->
+<!--    </insert>-->
+</mapper>

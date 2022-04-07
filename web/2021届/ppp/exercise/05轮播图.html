@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer{
+            margin-left: 150px;
+            position: relative;
+        }
+        img{
+            width: 450px ;
+            
+            /* position: absolute;
+            z-index: 1; */
+        }
+        .box1{
+            position: absolute;
+            /*left: 150px; */
+            /* margin-left: 150px; */
+
+        }
+        
+        .doc{
+            position: absolute;
+            top: 320px;
+            z-index: 99;
+            margin-left:30px; ;
+
+        }
+        .doc a{
+            
+            width: 10px;
+            height: 10px;
+            background-color: rgba(181, 189, 184 ,.8);
+            float: left;
+            border-radius:50% ;
+            margin: 2px;
+            border: 2px solid transparent;
+            /* 不让background-color的颜色  渲染到边框 */
+            background-clip: content-box;
+        }
+        .doc a.active,
+        .doc a:hover{
+            background-color: aliceblue;  
+            border: 2px solid rgba(181, 189, 184 ,.8); 
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="box1">
+            <a href="#">
+                <img src="https://img12.360buyimg.com/babel/s1180x940_jfs/t1/172171/10/23776/201242/61b95294E8a2f1a99/d6f9372f4b5ebed2.jpg.webp" alt="图片">
+            </a>      
+        </div>
+        <div class="doc">
+            <a class="active" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </div>
+    
+</body>
+</html>

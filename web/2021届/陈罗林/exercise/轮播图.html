@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #outer{
+            width: 210px;
+            height: 200px;
+            margin: 50px auto;
+            background-color: #bfa;
+            padding: 5px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        #imgList{
+            height: 200px; 
+            position: absolute;
+            /* left: -120px; */
+        }
+        #imgList li{
+            float: left;
+            padding: 0 5px;
+        }
+        #img_btn{
+            bottom: 10px;
+            position: absolute;
+            opacity: 0.6;
+            
+
+        }
+        #img_btn li{
+            float: left;
+            width: 12px;
+            height: 12px;
+            background-color: red;
+            margin: 0 5px;
+            /* position: absolute; */
+        }
+        #img_btn a{
+            display: block;
+            width: 12px;
+            height: 12px;
+        }
+        #img_btn a:hover{
+            background-color: black;
+        }
+    </style>
+    <script src="../code/JS/js/tools.js"></script>
+    <script>
+        window.onload = function(){
+            var imgList = document.getElementById("imgList");
+            var imgArr = document.getElementsByTagName("img");
+            //设置imgList的宽度，根据图片数量进行自动变化
+            imgList.style.width = 210*imgArr.length + "px";
+            //设置img_btn的left，使其水平居中
+            var outer = document.getElementById("outer");
+            var imgBtn = document.getElementById("img_btn");
+            imgBtn.style.left = (outer.offsetWidth - imgBtn.offsetWidth)/2 + "px";
+            //默认第一个按钮被选中
+            var index = 0;
+            var allA = imgBtn.getElementsByTagName("a");
+            allA[index].style.backgroundColor = "black";
+
+            /*
+                点击按钮后切换图片
+            */
+            
+            // for(var i=0;i<allA.length;i++){
+            //     //将索引作为超链接对象的属性来保存
+            //     allA[i].num = i;
+            //     //给每个超链接绑定一个单击相响应函数
+            //     allA[i].onclick = function(){
+            //         // 这里不能用all[i].num,
+            //         // index = allA[i].num;
+            //         // alert(this.num);
+            //         index = this.num;
+            //         imgList.style.left = -210*index +"px";
+            //         for(var i=0;i<allA.length;i++){
+            //             allA[i].style.backgroundColor = "";
+            //         }
+            //         allA[index].style.backgroundColor = "black";
+            //     };
+            // }
+            /*
+                点击按钮图片轮播
+            */
+            for(var i=0;i<allA.length;i++){
+                //将索引作为超链接对象的属性来保存
+                allA[i].num = i;
+                //给每个超链接绑定一个单击相响应函数
+                allA[i].onclick = function(){
+                    //关闭定时器
+                    clearInterval(timer);
+                    //this表示当前点击的按钮
+                    index = this.num;
+                    move(imgList,"left",-210*index,10,function(){
+                        autoChange();
+                    });
+                    for(var i=0;i<allA.length;i++){
+                        allA[i].style.backgroundColor = "";
+                    }
+                    allA[index].style.backgroundColor = "black";
+                };
+            }
+          
+            /*
+                实现自动轮播
+            */
+            autoChange();
+            //创建一个函数，实现自动轮播
+            var timer;
+            function autoChange(){
+                timer = setInterval(function(){
+                    index++;
+                    move(imgList,"left",-210*index,10,function(){
+                        if(index >= imgArr.length - 1){
+                            index = 0;
+                            imgList.style.left = 0;
+                        }
+                        for(var i=0;i<allA.length;i++){
+                            allA[i].style.backgroundColor = "";
+                        }
+                        allA[index].style.backgroundColor = "black";
+                    });
+                },2000);
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <ul id="imgList">
+            <li><img src="./img/ex08/1.jpg" alt="复联"></li>
+            <li><img src="./img/ex08/2.jpg" alt="复联"></li>
+            <li><img src="./img/ex08/3.jpg" alt="复联"></li>
+            <li><img src="./img/ex08/4.jpg" alt="复联"></li>
+            <li><img src="./img/ex08/5.jpg" alt="复联"></li>
+            <li><img src="./img/ex08/6.jpg" alt="复联"></li>
+            <li><img src="./img/ex08/1.jpg" alt="复联"></li>
+        </ul>
+        <ul id="img_btn">
+            <li><a href="javascript:;"></a></li>
+            <li><a href="javascript:;"></a></li>
+            <li><a href="javascript:;"></a></li>
+            <li><a href="javascript:;"></a></li>
+            <li><a href="javascript:;"></a></li>
+            <li><a href="javascript:;"></a></li>
+        </ul>
+    </div>
+</body>
+</html>

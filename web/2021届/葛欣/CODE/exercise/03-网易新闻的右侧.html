@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        body{
+            background-color: #bfa;
+        }
+        .news-wrapper{
+            width: 200px;
+            height: 270px;
+            margin: 50px auto;
+            background-color: #fff;
+            /* 设置上边框 */
+            border-top: 1px solid #ddd;
+        }
+        /* 设置news-title */
+        .news-title{
+            height: 30px;
+            /* 为了边框和文字宽度一致，需要将h2转换为行内块元素 */
+            display: inline-block;
+            /* 设置上边框 */
+            border-top: 1px red solid;
+            /* 通过margin-top将h2上移，盖住上边框 */
+            margin-top: -1px;
+
+            padding-top: 10px;
+        }
+        .news-title a{
+            text-decoration: none;
+            color: #40406B;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .news-img{
+            height: 120px;
+        }
+            /* 设置图片的文字效果 */
+            .news-img .img-title{
+                /* 向上移动文字 */
+                margin-top: -20px;
+                /* 设置字体颜色 */
+                color: #fff;
+                font-weight: bold;
+                padding-left: 30px;
+            }
+
+            /* 设置新闻列表 */
+            .news-list{
+                margin-top: 20px;
+                padding-left: 14px;
+            }
+            /* 设置li */
+            .news-list li{
+                font-size: 17px;
+            }
+            /* 设置li中的文字 */
+            .news-list li a{
+                font-size: 14px;
+                color: #666;
+            }
+            /* 通过before伪元素，来为每一个li添加项目符号 */
+            .news-list li::before{
+                content: "*";
+                color: rgb(218,218,218);
+                font-size: 12px;
+                margin-right: 4px;
+            }
+            .news-list li a:hover{
+                color: red;
+            }
+    </style>
+</head>
+
+<body>
+    <div class="news-wrapper">
+            <!-- 创建一个标题标签 -->
+        <h2 class="news-title">
+            <a href="#">体育</a>
+        </h2>
+        <!-- 图片容器 -->
+        <div class="news-img">
+            <a href="#">
+                <img src="./img/03/1.webp" alt="费德勒">
+                <!-- 创建图片标题 -->
+                <h2 class="img-title">
+                    费德勒首负迪米
+                </h2>
+            </a>
+        </div>
+        <!-- 新闻列表容器 -->
+        <ul class="news-list">
+            <li>
+                <a href="#">111111111111</a>
+            </li>
+            <li>
+                <a href="#">111111111111</a>
+            </li>
+            <li>
+                <a href="#">111111111111</a>
+            </li>
+            <li>
+                <a href="#">111111111111</a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

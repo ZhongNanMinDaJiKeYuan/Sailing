@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            一元操作符，只需要一个操作数
+            +正号  不会对数字产生影响
+            -负号  取反
+            
+            对于非Number类型的值
+                他会先转换成Number  然后再运算
+                可以对一个其他的数据类型使用+，将其转换成Number类型
+                原理和Number()函数原理一样
+
+        */
+
+        var a = 123;
+        a = -a; //-123
+
+        a = true; 
+        a = -a;  //-1
+
+        a = "123";
+        a = -a;   //-123
+
+        a = 1 + +"2"
+        console.log(a);
+        console.log(typeof a);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

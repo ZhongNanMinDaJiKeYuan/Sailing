@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <settings>
+        <!--将表中字段的下划线自动转换为驼峰-->
+        <setting name="mapUnderscoreToCamelCase" value="True"/>
+        <!--设置延迟加载-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="true"/>
+    </settings>
+    <!--类型别名：为java的类型起一个简短的别名，避免冗余的全类名-->
+    <typeAliases>
+        <typeAlias type="com.lks.bean.Employee" alias="employee"/>
+        <!--package会为该包下的所有类赋予默认别名-->
+        <!--<package name="bean" />-->
+    </typeAliases>
+
+
+    <databaseIdProvider type="DB_VENDOR">
+        <!--为数据库厂商标识起一个好写一点的别名-->
+        <property name="SQL Server" value="sqlserver"/>
+        <property name="MySQL" value="mysql"/>
+        <property name="Oracle" value="oracle" />
+    </databaseIdProvider>
+
+</configuration>

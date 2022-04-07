@@ -1,0 +1,108 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>网页新闻右侧列表</title>
+        <link rel="stylesheet" href="./css/reset.css">
+        <style>
+            a{
+                /* 去掉所有超链接的下划线 */
+                text-decoration: none;
+            }       
+            .news-wrapper
+            {
+                width: 264px;
+                height: 357px;
+                margin: 20px auto;
+                border-top: 1px solid #ddd;
+            }
+            .news-tittle
+            {
+                /* 为了让tittle边框和字体宽度一样 将h2转换成行内块元素 */
+                /* 边框的宽度是被内容撑开的 */
+                display: inline-block;
+                height: 40px;
+                border-top: solid 1px red;
+                /* 使用margin-top将h2上移1px，使红色边框压住灰色边框 */
+                margin-top: -1px;
+
+            }
+            /* 设置tittle里的超链接样式 */
+            .news-tittle a
+            {
+                /* 把超链接下划线去掉 */
+                text-decoration: none;
+                color: #404068;
+                font-weight: bold;
+                /* 使tittle位于行高中部 */
+                line-height: 40px;
+            }
+            .news-img{
+                height: 130px;
+            }
+            .news-img .img-tittle{
+                font-weight: bold;
+                /* 文字上移 使其在图片上显示 */
+                margin-top: -30px;
+                color: #fff;
+                font-size: 13px;
+                padding-left: 30px;
+            }
+            /* 设置新闻列表 */
+            .news-list{
+                margin-top: 10px;
+                /* padding-left: 14px; */
+            }
+            
+            .news-list li{
+                margin-bottom: 10px;               
+            }
+            .news-list li a{
+                font-size: 12px;
+                color: #666;
+            }
+            /* 通过before伪元素，来为每一个li添加项目符号 */
+            .news-list li::before{
+                content: '❄';
+                color: rgb(218,218,218);
+                font-size: 12px;
+
+            }
+            /* 设置超链接鼠标移入的效果 */
+            .news-list li a:hover{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="news-wrapper">
+            <h2 class="news-tittle">
+                <a href="#">体育</a>
+            </h2>
+            <div class="news-img">
+                <a href="#">
+                    <img src="./img/01/03/03.1.png" alt="">
+                    <h3 class="img-tittle">
+                        费德勒首负迪米 扶额摇头不满发挥
+                    </h3>
+                </a>
+            </div>
+                <ul class="news-list">
+                    <li>
+                        <a href="#">乔治：我爱LA 喜欢和他一起打球</a>
+                    </li>
+                    <li>
+                        <a href="#">格林：3年前降薪就在等KD 特制T恤嘲讽LBJ</a>
+                    </li>
+                    <li>
+                        <a href="#">塔克4000双鞋让保罗羡慕嫉妒</a>
+                    </li>
+                    <li>
+                        <a href="#">CBA下季新赛制：常规赛4组循环 增至46轮</a>
+                    </li>
+                </ul>
+        </div>
+    </body>
+    </html>

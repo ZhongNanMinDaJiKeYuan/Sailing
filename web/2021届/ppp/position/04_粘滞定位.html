@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .outer{
+            height: 2000px;
+        }
+        .box1{
+            
+            background-color: lightgray;
+            height: 20px;
+            
+            float: left;
+            padding: 1.5% 3%;
+
+            /* 
+                粘滞定位:
+                    当元素的position属性设置为sticky时开启了粘滞定位
+                    粘滞定位与相对定位特点基本一样
+                    不同的是粘滞定位可以在元素到达某个位置时将其固定
+            */
+            position: sticky;
+            top: 0;
+            
+        }
+        .box1:hover{
+            background-color: rgb(88, 82, 82);
+        }
+        a{
+            text-decoration: none;
+            color: gray;
+
+            display: block;
+            line-height: 20px;
+        }
+     
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="box1"><a href="#">HTML/CSS</a></div>
+        <div class="box1"><a href="#">Browser Slide</a></div>
+        <div class="box1"><a href="#">Server Slide</a></div>
+        <div class="box1"><a href="#">Programming</a></div>
+        <div class="box1"><a href="#">XML</a></div>
+        <div class="box1"><a href="#">Web Building</a></div>
+        <div class="box1"><a href="#">Reference</a></div>
+    </div>
+    
+    
+</body>
+</html>

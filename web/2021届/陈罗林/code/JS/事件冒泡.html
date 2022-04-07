@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件冒泡</title>
+    <style>
+        #box1{
+            width: 500px;
+            height: 500px;
+            background-color: #faa;
+        }
+        #box2{
+            width: 300px;
+            height: 300px;
+            background-color: aqua;
+        }
+        #box3{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+        }
+    </style>
+    <script>
+        
+        window.onload = function(){
+            var box1 = document.getElementById("box1");
+            var box2 = document.getElementById("box2");
+            var box3 = document.getElementById("box3");
+            var span = document.getElementById("span");
+            /*
+                事件的冒泡（Bubble）
+                    -指事件的向上传导，当后代元素上的事件被触发时，其祖先元素的相同事件也会被触发
+                    -如果不希望发生事件冒泡，可以通过事件对象来取消冒泡
+            */
+            box1.onclick = function(){
+                alert("我是box1");
+            };
+            box2.onclick = function(){
+                alert("我是box2");
+            };
+            box3.onclick = function(){
+                alert("我是box3");
+            };
+            //取消冒泡
+            span.onclick = function(event){
+                //兼容性
+                event = event || window.event;
+                //将事件对象的cancelBubble设置为true，则取消冒泡
+                event.cancelBubble = true;
+                alert("我是span");
+                
+            };
+        };
+    </script>
+</head>
+<body>
+    <div id="box1">
+        <div id="box2">
+            <div id="box3">
+            </div>
+            <span id="span">蒲公英的约定</span>
+        </div>
+    </div>
+</body>
+</html>

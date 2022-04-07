@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 第一种用html标签 */
+        .box1{
+            border: darkviolet 20px solid;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: dodgerblue;
+            float: left;
+        }
+        /* box1是被box3自动设置的外边距撑开的 */
+        .box3{
+            clear:both;
+        }
+
+        /* 第二种用::after伪类选择器 */
+        .box4{
+            border: darkviolet 20px solid;
+        }
+        .box5{
+            width: 100px;
+            height: 100px;
+            background-color: dodgerblue;
+            float: left;
+        }
+        .box4::after{
+            /* ::after默认行内元素 不独占一行  要转成块元素 */
+            clear:both;
+            content:'';
+            display:block;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+        <!-- 加了一个空标签 不规范 -->
+        <div class="box3"></div>
+    </div>
+
+    
+    <div class="box4">
+        <div class="box5"></div>
+
+    </div>
+</body>
+</html>

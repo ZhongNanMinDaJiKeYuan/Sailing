@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //prompt返回string类型，
+        var height = prompt('请输入您的身高(CM):');
+        var wealth = prompt('请输入您的财富(万):');
+        var handsome = +prompt('请输入您的帅气值(整数):');//可以把prompt类型转换为number类型
+        alert('---身高：'+height+'---财富：'+wealth+'---颜值：'+handsome+'---')
+        alert(typeof(handsome))
+        a = Boolean(height > 180);
+        b = Boolean(wealth > 1000);
+        c = Boolean(handsome > 500);
+        if(isNaN(height || wealth ||handsome)){
+            alert('你看这像话吗？按要求再填一次！！');
+        }
+        else{
+            if(a && b && c){
+                alert('我一定要嫁给他');
+            }
+            else if(a || b || c){
+                alert('嫁吧，比上不足比下有余');
+            }
+            else{
+                alert('不嫁！');
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

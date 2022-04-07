@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            /* 开启定位才能用left和top */
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            //解決兼容性
+            event = event || window.event;
+            /*
+                获取滚动条滚动的距离
+            */
+            var st = document.body.scrollTop || document.documentElement.scrollTop;
+            var sl = document.body.scrollLeft || document.documentElement.scrollLeft;
+
+            document.onmousemove = function (event) {
+                var left = event.pageX;
+                var top = event.pageY;
+
+                box1.style.left = left + st + "px";
+                box1.style.top = top + sl + "px";
+            };
+        };
+
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+
+</body>
+
+</html>

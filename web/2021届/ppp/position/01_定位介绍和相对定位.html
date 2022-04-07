@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+        }
+        .box2{
+            height: 100px;
+            width: 100px;
+            background-color: yellowgreen;
+            /* 
+                position:定位是一种高级布局手段
+                可以将元素放到页面的任何位置
+                可选值：
+                1.static默认值 没有开启position
+                2.relative相对定位
+                3.absolute绝对定位
+                4.fixed元素的固定定位
+                5.sticky元素的粘滞定位
+            */
+            /* 
+                相对定位position:relative
+                开启后可以设置四个位置（偏移量：offset）
+                top：距离上边距的距离
+                bottom：距离下边距的距离
+                left：距离左边距的距离
+                right：距离右边距的距离
+                
+                相对定位提升层级，但没有脱离文档流
+            */
+            position:relative;
+            top: -100px;
+            left: 100px;
+        }
+        .box3{
+            height: 100px;
+            width: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+</body>
+</html>

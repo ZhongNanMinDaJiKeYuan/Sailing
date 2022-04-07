@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clearfix</title>
+    <style>
+        .box1{
+            width: 300px;
+            height: 300px;
+            background-color: indianred;
+            /* float: left; */
+        }
+        .box2{
+            width: 150px;
+            height: 150px;
+            background-color: #bfa;
+            margin-top: 100px;
+            /* float: left; */
+        }
+        /* 这个样式可以同时解决高度塌陷和外边距重叠的问题，当遇到这种问题时，直接用clearfix类 */
+        .clearfix::before,.clearfix::after{
+            content: '';
+            display: table;
+            clear: both;
+        }
+        /* 以上，这时父元素box1的外边距会和子元素box2重合 */
+    </style>
+</head>
+<body>
+    <div class="box1 clearfix" >
+        <div class="box2"></div>
+    </div>
+</body>
+</html>

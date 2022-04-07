@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            正则表达式：
+                用于定义一些字符串的规则，计算机根据正则表达式来检查一个字符串是否符合规则，
+                将字符串中符合规则的内容提取出来
+
+
+        */
+        //创建正则表达式对象
+        /*
+            语法：  var 变量 = new RegExp("正则表达式","匹配模式");
+            var reg = new RegExp("a");  检查字符串中是否含有a，区分大小写
+            在构造函数中可以传递一个匹配模式作为第二个参数，可以是
+                i   忽略大小写
+                g   全局匹配模式
+        */
+        var reg = new RegExp("a","i");
+        /*
+            使用字面量来创建正则表达式
+            语法：  var 变量 = /正则表达式/匹配模式
+            如:  var reg = /a/i
+        */
+        var str = "Abcd";
+        /*
+            正则表达式的方法：
+                test()  使用该方法可以用来检查一个字符串是否符合正则表达式的规则，若符合，返回true，反之false
+        */
+        console.log(reg.test(str));
+        /*
+            创建一个正则表达式，检查一个字符串中是否含有a或b
+            使用“|”     var reg = /a|b/;
+            "[]" 里的内容也是或的关系   
+                [ab] == a|b
+                [a-z]   任意小写字母
+                [A-Z]   任意大写字母
+                [A-z]   任意字母
+                [0-9]   任意数字
+        */
+        //检查一个字符串里是否含有abc 或adc 或aec
+        var reg1 = /a[bde]c/;
+        var str1 = "accabc";
+        console.log(reg1.test(str1));
+        /*
+            [^ ]    除了    
+            reg = /[^ab];
+            str = "abc";
+            reg.test(str)返回true，因为str中含有除了ab以外的字符
+        */
+        /*
+            量词
+                -通过量词可以设置一个内容出现的次数，量词只对它前边的内容起作用
+                -{n}    出现n次
+                -{m,n}  出现m至n次
+                -{m,}   出现m次以上
+                - + 表示至少一个    相当于{1,}
+                - * 0个或多个
+                - ? 0个或一个   相当于{0,1}
+
+                ab{3}c == abbbc
+        */
+        var reg2 = /a{3}/;
+        console.log(reg2.test("abaaa"));
+        reg2 = /(ab){2}/;
+        console.log(reg2.test("ababab"));
+        /*
+            检查一个字符串是否以a开头
+            ^   表示开头    reg = /^a/;     匹配开头的a
+            $   表示结尾    reg = /a$/;     匹配结尾的a
+
+        */
+        /*
+            .   表示任意字符
+            检查一个字符串是否含有.
+                reg = /\./;
+        */
+        /*
+            \w      任意字母、数字、_
+            \W      除了字母、数字、_
+            \d      任意的数字
+            \D      除了数字
+            \s      空格
+            \S      除了空格
+            \b      单词边界
+            \B      除了单词边界
+        */
+        //创建一个正则表达式检查字符串是否含有单词child
+        reg2 = /\bchild\b/;
+        console.log(reg2.test("hello children"));
+        console.log(reg2.test("hello child"));
+        //去除开头的空格
+        //str = str.replace(/^\s*/,"");
+        //去除结尾的空格
+        //str = str.replace(/\s*$/,"");
+        //去除开头和结尾的空格
+        //str = str.replace(/^\s*|\s*$/g,"");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.EmployeeMapper">
+
+    <!-- public void updateEmployee(Employee employee);-->
+    <update id="updateEmployee">
+        update mybatis_test.employee
+       <!-- <set>
+            <if test="lastName!=null and lastName!=''">
+                last_name = #{lastName}
+            </if>
+            <if test="email!=null and email.trim()!=''">
+                 email=#{email}
+            </if>
+            &lt;!&ndash;OGNL会进行字符串与数字的转换判断&ndash;&gt;
+            <if test="gender==0 or gender==1">
+                gender=#{gender}
+            </if>
+        </set>-->
+        <trim prefix="set" suffixOverrides=",">
+            <if test="lastName!=null and lastName!=''">
+                last_name = #{lastName},
+            </if>
+            <if test="email!=null and email.trim()!=''">
+                email=#{email},
+            </if>
+            <if test="gender==0 or gender==1">
+                gender=#{gender}
+            </if>
+        </trim>
+        where id=#{id}
+
+    </update>
+
+    <!--    &lt;!&ndash;查询员工，要求携带了哪个字段查询条件就带上这个字段的值&ndash;&gt;-->
+<!--    <select id="getEmployeeByConditionIf" resultType="bean.Employee">-->
+<!--        select * from mybatis_test.employee-->
+<!--        <where>-->
+<!--        &lt;!&ndash; test:判断表达式（使用OGNL表达式）-->
+<!--        注意是从参数中取值进行判断-->
+<!--        &ndash;&gt;-->
+<!--        <if test="id!=null">-->
+<!--            and id=#{id}-->
+<!--        </if>-->
+<!--        <if test="lastName!=null and lastName!=''">-->
+<!--          and last_name like #{lastName}-->
+<!--        </if>-->
+<!--        <if test="email!=null and email.trim()!=''">-->
+<!--            and email=#{email}-->
+<!--        </if>-->
+<!--        &lt;!&ndash;OGNL会进行字符串与数字的转换判断&ndash;&gt;-->
+<!--        <if test="gender==0 or gender==1">-->
+<!--           and gender=#{gender}-->
+<!--        </if>-->
+<!--        </where>-->
+<!--    </select>-->
+
+    <!--查询员工，要求携带了哪个字段查询条件就带上这个字段的值-->
+    <select id="getEmployeeByConditionIf" resultType="bean.Employee">
+        select * from mybatis_test.employee
+        <where>
+            <!-- test:判断表达式（使用OGNL表达式）
+            注意是从参数中取值进行判断
+            -->
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="lastName!=null and lastName!=''">
+                and last_name like #{lastName}
+            </if>
+            <if test="email!=null and email.trim()!=''">
+                and email=#{email}
+            </if>
+            <!--OGNL会进行字符串与数字的转换判断-->
+            <if test="gender==0 or gender==1">
+                and gender=#{gender}
+            </if>
+        </where>
+    </select>
+
+    <select id="getEmployeeByConditionTrim" resultType="bean.Employee">
+        select * from mybatis_test.employee
+        <trim>
+            <!-- test:判断表达式（使用OGNL表达式）
+            注意是从参数中取值进行判断
+            -->
+            <if test="id!=null">
+                and id=#{id}
+            </if>
+            <if test="lastName!=null and lastName!=''">
+                and last_name like #{lastName}
+            </if>
+            <if test="email!=null and email.trim()!=''">
+                and email=#{email}
+            </if>
+            <!--OGNL会进行字符串与数字的转换判断-->
+            <if test="gender==0 or gender==1">
+                and gender=#{gender}
+            </if>
+        </trim>
+
+    </select>
+
+</mapper>

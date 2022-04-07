@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            /* 
+                渐变是图片用background-image设置
+                线性渐变 linear-gradient()
+                可以制定渐变方向
+                to left
+                to right
+                to bottom
+                to top
+                xxxdeg  deg表示度数
+                turn表示圈数
+            */
+            background-image: linear-gradient(to right ,red,yellow);
+            background-image: repeating-linear-gradient(red 50px,yellow 100px);
+            /* 重复渐变 */
+            background-image: radial-gradient(red,yellow);
+            background-image: radial-gradient(100px 100px,red,yellow);
+            background-image: radial-gradient(100px 100px at 0 0,red,yellow);
+            /* 径向渐变
+                正方形对应圆形
+                长方形对应椭圆形
+                手动设置径向渐变大小
+
+            */
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

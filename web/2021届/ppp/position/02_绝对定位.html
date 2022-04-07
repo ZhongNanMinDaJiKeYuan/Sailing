@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+        }
+        .box4{
+            height: 300px;
+            width: 300px;
+            background-color: orange;
+
+            position: relative;
+        }
+        .box5{
+            height: 200px;
+            width: 200px;
+            background-color: yellow;
+        }
+        .box2{
+            height: 100px;
+            width: 100px;
+            background-color: yellowgreen;
+            /* 
+                绝对定位absolute
+                1.开启绝对定位，如果不设置偏移量，位置不变化
+                2.元素从文档流中脱离，改变元素性值，与float相同
+                3.元素提升层级
+
+            */
+            position:absolute;
+
+            /* 找原点的方法 */
+            top: 0px;
+            left: 0px;
+            /* 
+                包含块：
+                    正常情况：包含块是离当前元素最近的祖先块元素
+                    开启绝对定位的包含块是离该元素最近的开启定位的祖先块，祖先块元素都没开启position，就找根元素
+            */
+
+
+
+        }
+        .box3{
+            height: 100px;
+            width: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    
+    <div class="box4">4
+        <div class="box5">5
+            <div class="box2">2</div>
+        </div>
+    </div>
+    <div class="box3">3</div>
+</body>
+</html>

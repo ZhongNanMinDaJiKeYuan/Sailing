@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lks.dao.EmployeeMapper">
+
+    <!--Employee getEmployeeById(Integer id); 单参数-->
+    <select id="getEmployeeById" resultType="com.lks.bean.Employee">
+        select * from mybatis_test.employee where id=#{id}
+    </select>
+
+    <!-- 多个字面量类型的参数-->
+    <!--Employee getEmployeeByIdAndName(Integer id, String name);-->
+    <select id="getEmployeeByIdAndName" resultType="com.lks.bean.Employee">
+        select * from mybatis_test.employee where id=#{arg0} and last_name=#{arg1}
+    </select>
+
+    <!-- 实体类类型的参数-->
+    <!--Employee getEmployeeByIdAndNameInEmp (Employee emp);-->
+    <select id="getEmployeeByIdAndNameInEmp" resultType="com.lks.bean.Employee">
+        select * from mybatis_test.employee where id=#{id} and last_name=#{lastName}
+    </select>
+
+    <!--组合的情况-->
+    <select id="getEmployeeByIdAndNameInEmp2" resultType="com.lks.bean.Employee">
+        select * from mybatis_test.employee where id=#{param1} and last_name=#{param2.lastName}
+    </select>
+
+    <select id="getEmployeeByIdAndNameInList" resultType="com.lks.bean.Employee">
+        select * from mybatis_test.employee where id=#{param1[0]} and last_name=#{param2}
+    </select>
+
+    <select id="getEmployeeByIdAndNameInList2" resultType="com.lks.bean.Employee">
+        select * from mybatis_test.employee where id=#{list[0]}
+    </select>
+
+</mapper>

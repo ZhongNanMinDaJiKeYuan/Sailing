@@ -1,0 +1,33 @@
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--引入数据库配置文件-->
+    <properties resource="database.properties"></properties>
+
+    <!--targetRuntime指定了生成资源时的复杂程度-->
+    <context id="simple" targetRuntime="MyBatis3Simple">
+        <!--配置数据库连接-->
+        <jdbcConnection driverClass="${jdbc.driver}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}"
+                        password="${jdbc.password}"
+        />
+
+        <!--配置java bean文件生成的策略-->
+        <javaModelGenerator targetPackage="bean" targetProject="src"/>
+
+        <!--sql映射生成策略-->
+        <sqlMapGenerator targetPackage="mappers" targetProject="src/Resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!--指定mapper接口-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="dao" targetProject="src"/>
+
+        <!--指定哪些表要创建JavaBean-->
+        <table tableName="departments" domainObjectName="Department"/>
+        <table tableName="employee" domainObjectName="Employee" />
+
+    </context>
+</generatorConfiguration>

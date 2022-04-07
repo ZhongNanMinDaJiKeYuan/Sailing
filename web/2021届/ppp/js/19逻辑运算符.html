@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 
+            !  非  
+                对boolean值进行取反操作
+                对非Boolean值进行取反 先转成布尔值再取反
+            && 与  
+                对非布尔值进行或运算的时候，会先将其转换成Boolean类型，再进行运算，最会返回原值
+            || 或
+        */
+        var a = true;
+
+        //对a进行非运算
+        a = !a;
+        console.log(a);
+
+        //&&  两个值都为true才为true
+        var result = true && true;
+        console.log(result);
+        result = true && false;
+        console.log(result);
+        result = false && false;
+        console.log(result);
+        //短路与 当第一个值为false的时候  不继续进行判断了
+        //当第一个值为true返回后面的值
+        result = 1 && 0;
+        console.log(result);//0
+        result = 2 && 1;
+        console.log(result);//1
+        //当第一个值为false则返回第一个false
+        result = NaN && 0;
+        console.log(result);//NaN
+        result = 0 && 3;
+        console.log(result);//0
+
+
+        //||有一个 true就是true
+        result = true || true;
+        console.log(result);
+        result = true || false;
+        console.log(result);
+        result = false || false;
+        console.log(result);
+
+        //当第一个值为true返回前面的值
+        result = 1 || 0;
+        console.log(result);//1
+        result = 2 || 1;
+        console.log(result);//2
+        //当第一个值是false则返回后面的值
+        result = NaN || 0;        
+        console.log(result);//0
+        result = 0 || 1;
+        console.log(result);//1
+        
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

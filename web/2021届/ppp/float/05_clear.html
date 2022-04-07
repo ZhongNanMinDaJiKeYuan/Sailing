@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            height: 100px;
+            width: 100px;
+            background-color: darkorchid;
+
+            float: left;
+
+        }
+        .box2{
+            height: 200px;
+            width: 200px;
+            background-color: darkorchid;
+
+            float: right;
+
+        }
+        .box3{
+            height: 100px;
+            width: 100px;
+            background-color: darkslategrey;
+            /* 
+                box1的浮动会导致box2的上移
+                用clear消除上移
+                可选值：
+                left消除左侧浮动
+                right消除右侧浮动
+                both清除两侧中最大的一侧
+                原理：
+                加入clear属性 自动为元素添加一个上外边距
+                使其不受其他元素的影响
+            */
+            clear: left;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">1</div>
+    <div class="box2">2</div>
+    <div class="box3">3</div>
+</body>
+</html>

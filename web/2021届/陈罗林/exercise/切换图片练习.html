@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .outer{
+            width: 200px;
+            margin: 50px auto;
+            background-color: #bfa;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var pre = document.getElementById('pre');
+            var next = document.getElementById('next');
+            var img = document.getElementsByTagName('img')[0];
+            var info = document.getElementById("info");
+
+            var index = 0;
+            var imgArr = ['img/ex08/1.jpg','img/ex08/2.jpg','img/ex08/3.jpg','img/ex08/4.jpg','img/ex08/5.jpg','img/ex08/6.jpg'];
+            
+            info.innerHTML = "一共"+imgArr.length+"张图，这是第"+(index+1)+"张";
+            
+            pre.onclick = function(){
+                index--;
+                if(index < 0){
+                    index = imgArr.length - 1;
+                }
+                img.src = imgArr[index];
+                info.innerHTML = "一共"+imgArr.length+"张图，这是第"+(index+1)+"张";
+            };
+            next.onclick = function(){
+                index++;
+                if(index > imgArr.length - 1){
+                    index = 0; 
+                }
+                img.src = imgArr[index];
+                info.innerHTML = "一共"+imgArr.length+"张图，这是第"+(index+1)+"张";
+            };
+
+        };
+    </script>
+</head>
+<body>
+    <div class="outer">
+        <p id="info"></p>
+        <img src="img/ex08/1.jpg" alt="复联">
+        <button id="pre">上一张</button>
+        <button id="next">下一张</button>
+    </div>
+</body>
+</html>

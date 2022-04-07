@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>增删改练习</title>
+		<style>
+			
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.bg{
+				background: #bfa ;
+				width: 350px;
+				padding: 20px 0px;
+				margin: 0 auto;
+			}
+			
+			#ex1 {
+				/*设置第一个表格的宽度和居中*/
+				width: 300px;
+				margin: 20px auto;
+				/*通过border-spacing属性调整边框之间的距离*/
+				border-spacing: 10px;
+				/*通过border-collapse属性设置边框合并*/
+				border-collapse: collapse;
+			}
+			
+			#ex1 td,th {
+				border: 1px black solid;
+			}
+			
+			a{
+				color: red;
+				text-decoration: none;
+			}
+			a:hover{
+				color: orange;
+			}
+			a:active{
+				color:salmon;
+			}
+			
+			.submit{
+				width: 250px;
+				margin: 20px auto;
+			}
+			.submit fieldset{
+				display: block;
+			    margin-inline-start: 2px;
+			    margin-inline-end: 2px;
+			    padding-block-start: 0.35em;
+			    padding-inline-start: 0.75em;
+			    padding-inline-end: 0.75em;
+			    padding-block-end: 0.625em;
+			    min-inline-size: min-content;
+			    border-width: 2px;
+			    border-style: groove;
+			    border-color: threedface;
+			    border-image: initial;
+			}
+			.submit input{
+				margin: 5px auto;
+				border-radius:3px;
+			}
+			.submit input:focus{
+				background-color: lightskyblue;
+			}
+			#submit{
+				display: block;
+				margin: 0 auto;
+			}
+		</style>
+        <script>
+            //删除函数
+            function DelA(){
+                var tr = this.parentNode.parentNode;
+                        var name = tr.firstElementChild.innerHTML;
+                        var flag = confirm("确定删除"+name+"吗？");
+                        if(flag){
+                            tr.parentNode.removeChild(tr);
+                        }
+            }
+            window.onload = function(){
+                //删除
+                var allA = document.getElementsByTagName("a");
+                for(var i=0;i<allA.length;i++){         
+                    // allA[i].onclick = function(){
+                    //     var tr = this.parentNode.parentNode;
+                    //     var name = tr.firstElementChild.innerHTML;
+                    //     var flag = confirm("确定删除"+name+"吗？");
+                    //     if(flag){
+                    //         tr.parentNode.removeChild(tr);
+                    //     }
+                    // };
+                    allA[i].onclick = DelA;
+                }
+
+                //添加
+                var submit = document.getElementById("submit");
+                submit.onclick = function(){
+                    var name = document.getElementById("name");
+                    var email = document.getElementById("email");
+                    var salary = document.getElementById("salary");
+
+                    var ex1 = document.getElementById("ex1");
+                    var tbody = ex1.getElementsByTagName("tbody")[0];
+
+                    var tr = document.createElement("tr");
+                    // var newName = document.createElement("td");
+                    // newName.innerHTML = name.value;
+                    // var newEmail = document.createElement("td");
+                    // newEmail.innerHTML = email.value;
+                    // var newSalary = document.createElement("td");
+                    // newSalary.innerHTML = salary.value;
+                    // var del = document.createElement("td");
+
+                    // tr.appendChild(newName);
+                    // tr.appendChild(newEmail);
+                    // tr.appendChild(newSalary);
+                    // ex1.appendChild(tr);
+                    tr.innerHTML = "<td>"+name.value+"</td>"+
+                                    "<td>"+email.value+"</td>"+
+                                    "<td>"+salary.value+"</td>"+
+                                    "<td><a href='javascript:;'>Delete</a></td>";
+                    tbody.appendChild(tr);
+                    var a = tr.getElementsByTagName("a")[0];
+                    a.onclick = DelA;
+                };
+            };
+        </script>
+	</head>
+
+	<body>
+		<div class="bg">
+			<table id="ex1">
+				<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Salary</th>
+					<th>#</th>
+				</tr>
+
+				<tr>
+					<td>Tom</td>
+					<td>123@126.com</td>
+					<td>5000</td>
+					<td>
+						<a href="javascript:;">Delete</a>
+					</td>
+				</tr>
+				<tr>
+					<td>Lily</td>
+					<td>lltt@163.com</td>
+					<td>7000</td>
+					<td>
+						<a href="javascript:;">Delete</a>
+					</td>
+				</tr>
+				<tr>
+					<td>Aniu</td>
+					<td>22557@qq.com</td>
+					<td>3000</td>
+					<td>
+						<a href="javascript:;">Delete</a>
+					</td>
+				</tr>
+			</table>
+
+			<div class="submit">
+				<fieldset>
+					<legend>注册新成员</legend>
+					<form action="javascript:;">
+						<label for="name">Name  &nbsp; :</label>
+							<input id="name" type="text /" /><br />
+						<label for="email">Email  &nbsp; :</label>
+							<input id="email" type="text /" /><br />
+						<label for="salary">Salary :</label>
+							<input id="salary" type="text /" /><br />
+						<input  id="submit" type="submit" value="submit" />
+					</form>
+				</fieldset>
+			</div>
+      
+		</div>
+	</body>
+</html>

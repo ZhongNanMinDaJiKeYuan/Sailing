@@ -1,0 +1,45 @@
+.vscode/
+*.mp4
+*.mp3
+
+# Windows shortcuts
+*.lnk
+# Folder config file
+[Dd]esktop.ini
+
+# 排除所有.开头的隐藏文件:
+.*
+# 不排除.gitignore
+!.gitignore
+
+# ------------------------------
+# Java相关的忽略文件
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+replay_pid*
+
+# ------------------------------
+# idea工程输出目录和idea的隐藏文件夹
+out/
+.idea/

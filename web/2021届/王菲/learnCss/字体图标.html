@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./fontawesome/css/all.css">
+    <style>
+        li{
+            list-style: none;
+        }
+       /* 通过伪元素来设置图标字体 */
+       li::before{
+        content:'\f1b0';
+        font-family:'Font Awesome 5 Free';
+        font-weight: 900;
+        color: blue;
+        margin-right: 10px;
+       }
+       
+    </style>
+</head>
+<body>
+    <!-- 通过class设置图标字体样式  -->
+    <!-- <i class="fas fa-bell" style="font-size: 30px; color: tomato;"></i>  -->
+    <ul>
+        <li>锄禾日当午</li>
+        <li>汗滴禾下土</li>
+        <li>谁知盘中餐</li>
+        <li>粒粒皆辛苦</li>
+    </ul>
+</body>
+</html>

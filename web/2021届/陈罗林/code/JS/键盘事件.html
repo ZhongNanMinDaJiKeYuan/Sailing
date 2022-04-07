@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            /*
+                键盘事件：
+                    onkeydown
+                        -按键被按下
+                        -对于onkeydown来说，如果一直按着某个键不松手，则事件会一直触发
+                    
+                    onkeyup
+                        -按键被松开
+                    
+                键盘事件一般都会绑定给一些可以获取到焦点的对象或者是document
+            */
+            // document.onkeydown = function (event) {
+            //     event = event || window.event;
+            //     /*
+            //         可通过keyCode来获取按键的编码，通过它可以判断哪个键被按下
+            //         除了keyCode，事件对象中还提供了几个属性
+            //         altkey
+            //         ctrlkey
+            //         shiftkey
+            //             这三个用来判断alt、ctrl、shfit是否被按下，按下返回true
+            //     */
+            //     //判断y和ctrl是否同时被按下
+            //     if (event.keyCode == 89 && event.ctrlKey) {
+            //         console.log("ctrl和y同时被按下");
+            //     }
+            // };
+            // var inp = document.getElementById("input");
+            // inp.onkeydown = function(event){
+            //     event = event || window.event;
+            //     if(event.keyCode >=48 && event.keyCode <=57){
+            //         //设置不能输入数字   注意 数字键盘里的数字可以输入
+            //         return false;
+            //     }
+            // };
+            var box1 = document.getElementById("box1");
+            document.onkeydown = function(event){
+                event = event || window.event;
+                //定义一个变量，表示移动的速度
+                var speed = 10;
+                //37左  38上  39右   40下
+                switch(event.keyCode){
+                    case 37:
+                        box1.style.left = box1.offsetLeft - speed + "px";
+                        break;
+                    case 39:
+                        box1.style.left = box1.offsetLeft + speed + "px";
+                        break;
+                    case 38:
+                        box1.style.top = box1.offsetTop - speed + "px";
+                        break;
+                    case 40:
+                        box1.style.top = box1.offsetTop + speed + "px";
+                        break;
+                }
+            };
+        };
+    </script>
+</head>
+
+<body>
+    <!-- <input type="text"  id="input"> -->
+    <div id="box1" style="width: 100px;height: 100px;background-color: red;position: absolute;"></div>
+
+</body>
+
+</html>

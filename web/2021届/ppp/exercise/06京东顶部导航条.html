@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./exercise_icon/iconfont.css">
+    <title>Document</title>
+    <style>
+
+        .total{
+            height: 30px;
+            background-color: rgb(233, 230, 230);
+            padding: 0 0;
+            border: 0;
+            line-height: 28px;
+            
+        }
+        span{
+            font-size: 10px;
+        }
+        .red{
+            color: red;
+        }
+        .word {
+            /* width: 190px; */
+            margin: 0 auto;
+            float: right;
+
+        }
+        .right{
+
+            width: 70px;
+            padding-left: 50px;
+            margin: 0 auto;
+            float: left;
+            position: relative;
+        }
+
+        .right .city{
+            
+            width: 320px;
+            height: 440px;
+            background-color: white;
+            display: none;
+            position: absolute;
+            top: 30px;
+            border: gray 1px solid;
+            z-index: 1;
+        }
+        
+        .linkcity{
+            padding: 0 10px;
+            line-height: 28px;
+            border: transparent 1px solid;
+            border-bottom: none;
+        }
+        .right:hover .linkcity{
+            background-color: white;
+            border: gray 1px solid;
+            border-bottom: none;
+            position: relative;
+            z-index: 2;
+            padding-bottom: 0px;
+        }
+        /* hover给父元素 */
+        .right:hover .city{
+            display: block;
+            
+        }
+        a{
+            color: #999;
+            text-decoration: none;
+        }
+        a:hover{
+            color: red;
+        }
+        .clearfix::before,
+        .clearfix::after{
+            content: '';
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div class="total clearfix">
+        <div class="right">
+            <div class="linkcity">
+                <i class="iconfont" style="color: red;">&#xe619;</i>
+                <span>湖北</span>
+            </div>
+
+            <!-- 城市列表 -->
+            <div class="city"></div>
+        </div>
+        <div class="words">
+            <a href="#"><span>你好，请登录</span></a>
+            <a href="#"><span class="red">免费注册</span></a>
+            <span>｜</span>
+            <a href="#"><span>我的订单</span></a>
+            <span>｜</span>
+            <a href="#"><span>我的京东</span></a>
+            <span>｜</span>
+            <a href="#"><span>京东会员</span></a>
+            <span>｜</span>
+            <a href="#"><span class="red">企业采购</span></a>
+            <span>｜</span>
+            <a href="#"><span>客户服务</span></a>
+            <span>｜</span>
+            <a href="#"><span>网站导航</span></a>
+            <span>｜</span>
+            <a href="#"><span>手机京东</span></a>
+        </div>
+        
+        
+        <span></span>
+    </div>
+</body>
+</html>

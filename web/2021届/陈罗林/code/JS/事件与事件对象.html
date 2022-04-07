@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #areaDiv{
+            width: 500px;
+            height: 100px;
+            border: 1px black solid;
+            margin-bottom: 10px;
+        }
+        #showMsg{
+            width: 500px;
+            height: 30px;
+            border: 1px black solid;
+        }
+    </style>
+    <script>
+        //onload事件会在整个页面加载完成之后才触发
+        // window.onload = function(){
+        //     var btn = document.getElementById('btn01');
+        //     btn.onclick = function(){
+        //     alert("不错");
+        //     };
+        // };
+
+        window.onload = function(){
+            var areaDiv = document.getElementById("areaDiv");
+            var showMsg = document.getElementById("showMsg");
+
+            //onmousemove   该事件会在鼠标在元素中移动时被触发
+            /*
+                事件对象
+                    -当事件的响应函数被触发时，浏览器每次都会将一个事件对象作为实参传递进响应函数
+                        在事件对象中封装了当前事件相关的一切信息，比如：鼠标的坐标  键盘哪个按键被按下等等
+            */
+            areaDiv.onmousemove = function(event){
+                //clientX和clientY用于获取鼠标在当前可见窗口的坐标
+                //pageX和pageY获取鼠标在当前页面的坐标
+                var x = event.clientX;
+                var y = event.clientY;
+                
+                showMsg.innerHTML = "x = " + x + " , y = " + y;
+            };
+        };
+
+    </script>
+</head>
+<body>
+    <!-- 
+        事件：用户与浏览器之间的交互行为
+     -->
+     <!-- 
+        我们可以在事件对应的属性中设置一些js代码，当事件被触发时，这些代码就会执行
+        这种写法会导致结构和行为耦合，不方便维护，不推荐使用
+        -->
+     <!-- <button id="btn01" onclick="alert('可以。');">按钮</button> -->
+     <button id="btn01">按钮</button>
+     <script>
+        var btn = document.getElementById('btn01');
+        // 可以为按钮的对应事件绑定处理函数的形式来响应事件，当事件被触发时，其对应的函数将会被调用
+        //像这种为单击事件绑定的函数，称为单击响应函数
+        btn.onclick = function(){
+            alert("不错");
+        };
+     </script>
+     <div id="areaDiv"></div>
+     <div id="showMsg"></div>
+</body>
+</html>

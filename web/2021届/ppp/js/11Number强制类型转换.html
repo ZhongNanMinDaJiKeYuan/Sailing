@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var a = "123";
+        console.log(typeof a);
+        console.log(a);
+
+        /* 
+            将其他类型转换成Number类型
+            转换：
+                字符串转数字  
+                    1.纯数字串  直接转成Number类型
+                    2.有非数字字符  则转换成NaN
+                    3.空串   贼转换成0
+                boolean转成数字
+                    1.true转成1
+                    2.false转成0      
+                null转成数字为0
+                undefined转成数字NaN          
+            方法一：
+                使用Number（）函数
+         */
+        
+        var b;
+        b = Number(a);
+        console.log(typeof b);
+        console.log(b);
+
+        var c = true;
+        b = Number(c);
+        console.log(typeof b)
+        console.log(b);
+
+        c = null;
+        b = Number(c);
+        console.log(typeof b)
+        console.log(b);
+
+        c = undefined;
+        b = Number(c);
+        console.log(typeof b)
+        console.log(b);
+
+
+        /* 
+            方式二  专门对付字符串
+            parseInt()把一个字符串转成一个整数
+                读取出从头开始的有效数字，遇到一个非数字字符就停止解析
+            parseFloat()把一个字符串转成一个浮点数
+                与parseInt作用相同  只不过可以去小数
+
+            如果用来对付其他类型，则先将该类型转换成字符串，再解析出数字
+         */
+        c = "456.123px";
+        b = parseInt(c);
+        console.log(b);
+        b = parseFloat(c);
+        console.log(b);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

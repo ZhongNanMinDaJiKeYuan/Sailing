@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //把用户输入操作放入while循环中，使得用户可以反复输入直到输入合法的成绩为止
+        while(true){
+            var score = prompt('请输入小明的期末成绩(0-100):');
+            if(score >=0 && score <= 100){
+                break;
+            }
+            else{
+                alert('请输入有效分数')
+            }
+        }
+        
+        //    判断成绩是否合法 成绩在1-100之间，并且必须是number类型的
+        // if(score>100 || score<=0 || isNaN(score)){
+        //     alert('拉出去')
+        // }
+            //if括号内返回的是boolean类型，不能用赋值运算符
+            if(score == 100){
+                alert('奖励一辆BMW');
+            }else if(score >= 80){
+                alert('奖励一台iPhone15s');
+            }else if(score >= 60){
+                alert('奖励一本参考书');
+            }else{
+                alert('奖励一套黄冈密卷');
+            }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

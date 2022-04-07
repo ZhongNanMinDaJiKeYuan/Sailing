@@ -1,0 +1,261 @@
+/* 主页的样式 */
+.top-wrapper{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #333;
+}
+.topbar{
+    width: 1660px;
+}
+.topbar-l,.topbar-l li, .topbar-m li{
+    float: left;
+}
+/* 设置下载app的下拉 */
+.app{
+    position: relative;
+}
+.app::after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 8px solid transparent;
+    border-top: none;
+    border-bottom-color: #fff;
+    bottom: 0;
+    /* 让小三角水平居中 */
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: none;
+}
+.app .qrcode{
+    position: absolute;
+    /* 设置层级，使下拉框不会被其他元素盖住 */
+    z-index: 9999;
+    width: 124px;
+    height: 0px;
+    line-height: 1;
+    left: -40px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0,.3);
+    overflow: hidden;
+    /* display: none;    */
+    /* 为下拉二维码的出现设置过渡效果 */
+    transition: height 200ms;
+}
+/* 鼠标移入时显示 */
+.app:hover::after, .app:hover .qrcode{
+    display: block;
+    height: 148px;
+}
+.app .qrcode img{
+    width: 90px;
+    margin: 0 17px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.app .qrcode span{
+    /* font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif; */
+    font-size: 14px;
+    color: #000;
+}
+.topbar-r, .topbar-m{
+    float: right;
+}
+.topbar a{
+    font-size: 12px;
+    color: #b0b0b0;
+    /* 将a变成块元素 */
+    display: block;
+}
+.topbar a:hover{
+    color: #fff;
+}
+.line{
+    color: #424242;
+    font-size: 12px;
+    margin: 0 8px;
+}
+.topbar-r{
+    width: 120px;
+    text-align: center;
+    background-color: #424242;
+    margin-left: 26px;
+    position: relative;
+}
+.topbar-r .shopping-box{
+    position: absolute;
+    width: 350px;
+    height: 0px;
+    box-shadow: 0 0 10px rgba(0, 0, 0,.3);
+    left: -230px;
+    text-align: center;
+    z-index: -1;
+    overflow: hidden;
+    transition: height 300ms;
+}
+.topbar-r .shopping-box span{
+    color: #000;
+    line-height: 100px;
+}
+.topbar-r:hover a{
+    background-color: #fff;
+    color: #FF6700;
+}
+.topbar-r:hover .shopping-box{
+    height: 100px; 
+}
+
+.header{
+    height: 100px;
+}
+.header-wrapper{
+    position: relative;
+}
+.header .logo{
+    float: left;
+    height: 55px;
+    width: 55px;
+}
+.header .logo a{
+    display: block;/*变成块元素*/   
+    margin-top: 20px;
+    margin-bottom: 25px;
+    font-size: 0px;
+}
+.header .logo img{
+    height: 55px;
+    width: 55px;
+}
+.nav-wrapper{
+    float: left;
+    margin-left: 7px;
+}
+.header .nav{ 
+    height: 100px;
+    line-height: 100px;
+    /* background-color: #bfa;    */
+    /* 挪动nav-wrapper中的字体 */
+    padding-left: 58px;
+}
+.nav-wrapper .nav a{
+    display: block;
+}
+.header .nav li{
+    float: left;
+    margin-right: 20px;
+    
+}
+.nav-wrapper li a:hover{
+    color:#ff6700
+}
+/* 设置下拉框 */
+.nav .goods-info{
+    z-index: 9999;
+    position: absolute;
+    /* 包含块元素的100%，即离他最近的开启定位的元素的100% */
+    width: 100%;
+    /* height: 228px; */
+    height: 0;
+    overflow: hidden;
+    background-color: #fff;
+    /* 设置偏移量相对header-wrapper定位 */
+    left: 0;
+    top: 100px;
+    transition: height 0.3s;    
+}
+.nav .xmphone:hover ~ .goods-info,
+.goods-info:hover{
+    height: 228px;
+    border-top: 1px solid rgb(224, 224, 224);
+     /* 设置1个阴影 */
+    box-shadow: 0 3px 10px rgba(0, 0, 0,.2);
+}
+.nav .rmphone:hover ~ .goods-info,
+.goods-info:hover{
+    height: 228px;
+    border-top: 1px solid rgb(224, 224, 224);
+     /* 设置1个阴影 */
+    box-shadow: 0 3px 10px rgba(0, 0, 0,.2);
+}
+.nav .tv:hover ~ .goods-info,
+.goods-info:hover{
+    height: 228px;
+    border-top: 1px solid rgb(224, 224, 224);
+     /* 设置1个阴影 */
+    box-shadow: 0 3px 10px rgba(0, 0, 0,.2);
+}
+.nav .book:hover ~ .goods-info,
+.goods-info:hover{
+    height: 228px;
+    border-top: 1px solid rgb(224, 224, 224);
+     /* 设置1个阴影 */
+    box-shadow: 0 3px 10px rgba(0, 0, 0,.2);
+}
+.nav .pad:hover ~ .goods-info,
+.goods-info:hover{
+    height: 228px;
+    border-top: 1px solid rgb(224, 224, 224);
+     /* 设置1个阴影 */
+    box-shadow: 0 3px 10px rgba(0, 0, 0,.2);
+}
+.nav .appliance:hover ~ .goods-info,
+.goods-info:hover{
+    height: 228px;
+    border-top: 1px solid rgb(224, 224, 224);
+     /* 设置1个阴影 */
+    box-shadow: 0 3px 10px rgba(0, 0, 0,.2);
+}
+.nav .router:hover~.goods-info,
+.goods-info:hover{
+    height: 228px;
+    border-top: 1px solid rgb(224, 224, 224);
+     /* 设置1个阴影 */
+    box-shadow: 0 3px 10px rgba(0, 0, 0,.2);
+}
+/* 设置搜索框样式 */
+.search-wrapper{
+    width: 296px;
+    float: right;
+    margin-top: 25px;
+    /* background-color: red; */
+    
+    
+}
+.search-wrapper .search-inp{
+    box-sizing: border-box;
+    height: 50px;
+    width: 244px;
+    border: 1px solid rgb(224, 224, 224);
+    border-right: none;
+    font-style: 16px;
+    float: left;
+    /* padding加上左右边框，使得文本框内元素不是紧靠左侧 */
+    padding: 0 10px;
+    outline: none;
+    
+}
+/* 设置轮廓线， */
+.search-wrapper .search-inp:focus,
+.search-wrapper .search-inp:focus+button{
+    border-color: #FF6700;
+}
+.search-wrapper .search-btn{
+    float: left;
+    height: 50px;
+    width: 52px;
+    border: 1px solid rgb(224, 224, 224);
+    background-color: #fff;
+    color: #616161;
+    font-size: 16px;    
+}
+.search-wrapper .search-btn:hover{
+    background-color: #FF6700;
+    color: white;
+    border-color: #FF6700;
+}
+
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: aquamarine;   
+        }
+        .box1{
+            width: 350px;
+            background-color: white;
+            padding: 10px;
+       
+        }
+        .box1 a{
+            text-decoration: none;
+            color: black;
+        }
+
+        .tiyu{
+            /* 变成行内块就可以 字有多长红线就有多长了 */
+            display: inline-block;
+            border-top:red 1px solid;
+            /* 红线盖住上面的灰线 */
+            margin: -1px;    
+            /* 字体加粗 */
+            font-weight: bold;
+            padding-top: 10px;
+            
+
+        }
+
+        .box2{
+            width: 340px;
+    
+            border-top: gray 1px solid;
+            border-bottom: gray 1px solid;
+            padding-bottom: 50px;
+        }
+
+        .photo div{
+            margin-top:-30px;
+            font-weight: bold;
+            padding-left: 20px;
+        }
+
+        .photo{
+            margin-bottom: 10px;
+        }
+        .outer div{
+            padding-bottom: 10px;
+
+
+        }
+        .outer div:hover{
+            color: red;
+
+        }
+        .outer div::before{
+            content: '● ';
+            color: gray;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">
+            
+            <div class="tiyu">
+                <a href="#">体育</a>
+            </div>
+
+            <div class="photo">
+                <img width="290px" height="150px" src="https://img.zcool.cn/community/01fb915c0a41b7a80121ab5d888bda.png@2o.png" alt="rick">
+                <div>费德勒首负迪米 扶额不满发挥</div>
+            </div>
+            <!-- <ul>
+                <li>乔治：我爱LA 喜欢和LBJ一起打球</li>
+                <li>格林：3年前降薪就在等KD 特制T恤嘲讽LBJ</li>
+                <li>塔克4000双球鞋让保罗羡慕嫉妒 乔丹被震惊</li>
+                <li>CBA下季新赛制：常规赛4组循环 增至46轮</li>
+            </ul> -->
+            <div class="outer">
+                <div>乔治：我爱LA 喜欢和LBJ一起打球</div>
+                <div>格林：3年前降薪就在等KD 特制T恤嘲讽LBJ</div>
+                <div>塔克4000双球鞋让保罗羡慕嫉妒 乔丹被震惊</div>
+                <div>CBA下季新赛制：常规赛4组循环 增至46轮</div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

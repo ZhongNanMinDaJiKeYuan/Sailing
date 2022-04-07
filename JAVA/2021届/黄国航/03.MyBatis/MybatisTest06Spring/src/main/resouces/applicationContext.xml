@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
+       xsi:schemaLocation="http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+     http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
+    <!-- Spring希望管理所有的业务逻辑组件-->
+    <context:component-scan base-package="com.lks">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+
+
+    <!--Spring用来控制业务逻辑。数据源、事务控制、aop等-->
+    <!--引入数据库配置文件-->
+    <context:property-placeholder location="classpath:database.properties"/>
+    <!--数据源-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="jdbcUrl" value="${jdbc.url}"></property>
+        <property name="driverClass" value="${jdbc.driver}"></property>
+        <property name="user" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+     </bean>
+
+    <!--spring事务管理器-->
+    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--事务管理器需要可以控制连接池里的所有连接，连接的提交、关闭、开启都是管理器控制的-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--开启基于注解的事务-->
+    <tx:annotation-driven transaction-manager="dataSourceTransactionManager"></tx:annotation-driven>
+
+    <!--整合mybatis：
+    目的：1. 由spring管理所有组件。包括mapper的实现类，
+    这样以后service层要使用Dao层时，可以直接使用@AutoWired自动注入mapper。避免了获取从session获取mapper的繁琐操作。
+    -->
+    <!--会创建出SqlSessionFactory对象，让Spring IOC自动创建避免我们自己手动创建-->
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--SqlSessionFactory里的所有信息，以前是在全局配置文件中创建的，现在全都可在此定义-->
+        <property name="dataSource" ref="dataSource"></property>
+        <!--configLocation指定配置文件的路径，这样就可以结合mybatis的全局配置文件进行-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"></property>
+        <!--mapperLocations指定mapper文件位置-->
+        <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
+    </bean>
+
+    <!--扫描所有mapper接口的实现，让mapper可以自动注入
+    base-package指定mapper接口的包名
+    -->
+    <mybatis:scan base-package="com.lks.dao" />
+
+</beans>

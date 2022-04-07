@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 50%;
+            border:1px solid black;
+            margin: 0 auto;
+            /* border-spacing:指定边框之间的距离 */
+            /* border-spacing:0px */
+
+            /* border-collapse: collapse;设置边框的合并*/
+            border-collapse: collapse;
+        }
+        td{
+            border: black 1px solid;
+            height: 100px;
+            /* 默认情况下元素在td是垂直居中的，可以通过vertical-align来设置*/
+            vertical-align:middle;
+            text-align:current
+        }
+        /* 
+            如果表格中没有使用tbody而是直接使用tr,
+            那么浏览器会自动创建一个tbody，并且将tr全都放在一起
+            tr不是table的子元素
+        */
+        tbody>tr:nth-child(even){
+            background-color: red;
+        }
+        tr:nth-child(odd){
+            background-color: #bfa;
+        }
+        .box1{
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+            /* 将元素设置为单元格 */
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+    <table>
+        <tr>
+            <td>学号</td>
+            <td>姓名</td>
+            <td>性别</td>
+            <td>年龄</td>
+            <td>地址</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>孙悟空</td>
+            <td>男</td>
+            <td>18</td>
+            <td>花果山</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>孙悟空</td>
+            <td>男</td>
+            <td>18</td>
+            <td>花果山</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>孙悟空</td>
+            <td>男</td>
+            <td>18</td>
+            <td>花果山</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>孙悟空</td>
+            <td>男</td>
+            <td>18</td>
+            <td>花果山</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>孙悟空</td>
+            <td>男</td>
+            <td>18</td>
+            <td>花果山</td>
+        </tr>
+       
+    </table>
+</body>
+
+</html>
