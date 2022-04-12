@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/mybatis_test?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: 8510514guo
+
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: tbl_    #设置表名通用前缀
+      id-type: auto     #设置主键id字段的生成策略为参照数据库设定的策略，当前数据库设置id生成策略为自增
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl      # 设置日志显示方式为控制台输出
+
+#  mapper-locations: classpath:/mapper/*.xml
+

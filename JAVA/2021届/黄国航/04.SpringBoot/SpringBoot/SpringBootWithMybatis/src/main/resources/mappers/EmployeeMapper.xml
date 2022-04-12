@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lks.springbootwithmybatis.dao.EmployeeMapper">
+
+    <!--Employee getEmployeeById(Integer id); 单参数-->
+    <select id="getEmployeeById" resultType="com.lks.springbootwithmybatis.bean.Employee">
+        select * from mybatis_test.employee where id=#{id}
+    </select>
+
+    <!-- 多个字面量类型的参数-->
+    <!--Employee getEmployeeByIdAndName(Integer id, String name);-->
+    <select id="getEmployeeByIdAndName" resultType="com.lks.springbootwithmybatis.bean.Employee">
+        select * from mybatis_test.employee where id=#{arg0} and last_name=#{arg1}
+    </select>
+
+
+
+</mapper>
